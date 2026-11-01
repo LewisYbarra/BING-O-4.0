@@ -1,4 +1,4 @@
-# BING-O 4.0
+# BING-O 4.0 (alpha)
 ### Banco Internacional Nacional de GENTES — Organización
 
 > **Modernización web de la legendaria hoja de cálculo compartida BING-O (v1.0 → v3.2).**  
