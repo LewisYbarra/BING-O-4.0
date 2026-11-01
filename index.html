@@ -570,7 +570,6 @@
         </div>
     </div>
 
-
     <!-- TOAST NOTIFICATION -->
     <div id="toast-box" class="fixed top-16 left-1/2 -translate-x-1/2 z-50 hidden px-4 py-2.5 rounded-xl bg-emerald-500 text-slate-950 font-bold text-xs shadow-xl flex items-center gap-2">
         <i class="fa-solid fa-circle-check"></i>
@@ -604,7 +603,18 @@
     <!-- ========================================== -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getFirestore, collection, doc, setDoc, deleteDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        import { 
+            initializeFirestore, 
+            persistentLocalCache, 
+            persistentMultipleTabManager,
+            collection, 
+            doc, 
+            setDoc, 
+            deleteDoc, 
+            onSnapshot,
+            query,
+            where 
+        } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
         // ---------------------------------------------------------
         // 1. BASE DE DATOS FIRESTORE (Dinámico al 100%)
@@ -636,8 +646,14 @@
         let entryMode = 'equal';   
         let selectedParticipants = new Set(['luis', 'cabo', 'emi', 'max', 'alex']);
         let remainderRotationIndex = 0;
-        let dynamicTransactions = [];
+        let oldTransactions = []; // Cargadas desde history_old.json (0 lecturas Firestore)
+        let dynamicTransactions = []; // Nuevas transacciones sincronizadas con Firestore
         let currentComputedDeltas = {};
+
+        function getAllTransactions() {
+            // Combina el histórico estático v3.2 con los nuevos movimientos en vivo
+            return [...oldTransactions, ...dynamicTransactions];
+        }
 
         // SEGURIDAD: Guardamos únicamente el hash SHA-256 del PIN (nunca en texto plano)
         const GROUP_PIN_HASH = "1e9ea592bfbc6dbc5cd08b3b08324d4a31795c0e784baebefa450253e6ee6f0d";
@@ -673,7 +689,12 @@
         function initFirebase() {
             try {
                 const app = initializeApp(firebaseConfig);
-                db = getFirestore(app);
+                // Activación de la caché persistente local (IndexedDB) para minimizar lecturas de red
+                db = initializeFirestore(app, {
+                    localCache: persistentLocalCache({
+                        tabManager: persistentMultipleTabManager()
+                    })
+                });
                 isCloudActive = true;
                 updateSyncBadge(true);
                 subscribeToTransactions();
@@ -698,17 +719,42 @@
         function subscribeToTransactions() {
             if (!db) return;
             const txColRef = collection(db, 'gastos');
-            onSnapshot(txColRef, (snapshot) => {
+
+            // Consultamos solo documentos de v4.0 (filtrando el histórico viejo para no gastar cuota)
+            const q = query(txColRef, where('createdAt', '>=', 1650000000000));
+
+            onSnapshot(q, (snapshot) => {
                 const loaded = [];
                 snapshot.forEach((docSnap) => {
                     loaded.push({ id: docSnap.id, ...docSnap.data() });
                 });
-                dynamicTransactions = loaded;
+                dynamicTransactions = loaded.filter(tx => !tx.id.startsWith('hist-'));
                 refreshAllViews();
             }, (error) => {
-                console.error("Error sincronizando con Firestore:", error);
-                showToast("Fallo al sincronizar: revisa las reglas de Firestore", true);
+                console.warn("Query filtrada con fallback a collection:", error);
+                onSnapshot(txColRef, (snapshot) => {
+                    const loaded = [];
+                    snapshot.forEach((docSnap) => {
+                        loaded.push({ id: docSnap.id, ...docSnap.data() });
+                    });
+                    dynamicTransactions = loaded.filter(tx => !tx.id.startsWith('hist-'));
+                    refreshAllViews();
+                });
             });
+        }
+
+        async function loadOldTransactions() {
+            try {
+                const res = await fetch('./history_old.json');
+                if (res.ok) {
+                    oldTransactions = await res.json();
+                    refreshAllViews();
+                } else {
+                    console.warn("No se pudo cargar history_old.json (Status: " + res.status + ")");
+                }
+            } catch (err) {
+                console.warn("Error cargando history_old.json:", err);
+            }
         }
 
         // ---------------------------------------------------------
@@ -730,14 +776,15 @@
             let extraPrestado = 0;
             let newDG = 0;
 
-            const sortedAll = [...dynamicTransactions].sort((a, b) => (a.createdAt || 0) - (b.createdAt || 0));
+            const allTxs = getAllTransactions();
+            const sortedAll = [...allTxs].sort((a, b) => (a.createdAt || 0) - (b.createdAt || 0));
 
             sortedAll.forEach((tx) => {
                 // EXCLUIR LOS ANULADOS DEL CÁLCULO DE SALDOS
                 if (tx.anulado) return;
 
                 totalTxCount++;
-                const isHist = tx.id && tx.id.startsWith('hist-');
+                const isHist = (tx.id && tx.id.startsWith('hist-')) || (tx.rowNum && tx.rowNum <= 628);
                 if (!isHist) newV4Count++;
 
                 let rowSum = 0;
@@ -1214,7 +1261,6 @@
             const chosenUser = document.getElementById('auth-user-select').value;
             const enteredPin = document.getElementById('auth-pin-input').value.trim();
 
-            // Calculamos el hash SHA-256 del PIN introducido
             const enteredHash = await sha256(enteredPin);
 
             if (enteredHash !== GROUP_PIN_HASH) {
@@ -1224,7 +1270,7 @@
             }
 
             myUserId = chosenUser;
-            storedPin = enteredHash; // Guardamos el hash en el navegador, no la contraseña
+            storedPin = enteredHash;
             localStorage.setItem('bingo_user_id', myUserId);
             localStorage.setItem('bingo_group_pin', storedPin);
 
@@ -1256,7 +1302,7 @@
 
             const payload = {
                 ...txObj,
-                groupPinHash: GROUP_PIN_HASH, // Enviamos el hash en lugar del PIN en plano
+                groupPinHash: GROUP_PIN_HASH,
                 creadoPor: authorName,
                 creadorId: myUserId,
                 anulado: false
@@ -1397,7 +1443,7 @@
                         anulado: true,
                         anuladoPor: deleterName,
                         fechaAnulacion: tx.fechaAnulacion,
-                        groupPin: GROUP_PIN_HASH
+                        groupPinHash: GROUP_PIN_HASH
                     }, { merge: true });
                     showToast(`Gasto anulado por ${deleterName}`);
                 } catch (err) {
@@ -1408,7 +1454,7 @@
         };
 
         window.restoreTransaction = async function(txId) {
-            if (storedPin !== GROUP_PIN) {
+            if (storedPin !== GROUP_PIN_HASH) {
                 checkUserAuth();
                 return;
             }
@@ -1426,7 +1472,7 @@
                     anulado: false,
                     anuladoPor: null,
                     fechaAnulacion: null,
-                    groupPin: GROUP_PIN
+                    groupPinHash: GROUP_PIN_HASH
                 }, { merge: true });
                 showToast("Gasto restaurado en las cuentas");
             }
@@ -1483,7 +1529,8 @@
             const queryText = (document.getElementById('history-search')?.value || '').toLowerCase().trim();
             const memberFilterVal = document.getElementById('history-member-filter')?.value || 'all';
 
-            const sortedByDate = [...dynamicTransactions].sort((a, b) => (a.createdAt || 0) - (b.createdAt || 0));
+            const allTxs = getAllTransactions();
+            const sortedByDate = [...allTxs].sort((a, b) => (a.createdAt || 0) - (b.createdAt || 0));
             
             let counter = 1;
             const numberedTxs = sortedByDate.map(tx => {
@@ -1492,7 +1539,7 @@
                 return {
                     ...tx,
                     rowNum: rowNum,
-                    isHistorical: tx.id && tx.id.startsWith('hist-')
+                    isHistorical: (tx.id && tx.id.startsWith('hist-')) || (tx.rowNum && tx.rowNum <= 628)
                 };
             }).reverse();
 
@@ -1616,7 +1663,8 @@
         // Export CSV
         window.exportToCSV = function() {
             const headers = ['N_Tx', 'Asunto', 'Cabo', 'Alex', 'Luis', 'Max', 'Emi', 'Por', 'Asis', 'Pedro', 'Fecha', 'Estado'];
-            const sortedAll = [...dynamicTransactions].sort((a, b) => (a.createdAt || 0) - (b.createdAt || 0));
+            const allTxs = getAllTransactions();
+            const sortedAll = [...allTxs].sort((a, b) => (a.createdAt || 0) - (b.createdAt || 0));
 
             let counter = 1;
             const csvLines = [headers.join(';')];
@@ -1752,8 +1800,9 @@
         window.addEventListener('DOMContentLoaded', () => {
             initFormSelectors();
             refreshAllViews();
-            initFirebase();
-            checkUserAuth(); // Pide el PIN si no hay sesión guardada
+            loadOldTransactions(); // Carga las 628 transacciones históricas desde history_old.json (0 lecturas)
+            initFirebase();        // Conecta con Firestore usando caché persistente (IndexedDB)
+            checkUserAuth();       // Pide el PIN si no hay sesión guardada
         });
     </script>
 </body>
