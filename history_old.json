@@ -1,0 +1,8071 @@
+[
+  {
+    "id": "hist-0001",
+    "rowNum": 1,
+    "concept": "Poker",
+    "date": "2020-08-04",
+    "type": "equal",
+    "deltas": {
+      "alex": -3.4,
+      "luis": -1.2,
+      "max": 2.19,
+      "cabo": 3.09,
+      "por": 0.32
+    },
+    "createdAt": 1593561601000
+  },
+  {
+    "id": "hist-0002",
+    "rowNum": 2,
+    "concept": "Krunch",
+    "date": "2020-08-02",
+    "type": "bizum",
+    "deltas": {
+      "alex": 8.0,
+      "cabo": -8.0
+    },
+    "createdAt": 1593561602000
+  },
+  {
+    "id": "hist-0003",
+    "rowNum": 3,
+    "concept": "Pizzas",
+    "date": "2020-07-29",
+    "type": "bizum",
+    "deltas": {
+      "luis": 2.0,
+      "cabo": -2.0
+    },
+    "createdAt": 1593561603000
+  },
+  {
+    "id": "hist-0004",
+    "rowNum": 4,
+    "concept": "Bebidas",
+    "date": "2020-07-29",
+    "type": "equal",
+    "deltas": {
+      "alex": 5.82,
+      "cabo": -2.91,
+      "emi": -2.91
+    },
+    "createdAt": 1593561604000
+  },
+  {
+    "id": "hist-0005",
+    "rowNum": 5,
+    "concept": "Supercore",
+    "date": "2020-08-10",
+    "type": "bizum",
+    "deltas": {
+      "alex": 2.64,
+      "cabo": -2.64
+    },
+    "createdAt": 1593561605000
+  },
+  {
+    "id": "hist-0006",
+    "rowNum": 6,
+    "concept": "Aquarius",
+    "date": "2020-08-13",
+    "type": "bizum",
+    "deltas": {
+      "alex": 2.5,
+      "cabo": -2.5
+    },
+    "createdAt": 1593561606000
+  },
+  {
+    "id": "hist-0007",
+    "rowNum": 7,
+    "concept": "Kruch",
+    "date": "2020-08-16",
+    "type": "bizum",
+    "deltas": {
+      "alex": 5.0,
+      "cabo": -5.0
+    },
+    "createdAt": 1593561607000
+  },
+  {
+    "id": "hist-0008",
+    "rowNum": 8,
+    "concept": "Pago",
+    "date": "2020-08-17",
+    "type": "bizum",
+    "deltas": {
+      "alex": -5.2,
+      "cabo": 5.2
+    },
+    "createdAt": 1593561608000
+  },
+  {
+    "id": "hist-0009",
+    "rowNum": 9,
+    "concept": "Dominos",
+    "date": "2020-08-27",
+    "type": "bizum",
+    "deltas": {
+      "alex": -7.5,
+      "cabo": 7.5
+    },
+    "createdAt": 1593561609000
+  },
+  {
+    "id": "hist-0010",
+    "rowNum": 10,
+    "concept": "Tenet",
+    "date": "2020-08-28",
+    "type": "equal",
+    "deltas": {
+      "alex": -9.1,
+      "luis": -9.1,
+      "max": 36.4,
+      "cabo": -9.1,
+      "emi": -9.1
+    },
+    "createdAt": 1593561610000
+  },
+  {
+    "id": "hist-0011",
+    "rowNum": 11,
+    "concept": "Bertiz",
+    "date": "2020-08-29",
+    "type": "bizum",
+    "deltas": {
+      "alex": -0.8,
+      "cabo": 0.8
+    },
+    "createdAt": 1593561611000
+  },
+  {
+    "id": "hist-0012",
+    "rowNum": 12,
+    "concept": "La bebesita bebe",
+    "date": "2020-08-31",
+    "type": "bizum",
+    "deltas": {
+      "alex": 2.5,
+      "luis": -2.5
+    },
+    "createdAt": 1593561612000
+  },
+  {
+    "id": "hist-0013",
+    "rowNum": 13,
+    "concept": "Airsoft",
+    "date": "2020-09-03",
+    "type": "bizum",
+    "deltas": {
+      "alex": 10.0,
+      "cabo": -10.0
+    },
+    "createdAt": 1593561613000
+  },
+  {
+    "id": "hist-0014",
+    "rowNum": 14,
+    "concept": "Pizzas",
+    "date": "2020-09-03",
+    "type": "bizum",
+    "deltas": {
+      "cabo": -6.5,
+      "emi": 6.5
+    },
+    "createdAt": 1593561614000
+  },
+  {
+    "id": "hist-0015",
+    "rowNum": 15,
+    "concept": "Mercadona",
+    "date": "2020-10-28",
+    "type": "equal",
+    "deltas": {
+      "alex": 1.05,
+      "luis": -4.8,
+      "max": -2.55,
+      "cabo": 8.0,
+      "emi": -1.7
+    },
+    "createdAt": 1593561615000
+  },
+  {
+    "id": "hist-0016",
+    "rowNum": 16,
+    "concept": "Ondarreta",
+    "date": "2020-11-21",
+    "type": "bizum",
+    "deltas": {
+      "luis": 0.9,
+      "cabo": -0.9
+    },
+    "createdAt": 1593561616000
+  },
+  {
+    "id": "hist-0017",
+    "rowNum": 17,
+    "concept": "MAFTA 1€",
+    "date": "2020-11-21",
+    "type": "equal",
+    "deltas": {
+      "alex": -0.166667,
+      "luis": -0.166667,
+      "max": -0.166667,
+      "cabo": -0.166667,
+      "emi": -0.166667,
+      "por": -0.166667
+    },
+    "createdAt": 1593561617000
+  },
+  {
+    "id": "hist-0018",
+    "rowNum": 18,
+    "concept": "Pizzas",
+    "date": "2020-11-24",
+    "type": "equal",
+    "deltas": {
+      "alex": -3.3,
+      "luis": 9.9,
+      "max": -3.3,
+      "cabo": -3.3
+    },
+    "createdAt": 1593561618000
+  },
+  {
+    "id": "hist-0019",
+    "rowNum": 19,
+    "concept": "Pago pizzas",
+    "date": "2020-12-07",
+    "type": "bizum",
+    "deltas": {
+      "alex": -18.0,
+      "cabo": 18.0
+    },
+    "createdAt": 1593561619000
+  },
+  {
+    "id": "hist-0020",
+    "rowNum": 20,
+    "concept": "McDonald's D.",
+    "date": "2020-12-19",
+    "type": "equal",
+    "deltas": {
+      "alex": -3.0,
+      "max": 18.2,
+      "cabo": -5.5,
+      "emi": -9.7
+    },
+    "createdAt": 1593561620000
+  },
+  {
+    "id": "hist-0021",
+    "rowNum": 21,
+    "concept": "McDonald's",
+    "date": "2020-12-21",
+    "type": "equal",
+    "deltas": {
+      "alex": 13.066667,
+      "max": -6.733333,
+      "cabo": -6.333333
+    },
+    "createdAt": 1593561621000
+  },
+  {
+    "id": "hist-0022",
+    "rowNum": 22,
+    "concept": "McDonald's C-M/L ondarreta",
+    "date": "2020-12-29",
+    "type": "equal",
+    "deltas": {
+      "luis": 2.0,
+      "max": -16.0,
+      "cabo": 14.0
+    },
+    "createdAt": 1593561622000
+  },
+  {
+    "id": "hist-0023",
+    "rowNum": 23,
+    "concept": "Doritos",
+    "date": "2021-01-02",
+    "type": "bizum",
+    "deltas": {
+      "luis": -5.0,
+      "cabo": 5.0
+    },
+    "createdAt": 1593561623000
+  },
+  {
+    "id": "hist-0024",
+    "rowNum": 24,
+    "concept": "Gasto #24",
+    "date": "2021-01-25",
+    "type": "bizum",
+    "deltas": {
+      "max": -20.0,
+      "emi": 20.0
+    },
+    "createdAt": 1593561624000
+  },
+  {
+    "id": "hist-0025",
+    "rowNum": 25,
+    "concept": "Gasto #25",
+    "date": "2021-01-29",
+    "type": "bizum",
+    "deltas": {
+      "alex": -0.8,
+      "cabo": 0.8
+    },
+    "createdAt": 1593561625000
+  },
+  {
+    "id": "hist-0026",
+    "rowNum": 26,
+    "concept": "Gasto #26",
+    "date": "2021-01-31",
+    "type": "bizum",
+    "deltas": {
+      "alex": 6.2,
+      "cabo": -6.2
+    },
+    "createdAt": 1593561626000
+  },
+  {
+    "id": "hist-0027",
+    "rowNum": 27,
+    "concept": "Kruch",
+    "date": "2021-03-02",
+    "type": "equal",
+    "deltas": {
+      "alex": -6.8,
+      "luis": -6.8,
+      "cabo": 13.6
+    },
+    "createdAt": 1593561627000
+  },
+  {
+    "id": "hist-0028",
+    "rowNum": 28,
+    "concept": "Server",
+    "date": "2021-03-20",
+    "type": "equal",
+    "deltas": {
+      "alex": -2.5,
+      "luis": 7.5,
+      "max": -2.5,
+      "cabo": -2.5
+    },
+    "createdAt": 1593561628000
+  },
+  {
+    "id": "hist-0029",
+    "rowNum": 29,
+    "concept": "MAFTA",
+    "date": "2021-03-21",
+    "type": "equal",
+    "deltas": {
+      "alex": 0.03,
+      "luis": 0.03,
+      "max": 0.03,
+      "cabo": 0.03,
+      "emi": 0.03,
+      "por": -0.15
+    },
+    "createdAt": 1593561629000
+  },
+  {
+    "id": "hist-0030",
+    "rowNum": 30,
+    "concept": "Agua",
+    "date": "2021-03-31",
+    "type": "bizum",
+    "deltas": {
+      "alex": 0.55,
+      "cabo": -0.55
+    },
+    "createdAt": 1593561630000
+  },
+  {
+    "id": "hist-0031",
+    "rowNum": 31,
+    "concept": "Pizza",
+    "date": "2021-04-03",
+    "type": "bizum",
+    "deltas": {
+      "luis": 11.0,
+      "cabo": -11.0
+    },
+    "createdAt": 1593561631000
+  },
+  {
+    "id": "hist-0032",
+    "rowNum": 32,
+    "concept": "Vuelos",
+    "date": "2021-04-06",
+    "type": "equal",
+    "deltas": {
+      "alex": -23.33,
+      "luis": 16.67,
+      "cabo": 6.66
+    },
+    "createdAt": 1593561632000
+  },
+  {
+    "id": "hist-0033",
+    "rowNum": 33,
+    "concept": "Vuelo Emi",
+    "date": "2021-04-06",
+    "type": "equal",
+    "deltas": {
+      "alex": 23.33,
+      "luis": 23.33,
+      "cabo": 23.33,
+      "emi": -70.0
+    },
+    "createdAt": 1593561633000
+  },
+  {
+    "id": "hist-0034",
+    "rowNum": 34,
+    "concept": "McDonald's",
+    "date": "2021-04-07",
+    "type": "bizum",
+    "deltas": {
+      "alex": 5.0,
+      "cabo": -5.0
+    },
+    "createdAt": 1593561634000
+  },
+  {
+    "id": "hist-0035",
+    "rowNum": 35,
+    "concept": "Vuelo alex emi",
+    "date": "2021-04-07",
+    "type": "bizum",
+    "deltas": {
+      "alex": 30.0,
+      "luis": -30.0
+    },
+    "createdAt": 1593561635000
+  },
+  {
+    "id": "hist-0036",
+    "rowNum": 36,
+    "concept": "Butron",
+    "date": "2021-04-08",
+    "type": "bizum",
+    "deltas": {
+      "alex": 3.9,
+      "cabo": -3.9
+    },
+    "createdAt": 1593561636000
+  },
+  {
+    "id": "hist-0037",
+    "rowNum": 37,
+    "concept": "Vainilla",
+    "date": "2021-04-24",
+    "type": "bizum",
+    "deltas": {
+      "alex": 1.15,
+      "cabo": -1.15
+    },
+    "createdAt": 1593561637000
+  },
+  {
+    "id": "hist-0038",
+    "rowNum": 38,
+    "concept": "Krunch",
+    "date": "2021-04-27",
+    "type": "equal",
+    "deltas": {
+      "alex": -6.8,
+      "luis": -6.8,
+      "cabo": 13.6
+    },
+    "createdAt": 1593561638000
+  },
+  {
+    "id": "hist-0039",
+    "rowNum": 39,
+    "concept": "Porra 4M",
+    "date": "2021-05-04",
+    "type": "equal",
+    "deltas": {
+      "alex": -2.0,
+      "luis": 6.0,
+      "cabo": -4.0
+    },
+    "createdAt": 1593561639000
+  },
+  {
+    "id": "hist-0040",
+    "rowNum": 40,
+    "concept": "Krunch",
+    "date": "2021-05-16",
+    "type": "bizum",
+    "deltas": {
+      "max": 6.6,
+      "cabo": -6.6
+    },
+    "createdAt": 1593561640000
+  },
+  {
+    "id": "hist-0041",
+    "rowNum": 41,
+    "concept": "McDonald's graduacion",
+    "date": "2021-05-18",
+    "type": "bizum",
+    "deltas": {
+      "alex": 1.0,
+      "max": -1.0
+    },
+    "createdAt": 1593561641000
+  },
+  {
+    "id": "hist-0042",
+    "rowNum": 42,
+    "concept": "Vuelo Martínez",
+    "date": "2021-06-23",
+    "type": "bizum",
+    "deltas": {
+      "luis": 70.0,
+      "max": -70.0
+    },
+    "createdAt": 1593561642000
+  },
+  {
+    "id": "hist-0043",
+    "rowNum": 43,
+    "concept": "Tagliatella",
+    "date": "2021-06-23",
+    "type": "equal",
+    "deltas": {
+      "alex": -1.99,
+      "luis": 0.06,
+      "max": -0.02,
+      "cabo": 1.61,
+      "emi": 0.16
+    },
+    "createdAt": 1593561643000
+  },
+  {
+    "id": "hist-0044",
+    "rowNum": 44,
+    "concept": "Napolitana",
+    "date": "2021-06-25",
+    "type": "bizum",
+    "deltas": {
+      "max": 1.15,
+      "cabo": -1.15
+    },
+    "createdAt": 1593561644000
+  },
+  {
+    "id": "hist-0045",
+    "rowNum": 45,
+    "concept": "Domino's",
+    "date": "2021-06-26",
+    "type": "bizum",
+    "deltas": {
+      "alex": 7.5,
+      "emi": -7.5
+    },
+    "createdAt": 1593561645000
+  },
+  {
+    "id": "hist-0046",
+    "rowNum": 46,
+    "concept": "Serman",
+    "date": "2021-06-30",
+    "type": "bizum",
+    "deltas": {
+      "alex": -4.3,
+      "cabo": 4.3
+    },
+    "createdAt": 1593561646000
+  },
+  {
+    "id": "hist-0047",
+    "rowNum": 47,
+    "concept": "Taxi",
+    "date": "2021-07-09",
+    "type": "equal",
+    "deltas": {
+      "alex": -19.64,
+      "luis": -19.64,
+      "max": 58.92,
+      "cabo": -19.64
+    },
+    "createdAt": 1593561647000
+  },
+  {
+    "id": "hist-0048",
+    "rowNum": 48,
+    "concept": "Chino",
+    "date": "2021-07-09",
+    "type": "equal",
+    "deltas": {
+      "alex": -9.86,
+      "luis": 29.58,
+      "max": -9.86,
+      "cabo": -9.86
+    },
+    "createdAt": 1593561648000
+  },
+  {
+    "id": "hist-0049",
+    "rowNum": 49,
+    "concept": "Mercadona",
+    "date": "2021-07-09",
+    "type": "equal",
+    "deltas": {
+      "alex": 83.8475,
+      "luis": -35.1325,
+      "max": -25.8725,
+      "cabo": -22.8425
+    },
+    "createdAt": 1593561649000
+  },
+  {
+    "id": "hist-0050",
+    "rowNum": 50,
+    "concept": "Estanco",
+    "date": "2021-07-09",
+    "type": "bizum",
+    "deltas": {
+      "alex": -10.0,
+      "cabo": 10.0
+    },
+    "createdAt": 1593561650000
+  },
+  {
+    "id": "hist-0051",
+    "rowNum": 51,
+    "concept": "Supercor",
+    "date": "2021-07-10",
+    "type": "equal",
+    "deltas": {
+      "alex": -17.49,
+      "luis": -17.49,
+      "max": 43.7052,
+      "cabo": -8.725
+    },
+    "createdAt": 1593561651000
+  },
+  {
+    "id": "hist-0052",
+    "rowNum": 52,
+    "concept": "Pan",
+    "date": "2021-07-10",
+    "type": "equal",
+    "deltas": {
+      "alex": -0.32,
+      "luis": -0.32,
+      "max": -0.32,
+      "cabo": 0.96
+    },
+    "createdAt": 1593561652000
+  },
+  {
+    "id": "hist-0053",
+    "rowNum": 53,
+    "concept": "Supercor",
+    "date": "2021-07-11",
+    "type": "equal",
+    "deltas": {
+      "alex": -2.96,
+      "luis": -2.96,
+      "max": 8.88,
+      "cabo": -2.96
+    },
+    "createdAt": 1593561653000
+  },
+  {
+    "id": "hist-0054",
+    "rowNum": 54,
+    "concept": "Mechero",
+    "date": "2021-07-11",
+    "type": "bizum",
+    "deltas": {
+      "alex": -1.0,
+      "luis": 1.0
+    },
+    "createdAt": 1593561654000
+  },
+  {
+    "id": "hist-0055",
+    "rowNum": 55,
+    "concept": "Supercor",
+    "date": "2021-07-11",
+    "type": "equal",
+    "deltas": {
+      "alex": -6.09,
+      "luis": -7.39,
+      "max": -7.39,
+      "cabo": 20.87
+    },
+    "createdAt": 1593561655000
+  },
+  {
+    "id": "hist-0056",
+    "rowNum": 56,
+    "concept": "Fontainella",
+    "date": "2021-07-11",
+    "type": "equal",
+    "deltas": {
+      "alex": -6.375,
+      "luis": -7.375,
+      "max": -7.875,
+      "cabo": 21.625
+    },
+    "createdAt": 1593561656000
+  },
+  {
+    "id": "hist-0057",
+    "rowNum": 57,
+    "concept": "Mercadoma",
+    "date": "2021-07-12",
+    "type": "equal",
+    "deltas": {
+      "alex": -3.425,
+      "luis": -5.89,
+      "max": -5.89,
+      "cabo": 15.205
+    },
+    "createdAt": 1593561657000
+  },
+  {
+    "id": "hist-0058",
+    "rowNum": 58,
+    "concept": "Mamma Gina",
+    "date": "2021-07-12",
+    "type": "equal",
+    "deltas": {
+      "alex": -20.2875,
+      "luis": 28.7625,
+      "max": -25.7375,
+      "cabo": 17.2625
+    },
+    "createdAt": 1593561658000
+  },
+  {
+    "id": "hist-0059",
+    "rowNum": 59,
+    "concept": "Supercor",
+    "date": "2021-07-13",
+    "type": "equal",
+    "deltas": {
+      "alex": -4.265,
+      "luis": -4.265,
+      "max": 12.768,
+      "cabo": -4.265
+    },
+    "createdAt": 1593561659000
+  },
+  {
+    "id": "hist-0060",
+    "rowNum": 60,
+    "concept": "Plaza Naranjos",
+    "date": "2021-07-13",
+    "type": "equal",
+    "deltas": {
+      "alex": -19.5,
+      "luis": -21.5,
+      "max": 60.0,
+      "cabo": -19.0
+    },
+    "createdAt": 1593561660000
+  },
+  {
+    "id": "hist-0061",
+    "rowNum": 61,
+    "concept": "Supercor",
+    "date": "2021-07-14",
+    "type": "equal",
+    "deltas": {
+      "alex": 9.51,
+      "luis": -6.73,
+      "max": -2.045,
+      "cabo": -0.735
+    },
+    "createdAt": 1593561661000
+  },
+  {
+    "id": "hist-0062",
+    "rowNum": 62,
+    "concept": "Supercor",
+    "date": "2021-07-15",
+    "type": "equal",
+    "deltas": {
+      "alex": -0.3975,
+      "luis": -0.3975,
+      "max": 1.1928,
+      "cabo": -0.3975
+    },
+    "createdAt": 1593561662000
+  },
+  {
+    "id": "hist-0063",
+    "rowNum": 63,
+    "concept": "Mercadona",
+    "date": "2021-07-15",
+    "type": "equal",
+    "deltas": {
+      "alex": -3.1475,
+      "luis": 9.4425,
+      "max": -3.1475,
+      "cabo": -3.1475
+    },
+    "createdAt": 1593561663000
+  },
+  {
+    "id": "hist-0064",
+    "rowNum": 64,
+    "concept": "Estanco",
+    "date": "2021-07-16",
+    "type": "bizum",
+    "deltas": {
+      "alex": 4.5,
+      "emi": -4.5
+    },
+    "createdAt": 1593561664000
+  },
+  {
+    "id": "hist-0065",
+    "rowNum": 65,
+    "concept": "Mercadona",
+    "date": "2021-07-16",
+    "type": "equal",
+    "deltas": {
+      "alex": -3.858,
+      "luis": -3.858,
+      "max": -14.628,
+      "cabo": -10.878,
+      "emi": 33.212
+    },
+    "createdAt": 1593561665000
+  },
+  {
+    "id": "hist-0066",
+    "rowNum": 66,
+    "concept": "Taxi",
+    "date": "2021-07-16",
+    "type": "equal",
+    "deltas": {
+      "alex": 6.27,
+      "luis": -10.35,
+      "cabo": 4.07
+    },
+    "createdAt": 1593561666000
+  },
+  {
+    "id": "hist-0067",
+    "rowNum": 67,
+    "concept": "Paseo",
+    "date": "2021-07-16",
+    "type": "equal",
+    "deltas": {
+      "alex": -8.0,
+      "luis": -8.0,
+      "cabo": 18.0,
+      "emi": -2.0
+    },
+    "createdAt": 1593561667000
+  },
+  {
+    "id": "hist-0068",
+    "rowNum": 68,
+    "concept": "Plaza Naranjas",
+    "date": "2021-07-17",
+    "type": "equal",
+    "deltas": {
+      "alex": -18.95,
+      "luis": -21.45,
+      "max": -21.45,
+      "cabo": -12.7,
+      "emi": 74.55
+    },
+    "createdAt": 1593561668000
+  },
+  {
+    "id": "hist-0069",
+    "rowNum": 69,
+    "concept": "Supercor",
+    "date": "2021-07-18",
+    "type": "equal",
+    "deltas": {
+      "alex": -3.27,
+      "luis": -3.27,
+      "max": 16.53,
+      "cabo": -6.72,
+      "emi": -3.27
+    },
+    "createdAt": 1593561669000
+  },
+  {
+    "id": "hist-0070",
+    "rowNum": 70,
+    "concept": "Taco Bell",
+    "date": "2021-07-18",
+    "type": "equal",
+    "deltas": {
+      "alex": -9.75,
+      "luis": 29.25,
+      "max": -9.75,
+      "emi": -9.75
+    },
+    "createdAt": 1593561670000
+  },
+  {
+    "id": "hist-0071",
+    "rowNum": 71,
+    "concept": "Lechuga",
+    "date": "2021-07-18",
+    "type": "equal",
+    "deltas": {
+      "alex": -0.218,
+      "luis": -0.218,
+      "max": 0.872,
+      "cabo": -0.218,
+      "emi": -0.218
+    },
+    "createdAt": 1593561671000
+  },
+  {
+    "id": "hist-0072",
+    "rowNum": 72,
+    "concept": "Bus Banus",
+    "date": "2021-07-19",
+    "type": "equal",
+    "deltas": {
+      "alex": -1.18,
+      "luis": -1.18,
+      "max": 3.54,
+      "cabo": -1.18
+    },
+    "createdAt": 1593561672000
+  },
+  {
+    "id": "hist-0073",
+    "rowNum": 73,
+    "concept": "Mercadona",
+    "date": "2021-07-19",
+    "type": "equal",
+    "deltas": {
+      "alex": -0.64,
+      "luis": -0.11,
+      "max": -0.11,
+      "cabo": 1.5,
+      "emi": -0.64
+    },
+    "createdAt": 1593561673000
+  },
+  {
+    "id": "hist-0074",
+    "rowNum": 74,
+    "concept": "McDonalds",
+    "date": "2021-07-19",
+    "type": "bizum",
+    "deltas": {
+      "alex": -7.2,
+      "luis": 7.2
+    },
+    "createdAt": 1593561674000
+  },
+  {
+    "id": "hist-0075",
+    "rowNum": 75,
+    "concept": "El Corte Ingles",
+    "date": "2021-07-19",
+    "type": "bizum",
+    "deltas": {
+      "max": 1.76,
+      "emi": -1.76
+    },
+    "createdAt": 1593561675000
+  },
+  {
+    "id": "hist-0076",
+    "rowNum": 76,
+    "concept": "Comida Banus",
+    "date": "2021-07-19",
+    "type": "equal",
+    "deltas": {
+      "alex": 95.4,
+      "luis": -20.25,
+      "max": -34.65,
+      "cabo": -20.25,
+      "emi": -20.25
+    },
+    "createdAt": 1593561676000
+  },
+  {
+    "id": "hist-0077",
+    "rowNum": 77,
+    "concept": "Paseo",
+    "date": "2021-07-19",
+    "type": "equal",
+    "deltas": {
+      "alex": -8.0,
+      "luis": -8.0,
+      "cabo": 18.0,
+      "emi": -2.0
+    },
+    "createdAt": 1593561677000
+  },
+  {
+    "id": "hist-0078",
+    "rowNum": 78,
+    "concept": "Supercor",
+    "date": "2021-07-20",
+    "type": "equal",
+    "deltas": {
+      "alex": -3.108,
+      "luis": -3.108,
+      "max": 12.432,
+      "cabo": -3.108,
+      "emi": -3.108
+    },
+    "createdAt": 1593561678000
+  },
+  {
+    "id": "hist-0079",
+    "rowNum": 79,
+    "concept": "Supercor",
+    "date": "2021-07-20",
+    "type": "equal",
+    "deltas": {
+      "alex": 3.48,
+      "luis": -0.87,
+      "max": -0.87,
+      "cabo": -0.87,
+      "emi": -0.87
+    },
+    "createdAt": 1593561679000
+  },
+  {
+    "id": "hist-0080",
+    "rowNum": 80,
+    "concept": "Agua",
+    "date": "2021-07-20",
+    "type": "equal",
+    "deltas": {
+      "alex": -0.288,
+      "luis": -0.288,
+      "max": -0.288,
+      "cabo": -0.288,
+      "emi": 1.152
+    },
+    "createdAt": 1593561680000
+  },
+  {
+    "id": "hist-0081",
+    "rowNum": 81,
+    "concept": "Farmacia",
+    "date": "2021-07-20",
+    "type": "equal",
+    "deltas": {
+      "alex": -15.9,
+      "luis": -19.75,
+      "cabo": 49.65,
+      "emi": -14.0
+    },
+    "createdAt": 1593561681000
+  },
+  {
+    "id": "hist-0082",
+    "rowNum": 82,
+    "concept": "Yogures Común",
+    "date": "2021-07-20",
+    "type": "equal",
+    "deltas": {
+      "alex": -0.63,
+      "max": 1.26,
+      "emi": -0.63
+    },
+    "createdAt": 1593561682000
+  },
+  {
+    "id": "hist-0083",
+    "rowNum": 83,
+    "concept": "Telepizza",
+    "date": "2021-07-20",
+    "type": "equal",
+    "deltas": {
+      "alex": -13.95,
+      "luis": 36.05,
+      "max": -13.95,
+      "cabo": 5.8,
+      "emi": -13.95
+    },
+    "createdAt": 1593561683000
+  },
+  {
+    "id": "hist-0084",
+    "rowNum": 84,
+    "concept": "Burritos",
+    "date": "2021-07-20",
+    "type": "bizum",
+    "deltas": {
+      "alex": -5.0,
+      "max": 5.0
+    },
+    "createdAt": 1593561684000
+  },
+  {
+    "id": "hist-0085",
+    "rowNum": 85,
+    "concept": "Mercadona",
+    "date": "2021-07-21",
+    "type": "equal",
+    "deltas": {
+      "alex": -1.076,
+      "luis": 8.744,
+      "max": -4.366,
+      "cabo": -2.226,
+      "emi": -1.076
+    },
+    "createdAt": 1593561685000
+  },
+  {
+    "id": "hist-0086",
+    "rowNum": 86,
+    "concept": "Papel cocina",
+    "date": "2021-07-21",
+    "type": "equal",
+    "deltas": {
+      "alex": -0.53,
+      "luis": -0.53,
+      "max": -0.53,
+      "cabo": -0.53,
+      "emi": 2.12
+    },
+    "createdAt": 1593561686000
+  },
+  {
+    "id": "hist-0087",
+    "rowNum": 87,
+    "concept": "Indio",
+    "date": "2021-07-21",
+    "type": "equal",
+    "deltas": {
+      "alex": 29.583333,
+      "max": -17.916667,
+      "cabo": -11.666667
+    },
+    "createdAt": 1593561687000
+  },
+  {
+    "id": "hist-0088",
+    "rowNum": 88,
+    "concept": "Mercadona",
+    "date": "2021-07-22",
+    "type": "equal",
+    "deltas": {
+      "alex": -0.852,
+      "luis": 3.408,
+      "max": -0.852,
+      "cabo": -0.852,
+      "emi": -0.852
+    },
+    "createdAt": 1593561688000
+  },
+  {
+    "id": "hist-0089",
+    "rowNum": 89,
+    "concept": "Transferencia",
+    "date": "2021-07-22",
+    "type": "bizum",
+    "deltas": {
+      "cabo": 4.2,
+      "emi": -4.2
+    },
+    "createdAt": 1593561689000
+  },
+  {
+    "id": "hist-0090",
+    "rowNum": 90,
+    "concept": "Mamma Gina",
+    "date": "2021-07-22",
+    "type": "equal",
+    "deltas": {
+      "alex": -18.287,
+      "luis": -19.452,
+      "max": 26.648,
+      "cabo": -19.452,
+      "emi": 30.548
+    },
+    "createdAt": 1593561690000
+  },
+  {
+    "id": "hist-0091",
+    "rowNum": 91,
+    "concept": "Taxi",
+    "date": "2021-07-23",
+    "type": "equal",
+    "deltas": {
+      "alex": -19.3925,
+      "luis": 58.1775,
+      "cabo": -19.3925,
+      "emi": -19.3925
+    },
+    "createdAt": 1593561691000
+  },
+  {
+    "id": "hist-0092",
+    "rowNum": 92,
+    "concept": "Aeropuerto",
+    "date": "2021-07-23",
+    "type": "bizum",
+    "deltas": {
+      "cabo": -3.5,
+      "emi": 3.5
+    },
+    "createdAt": 1593561692000
+  },
+  {
+    "id": "hist-0093",
+    "rowNum": 93,
+    "concept": "Krunch",
+    "date": "2021-07-25",
+    "type": "bizum",
+    "deltas": {
+      "luis": -6.8,
+      "cabo": 6.8
+    },
+    "createdAt": 1593561693000
+  },
+  {
+    "id": "hist-0094",
+    "rowNum": 94,
+    "concept": "Montaditos",
+    "date": "2021-07-26",
+    "type": "bizum",
+    "deltas": {
+      "luis": -5.9,
+      "cabo": 5.9
+    },
+    "createdAt": 1593561694000
+  },
+  {
+    "id": "hist-0095",
+    "rowNum": 95,
+    "concept": "Juegos Banús",
+    "date": "2021-08-13",
+    "type": "bizum",
+    "deltas": {
+      "luis": -4.0,
+      "max": 4.0
+    },
+    "createdAt": 1593561695000
+  },
+  {
+    "id": "hist-0096",
+    "rowNum": 96,
+    "concept": "Macas Banús",
+    "date": "2021-08-13",
+    "type": "bizum",
+    "deltas": {
+      "luis": -11.7,
+      "max": 11.7
+    },
+    "createdAt": 1593561696000
+  },
+  {
+    "id": "hist-0097",
+    "rowNum": 97,
+    "concept": "Montaditos",
+    "date": "2021-08-16",
+    "type": "bizum",
+    "deltas": {
+      "alex": 5.8,
+      "cabo": -5.8
+    },
+    "createdAt": 1593561697000
+  },
+  {
+    "id": "hist-0098",
+    "rowNum": 98,
+    "concept": "Chocolate",
+    "date": "2021-08-17",
+    "type": "bizum",
+    "deltas": {
+      "alex": -1.59,
+      "cabo": 1.59
+    },
+    "createdAt": 1593561698000
+  },
+  {
+    "id": "hist-0099",
+    "rowNum": 99,
+    "concept": "Aquarius",
+    "date": "2021-08-23",
+    "type": "bizum",
+    "deltas": {
+      "alex": 1.1,
+      "cabo": -1.1
+    },
+    "createdAt": 1593561699000
+  },
+  {
+    "id": "hist-0100",
+    "rowNum": 100,
+    "concept": "Montaditos",
+    "date": "2021-08-24",
+    "type": "bizum",
+    "deltas": {
+      "alex": 3.65,
+      "cabo": -3.65
+    },
+    "createdAt": 1593561700000
+  },
+  {
+    "id": "hist-0101",
+    "rowNum": 101,
+    "concept": "Tagliatella",
+    "date": "2021-08-26",
+    "type": "bizum",
+    "deltas": {
+      "alex": 12.0,
+      "cabo": -12.0
+    },
+    "createdAt": 1593561701000
+  },
+  {
+    "id": "hist-0102",
+    "rowNum": 102,
+    "concept": "Vainilla",
+    "date": "2021-08-25",
+    "type": "bizum",
+    "deltas": {
+      "alex": -13.4,
+      "cabo": 13.4
+    },
+    "createdAt": 1593561702000
+  },
+  {
+    "id": "hist-0103",
+    "rowNum": 103,
+    "concept": "Puente",
+    "date": "2021-08-28",
+    "type": "bizum",
+    "deltas": {
+      "cabo": -1.15,
+      "emi": 1.15
+    },
+    "createdAt": 1593561703000
+  },
+  {
+    "id": "hist-0104",
+    "rowNum": 104,
+    "concept": "Montaditos",
+    "date": "2021-08-30",
+    "type": "bizum",
+    "deltas": {
+      "max": 2.7,
+      "cabo": -2.7
+    },
+    "createdAt": 1593561704000
+  },
+  {
+    "id": "hist-0105",
+    "rowNum": 105,
+    "concept": "Bertiz",
+    "date": "2021-09-02",
+    "type": "bizum",
+    "deltas": {
+      "luis": -1.55,
+      "cabo": 1.55
+    },
+    "createdAt": 1593561705000
+  },
+  {
+    "id": "hist-0106",
+    "rowNum": 106,
+    "concept": "Barbacoa 1",
+    "date": "2021-08-31",
+    "type": "equal",
+    "deltas": {
+      "alex": -14.013333,
+      "luis": 11.926667,
+      "max": -14.013333,
+      "cabo": -4.013333,
+      "asis": -14.013333,
+      "pedro": 34.126667
+    },
+    "createdAt": 1593561706000
+  },
+  {
+    "id": "hist-0107",
+    "rowNum": 107,
+    "concept": "Krunch",
+    "date": "2021-09-03",
+    "type": "bizum",
+    "deltas": {
+      "luis": -11.45,
+      "cabo": 11.45
+    },
+    "createdAt": 1593561707000
+  },
+  {
+    "id": "hist-0108",
+    "rowNum": 108,
+    "concept": "Barbacoa",
+    "date": "2021-09-04",
+    "type": "equal",
+    "deltas": {
+      "luis": 4.5,
+      "max": -2.5,
+      "cabo": 1.5,
+      "emi": -3.5
+    },
+    "createdAt": 1593561708000
+  },
+  {
+    "id": "hist-0109",
+    "rowNum": 109,
+    "concept": "McDonald's",
+    "date": "2021-09-05",
+    "type": "equal",
+    "deltas": {
+      "alex": 16.9,
+      "luis": -10.9,
+      "cabo": -6.0
+    },
+    "createdAt": 1593561709000
+  },
+  {
+    "id": "hist-0110",
+    "rowNum": 110,
+    "concept": "Supercor",
+    "date": "2021-09-05",
+    "type": "equal",
+    "deltas": {
+      "alex": 3.02,
+      "luis": -1.46,
+      "cabo": -1.56
+    },
+    "createdAt": 1593561710000
+  },
+  {
+    "id": "hist-0111",
+    "rowNum": 111,
+    "concept": "Supercor",
+    "date": "2021-09-06",
+    "type": "bizum",
+    "deltas": {
+      "alex": -3.0,
+      "cabo": 3.0
+    },
+    "createdAt": 1593561711000
+  },
+  {
+    "id": "hist-0112",
+    "rowNum": 112,
+    "concept": "Supercor",
+    "date": "2021-09-07",
+    "type": "bizum",
+    "deltas": {
+      "alex": -0.485,
+      "cabo": 0.485
+    },
+    "createdAt": 1593561712000
+  },
+  {
+    "id": "hist-0113",
+    "rowNum": 113,
+    "concept": "Tagliateloa",
+    "date": "2021-09-10",
+    "type": "equal",
+    "deltas": {
+      "alex": -17.0,
+      "luis": -17.0,
+      "cabo": 33.0,
+      "emi": 3.0
+    },
+    "createdAt": 1593561713000
+  },
+  {
+    "id": "hist-0114",
+    "rowNum": 114,
+    "concept": "Subway",
+    "date": "2021-09-11",
+    "type": "bizum",
+    "deltas": {
+      "luis": 7.7,
+      "cabo": -7.7
+    },
+    "createdAt": 1593561714000
+  },
+  {
+    "id": "hist-0115",
+    "rowNum": 115,
+    "concept": "Barbacoa",
+    "date": "2021-09-12",
+    "type": "equal",
+    "deltas": {
+      "alex": -5.143636,
+      "luis": -5.143636,
+      "max": -2.571818,
+      "cabo": -5.143636,
+      "emi": 18.002727
+    },
+    "createdAt": 1593561715000
+  },
+  {
+    "id": "hist-0116",
+    "rowNum": 116,
+    "concept": "Burguer King",
+    "date": "2021-09-16",
+    "type": "bizum",
+    "deltas": {
+      "luis": 4.9,
+      "cabo": -4.9
+    },
+    "createdAt": 1593561716000
+  },
+  {
+    "id": "hist-0117",
+    "rowNum": 117,
+    "concept": "Transferencia",
+    "date": "2021-09-16",
+    "type": "equal",
+    "deltas": {
+      "max": 10.0,
+      "asis": 10.0,
+      "pedro": -20.0
+    },
+    "createdAt": 1593561717000
+  },
+  {
+    "id": "hist-0118",
+    "rowNum": 118,
+    "concept": "Pozas",
+    "date": "2021-09-25",
+    "type": "equal",
+    "deltas": {
+      "alex": 9.8,
+      "luis": -4.9,
+      "cabo": -4.9
+    },
+    "createdAt": 1593561718000
+  },
+  {
+    "id": "hist-0119",
+    "rowNum": 119,
+    "concept": "Arreglo",
+    "date": "2021-10-12",
+    "type": "equal",
+    "deltas": {
+      "alex": 3.12,
+      "luis": -3.45,
+      "cabo": 0.33
+    },
+    "createdAt": 1593561719000
+  },
+  {
+    "id": "hist-0120",
+    "rowNum": 120,
+    "concept": "Cine",
+    "date": "2021-10-23",
+    "type": "bizum",
+    "deltas": {
+      "alex": 7.0,
+      "cabo": -7.0
+    },
+    "createdAt": 1593561720000
+  },
+  {
+    "id": "hist-0121",
+    "rowNum": 121,
+    "concept": "Grabasonic",
+    "date": "2021-10-24",
+    "type": "bizum",
+    "deltas": {
+      "luis": -4.25,
+      "cabo": 4.25
+    },
+    "createdAt": 1593561721000
+  },
+  {
+    "id": "hist-0122",
+    "rowNum": 122,
+    "concept": "Burritos",
+    "date": "2021-10-29",
+    "type": "bizum",
+    "deltas": {
+      "luis": 2.5,
+      "cabo": -2.5
+    },
+    "createdAt": 1593561722000
+  },
+  {
+    "id": "hist-0123",
+    "rowNum": 123,
+    "concept": "Cafe",
+    "date": "2021-10-30",
+    "type": "bizum",
+    "deltas": {
+      "alex": -4.5,
+      "cabo": 4.5
+    },
+    "createdAt": 1593561723000
+  },
+  {
+    "id": "hist-0124",
+    "rowNum": 124,
+    "concept": "Tabaco",
+    "date": "2021-11-01",
+    "type": "bizum",
+    "deltas": {
+      "cabo": 5.0,
+      "emi": -5.0
+    },
+    "createdAt": 1593561724000
+  },
+  {
+    "id": "hist-0125",
+    "rowNum": 125,
+    "concept": "Collier",
+    "date": "2021-11-06",
+    "type": "bizum",
+    "deltas": {
+      "luis": 33.0,
+      "cabo": -33.0
+    },
+    "createdAt": 1593561725000
+  },
+  {
+    "id": "hist-0126",
+    "rowNum": 126,
+    "concept": "Magis",
+    "date": "2021-11-12",
+    "type": "bizum",
+    "deltas": {
+      "luis": -5.0,
+      "cabo": 5.0
+    },
+    "createdAt": 1593561726000
+  },
+  {
+    "id": "hist-0127",
+    "rowNum": 127,
+    "concept": "Grabasonic",
+    "date": "2021-11-15",
+    "type": "bizum",
+    "deltas": {
+      "luis": -8.2,
+      "cabo": 8.2
+    },
+    "createdAt": 1593561727000
+  },
+  {
+    "id": "hist-0128",
+    "rowNum": 128,
+    "concept": "Empanada",
+    "date": "2021-11-18",
+    "type": "bizum",
+    "deltas": {
+      "luis": -1.1,
+      "cabo": 1.1
+    },
+    "createdAt": 1593561728000
+  },
+  {
+    "id": "hist-0129",
+    "rowNum": 129,
+    "concept": "Magis",
+    "date": "2021-11-19",
+    "type": "bizum",
+    "deltas": {
+      "luis": -4.0,
+      "cabo": 4.0
+    },
+    "createdAt": 1593561729000
+  },
+  {
+    "id": "hist-0130",
+    "rowNum": 130,
+    "concept": "Magis",
+    "date": "2021-11-23",
+    "type": "bizum",
+    "deltas": {
+      "luis": 2.8,
+      "cabo": -2.8
+    },
+    "createdAt": 1593561730000
+  },
+  {
+    "id": "hist-0131",
+    "rowNum": 131,
+    "concept": "Magis",
+    "date": "2021-11-25",
+    "type": "bizum",
+    "deltas": {
+      "luis": 3.6,
+      "cabo": -3.6
+    },
+    "createdAt": 1593561731000
+  },
+  {
+    "id": "hist-0132",
+    "rowNum": 132,
+    "concept": "Hostelería",
+    "date": "2021-11-26",
+    "type": "bizum",
+    "deltas": {
+      "luis": -5.5,
+      "cabo": 5.5
+    },
+    "createdAt": 1593561732000
+  },
+  {
+    "id": "hist-0133",
+    "rowNum": 133,
+    "concept": "Magis",
+    "date": "2021-11-29",
+    "type": "bizum",
+    "deltas": {
+      "luis": 3.8,
+      "cabo": -3.8
+    },
+    "createdAt": 1593561733000
+  },
+  {
+    "id": "hist-0134",
+    "rowNum": 134,
+    "concept": "Magis",
+    "date": "2021-11-30",
+    "type": "bizum",
+    "deltas": {
+      "luis": -3.05,
+      "cabo": 3.05
+    },
+    "createdAt": 1593561734000
+  },
+  {
+    "id": "hist-0135",
+    "rowNum": 135,
+    "concept": "Cine",
+    "date": "2021-12-07",
+    "type": "bizum",
+    "deltas": {
+      "alex": 0.5,
+      "cabo": -0.5
+    },
+    "createdAt": 1593561735000
+  },
+  {
+    "id": "hist-0136",
+    "rowNum": 136,
+    "concept": "Magis",
+    "date": "2021-12-09",
+    "type": "bizum",
+    "deltas": {
+      "luis": 4.4,
+      "cabo": -4.4
+    },
+    "createdAt": 1593561736000
+  },
+  {
+    "id": "hist-0137",
+    "rowNum": 137,
+    "concept": "Ederra",
+    "date": "2021-12-11",
+    "type": "equal",
+    "deltas": {
+      "alex": 0.8,
+      "luis": 5.58,
+      "max": -4.13,
+      "cabo": -2.25
+    },
+    "createdAt": 1593561737000
+  },
+  {
+    "id": "hist-0138",
+    "rowNum": 138,
+    "concept": "Spiderman",
+    "date": "2021-12-14",
+    "type": "bizum",
+    "deltas": {
+      "alex": 7.7,
+      "cabo": -7.7
+    },
+    "createdAt": 1593561738000
+  },
+  {
+    "id": "hist-0139",
+    "rowNum": 139,
+    "concept": "Montas",
+    "date": "2021-12-16",
+    "type": "bizum",
+    "deltas": {
+      "alex": 6.6,
+      "cabo": -6.6
+    },
+    "createdAt": 1593561739000
+  },
+  {
+    "id": "hist-0140",
+    "rowNum": 140,
+    "concept": "Magis",
+    "date": "2021-12-17",
+    "type": "bizum",
+    "deltas": {
+      "luis": -1.9,
+      "cabo": 1.9
+    },
+    "createdAt": 1593561740000
+  },
+  {
+    "id": "hist-0141",
+    "rowNum": 141,
+    "concept": "Agua",
+    "date": "2021-12-17",
+    "type": "bizum",
+    "deltas": {
+      "luis": -1.0,
+      "cabo": 1.0
+    },
+    "createdAt": 1593561741000
+  },
+  {
+    "id": "hist-0142",
+    "rowNum": 142,
+    "concept": "Krunch",
+    "date": "2021-12-18",
+    "type": "bizum",
+    "deltas": {
+      "luis": 6.9,
+      "cabo": -6.9
+    },
+    "createdAt": 1593561742000
+  },
+  {
+    "id": "hist-0143",
+    "rowNum": 143,
+    "concept": "Magid",
+    "date": "2021-12-23",
+    "type": "bizum",
+    "deltas": {
+      "luis": -3.8,
+      "cabo": 3.8
+    },
+    "createdAt": 1593561743000
+  },
+  {
+    "id": "hist-0144",
+    "rowNum": 144,
+    "concept": "Cervezas",
+    "date": "2021-12-31",
+    "type": "equal",
+    "deltas": {
+      "alex": -2.32,
+      "luis": -2.32,
+      "max": 6.96,
+      "cabo": -2.32
+    },
+    "createdAt": 1593561744000
+  },
+  {
+    "id": "hist-0145",
+    "rowNum": 145,
+    "concept": "Magis",
+    "date": "2021-12-18",
+    "type": "bizum",
+    "deltas": {
+      "luis": -3.6,
+      "cabo": 3.6
+    },
+    "createdAt": 1593561745000
+  },
+  {
+    "id": "hist-0146",
+    "rowNum": 146,
+    "concept": "Krunch",
+    "date": "2021-12-20",
+    "type": "equal",
+    "deltas": {
+      "alex": -2.2,
+      "max": -4.4,
+      "cabo": 6.6
+    },
+    "createdAt": 1593561746000
+  },
+  {
+    "id": "hist-0147",
+    "rowNum": 147,
+    "concept": "Lasa",
+    "date": "2021-12-20",
+    "type": "equal",
+    "deltas": {
+      "alex": -1.5,
+      "max": -1.5,
+      "cabo": 0.5,
+      "asis": 2.5
+    },
+    "createdAt": 1593561747000
+  },
+  {
+    "id": "hist-0148",
+    "rowNum": 148,
+    "concept": "Pomodoro",
+    "date": "2021-12-28",
+    "type": "bizum",
+    "deltas": {
+      "alex": 5.85,
+      "cabo": -5.85
+    },
+    "createdAt": 1593561748000
+  },
+  {
+    "id": "hist-0149",
+    "rowNum": 149,
+    "concept": "Hostelería",
+    "date": "2021-12-31",
+    "type": "bizum",
+    "deltas": {
+      "luis": -5.5,
+      "cabo": 5.5
+    },
+    "createdAt": 1593561749000
+  },
+  {
+    "id": "hist-0150",
+    "rowNum": 150,
+    "concept": "Magis",
+    "date": "2022-02-08",
+    "type": "bizum",
+    "deltas": {
+      "luis": -3.1,
+      "cabo": 3.1
+    },
+    "createdAt": 1593561750000
+  },
+  {
+    "id": "hist-0151",
+    "rowNum": 151,
+    "concept": "Burgas",
+    "date": "2022-02-11",
+    "type": "bizum",
+    "deltas": {
+      "alex": 3.5,
+      "cabo": -3.5
+    },
+    "createdAt": 1593561751000
+  },
+  {
+    "id": "hist-0152",
+    "rowNum": 152,
+    "concept": "Pizzas",
+    "date": "2022-02-12",
+    "type": "equal",
+    "deltas": {
+      "alex": 30.7,
+      "luis": -15.6,
+      "cabo": -15.1
+    },
+    "createdAt": 1593561752000
+  },
+  {
+    "id": "hist-0153",
+    "rowNum": 153,
+    "concept": "lootro",
+    "date": "2022-02-12",
+    "type": "equal",
+    "deltas": {
+      "alex": 27.625,
+      "luis": -8.0,
+      "cabo": -8.85,
+      "emi": -10.775
+    },
+    "createdAt": 1593561753000
+  },
+  {
+    "id": "hist-0154",
+    "rowNum": 154,
+    "concept": "Ajustes",
+    "date": "2022-02-13",
+    "type": "bizum",
+    "deltas": {
+      "alex": -32.0,
+      "cabo": 32.0
+    },
+    "createdAt": 1593561754000
+  },
+  {
+    "id": "hist-0155",
+    "rowNum": 155,
+    "concept": "Hostelería",
+    "date": "2022-02-15",
+    "type": "bizum",
+    "deltas": {
+      "luis": 5.5,
+      "cabo": -5.5
+    },
+    "createdAt": 1593561755000
+  },
+  {
+    "id": "hist-0156",
+    "rowNum": 156,
+    "concept": "Gafas",
+    "date": "2022-02-16",
+    "type": "bizum",
+    "deltas": {
+      "luis": 7.0,
+      "cabo": -7.0
+    },
+    "createdAt": 1593561756000
+  },
+  {
+    "id": "hist-0157",
+    "rowNum": 157,
+    "concept": "Agua",
+    "date": "2022-02-25",
+    "type": "bizum",
+    "deltas": {
+      "alex": -2.1,
+      "cabo": 2.1
+    },
+    "createdAt": 1593561757000
+  },
+  {
+    "id": "hist-0158",
+    "rowNum": 158,
+    "concept": "krunch",
+    "date": "2022-02-26",
+    "type": "bizum",
+    "deltas": {
+      "alex": -4.4,
+      "cabo": 4.4
+    },
+    "createdAt": 1593561758000
+  },
+  {
+    "id": "hist-0159",
+    "rowNum": 159,
+    "concept": "Snarky",
+    "date": "2022-02-28",
+    "type": "bizum",
+    "deltas": {
+      "luis": 35.65,
+      "cabo": -35.65
+    },
+    "createdAt": 1593561759000
+  },
+  {
+    "id": "hist-0160",
+    "rowNum": 160,
+    "concept": "Cafetería",
+    "date": "2022-03-01",
+    "type": "bizum",
+    "deltas": {
+      "luis": -7.5,
+      "cabo": 7.5
+    },
+    "createdAt": 1593561760000
+  },
+  {
+    "id": "hist-0161",
+    "rowNum": 161,
+    "concept": "Cafetería",
+    "date": "2022-03-02",
+    "type": "bizum",
+    "deltas": {
+      "luis": -6.45,
+      "cabo": 6.45
+    },
+    "createdAt": 1593561761000
+  },
+  {
+    "id": "hist-0162",
+    "rowNum": 162,
+    "concept": "Algorta",
+    "date": "2022-03-05",
+    "type": "equal",
+    "deltas": {
+      "alex": 13.0,
+      "luis": -6.5,
+      "cabo": -6.5
+    },
+    "createdAt": 1593561762000
+  },
+  {
+    "id": "hist-0163",
+    "rowNum": 163,
+    "concept": "Cafetería",
+    "date": "2022-03-08",
+    "type": "bizum",
+    "deltas": {
+      "luis": -7.2,
+      "cabo": 7.2
+    },
+    "createdAt": 1593561763000
+  },
+  {
+    "id": "hist-0164",
+    "rowNum": 164,
+    "concept": "Cafetería",
+    "date": "2022-03-09",
+    "type": "bizum",
+    "deltas": {
+      "luis": -7.2,
+      "cabo": 7.2
+    },
+    "createdAt": 1593561764000
+  },
+  {
+    "id": "hist-0165",
+    "rowNum": 165,
+    "concept": "Dominos",
+    "date": "2022-03-19",
+    "type": "equal",
+    "deltas": {
+      "alex": -6.33,
+      "luis": 19.0,
+      "max": -6.33,
+      "cabo": -6.33
+    },
+    "createdAt": 1593561765000
+  },
+  {
+    "id": "hist-0166",
+    "rowNum": 166,
+    "concept": "Magis",
+    "date": "2022-03-23",
+    "type": "bizum",
+    "deltas": {
+      "luis": -4.6,
+      "cabo": 4.6
+    },
+    "createdAt": 1593561766000
+  },
+  {
+    "id": "hist-0167",
+    "rowNum": 167,
+    "concept": "KebabRandler",
+    "date": "2022-03-26",
+    "type": "bizum",
+    "deltas": {
+      "max": 6.2,
+      "emi": -6.2
+    },
+    "createdAt": 1593561767000
+  },
+  {
+    "id": "hist-0168",
+    "rowNum": 168,
+    "concept": "Cafetería",
+    "date": "2022-03-28",
+    "type": "bizum",
+    "deltas": {
+      "luis": -6.27,
+      "cabo": 6.27
+    },
+    "createdAt": 1593561768000
+  },
+  {
+    "id": "hist-0169",
+    "rowNum": 169,
+    "concept": "Chuches",
+    "date": "2022-04-10",
+    "type": "bizum",
+    "deltas": {
+      "luis": -2.0,
+      "cabo": 2.0
+    },
+    "createdAt": 1593561769000
+  },
+  {
+    "id": "hist-0170",
+    "rowNum": 170,
+    "concept": "Florida",
+    "date": "2022-04-23",
+    "type": "bizum",
+    "deltas": {
+      "alex": -12.15,
+      "cabo": 12.15
+    },
+    "createdAt": 1593561770000
+  },
+  {
+    "id": "hist-0171",
+    "rowNum": 171,
+    "concept": "Burguer",
+    "date": "2022-05-07",
+    "type": "bizum",
+    "deltas": {
+      "luis": 5.95,
+      "cabo": -5.95
+    },
+    "createdAt": 1593561771000
+  },
+  {
+    "id": "hist-0172",
+    "rowNum": 172,
+    "concept": "Skippy",
+    "date": "2022-05-22",
+    "type": "bizum",
+    "deltas": {
+      "luis": 3.75,
+      "cabo": -3.75
+    },
+    "createdAt": 1593561772000
+  },
+  {
+    "id": "hist-0173",
+    "rowNum": 173,
+    "concept": "Puerto Viejo",
+    "date": "2022-06-17",
+    "type": "equal",
+    "deltas": {
+      "alex": -5.0,
+      "luis": -2.5,
+      "max": 11.0,
+      "cabo": -3.5
+    },
+    "createdAt": 1593561773000
+  },
+  {
+    "id": "hist-0174",
+    "rowNum": 174,
+    "concept": "Chupitos",
+    "date": "2022-06-19",
+    "type": "equal",
+    "deltas": {
+      "alex": -3.0,
+      "luis": -3.0,
+      "cabo": 6.0
+    },
+    "createdAt": 1593561774000
+  },
+  {
+    "id": "hist-0175",
+    "rowNum": 175,
+    "concept": "Kebab",
+    "date": "2022-06-20",
+    "type": "equal",
+    "deltas": {
+      "alex": -2.75,
+      "max": 5.5,
+      "cabo": -2.75
+    },
+    "createdAt": 1593561775000
+  },
+  {
+    "id": "hist-0176",
+    "rowNum": 176,
+    "concept": "Pink Floyd",
+    "date": "2022-06-23",
+    "type": "bizum",
+    "deltas": {
+      "luis": 3.5,
+      "cabo": -3.5
+    },
+    "createdAt": 1593561776000
+  },
+  {
+    "id": "hist-0177",
+    "rowNum": 177,
+    "concept": "Vuelo",
+    "date": "2022-06-24",
+    "type": "equal",
+    "deltas": {
+      "alex": 316.833333,
+      "luis": -80.395,
+      "max": -158.416667,
+      "cabo": 80.395,
+      "emi": -158.416667
+    },
+    "createdAt": 1593561777000
+  },
+  {
+    "id": "hist-0178",
+    "rowNum": 178,
+    "concept": "Bizum",
+    "date": "2022-06-26",
+    "type": "bizum",
+    "deltas": {
+      "alex": -147.49,
+      "max": 147.49
+    },
+    "createdAt": 1593561778000
+  },
+  {
+    "id": "hist-0179",
+    "rowNum": 179,
+    "concept": "Durum",
+    "date": "2022-07-09",
+    "type": "bizum",
+    "deltas": {
+      "alex": -5.5,
+      "cabo": 5.5
+    },
+    "createdAt": 1593561779000
+  },
+  {
+    "id": "hist-0180",
+    "rowNum": 180,
+    "concept": "Supercor",
+    "date": "2022-07-09",
+    "type": "bizum",
+    "deltas": {
+      "alex": -5.0,
+      "cabo": 5.0
+    },
+    "createdAt": 1593561780000
+  },
+  {
+    "id": "hist-0181",
+    "rowNum": 181,
+    "concept": "Santurce",
+    "date": "2022-07-10",
+    "type": "equal",
+    "deltas": {
+      "alex": -2.5,
+      "luis": -2.5,
+      "cabo": 5.0
+    },
+    "createdAt": 1593561781000
+  },
+  {
+    "id": "hist-0182",
+    "rowNum": 182,
+    "concept": "Florida",
+    "date": "2022-07-12",
+    "type": "bizum",
+    "deltas": {
+      "alex": -13.35,
+      "cabo": 13.35
+    },
+    "createdAt": 1593561782000
+  },
+  {
+    "id": "hist-0183",
+    "rowNum": 183,
+    "concept": "Thor/BBQ",
+    "date": "2022-07-13",
+    "type": "equal",
+    "deltas": {
+      "alex": 19.0,
+      "cabo": -6.0,
+      "emi": -13.0,
+      "asis": 1.5133
+    },
+    "createdAt": 1593561783000
+  },
+  {
+    "id": "hist-0184",
+    "rowNum": 184,
+    "concept": "Vuelos emi",
+    "date": "2022-07-15",
+    "type": "bizum",
+    "deltas": {
+      "alex": -100.0,
+      "emi": 100.0
+    },
+    "createdAt": 1593561784000
+  },
+  {
+    "id": "hist-0185",
+    "rowNum": 185,
+    "concept": "Timo volotea",
+    "date": "2022-07-16",
+    "type": "bizum",
+    "deltas": {
+      "alex": 50.0,
+      "max": -50.0
+    },
+    "createdAt": 1593561785000
+  },
+  {
+    "id": "hist-0186",
+    "rowNum": 186,
+    "concept": "Compra",
+    "date": "2022-07-16",
+    "type": "equal",
+    "deltas": {
+      "alex": 73.283333,
+      "luis": -16.166667,
+      "max": -39.93,
+      "cabo": -16.916667
+    },
+    "createdAt": 1593561786000
+  },
+  {
+    "id": "hist-0187",
+    "rowNum": 187,
+    "concept": "Taxi",
+    "date": "2022-07-16",
+    "type": "equal",
+    "deltas": {
+      "alex": -31.666667,
+      "max": 63.333333,
+      "cabo": -31.666667
+    },
+    "createdAt": 1593561787000
+  },
+  {
+    "id": "hist-0188",
+    "rowNum": 188,
+    "concept": "Telepizza",
+    "date": "2022-07-16",
+    "type": "equal",
+    "deltas": {
+      "alex": -18.5,
+      "max": -18.5,
+      "cabo": 37.0
+    },
+    "createdAt": 1593561788000
+  },
+  {
+    "id": "hist-0189",
+    "rowNum": 189,
+    "concept": "Puerto",
+    "date": "2022-07-17",
+    "type": "bizum",
+    "deltas": {
+      "alex": -4.5,
+      "cabo": 4.5
+    },
+    "createdAt": 1593561789000
+  },
+  {
+    "id": "hist-0190",
+    "rowNum": 190,
+    "concept": "120 montas",
+    "date": "2022-07-17",
+    "type": "equal",
+    "deltas": {
+      "alex": -15.3,
+      "max": 25.0,
+      "cabo": -9.7
+    },
+    "createdAt": 1593561790000
+  },
+  {
+    "id": "hist-0191",
+    "rowNum": 191,
+    "concept": "Supercor",
+    "date": "2022-07-17",
+    "type": "equal",
+    "deltas": {
+      "alex": -4.06,
+      "max": 6.54,
+      "cabo": -2.48
+    },
+    "createdAt": 1593561791000
+  },
+  {
+    "id": "hist-0192",
+    "rowNum": 192,
+    "concept": "lemon distoteca",
+    "date": "2022-07-16",
+    "type": "equal",
+    "deltas": {
+      "alex": -10.0,
+      "max": 20.0,
+      "cabo": -10.0
+    },
+    "createdAt": 1593561792000
+  },
+  {
+    "id": "hist-0193",
+    "rowNum": 193,
+    "concept": "Noche",
+    "date": "2022-07-19",
+    "type": "equal",
+    "deltas": {
+      "alex": 7.1,
+      "luis": -7.0,
+      "cabo": -0.1
+    },
+    "createdAt": 1593561793000
+  },
+  {
+    "id": "hist-0194",
+    "rowNum": 194,
+    "concept": "McDonalds",
+    "date": "2022-07-19",
+    "type": "bizum",
+    "deltas": {
+      "alex": 4.0,
+      "cabo": -4.0
+    },
+    "createdAt": 1593561794000
+  },
+  {
+    "id": "hist-0195",
+    "rowNum": 195,
+    "concept": "Chilling",
+    "date": "2022-07-19",
+    "type": "equal",
+    "deltas": {
+      "alex": -7.0,
+      "max": 9.7,
+      "cabo": -2.7
+    },
+    "createdAt": 1593561795000
+  },
+  {
+    "id": "hist-0196",
+    "rowNum": 196,
+    "concept": "Argentino",
+    "date": "2022-07-18",
+    "type": "equal",
+    "deltas": {
+      "alex": -10.9,
+      "max": 22.8,
+      "cabo": -11.9
+    },
+    "createdAt": 1593561796000
+  },
+  {
+    "id": "hist-0197",
+    "rowNum": 197,
+    "concept": "Puerto",
+    "date": "2022-07-20",
+    "type": "equal",
+    "deltas": {
+      "alex": -17.0,
+      "luis": 52.0,
+      "max": -18.0,
+      "cabo": -17.0
+    },
+    "createdAt": 1593561797000
+  },
+  {
+    "id": "hist-0198",
+    "rowNum": 198,
+    "concept": "GeiDrink",
+    "date": "2022-07-20",
+    "type": "equal",
+    "deltas": {
+      "alex": -3.5825,
+      "luis": -3.5825,
+      "max": -3.5825,
+      "cabo": 10.7475
+    },
+    "createdAt": 1593561798000
+  },
+  {
+    "id": "hist-0199",
+    "rowNum": 199,
+    "concept": "Supercor",
+    "date": "2022-07-20",
+    "type": "equal",
+    "deltas": {
+      "alex": 18.18,
+      "luis": -6.06,
+      "max": -6.06,
+      "cabo": -6.06
+    },
+    "createdAt": 1593561799000
+  },
+  {
+    "id": "hist-0200",
+    "rowNum": 200,
+    "concept": "Supercor",
+    "date": "2022-07-20",
+    "type": "equal",
+    "deltas": {
+      "alex": -1.17,
+      "luis": -3.145,
+      "max": 4.32
+    },
+    "createdAt": 1593561800000
+  },
+  {
+    "id": "hist-0201",
+    "rowNum": 201,
+    "concept": "Mercadona",
+    "date": "2022-07-20",
+    "type": "equal",
+    "deltas": {
+      "alex": -11.4,
+      "luis": -14.0,
+      "max": 36.8,
+      "cabo": -11.4
+    },
+    "createdAt": 1593561801000
+  },
+  {
+    "id": "hist-0202",
+    "rowNum": 202,
+    "concept": "MamaGina",
+    "date": "2022-07-21",
+    "type": "equal",
+    "deltas": {
+      "alex": -21.11,
+      "luis": 72.11,
+      "max": -27.7,
+      "cabo": -23.3
+    },
+    "createdAt": 1593561802000
+  },
+  {
+    "id": "hist-0203",
+    "rowNum": 203,
+    "concept": "Tabaco",
+    "date": "2022-07-22",
+    "type": "bizum",
+    "deltas": {
+      "alex": -5.0,
+      "luis": 5.0
+    },
+    "createdAt": 1593561803000
+  },
+  {
+    "id": "hist-0204",
+    "rowNum": 204,
+    "concept": "Taxi",
+    "date": "2022-07-22",
+    "type": "equal",
+    "deltas": {
+      "alex": -8.035,
+      "luis": -8.035,
+      "max": -8.035,
+      "cabo": 24.11
+    },
+    "createdAt": 1593561804000
+  },
+  {
+    "id": "hist-0205",
+    "rowNum": 205,
+    "concept": "MamaGina",
+    "date": "2022-07-22",
+    "type": "equal",
+    "deltas": {
+      "alex": -26.0,
+      "luis": -26.0,
+      "max": -26.0,
+      "cabo": 78.0
+    },
+    "createdAt": 1593561805000
+  },
+  {
+    "id": "hist-0206",
+    "rowNum": 206,
+    "concept": "Naranjos",
+    "date": "2022-07-23",
+    "type": "equal",
+    "deltas": {
+      "alex": -19.0,
+      "luis": -19.0,
+      "max": 57.0,
+      "cabo": -19.0
+    },
+    "createdAt": 1593561806000
+  },
+  {
+    "id": "hist-0207",
+    "rowNum": 207,
+    "concept": "Supercor",
+    "date": "2022-07-24",
+    "type": "equal",
+    "deltas": {
+      "alex": -1.8725,
+      "luis": -1.8725,
+      "max": 5.6175,
+      "cabo": -1.8725
+    },
+    "createdAt": 1593561807000
+  },
+  {
+    "id": "hist-0208",
+    "rowNum": 208,
+    "concept": "Bus",
+    "date": "2022-07-24",
+    "type": "bizum",
+    "deltas": {
+      "luis": -36.0,
+      "cabo": 36.0
+    },
+    "createdAt": 1593561808000
+  },
+  {
+    "id": "hist-0209",
+    "rowNum": 209,
+    "concept": "Supercor",
+    "date": "2022-07-24",
+    "type": "equal",
+    "deltas": {
+      "alex": -2.085,
+      "luis": 6.26,
+      "max": -2.085,
+      "cabo": -2.085
+    },
+    "createdAt": 1593561809000
+  },
+  {
+    "id": "hist-0210",
+    "rowNum": 210,
+    "concept": "Bus",
+    "date": "2022-07-25",
+    "type": "bizum",
+    "deltas": {
+      "luis": 6.15,
+      "cabo": -6.15
+    },
+    "createdAt": 1593561810000
+  },
+  {
+    "id": "hist-0211",
+    "rowNum": 211,
+    "concept": "Burgas",
+    "date": "2022-07-25",
+    "type": "bizum",
+    "deltas": {
+      "luis": 3.85,
+      "cabo": -3.85
+    },
+    "createdAt": 1593561811000
+  },
+  {
+    "id": "hist-0212",
+    "rowNum": 212,
+    "concept": "Barik wtf",
+    "date": "2022-07-25",
+    "type": "bizum",
+    "deltas": {
+      "luis": 5.0,
+      "cabo": -5.0
+    },
+    "createdAt": 1593561812000
+  },
+  {
+    "id": "hist-0213",
+    "rowNum": 213,
+    "concept": "Carls Jr",
+    "date": "2022-07-25",
+    "type": "bizum",
+    "deltas": {
+      "luis": 7.88,
+      "cabo": -7.88
+    },
+    "createdAt": 1593561813000
+  },
+  {
+    "id": "hist-0214",
+    "rowNum": 214,
+    "concept": "Awa",
+    "date": "2022-07-25",
+    "type": "bizum",
+    "deltas": {
+      "luis": 1.0,
+      "cabo": -1.0
+    },
+    "createdAt": 1593561814000
+  },
+  {
+    "id": "hist-0215",
+    "rowNum": 215,
+    "concept": "Subway",
+    "date": "2022-07-25",
+    "type": "bizum",
+    "deltas": {
+      "luis": -11.395,
+      "cabo": 11.395
+    },
+    "createdAt": 1593561815000
+  },
+  {
+    "id": "hist-0216",
+    "rowNum": 216,
+    "concept": "Cafetería",
+    "date": "2022-07-26",
+    "type": "bizum",
+    "deltas": {
+      "luis": -4.0,
+      "cabo": 4.0
+    },
+    "createdAt": 1593561816000
+  },
+  {
+    "id": "hist-0217",
+    "rowNum": 217,
+    "concept": "Metro",
+    "date": "2022-07-26",
+    "type": "bizum",
+    "deltas": {
+      "luis": 1.5,
+      "cabo": -1.5
+    },
+    "createdAt": 1593561817000
+  },
+  {
+    "id": "hist-0218",
+    "rowNum": 218,
+    "concept": "Burgas",
+    "date": "2022-08-08",
+    "type": "bizum",
+    "deltas": {
+      "alex": 8.0,
+      "cabo": -8.0
+    },
+    "createdAt": 1593561818000
+  },
+  {
+    "id": "hist-0219",
+    "rowNum": 219,
+    "concept": "krunch",
+    "date": "2022-08-11",
+    "type": "bizum",
+    "deltas": {
+      "alex": -7.9,
+      "cabo": 7.9
+    },
+    "createdAt": 1593561819000
+  },
+  {
+    "id": "hist-0220",
+    "rowNum": 220,
+    "concept": "Bilbao 1",
+    "date": "2022-08-20",
+    "type": "equal",
+    "deltas": {
+      "alex": 11.0,
+      "luis": -5.5,
+      "cabo": -5.5
+    },
+    "createdAt": 1593561820000
+  },
+  {
+    "id": "hist-0221",
+    "rowNum": 221,
+    "concept": "Goyo",
+    "date": "2022-08-23",
+    "type": "bizum",
+    "deltas": {
+      "alex": 23.0,
+      "cabo": -23.0
+    },
+    "createdAt": 1593561821000
+  },
+  {
+    "id": "hist-0222",
+    "rowNum": 222,
+    "concept": "Bilbao 4",
+    "date": "2022-08-23",
+    "type": "equal",
+    "deltas": {
+      "alex": -5.0,
+      "luis": 4.5,
+      "cabo": 0.5
+    },
+    "createdAt": 1593561822000
+  },
+  {
+    "id": "hist-0223",
+    "rowNum": 223,
+    "concept": "Burger",
+    "date": "2022-08-24",
+    "type": "bizum",
+    "deltas": {
+      "alex": -12.95,
+      "cabo": 12.95
+    },
+    "createdAt": 1593561823000
+  },
+  {
+    "id": "hist-0224",
+    "rowNum": 224,
+    "concept": "MAFTA d.g.",
+    "date": "2022-09-03",
+    "type": "equal",
+    "deltas": {
+      "alex": -0.595,
+      "luis": -0.595,
+      "max": -0.595,
+      "cabo": -0.595,
+      "emi": -0.595,
+      "pedro": -0.595
+    },
+    "createdAt": 1593561824000
+  },
+  {
+    "id": "hist-0225",
+    "rowNum": 225,
+    "concept": "MAFTA pedr.",
+    "date": "2022-09-03",
+    "type": "equal",
+    "deltas": {
+      "alex": 2.706,
+      "luis": 2.706,
+      "max": 2.706,
+      "cabo": 2.706,
+      "emi": 2.706,
+      "pedro": -13.53
+    },
+    "createdAt": 1593561825000
+  },
+  {
+    "id": "hist-0226",
+    "rowNum": 226,
+    "concept": "Burger",
+    "date": "2022-09-06",
+    "type": "bizum",
+    "deltas": {
+      "alex": 8.68,
+      "cabo": -8.68
+    },
+    "createdAt": 1593561826000
+  },
+  {
+    "id": "hist-0227",
+    "rowNum": 227,
+    "concept": "Kebab",
+    "date": "2022-09-08",
+    "type": "bizum",
+    "deltas": {
+      "luis": -6.0,
+      "cabo": 6.0
+    },
+    "createdAt": 1593561827000
+  },
+  {
+    "id": "hist-0228",
+    "rowNum": 228,
+    "concept": "Postre",
+    "date": "2022-09-08",
+    "type": "bizum",
+    "deltas": {
+      "alex": -1.45,
+      "cabo": 1.45
+    },
+    "createdAt": 1593561828000
+  },
+  {
+    "id": "hist-0229",
+    "rowNum": 229,
+    "concept": "Paris",
+    "date": "2022-09-13",
+    "type": "bizum",
+    "deltas": {
+      "luis": -105.5,
+      "cabo": 105.5
+    },
+    "createdAt": 1593561829000
+  },
+  {
+    "id": "hist-0230",
+    "rowNum": 230,
+    "concept": "Tallarines",
+    "date": "2022-09-10",
+    "type": "equal",
+    "deltas": {
+      "alex": -7.0,
+      "luis": 14.0,
+      "cabo": -7.0
+    },
+    "createdAt": 1593561830000
+  },
+  {
+    "id": "hist-0231",
+    "rowNum": 231,
+    "concept": "Napolitanas",
+    "date": "2022-09-10",
+    "type": "equal",
+    "deltas": {
+      "alex": -1.41,
+      "luis": 2.34,
+      "cabo": -0.94
+    },
+    "createdAt": 1593561831000
+  },
+  {
+    "id": "hist-0232",
+    "rowNum": 232,
+    "concept": "Catedral",
+    "date": "2022-09-16",
+    "type": "bizum",
+    "deltas": {
+      "luis": -2.4,
+      "cabo": 2.4
+    },
+    "createdAt": 1593561832000
+  },
+  {
+    "id": "hist-0233",
+    "rowNum": 233,
+    "concept": "Pagos",
+    "date": "2022-09-21",
+    "type": "equal",
+    "deltas": {
+      "alex": -37.64,
+      "max": -53.33,
+      "cabo": -13.43,
+      "emi": 104.4
+    },
+    "createdAt": 1593561833000
+  },
+  {
+    "id": "hist-0234",
+    "rowNum": 234,
+    "concept": "Dominos",
+    "date": "2022-09-24",
+    "type": "bizum",
+    "deltas": {
+      "luis": 7.6,
+      "cabo": -7.6
+    },
+    "createdAt": 1593561834000
+  },
+  {
+    "id": "hist-0235",
+    "rowNum": 235,
+    "concept": "Tortilla",
+    "date": "2022-09-30",
+    "type": "bizum",
+    "deltas": {
+      "luis": 6.99,
+      "cabo": -6.99
+    },
+    "createdAt": 1593561835000
+  },
+  {
+    "id": "hist-0236",
+    "rowNum": 236,
+    "concept": "Dominos",
+    "date": "2022-10-01",
+    "type": "bizum",
+    "deltas": {
+      "luis": 6.666667,
+      "cabo": -6.666667
+    },
+    "createdAt": 1593561836000
+  },
+  {
+    "id": "hist-0237",
+    "rowNum": 237,
+    "concept": "Krunch",
+    "date": "2022-10-08",
+    "type": "bizum",
+    "deltas": {
+      "alex": 11.375,
+      "cabo": -11.375
+    },
+    "createdAt": 1593561837000
+  },
+  {
+    "id": "hist-0238",
+    "rowNum": 238,
+    "concept": "McDonalds",
+    "date": "2022-10-09",
+    "type": "bizum",
+    "deltas": {
+      "luis": 11.3,
+      "cabo": -11.3
+    },
+    "createdAt": 1593561838000
+  },
+  {
+    "id": "hist-0239",
+    "rowNum": 239,
+    "concept": "Navigi",
+    "date": "2022-10-09",
+    "type": "bizum",
+    "deltas": {
+      "luis": -10.95,
+      "cabo": 10.95
+    },
+    "createdAt": 1593561839000
+  },
+  {
+    "id": "hist-0240",
+    "rowNum": 240,
+    "concept": "Whiskey",
+    "date": "2022-10-21",
+    "type": "bizum",
+    "deltas": {
+      "alex": -3.0,
+      "cabo": 3.0
+    },
+    "createdAt": 1593561840000
+  },
+  {
+    "id": "hist-0241",
+    "rowNum": 241,
+    "concept": "kebab",
+    "date": "2022-11-12",
+    "type": "bizum",
+    "deltas": {
+      "alex": -6.0,
+      "cabo": 6.0
+    },
+    "createdAt": 1593561841000
+  },
+  {
+    "id": "hist-0242",
+    "rowNum": 242,
+    "concept": "Tallarines",
+    "date": "2022-11-20",
+    "type": "bizum",
+    "deltas": {
+      "alex": -4.3,
+      "cabo": 4.3
+    },
+    "createdAt": 1593561842000
+  },
+  {
+    "id": "hist-0243",
+    "rowNum": 243,
+    "concept": "megabizum",
+    "date": "2022-12-01",
+    "type": "bizum",
+    "deltas": {
+      "luis": 100.0,
+      "cabo": -100.0
+    },
+    "createdAt": 1593561843000
+  },
+  {
+    "id": "hist-0244",
+    "rowNum": 244,
+    "concept": "ensalada",
+    "date": "2022-12-07",
+    "type": "bizum",
+    "deltas": {
+      "luis": -1.33,
+      "cabo": 1.33
+    },
+    "createdAt": 1593561844000
+  },
+  {
+    "id": "hist-0245",
+    "rowNum": 245,
+    "concept": "mecanicayondas",
+    "date": "2022-12-07",
+    "type": "bizum",
+    "deltas": {
+      "luis": 9.0,
+      "cabo": -9.0
+    },
+    "createdAt": 1593561845000
+  },
+  {
+    "id": "hist-0246",
+    "rowNum": 246,
+    "concept": "Kebab",
+    "date": "2022-12-08",
+    "type": "bizum",
+    "deltas": {
+      "alex": 4.3,
+      "cabo": -4.3
+    },
+    "createdAt": 1593561846000
+  },
+  {
+    "id": "hist-0247",
+    "rowNum": 247,
+    "concept": "Cervecera",
+    "date": "2022-12-23",
+    "type": "bizum",
+    "deltas": {
+      "luis": -10.0,
+      "cabo": 10.0
+    },
+    "createdAt": 1593561847000
+  },
+  {
+    "id": "hist-0248",
+    "rowNum": 248,
+    "concept": "copa",
+    "date": "2023-01-01",
+    "type": "bizum",
+    "deltas": {
+      "alex": -2.5,
+      "cabo": 2.5
+    },
+    "createdAt": 1593561848000
+  },
+  {
+    "id": "hist-0249",
+    "rowNum": 249,
+    "concept": "Bizum",
+    "date": "2023-01-06",
+    "type": "bizum",
+    "deltas": {
+      "luis": 52.15,
+      "cabo": -52.15
+    },
+    "createdAt": 1593561849000
+  },
+  {
+    "id": "hist-0250",
+    "rowNum": 250,
+    "concept": "CarolZona",
+    "date": "2023-02-12",
+    "type": "equal",
+    "deltas": {
+      "alex": 5.84,
+      "luis": 5.0,
+      "cabo": -10.84
+    },
+    "createdAt": 1593561850000
+  },
+  {
+    "id": "hist-0251",
+    "rowNum": 251,
+    "concept": "Cuaderno",
+    "date": "2023-02-15",
+    "type": "bizum",
+    "deltas": {
+      "luis": -2.1,
+      "cabo": 2.1
+    },
+    "createdAt": 1593561851000
+  },
+  {
+    "id": "hist-0252",
+    "rowNum": 252,
+    "concept": "Hostelería",
+    "date": "2023-02-15",
+    "type": "bizum",
+    "deltas": {
+      "luis": 2.75,
+      "cabo": -2.75
+    },
+    "createdAt": 1593561852000
+  },
+  {
+    "id": "hist-0253",
+    "rowNum": 253,
+    "concept": "Florida",
+    "date": "2023-02-03",
+    "type": "bizum",
+    "deltas": {
+      "alex": -13.35,
+      "cabo": 13.35
+    },
+    "createdAt": 1593561853000
+  },
+  {
+    "id": "hist-0254",
+    "rowNum": 254,
+    "concept": "Hostelería",
+    "date": "2023-03-08",
+    "type": "bizum",
+    "deltas": {
+      "luis": 5.6,
+      "cabo": -5.6
+    },
+    "createdAt": 1593561854000
+  },
+  {
+    "id": "hist-0255",
+    "rowNum": 255,
+    "concept": "Telepipsa",
+    "date": "2023-03-18",
+    "type": "equal",
+    "deltas": {
+      "alex": -5.5,
+      "luis": 11.0,
+      "cabo": -5.5
+    },
+    "createdAt": 1593561855000
+  },
+  {
+    "id": "hist-0256",
+    "rowNum": 256,
+    "concept": "Pincho",
+    "date": "2023-03-23",
+    "type": "bizum",
+    "deltas": {
+      "luis": -2.3,
+      "cabo": 2.3
+    },
+    "createdAt": 1593561856000
+  },
+  {
+    "id": "hist-0257",
+    "rowNum": 257,
+    "concept": "Hosteleria",
+    "date": "2023-03-23",
+    "type": "bizum",
+    "deltas": {
+      "luis": -5.6,
+      "cabo": 5.6
+    },
+    "createdAt": 1593561857000
+  },
+  {
+    "id": "hist-0258",
+    "rowNum": 258,
+    "concept": "Tren",
+    "date": "2023-04-02",
+    "type": "bizum",
+    "deltas": {
+      "luis": -0.7,
+      "cabo": 0.7
+    },
+    "createdAt": 1593561858000
+  },
+  {
+    "id": "hist-0259",
+    "rowNum": 259,
+    "concept": "Casa Luis",
+    "date": "2023-04-08",
+    "type": "equal",
+    "deltas": {
+      "alex": -3.4,
+      "luis": 6.8,
+      "cabo": -3.4
+    },
+    "createdAt": 1593561859000
+  },
+  {
+    "id": "hist-0260",
+    "rowNum": 260,
+    "concept": "McDonalds",
+    "date": "2023-04-09",
+    "type": "bizum",
+    "deltas": {
+      "alex": 5.8,
+      "cabo": -5.8
+    },
+    "createdAt": 1593561860000
+  },
+  {
+    "id": "hist-0261",
+    "rowNum": 261,
+    "concept": "Telepi",
+    "date": "2023-04-30",
+    "type": "equal",
+    "deltas": {
+      "alex": 13.98,
+      "luis": -6.99,
+      "cabo": -6.99
+    },
+    "createdAt": 1593561861000
+  },
+  {
+    "id": "hist-0262",
+    "rowNum": 262,
+    "concept": "Juanan",
+    "date": "2023-05-05",
+    "type": "bizum",
+    "deltas": {
+      "alex": 2.0,
+      "cabo": -2.0
+    },
+    "createdAt": 1593561862000
+  },
+  {
+    "id": "hist-0263",
+    "rowNum": 263,
+    "concept": "Vinilo",
+    "date": "2023-05-20",
+    "type": "equal",
+    "deltas": {
+      "alex": -6.5,
+      "luis": -6.5,
+      "cabo": 13.0
+    },
+    "createdAt": 1593561863000
+  },
+  {
+    "id": "hist-0264",
+    "rowNum": 264,
+    "concept": "Fangafanga",
+    "date": "2023-06-06",
+    "type": "bizum",
+    "deltas": {
+      "luis": 5.3,
+      "cabo": -5.3
+    },
+    "createdAt": 1593561864000
+  },
+  {
+    "id": "hist-0265",
+    "rowNum": 265,
+    "concept": "Tabaco",
+    "date": "2023-06-08",
+    "type": "bizum",
+    "deltas": {
+      "alex": -5.0,
+      "cabo": 5.0
+    },
+    "createdAt": 1593561865000
+  },
+  {
+    "id": "hist-0266",
+    "rowNum": 266,
+    "concept": "CasaCarmen",
+    "date": "2023-06-30",
+    "type": "bizum",
+    "deltas": {
+      "alex": 3.22,
+      "cabo": -3.22
+    },
+    "createdAt": 1593561866000
+  },
+  {
+    "id": "hist-0267",
+    "rowNum": 267,
+    "concept": "BlueLabel",
+    "date": "2023-06-30",
+    "type": "bizum",
+    "deltas": {
+      "alex": 3.3,
+      "cabo": -3.3
+    },
+    "createdAt": 1593561867000
+  },
+  {
+    "id": "hist-0268",
+    "rowNum": 268,
+    "concept": "Imdians",
+    "date": "2023-07-07",
+    "type": "bizum",
+    "deltas": {
+      "alex": -9.0,
+      "cabo": 9.0
+    },
+    "createdAt": 1593561868000
+  },
+  {
+    "id": "hist-0269",
+    "rowNum": 269,
+    "concept": "Burguer",
+    "date": "2023-07-08",
+    "type": "bizum",
+    "deltas": {
+      "alex": 10.0,
+      "cabo": -10.0
+    },
+    "createdAt": 1593561869000
+  },
+  {
+    "id": "hist-0270",
+    "rowNum": 270,
+    "concept": "Five Guys",
+    "date": "2023-07-09",
+    "type": "bizum",
+    "deltas": {
+      "alex": -14.0,
+      "cabo": 14.0
+    },
+    "createdAt": 1593561870000
+  },
+  {
+    "id": "hist-0271",
+    "rowNum": 271,
+    "concept": "Kebab MI",
+    "date": "2023-07-19",
+    "type": "equal",
+    "deltas": {
+      "alex": 0.5,
+      "luis": -4.5,
+      "cabo": 4.0
+    },
+    "createdAt": 1593561871000
+  },
+  {
+    "id": "hist-0272",
+    "rowNum": 272,
+    "concept": "Helado",
+    "date": "2023-07-20",
+    "type": "bizum",
+    "deltas": {
+      "alex": -3.0,
+      "cabo": 3.0
+    },
+    "createdAt": 1593561872000
+  },
+  {
+    "id": "hist-0273",
+    "rowNum": 273,
+    "concept": "Oppenheimer",
+    "date": "2023-07-21",
+    "type": "equal",
+    "deltas": {
+      "alex": -8.0,
+      "luis": -6.5,
+      "max": -6.5,
+      "cabo": 21.0
+    },
+    "createdAt": 1593561873000
+  },
+  {
+    "id": "hist-0274",
+    "rowNum": 274,
+    "concept": "Peaje 1",
+    "date": "2023-07-23",
+    "type": "equal",
+    "deltas": {
+      "alex": -2.32,
+      "luis": -2.32,
+      "max": 9.28,
+      "cabo": -2.32,
+      "emi": -2.32
+    },
+    "createdAt": 1593561874000
+  },
+  {
+    "id": "hist-0275",
+    "rowNum": 275,
+    "concept": "Parada 1",
+    "date": "2023-07-23",
+    "type": "equal",
+    "deltas": {
+      "luis": -2.5,
+      "max": 5.0,
+      "cabo": -2.5
+    },
+    "createdAt": 1593561875000
+  },
+  {
+    "id": "hist-0276",
+    "rowNum": 276,
+    "concept": "Parada 2",
+    "date": "2023-07-23",
+    "type": "equal",
+    "deltas": {
+      "alex": -4.75,
+      "luis": -5.5,
+      "max": 17.5,
+      "cabo": -7.25
+    },
+    "createdAt": 1593561876000
+  },
+  {
+    "id": "hist-0277",
+    "rowNum": 277,
+    "concept": "Gasolina",
+    "date": "2023-07-23",
+    "type": "equal",
+    "deltas": {
+      "alex": -18.0,
+      "luis": -18.0,
+      "max": 72.0,
+      "cabo": -18.0,
+      "emi": -18.0
+    },
+    "createdAt": 1593561877000
+  },
+  {
+    "id": "hist-0278",
+    "rowNum": 278,
+    "concept": "Tasa Turistica",
+    "date": "2023-07-23",
+    "type": "equal",
+    "deltas": {
+      "alex": -10.0,
+      "luis": -10.0,
+      "max": 30.0,
+      "cabo": -10.0
+    },
+    "createdAt": 1593561878000
+  },
+  {
+    "id": "hist-0279",
+    "rowNum": 279,
+    "concept": "Peaje 2",
+    "date": "2023-07-23",
+    "type": "equal",
+    "deltas": {
+      "alex": -1.98,
+      "luis": -1.98,
+      "max": 7.92,
+      "cabo": -1.98,
+      "emi": -1.98
+    },
+    "createdAt": 1593561879000
+  },
+  {
+    "id": "hist-0280",
+    "rowNum": 280,
+    "concept": "Cervezas",
+    "date": "2023-07-23",
+    "type": "equal",
+    "deltas": {
+      "alex": 16.0,
+      "luis": -2.7,
+      "max": -7.9,
+      "cabo": -2.7,
+      "emi": -2.7
+    },
+    "createdAt": 1593561880000
+  },
+  {
+    "id": "hist-0281",
+    "rowNum": 281,
+    "concept": "Kebab",
+    "date": "2023-07-23",
+    "type": "equal",
+    "deltas": {
+      "alex": -10.0,
+      "luis": -10.0,
+      "max": -10.0,
+      "cabo": 40.0,
+      "emi": -10.0
+    },
+    "createdAt": 1593561881000
+  },
+  {
+    "id": "hist-0282",
+    "rowNum": 282,
+    "concept": "Super 1",
+    "date": "2023-07-23",
+    "type": "equal",
+    "deltas": {
+      "alex": 13.27,
+      "luis": -0.998,
+      "max": -0.998,
+      "cabo": -0.998,
+      "emi": -10.278
+    },
+    "createdAt": 1593561882000
+  },
+  {
+    "id": "hist-0283",
+    "rowNum": 283,
+    "concept": "Mercadillo",
+    "date": "2023-07-24",
+    "type": "equal",
+    "deltas": {
+      "alex": 2.5,
+      "luis": -18.5,
+      "cabo": 16.0
+    },
+    "createdAt": 1593561883000
+  },
+  {
+    "id": "hist-0284",
+    "rowNum": 284,
+    "concept": "Súper 2",
+    "date": "2023-07-24",
+    "type": "equal",
+    "deltas": {
+      "alex": 55.52,
+      "luis": -13.786,
+      "max": -20.136,
+      "cabo": -10.496,
+      "emi": -11.101
+    },
+    "createdAt": 1593561884000
+  },
+  {
+    "id": "hist-0285",
+    "rowNum": 285,
+    "concept": "Desayuno",
+    "date": "2023-07-24",
+    "type": "equal",
+    "deltas": {
+      "alex": -4.1,
+      "luis": 39.5,
+      "max": -23.2,
+      "cabo": -5.7,
+      "emi": -6.5
+    },
+    "createdAt": 1593561885000
+  },
+  {
+    "id": "hist-0286",
+    "rowNum": 286,
+    "concept": "Pizzas",
+    "date": "2023-07-24",
+    "type": "equal",
+    "deltas": {
+      "alex": -13.5,
+      "luis": -13.5,
+      "max": -13.5,
+      "cabo": -14.0,
+      "emi": 54.5
+    },
+    "createdAt": 1593561886000
+  },
+  {
+    "id": "hist-0287",
+    "rowNum": 287,
+    "concept": "Pastel de Nata",
+    "date": "2023-07-25",
+    "type": "equal",
+    "deltas": {
+      "alex": -1.0,
+      "cabo": -1.0,
+      "emi": 2.0
+    },
+    "createdAt": 1593561887000
+  },
+  {
+    "id": "hist-0288",
+    "rowNum": 288,
+    "concept": "Aparcamiento",
+    "date": "2023-07-25",
+    "type": "equal",
+    "deltas": {
+      "alex": -10.4,
+      "luis": -10.4,
+      "max": 41.6,
+      "cabo": -10.4,
+      "emi": -10.4
+    },
+    "createdAt": 1593561888000
+  },
+  {
+    "id": "hist-0289",
+    "rowNum": 289,
+    "concept": "Súper 3",
+    "date": "2023-07-24",
+    "type": "equal",
+    "deltas": {
+      "alex": -1.053,
+      "luis": 3.51,
+      "max": -0.278,
+      "cabo": -1.128,
+      "emi": -1.053
+    },
+    "createdAt": 1593561889000
+  },
+  {
+    "id": "hist-0290",
+    "rowNum": 290,
+    "concept": "Peaje Aveiro",
+    "date": "2023-07-25",
+    "type": "equal",
+    "deltas": {
+      "alex": -0.76,
+      "luis": -0.76,
+      "max": 3.04,
+      "cabo": -0.76,
+      "emi": -0.76
+    },
+    "createdAt": 1593561890000
+  },
+  {
+    "id": "hist-0291",
+    "rowNum": 291,
+    "concept": "Aparcamiento Aviero",
+    "date": "2023-07-25",
+    "type": "equal",
+    "deltas": {
+      "alex": -0.71,
+      "luis": -0.71,
+      "max": -0.71,
+      "cabo": 2.84,
+      "emi": -0.71
+    },
+    "createdAt": 1593561891000
+  },
+  {
+    "id": "hist-0292",
+    "rowNum": 292,
+    "concept": "Peaje Nazare",
+    "date": "2023-07-26",
+    "type": "equal",
+    "deltas": {
+      "alex": -3.02,
+      "luis": -3.02,
+      "max": 12.08,
+      "cabo": -3.02,
+      "emi": -3.02
+    },
+    "createdAt": 1593561892000
+  },
+  {
+    "id": "hist-0293",
+    "rowNum": 293,
+    "concept": "Chiringo",
+    "date": "2023-07-26",
+    "type": "equal",
+    "deltas": {
+      "alex": -11.0,
+      "luis": 59.5,
+      "max": -16.5,
+      "cabo": -16.5,
+      "emi": -15.5
+    },
+    "createdAt": 1593561893000
+  },
+  {
+    "id": "hist-0294",
+    "rowNum": 294,
+    "concept": "Gasolina",
+    "date": "2023-07-26",
+    "type": "equal",
+    "deltas": {
+      "alex": -9.856,
+      "luis": -9.856,
+      "max": 39.424,
+      "cabo": -9.856,
+      "emi": -9.856
+    },
+    "createdAt": 1593561894000
+  },
+  {
+    "id": "hist-0295",
+    "rowNum": 295,
+    "concept": "Súper 4",
+    "date": "2023-07-25",
+    "type": "equal",
+    "deltas": {
+      "alex": -4.504,
+      "luis": 18.02,
+      "max": -4.504,
+      "cabo": -4.504,
+      "emi": -4.504
+    },
+    "createdAt": 1593561895000
+  },
+  {
+    "id": "hist-0296",
+    "rowNum": 296,
+    "concept": "Súper 5",
+    "date": "2023-07-26",
+    "type": "equal",
+    "deltas": {
+      "alex": -3.078,
+      "luis": 12.31,
+      "max": -3.078,
+      "cabo": -3.078,
+      "emi": -3.078
+    },
+    "createdAt": 1593561896000
+  },
+  {
+    "id": "hist-0297",
+    "rowNum": 297,
+    "concept": "Franceshina",
+    "date": "2023-07-27",
+    "type": "equal",
+    "deltas": {
+      "alex": -19.05,
+      "luis": -16.466667,
+      "max": -16.466667,
+      "cabo": -16.466667,
+      "emi": 68.45
+    },
+    "createdAt": 1593561897000
+  },
+  {
+    "id": "hist-0298",
+    "rowNum": 298,
+    "concept": "Moneda",
+    "date": "2023-07-27",
+    "type": "bizum",
+    "deltas": {
+      "max": 3.0,
+      "emi": -3.0
+    },
+    "createdAt": 1593561898000
+  },
+  {
+    "id": "hist-0299",
+    "rowNum": 299,
+    "concept": "Pastel Nata",
+    "date": "2023-07-27",
+    "type": "equal",
+    "deltas": {
+      "alex": 3.6,
+      "luis": -1.2,
+      "cabo": -1.2,
+      "emi": -1.2
+    },
+    "createdAt": 1593561899000
+  },
+  {
+    "id": "hist-0300",
+    "rowNum": 300,
+    "concept": "Pastel Viaje",
+    "date": "2023-07-28",
+    "type": "equal",
+    "deltas": {
+      "alex": -6.92,
+      "luis": -6.92,
+      "max": -6.92,
+      "cabo": 27.68,
+      "emi": -6.92
+    },
+    "createdAt": 1593561900000
+  },
+  {
+    "id": "hist-0301",
+    "rowNum": 301,
+    "concept": "Aparcamiento",
+    "date": "2023-07-28",
+    "type": "equal",
+    "deltas": {
+      "alex": -8.8,
+      "luis": -8.8,
+      "max": 35.2,
+      "cabo": -8.8,
+      "emi": -8.8
+    },
+    "createdAt": 1593561901000
+  },
+  {
+    "id": "hist-0302",
+    "rowNum": 302,
+    "concept": "Peaje V 1",
+    "date": "2023-07-28",
+    "type": "equal",
+    "deltas": {
+      "alex": -0.88,
+      "luis": -0.88,
+      "max": 3.52,
+      "cabo": -0.88,
+      "emi": -0.88
+    },
+    "createdAt": 1593561902000
+  },
+  {
+    "id": "hist-0303",
+    "rowNum": 303,
+    "concept": "Toro",
+    "date": "2023-07-28",
+    "type": "equal",
+    "deltas": {
+      "alex": 14.5,
+      "luis": -3.25,
+      "max": -5.5,
+      "cabo": -3.25,
+      "emi": -2.5
+    },
+    "createdAt": 1593561903000
+  },
+  {
+    "id": "hist-0304",
+    "rowNum": 304,
+    "concept": "Peaje V 2",
+    "date": "2023-07-28",
+    "type": "equal",
+    "deltas": {
+      "alex": -2.26,
+      "luis": -2.26,
+      "max": 9.04,
+      "cabo": -2.26,
+      "emi": -2.26
+    },
+    "createdAt": 1593561904000
+  },
+  {
+    "id": "hist-0305",
+    "rowNum": 305,
+    "concept": "Kebab",
+    "date": "2023-07-30",
+    "type": "equal",
+    "deltas": {
+      "alex": 1.15,
+      "luis": 4.5,
+      "cabo": -5.65
+    },
+    "createdAt": 1593561905000
+  },
+  {
+    "id": "hist-0306",
+    "rowNum": 306,
+    "concept": "Barbie",
+    "date": "2023-08-02",
+    "type": "bizum",
+    "deltas": {
+      "luis": -4.5,
+      "cabo": 4.5
+    },
+    "createdAt": 1593561906000
+  },
+  {
+    "id": "hist-0307",
+    "rowNum": 307,
+    "concept": "Supercor",
+    "date": "2023-08-04",
+    "type": "bizum",
+    "deltas": {
+      "luis": -1.65,
+      "cabo": 1.65
+    },
+    "createdAt": 1593561907000
+  },
+  {
+    "id": "hist-0308",
+    "rowNum": 308,
+    "concept": "Chino",
+    "date": "2023-08-16",
+    "type": "bizum",
+    "deltas": {
+      "alex": 6.25,
+      "cabo": -6.25
+    },
+    "createdAt": 1593561908000
+  },
+  {
+    "id": "hist-0309",
+    "rowNum": 309,
+    "concept": "Helado",
+    "date": "2023-08-18",
+    "type": "bizum",
+    "deltas": {
+      "alex": 1.75,
+      "cabo": -1.75
+    },
+    "createdAt": 1593561909000
+  },
+  {
+    "id": "hist-0310",
+    "rowNum": 310,
+    "concept": "Goyo",
+    "date": "2023-08-19",
+    "type": "equal",
+    "deltas": {
+      "alex": -44.0,
+      "luis": -22.0,
+      "max": -22.0,
+      "cabo": 88.0
+    },
+    "createdAt": 1593561910000
+  },
+  {
+    "id": "hist-0311",
+    "rowNum": 311,
+    "concept": "Bilbao 1",
+    "date": "2023-08-19",
+    "type": "bizum",
+    "deltas": {
+      "alex": 8.0,
+      "cabo": -8.0
+    },
+    "createdAt": 1593561911000
+  },
+  {
+    "id": "hist-0312",
+    "rowNum": 312,
+    "concept": "Bilbao 3",
+    "date": "2023-08-21",
+    "type": "bizum",
+    "deltas": {
+      "alex": 1.75,
+      "cabo": -1.75
+    },
+    "createdAt": 1593561912000
+  },
+  {
+    "id": "hist-0313",
+    "rowNum": 313,
+    "concept": "Bilbao 5",
+    "date": "2023-08-23",
+    "type": "bizum",
+    "deltas": {
+      "luis": -11.0,
+      "cabo": 11.0
+    },
+    "createdAt": 1593561913000
+  },
+  {
+    "id": "hist-0314",
+    "rowNum": 314,
+    "concept": "Bilbao 7",
+    "date": "2023-08-25",
+    "type": "equal",
+    "deltas": {
+      "alex": 8.0,
+      "luis": -2.666667,
+      "cabo": -2.666667,
+      "emi": -2.666667
+    },
+    "createdAt": 1593561914000
+  },
+  {
+    "id": "hist-0315",
+    "rowNum": 315,
+    "concept": "Panda",
+    "date": "2023-08-25",
+    "type": "equal",
+    "deltas": {
+      "luis": -12.5,
+      "max": -32.0,
+      "cabo": 44.5
+    },
+    "createdAt": 1593561915000
+  },
+  {
+    "id": "hist-0316",
+    "rowNum": 316,
+    "concept": "Golfo Norte",
+    "date": "2023-08-27",
+    "type": "equal",
+    "deltas": {
+      "alex": -4.6,
+      "max": -3.75,
+      "cabo": 8.35
+    },
+    "createdAt": 1593561916000
+  },
+  {
+    "id": "hist-0317",
+    "rowNum": 317,
+    "concept": "Jai Alai",
+    "date": "2023-09-05",
+    "type": "equal",
+    "deltas": {
+      "alex": -4.0,
+      "luis": -4.0,
+      "cabo": 10.0,
+      "emi": -2.0
+    },
+    "createdAt": 1593561917000
+  },
+  {
+    "id": "hist-0318",
+    "rowNum": 318,
+    "concept": "Fangaloka",
+    "date": "2023-09-09",
+    "type": "equal",
+    "deltas": {
+      "max": 5.666667,
+      "cabo": -2.833333,
+      "emi": -2.833333
+    },
+    "createdAt": 1593561918000
+  },
+  {
+    "id": "hist-0319",
+    "rowNum": 319,
+    "concept": "Buho rojo",
+    "date": "2023-09-14",
+    "type": "equal",
+    "deltas": {
+      "alex": 64.22,
+      "max": -22.44,
+      "cabo": -20.54,
+      "emi": -21.24
+    },
+    "createdAt": 1593561919000
+  },
+  {
+    "id": "hist-0320",
+    "rowNum": 320,
+    "concept": "LaMonja2",
+    "date": "2023-09-21",
+    "type": "equal",
+    "deltas": {
+      "alex": -6.9,
+      "luis": 27.6,
+      "max": -6.9,
+      "cabo": -6.9,
+      "emi": -6.9
+    },
+    "createdAt": 1593561920000
+  },
+  {
+    "id": "hist-0321",
+    "rowNum": 321,
+    "concept": "Belros",
+    "date": "2023-09-21",
+    "type": "equal",
+    "deltas": {
+      "luis": 6.85,
+      "max": -3.1,
+      "cabo": -3.75
+    },
+    "createdAt": 1593561921000
+  },
+  {
+    "id": "hist-0322",
+    "rowNum": 322,
+    "concept": "SAW X",
+    "date": "2023-10-06",
+    "type": "equal",
+    "deltas": {
+      "alex": -6.7,
+      "luis": 11.0,
+      "cabo": -4.3
+    },
+    "createdAt": 1593561922000
+  },
+  {
+    "id": "hist-0323",
+    "rowNum": 323,
+    "concept": "Cafeteria",
+    "date": "2023-10-05",
+    "type": "equal",
+    "deltas": {
+      "luis": -7.25,
+      "max": 14.5,
+      "cabo": -7.25
+    },
+    "createdAt": 1593561923000
+  },
+  {
+    "id": "hist-0324",
+    "rowNum": 324,
+    "concept": "Eroski",
+    "date": "2023-10-19",
+    "type": "bizum",
+    "deltas": {
+      "luis": 1.9,
+      "cabo": -1.9
+    },
+    "createdAt": 1593561924000
+  },
+  {
+    "id": "hist-0325",
+    "rowNum": 325,
+    "concept": "Pintxo Cafetería",
+    "date": "2023-11-21",
+    "type": "bizum",
+    "deltas": {
+      "luis": 1.45,
+      "cabo": -1.45
+    },
+    "createdAt": 1593561925000
+  },
+  {
+    "id": "hist-0326",
+    "rowNum": 326,
+    "concept": "Casa Carol",
+    "date": "2023-11-18",
+    "type": "equal",
+    "deltas": {
+      "alex": -7.1,
+      "luis": 9.85,
+      "cabo": -2.75
+    },
+    "createdAt": 1593561926000
+  },
+  {
+    "id": "hist-0327",
+    "rowNum": 327,
+    "concept": "Nochevieja",
+    "date": "2023-12-31",
+    "type": "bizum",
+    "deltas": {
+      "luis": -8.0,
+      "cabo": 8.0
+    },
+    "createdAt": 1593561927000
+  },
+  {
+    "id": "hist-0328",
+    "rowNum": 328,
+    "concept": "FiveGuys",
+    "date": "2024-01-14",
+    "type": "bizum",
+    "deltas": {
+      "alex": 11.37,
+      "cabo": -11.37
+    },
+    "createdAt": 1593561928000
+  },
+  {
+    "id": "hist-0329",
+    "rowNum": 329,
+    "concept": "tallarines/AR",
+    "date": "2024-01-28",
+    "type": "equal",
+    "deltas": {
+      "alex": -6.0,
+      "luis": 12.0,
+      "cabo": -6.0
+    },
+    "createdAt": 1593561929000
+  },
+  {
+    "id": "hist-0330",
+    "rowNum": 330,
+    "concept": "Radler",
+    "date": "2024-01-28",
+    "type": "equal",
+    "deltas": {
+      "alex": -2.8,
+      "luis": -1.5,
+      "max": -1.5,
+      "cabo": 5.8
+    },
+    "createdAt": 1593561930000
+  },
+  {
+    "id": "hist-0331",
+    "rowNum": 331,
+    "concept": "Radler",
+    "date": "2024-02-10",
+    "type": "equal",
+    "deltas": {
+      "luis": -1.763333,
+      "max": -1.763333,
+      "cabo": 3.526667
+    },
+    "createdAt": 1593561931000
+  },
+  {
+    "id": "hist-0332",
+    "rowNum": 332,
+    "concept": "Kebab",
+    "date": "2024-02-17",
+    "type": "equal",
+    "deltas": {
+      "alex": -3.5,
+      "luis": 7.0,
+      "cabo": -3.5
+    },
+    "createdAt": 1593561932000
+  },
+  {
+    "id": "hist-0333",
+    "rowNum": 333,
+    "concept": "Zumo",
+    "date": "2024-03-01",
+    "type": "bizum",
+    "deltas": {
+      "luis": 4.05,
+      "cabo": -4.05
+    },
+    "createdAt": 1593561933000
+  },
+  {
+    "id": "hist-0334",
+    "rowNum": 334,
+    "concept": "Panda",
+    "date": "2024-03-02",
+    "type": "equal",
+    "deltas": {
+      "luis": 23.9,
+      "max": -11.95,
+      "emi": -11.95
+    },
+    "createdAt": 1593561934000
+  },
+  {
+    "id": "hist-0335",
+    "rowNum": 335,
+    "concept": "Envío",
+    "date": "2024-03-02",
+    "type": "equal",
+    "deltas": {
+      "luis": 2.25,
+      "max": -0.75,
+      "cabo": -0.75,
+      "emi": -0.75
+    },
+    "createdAt": 1593561935000
+  },
+  {
+    "id": "hist-0336",
+    "rowNum": 336,
+    "concept": "Cerveza",
+    "date": "2024-03-02",
+    "type": "equal",
+    "deltas": {
+      "alex": -1.5,
+      "luis": -1.5,
+      "max": 6.0,
+      "cabo": -1.5,
+      "emi": -1.5
+    },
+    "createdAt": 1593561936000
+  },
+  {
+    "id": "hist-0337",
+    "rowNum": 337,
+    "concept": "Poker",
+    "date": "2024-03-03",
+    "type": "equal",
+    "deltas": {
+      "alex": 2.0,
+      "max": 0.8,
+      "cabo": -2.6
+    },
+    "createdAt": 1593561937000
+  },
+  {
+    "id": "hist-0338",
+    "rowNum": 338,
+    "concept": "Agua",
+    "date": "2024-03-08",
+    "type": "equal",
+    "deltas": {
+      "alex": 1.28,
+      "luis": -0.64,
+      "cabo": -0.64
+    },
+    "createdAt": 1593561938000
+  },
+  {
+    "id": "hist-0339",
+    "rowNum": 339,
+    "concept": "Agua macas",
+    "date": "2024-03-08",
+    "type": "bizum",
+    "deltas": {
+      "alex": 1.6,
+      "cabo": -1.6
+    },
+    "createdAt": 1593561939000
+  },
+  {
+    "id": "hist-0340",
+    "rowNum": 340,
+    "concept": "Kebab",
+    "date": "2024-03-11",
+    "type": "equal",
+    "deltas": {
+      "alex": 7.0,
+      "luis": -3.5,
+      "cabo": -3.5
+    },
+    "createdAt": 1593561940000
+  },
+  {
+    "id": "hist-0341",
+    "rowNum": 341,
+    "concept": "txopitea",
+    "date": "2024-03-14",
+    "type": "bizum",
+    "deltas": {
+      "luis": 5.7,
+      "cabo": -5.7
+    },
+    "createdAt": 1593561941000
+  },
+  {
+    "id": "hist-0342",
+    "rowNum": 342,
+    "concept": "Dune2",
+    "date": "2024-03-23",
+    "type": "equal",
+    "deltas": {
+      "alex": 25.95,
+      "luis": -8.65,
+      "max": -8.65,
+      "cabo": -8.65
+    },
+    "createdAt": 1593561942000
+  },
+  {
+    "id": "hist-0343",
+    "rowNum": 343,
+    "concept": "100 montas",
+    "date": "2024-03-23",
+    "type": "bizum",
+    "deltas": {
+      "alex": -7.85,
+      "cabo": 7.85
+    },
+    "createdAt": 1593561943000
+  },
+  {
+    "id": "hist-0344",
+    "rowNum": 344,
+    "concept": "Supercor",
+    "date": "2024-04-12",
+    "type": "equal",
+    "deltas": {
+      "alex": 3.49,
+      "luis": -1.99,
+      "cabo": -1.5
+    },
+    "createdAt": 1593561944000
+  },
+  {
+    "id": "hist-0345",
+    "rowNum": 345,
+    "concept": "Empa nada",
+    "date": "2024-04-25",
+    "type": "bizum",
+    "deltas": {
+      "luis": 1.75,
+      "cabo": -1.75
+    },
+    "createdAt": 1593561945000
+  },
+  {
+    "id": "hist-0346",
+    "rowNum": 346,
+    "concept": "Florida",
+    "date": "2024-04-27",
+    "type": "bizum",
+    "deltas": {
+      "alex": -12.8,
+      "cabo": 12.8
+    },
+    "createdAt": 1593561946000
+  },
+  {
+    "id": "hist-0347",
+    "rowNum": 347,
+    "concept": "Tallarines",
+    "date": "2024-06-01",
+    "type": "equal",
+    "deltas": {
+      "alex": -5.5,
+      "luis": 11.0,
+      "cabo": -5.5
+    },
+    "createdAt": 1593561947000
+  },
+  {
+    "id": "hist-0348",
+    "rowNum": 348,
+    "concept": "Eroski",
+    "date": "2024-06-08",
+    "type": "equal",
+    "deltas": {
+      "alex": 2.75,
+      "luis": -1.75,
+      "cabo": 1.5,
+      "emi": -2.5
+    },
+    "createdAt": 1593561948000
+  },
+  {
+    "id": "hist-0349",
+    "rowNum": 349,
+    "concept": "Kebab",
+    "date": "2024-06-08",
+    "type": "equal",
+    "deltas": {
+      "alex": 12.0,
+      "luis": -6.0,
+      "cabo": -6.0
+    },
+    "createdAt": 1593561949000
+  },
+  {
+    "id": "hist-0350",
+    "rowNum": 350,
+    "concept": "Eroski",
+    "date": "2024-06-08",
+    "type": "bizum",
+    "deltas": {
+      "alex": 2.74,
+      "luis": -2.74
+    },
+    "createdAt": 1593561950000
+  },
+  {
+    "id": "hist-0351",
+    "rowNum": 351,
+    "concept": "Golfo norte",
+    "date": "2024-06-09",
+    "type": "equal",
+    "deltas": {
+      "alex": 9.666667,
+      "luis": -4.833333,
+      "cabo": -4.833333
+    },
+    "createdAt": 1593561951000
+  },
+  {
+    "id": "hist-0352",
+    "rowNum": 352,
+    "concept": "kebab",
+    "date": "2024-06-13",
+    "type": "bizum",
+    "deltas": {
+      "max": 4.5,
+      "cabo": -4.5
+    },
+    "createdAt": 1593561952000
+  },
+  {
+    "id": "hist-0353",
+    "rowNum": 353,
+    "concept": "Kebab",
+    "date": "2024-06-13",
+    "type": "bizum",
+    "deltas": {
+      "alex": 3.5,
+      "cabo": -3.5
+    },
+    "createdAt": 1593561953000
+  },
+  {
+    "id": "hist-0354",
+    "rowNum": 354,
+    "concept": "Casa cabo",
+    "date": "2024-06-16",
+    "type": "bizum",
+    "deltas": {
+      "alex": 9.5,
+      "cabo": -9.5
+    },
+    "createdAt": 1593561954000
+  },
+  {
+    "id": "hist-0355",
+    "rowNum": 355,
+    "concept": "Supercor",
+    "date": "2024-06-17",
+    "type": "bizum",
+    "deltas": {
+      "alex": -2.35,
+      "cabo": 2.35
+    },
+    "createdAt": 1593561955000
+  },
+  {
+    "id": "hist-0356",
+    "rowNum": 356,
+    "concept": "Kurt",
+    "date": "2024-06-20",
+    "type": "bizum",
+    "deltas": {
+      "luis": -15.9,
+      "cabo": 15.9
+    },
+    "createdAt": 1593561956000
+  },
+  {
+    "id": "hist-0357",
+    "rowNum": 357,
+    "concept": "Dinamico",
+    "date": "2024-06-22",
+    "type": "bizum",
+    "deltas": {
+      "max": -14.55,
+      "cabo": 14.55
+    },
+    "createdAt": 1593561957000
+  },
+  {
+    "id": "hist-0358",
+    "rowNum": 358,
+    "concept": "Agua",
+    "date": "2024-06-28",
+    "type": "equal",
+    "deltas": {
+      "alex": 1.73,
+      "max": -0.87,
+      "cabo": -0.87
+    },
+    "createdAt": 1593561958000
+  },
+  {
+    "id": "hist-0359",
+    "rowNum": 359,
+    "concept": "Burguer",
+    "date": "2024-06-28",
+    "type": "equal",
+    "deltas": {
+      "alex": 30.73,
+      "max": -11.24,
+      "cabo": -10.74,
+      "emi": -8.75
+    },
+    "createdAt": 1593561959000
+  },
+  {
+    "id": "hist-0360",
+    "rowNum": 360,
+    "concept": "Gasolina Ida",
+    "date": "2024-06-28",
+    "type": "equal",
+    "deltas": {
+      "alex": -15.5,
+      "max": 46.5,
+      "cabo": -15.5,
+      "emi": -15.5
+    },
+    "createdAt": 1593561960000
+  },
+  {
+    "id": "hist-0361",
+    "rowNum": 361,
+    "concept": "Peaje",
+    "date": "2024-06-28",
+    "type": "equal",
+    "deltas": {
+      "alex": -9.25,
+      "max": 27.75,
+      "cabo": -9.25,
+      "emi": -9.25
+    },
+    "createdAt": 1593561961000
+  },
+  {
+    "id": "hist-0362",
+    "rowNum": 362,
+    "concept": "Escarpines",
+    "date": "2024-06-29",
+    "type": "equal",
+    "deltas": {
+      "alex": -10.95,
+      "max": -10.95,
+      "cabo": -10.95,
+      "emi": 32.85
+    },
+    "createdAt": 1593561962000
+  },
+  {
+    "id": "hist-0363",
+    "rowNum": 363,
+    "concept": "Mercadona",
+    "date": "2024-06-29",
+    "type": "equal",
+    "deltas": {
+      "alex": -18.485,
+      "max": -24.845,
+      "cabo": 61.815,
+      "emi": -18.485
+    },
+    "createdAt": 1593561963000
+  },
+  {
+    "id": "hist-0364",
+    "rowNum": 364,
+    "concept": "Sazonador",
+    "date": "2024-06-29",
+    "type": "equal",
+    "deltas": {
+      "alex": 0.975,
+      "max": -0.325,
+      "cabo": -0.325,
+      "emi": -0.325
+    },
+    "createdAt": 1593561964000
+  },
+  {
+    "id": "hist-0365",
+    "rowNum": 365,
+    "concept": "Marítimo",
+    "date": "2024-06-29",
+    "type": "equal",
+    "deltas": {
+      "alex": -25.6,
+      "max": -24.8,
+      "cabo": -24.8,
+      "emi": 75.2
+    },
+    "createdAt": 1593561965000
+  },
+  {
+    "id": "hist-0366",
+    "rowNum": 366,
+    "concept": "Desayuno",
+    "date": "2024-06-30",
+    "type": "bizum",
+    "deltas": {
+      "cabo": 4.0,
+      "emi": -4.0
+    },
+    "createdAt": 1593561966000
+  },
+  {
+    "id": "hist-0367",
+    "rowNum": 367,
+    "concept": "Paella",
+    "date": "2024-06-30",
+    "type": "equal",
+    "deltas": {
+      "alex": 75.0,
+      "max": -25.0,
+      "cabo": -25.0,
+      "emi": -25.0
+    },
+    "createdAt": 1593561967000
+  },
+  {
+    "id": "hist-0368",
+    "rowNum": 368,
+    "concept": "Coctel",
+    "date": "2024-06-30",
+    "type": "equal",
+    "deltas": {
+      "alex": -12.75,
+      "max": -9.75,
+      "cabo": 36.75,
+      "emi": -14.25
+    },
+    "createdAt": 1593561968000
+  },
+  {
+    "id": "hist-0369",
+    "rowNum": 369,
+    "concept": "Hamburguesas",
+    "date": "2024-07-01",
+    "type": "equal",
+    "deltas": {
+      "alex": -3.605,
+      "max": 10.815,
+      "cabo": -3.605,
+      "emi": -3.605
+    },
+    "createdAt": 1593561969000
+  },
+  {
+    "id": "hist-0370",
+    "rowNum": 370,
+    "concept": "Mercadona",
+    "date": "2024-07-02",
+    "type": "equal",
+    "deltas": {
+      "alex": -5.8075,
+      "max": 17.4225,
+      "cabo": -5.8075,
+      "emi": -5.8075
+    },
+    "createdAt": 1593561970000
+  },
+  {
+    "id": "hist-0371",
+    "rowNum": 371,
+    "concept": "Parking cala",
+    "date": "2024-07-02",
+    "type": "equal",
+    "deltas": {
+      "alex": -3.0,
+      "max": 9.0,
+      "cabo": -3.0,
+      "emi": -3.0
+    },
+    "createdAt": 1593561971000
+  },
+  {
+    "id": "hist-0372",
+    "rowNum": 372,
+    "concept": "Mercadona",
+    "date": "2024-07-03",
+    "type": "equal",
+    "deltas": {
+      "alex": -4.085,
+      "max": -5.075,
+      "cabo": -3.175,
+      "emi": 12.335
+    },
+    "createdAt": 1593561972000
+  },
+  {
+    "id": "hist-0373",
+    "rowNum": 373,
+    "concept": "La Siesta",
+    "date": "2024-07-03",
+    "type": "equal",
+    "deltas": {
+      "alex": -12.5,
+      "max": -10.0,
+      "cabo": -10.0,
+      "emi": 32.5
+    },
+    "createdAt": 1593561973000
+  },
+  {
+    "id": "hist-0374",
+    "rowNum": 374,
+    "concept": "La Cantina",
+    "date": "2024-07-03",
+    "type": "equal",
+    "deltas": {
+      "alex": 90.5,
+      "max": -30.5,
+      "cabo": -31.0,
+      "emi": -29.0
+    },
+    "createdAt": 1593561974000
+  },
+  {
+    "id": "hist-0375",
+    "rowNum": 375,
+    "concept": "Desayuno",
+    "date": "2024-07-04",
+    "type": "equal",
+    "deltas": {
+      "alex": -3.3,
+      "max": -4.4,
+      "cabo": -3.2,
+      "emi": 10.9
+    },
+    "createdAt": 1593561975000
+  },
+  {
+    "id": "hist-0376",
+    "rowNum": 376,
+    "concept": "Landa",
+    "date": "2024-07-04",
+    "type": "equal",
+    "deltas": {
+      "alex": -14.7,
+      "max": -19.2,
+      "cabo": 48.6,
+      "emi": -14.7
+    },
+    "createdAt": 1593561976000
+  },
+  {
+    "id": "hist-0377",
+    "rowNum": 377,
+    "concept": "Gasolina Vuelta",
+    "date": "2024-07-04",
+    "type": "equal",
+    "deltas": {
+      "alex": -10.0,
+      "max": 52.5,
+      "cabo": -42.5
+    },
+    "createdAt": 1593561977000
+  },
+  {
+    "id": "hist-0378",
+    "rowNum": 378,
+    "concept": "Helado",
+    "date": "2024-07-08",
+    "type": "bizum",
+    "deltas": {
+      "alex": -3.5,
+      "cabo": 3.5
+    },
+    "createdAt": 1593561978000
+  },
+  {
+    "id": "hist-0379",
+    "rowNum": 379,
+    "concept": "Cena",
+    "date": "2024-07-09",
+    "type": "equal",
+    "deltas": {
+      "alex": -12.95,
+      "max": -31.45,
+      "cabo": 44.4
+    },
+    "createdAt": 1593561979000
+  },
+  {
+    "id": "hist-0380",
+    "rowNum": 380,
+    "concept": "Fangaloka",
+    "date": "2024-07-12",
+    "type": "equal",
+    "deltas": {
+      "alex": -6.96,
+      "luis": 13.94,
+      "max": -6.96
+    },
+    "createdAt": 1593561980000
+  },
+  {
+    "id": "hist-0381",
+    "rowNum": 381,
+    "concept": "Burgas Kingas",
+    "date": "2024-07-15",
+    "type": "equal",
+    "deltas": {
+      "alex": -8.75,
+      "luis": 27.94,
+      "max": -10.25,
+      "cabo": -8.94
+    },
+    "createdAt": 1593561981000
+  },
+  {
+    "id": "hist-0382",
+    "rowNum": 382,
+    "concept": "Parking",
+    "date": "2024-07-15",
+    "type": "bizum",
+    "deltas": {
+      "luis": 7.2,
+      "max": -7.2
+    },
+    "createdAt": 1593561982000
+  },
+  {
+    "id": "hist-0383",
+    "rowNum": 383,
+    "concept": "Porra",
+    "date": "2024-07-15",
+    "type": "equal",
+    "deltas": {
+      "alex": -5.0,
+      "luis": -5.0,
+      "cabo": 10.0
+    },
+    "createdAt": 1593561983000
+  },
+  {
+    "id": "hist-0384",
+    "rowNum": 384,
+    "concept": "Chino",
+    "date": "2024-07-17",
+    "type": "equal",
+    "deltas": {
+      "alex": 14.2,
+      "luis": -7.7,
+      "cabo": -6.5
+    },
+    "createdAt": 1593561984000
+  },
+  {
+    "id": "hist-0385",
+    "rowNum": 385,
+    "concept": "Tagliatella",
+    "date": "2024-07-19",
+    "type": "equal",
+    "deltas": {
+      "alex": -19.7,
+      "max": 41.8,
+      "cabo": -22.1
+    },
+    "createdAt": 1593561985000
+  },
+  {
+    "id": "hist-0386",
+    "rowNum": 386,
+    "concept": "Golfo norte",
+    "date": "2024-07-23",
+    "type": "equal",
+    "deltas": {
+      "alex": -5.625,
+      "luis": -5.625,
+      "max": -5.625,
+      "cabo": 16.875
+    },
+    "createdAt": 1593561986000
+  },
+  {
+    "id": "hist-0387",
+    "rowNum": 387,
+    "concept": "Cine",
+    "date": "2024-07-29",
+    "type": "bizum",
+    "deltas": {
+      "alex": 8.4,
+      "cabo": -8.4
+    },
+    "createdAt": 1593561987000
+  },
+  {
+    "id": "hist-0388",
+    "rowNum": 388,
+    "concept": "Florida",
+    "date": "2024-08-03",
+    "type": "bizum",
+    "deltas": {
+      "alex": 15.7,
+      "cabo": -15.7
+    },
+    "createdAt": 1593561988000
+  },
+  {
+    "id": "hist-0389",
+    "rowNum": 389,
+    "concept": "Kebab",
+    "date": "2024-08-08",
+    "type": "bizum",
+    "deltas": {
+      "alex": -4.35,
+      "cabo": 4.35
+    },
+    "createdAt": 1593561989000
+  },
+  {
+    "id": "hist-0390",
+    "rowNum": 390,
+    "concept": "Bilbao 6",
+    "date": "2024-08-24",
+    "type": "equal",
+    "deltas": {
+      "alex": -4.8,
+      "max": -6.8,
+      "cabo": 11.6
+    },
+    "createdAt": 1593561990000
+  },
+  {
+    "id": "hist-0391",
+    "rowNum": 391,
+    "concept": "Bilbao 7",
+    "date": "2024-08-24",
+    "type": "equal",
+    "deltas": {
+      "alex": 25.0,
+      "cabo": -14.0,
+      "emi": -11.0
+    },
+    "createdAt": 1593561991000
+  },
+  {
+    "id": "hist-0392",
+    "rowNum": 392,
+    "concept": "Bilbao 8",
+    "date": "2024-08-25",
+    "type": "bizum",
+    "deltas": {
+      "alex": 4.0,
+      "cabo": -4.0
+    },
+    "createdAt": 1593561992000
+  },
+  {
+    "id": "hist-0393",
+    "rowNum": 393,
+    "concept": "Bilbao pizzas",
+    "date": "2024-08-23",
+    "type": "equal",
+    "deltas": {
+      "luis": 9.57,
+      "max": -6.38,
+      "cabo": -3.19
+    },
+    "createdAt": 1593561993000
+  },
+  {
+    "id": "hist-0394",
+    "rowNum": 394,
+    "concept": "Bilbao litros",
+    "date": "2024-08-23",
+    "type": "equal",
+    "deltas": {
+      "luis": 15.0,
+      "max": -5.9,
+      "cabo": -6.6,
+      "emi": -2.5
+    },
+    "createdAt": 1593561994000
+  },
+  {
+    "id": "hist-0395",
+    "rowNum": 395,
+    "concept": "Triangu cheese Y CAÑA",
+    "date": "2024-08-29",
+    "type": "equal",
+    "deltas": {
+      "alex": -2.9,
+      "luis": 9.56,
+      "cabo": -3.33,
+      "emi": -3.33
+    },
+    "createdAt": 1593561995000
+  },
+  {
+    "id": "hist-0396",
+    "rowNum": 396,
+    "concept": "Triangu pollo",
+    "date": "2024-08-29",
+    "type": "equal",
+    "deltas": {
+      "alex": -2.38,
+      "luis": 7.14,
+      "cabo": -2.38,
+      "emi": -2.38
+    },
+    "createdAt": 1593561996000
+  },
+  {
+    "id": "hist-0397",
+    "rowNum": 397,
+    "concept": "Triangu pats",
+    "date": "2024-08-29",
+    "type": "equal",
+    "deltas": {
+      "alex": -4.525,
+      "luis": -1.625,
+      "cabo": 10.675,
+      "emi": -4.525
+    },
+    "createdAt": 1593561997000
+  },
+  {
+    "id": "hist-0398",
+    "rowNum": 398,
+    "concept": "Supercor",
+    "date": "2024-08-29",
+    "type": "equal",
+    "deltas": {
+      "alex": -2.455,
+      "luis": -1.45,
+      "cabo": 1.45,
+      "emi": 2.455
+    },
+    "createdAt": 1593561998000
+  },
+  {
+    "id": "hist-0399",
+    "rowNum": 399,
+    "concept": "Cine",
+    "date": "2024-08-31",
+    "type": "equal",
+    "deltas": {
+      "alex": -7.9,
+      "luis": -7.9,
+      "cabo": 23.7,
+      "emi": -7.9
+    },
+    "createdAt": 1593561999000
+  },
+  {
+    "id": "hist-0400",
+    "rowNum": 400,
+    "concept": "Golfo",
+    "date": "2024-09-11",
+    "type": "equal",
+    "deltas": {
+      "alex": -7.0,
+      "luis": 6.6,
+      "cabo": 0.4
+    },
+    "createdAt": 1593562000000
+  },
+  {
+    "id": "hist-0401",
+    "rowNum": 401,
+    "concept": "Kebab",
+    "date": "2024-09-11",
+    "type": "equal",
+    "deltas": {
+      "alex": -3.5,
+      "max": -5.5,
+      "cabo": 9.0
+    },
+    "createdAt": 1593562001000
+  },
+  {
+    "id": "hist-0402",
+    "rowNum": 402,
+    "concept": "Kebab",
+    "date": "2024-09-07",
+    "type": "equal",
+    "deltas": {
+      "alex": 7.0,
+      "cabo": -3.5,
+      "emi": -3.5
+    },
+    "createdAt": 1593562002000
+  },
+  {
+    "id": "hist-0403",
+    "rowNum": 403,
+    "concept": "Pizza golfo norte",
+    "date": "2024-09-03",
+    "type": "equal",
+    "deltas": {
+      "luis": -4.0,
+      "max": 8.0,
+      "cabo": -4.0
+    },
+    "createdAt": 1593562003000
+  },
+  {
+    "id": "hist-0404",
+    "rowNum": 404,
+    "concept": "KFC",
+    "date": "2024-09-07",
+    "type": "equal",
+    "deltas": {
+      "alex": 20.1,
+      "luis": -9.0,
+      "max": -1.8,
+      "cabo": -9.3
+    },
+    "createdAt": 1593562004000
+  },
+  {
+    "id": "hist-0405",
+    "rowNum": 405,
+    "concept": "Eroski",
+    "date": "2024-09-11",
+    "type": "bizum",
+    "deltas": {
+      "luis": -1.875,
+      "cabo": 1.875
+    },
+    "createdAt": 1593562005000
+  },
+  {
+    "id": "hist-0406",
+    "rowNum": 406,
+    "concept": "Bocata",
+    "date": "2024-09-11",
+    "type": "bizum",
+    "deltas": {
+      "alex": -2.8,
+      "emi": 2.8
+    },
+    "createdAt": 1593562006000
+  },
+  {
+    "id": "hist-0407",
+    "rowNum": 407,
+    "concept": "Caña frejkita",
+    "date": "2024-09-11",
+    "type": "bizum",
+    "deltas": {
+      "alex": -2.5,
+      "emi": 2.5
+    },
+    "createdAt": 1593562007000
+  },
+  {
+    "id": "hist-0408",
+    "rowNum": 408,
+    "concept": "Cerveza",
+    "date": "2024-09-14",
+    "type": "bizum",
+    "deltas": {
+      "alex": -1.6,
+      "max": 1.6
+    },
+    "createdAt": 1593562008000
+  },
+  {
+    "id": "hist-0409",
+    "rowNum": 409,
+    "concept": "Bertys",
+    "date": "2024-09-21",
+    "type": "equal",
+    "deltas": {
+      "alex": -31.746667,
+      "luis": -31.746667,
+      "max": -30.246667,
+      "cabo": 118.153333,
+      "emi": -24.413333
+    },
+    "createdAt": 1593562009000
+  },
+  {
+    "id": "hist-0410",
+    "rowNum": 410,
+    "concept": "Pago",
+    "date": "2024-09-21",
+    "type": "bizum",
+    "deltas": {
+      "max": 60.0,
+      "cabo": -60.0
+    },
+    "createdAt": 1593562010000
+  },
+  {
+    "id": "hist-0411",
+    "rowNum": 411,
+    "concept": "Krusty",
+    "date": "2024-09-26",
+    "type": "bizum",
+    "deltas": {
+      "luis": 1.2,
+      "cabo": -1.2
+    },
+    "createdAt": 1593562011000
+  },
+  {
+    "id": "hist-0412",
+    "rowNum": 412,
+    "concept": "Café",
+    "date": "2024-09-27",
+    "type": "bizum",
+    "deltas": {
+      "alex": 2.13,
+      "cabo": -2.13
+    },
+    "createdAt": 1593562012000
+  },
+  {
+    "id": "hist-0413",
+    "rowNum": 413,
+    "concept": "Cañas",
+    "date": "2024-09-28",
+    "type": "equal",
+    "deltas": {
+      "alex": -2.6,
+      "cabo": 5.2,
+      "emi": -2.6
+    },
+    "createdAt": 1593562013000
+  },
+  {
+    "id": "hist-0414",
+    "rowNum": 414,
+    "concept": "Café Puerto",
+    "date": "2024-09-26",
+    "type": "bizum",
+    "deltas": {
+      "alex": -1.6,
+      "emi": 1.6
+    },
+    "createdAt": 1593562014000
+  },
+  {
+    "id": "hist-0415",
+    "rowNum": 415,
+    "concept": "Tortilla",
+    "date": "2024-09-14",
+    "type": "bizum",
+    "deltas": {
+      "max": -2.5,
+      "emi": 2.5
+    },
+    "createdAt": 1593562015000
+  },
+  {
+    "id": "hist-0416",
+    "rowNum": 416,
+    "concept": "Kibap",
+    "date": "2024-10-01",
+    "type": "equal",
+    "deltas": {
+      "alex": -5.5,
+      "max": -3.5,
+      "cabo": -3.5,
+      "emi": 12.0
+    },
+    "createdAt": 1593562016000
+  },
+  {
+    "id": "hist-0417",
+    "rowNum": 417,
+    "concept": "Empanada entrepans bocata pollo eroski ikasi era erosi upv ehu leioa",
+    "date": "2024-10-03",
+    "type": "bizum",
+    "deltas": {
+      "luis": 1.4,
+      "cabo": -1.4
+    },
+    "createdAt": 1593562017000
+  },
+  {
+    "id": "hist-0418",
+    "rowNum": 418,
+    "concept": "Kebab",
+    "date": "2024-10-05",
+    "type": "equal",
+    "deltas": {
+      "alex": -5.5,
+      "luis": 12.5,
+      "cabo": -3.5,
+      "emi": -3.5
+    },
+    "createdAt": 1593562018000
+  },
+  {
+    "id": "hist-0419",
+    "rowNum": 419,
+    "concept": "Jai Alai",
+    "date": "2024-10-05",
+    "type": "equal",
+    "deltas": {
+      "alex": -2.6,
+      "cabo": 5.2,
+      "emi": -2.6
+    },
+    "createdAt": 1593562019000
+  },
+  {
+    "id": "hist-0420",
+    "rowNum": 420,
+    "concept": "Kebab",
+    "date": "2024-10-11",
+    "type": "bizum",
+    "deltas": {
+      "alex": 3.5,
+      "cabo": -3.5
+    },
+    "createdAt": 1593562020000
+  },
+  {
+    "id": "hist-0421",
+    "rowNum": 421,
+    "concept": "Radler",
+    "date": "2024-10-12",
+    "type": "bizum",
+    "deltas": {
+      "alex": 2.6,
+      "cabo": -2.6
+    },
+    "createdAt": 1593562021000
+  },
+  {
+    "id": "hist-0422",
+    "rowNum": 422,
+    "concept": "Xia chino",
+    "date": "2024-10-12",
+    "type": "bizum",
+    "deltas": {
+      "alex": 10.35,
+      "cabo": -10.35
+    },
+    "createdAt": 1593562022000
+  },
+  {
+    "id": "hist-0423",
+    "rowNum": 423,
+    "concept": "Lasaña",
+    "date": "2024-10-15",
+    "type": "bizum",
+    "deltas": {
+      "luis": 1.95,
+      "cabo": -1.95
+    },
+    "createdAt": 1593562023000
+  },
+  {
+    "id": "hist-0424",
+    "rowNum": 424,
+    "concept": "Xia platos",
+    "date": "2024-10-26",
+    "type": "bizum",
+    "deltas": {
+      "max": -52.0,
+      "cabo": 52.0
+    },
+    "createdAt": 1593562024000
+  },
+  {
+    "id": "hist-0425",
+    "rowNum": 425,
+    "concept": "Supercor",
+    "date": "2024-10-26",
+    "type": "bizum",
+    "deltas": {
+      "alex": 9.55,
+      "max": -9.55
+    },
+    "createdAt": 1593562025000
+  },
+  {
+    "id": "hist-0426",
+    "rowNum": 426,
+    "concept": "Xia Shusi",
+    "date": "2024-10-26",
+    "type": "equal",
+    "deltas": {
+      "alex": -7.333333,
+      "luis": -7.333333,
+      "cabo": 14.666667
+    },
+    "createdAt": 1593562026000
+  },
+  {
+    "id": "hist-0427",
+    "rowNum": 427,
+    "concept": "Alemanas",
+    "date": "2024-10-29",
+    "type": "bizum",
+    "deltas": {
+      "luis": 2.55,
+      "cabo": -2.55
+    },
+    "createdAt": 1593562027000
+  },
+  {
+    "id": "hist-0428",
+    "rowNum": 428,
+    "concept": "Panda",
+    "date": "2024-11-01",
+    "type": "bizum",
+    "deltas": {
+      "alex": 14.2,
+      "cabo": -14.2
+    },
+    "createdAt": 1593562028000
+  },
+  {
+    "id": "hist-0429",
+    "rowNum": 429,
+    "concept": "Cerveza",
+    "date": "2024-11-01",
+    "type": "equal",
+    "deltas": {
+      "alex": 4.1775,
+      "max": -1.3925,
+      "cabo": -1.3925,
+      "emi": -1.3925
+    },
+    "createdAt": 1593562029000
+  },
+  {
+    "id": "hist-0430",
+    "rowNum": 430,
+    "concept": "Gasolina 1",
+    "date": "2024-11-06",
+    "type": "bizum",
+    "deltas": {
+      "luis": 5.0,
+      "cabo": -5.0
+    },
+    "createdAt": 1593562030000
+  },
+  {
+    "id": "hist-0431",
+    "rowNum": 431,
+    "concept": "Gasolina 2",
+    "date": "2024-11-06",
+    "type": "bizum",
+    "deltas": {
+      "luis": 27.8,
+      "cabo": -27.8
+    },
+    "createdAt": 1593562031000
+  },
+  {
+    "id": "hist-0432",
+    "rowNum": 432,
+    "concept": "Gasolina 3",
+    "date": "2024-11-06",
+    "type": "bizum",
+    "deltas": {
+      "luis": 8.76,
+      "cabo": -8.76
+    },
+    "createdAt": 1593562032000
+  },
+  {
+    "id": "hist-0433",
+    "rowNum": 433,
+    "concept": "Gasolina 4",
+    "date": "2024-11-06",
+    "type": "bizum",
+    "deltas": {
+      "luis": 20.0,
+      "cabo": -20.0
+    },
+    "createdAt": 1593562033000
+  },
+  {
+    "id": "hist-0434",
+    "rowNum": 434,
+    "concept": "Gasolina 5",
+    "date": "2024-11-06",
+    "type": "bizum",
+    "deltas": {
+      "luis": 13.0,
+      "cabo": -13.0
+    },
+    "createdAt": 1593562034000
+  },
+  {
+    "id": "hist-0435",
+    "rowNum": 435,
+    "concept": "Botella de agua con sabor a Jacob",
+    "date": "2024-11-06",
+    "type": "bizum",
+    "deltas": {
+      "luis": -2.5,
+      "cabo": 2.5
+    },
+    "createdAt": 1593562035000
+  },
+  {
+    "id": "hist-0436",
+    "rowNum": 436,
+    "concept": "Perrito caliente",
+    "date": "2024-11-06",
+    "type": "bizum",
+    "deltas": {
+      "luis": 5.9,
+      "cabo": -5.9
+    },
+    "createdAt": 1593562036000
+  },
+  {
+    "id": "hist-0437",
+    "rowNum": 437,
+    "concept": "Caña",
+    "date": "2024-11-09",
+    "type": "bizum",
+    "deltas": {
+      "alex": -2.6,
+      "luis": 2.6
+    },
+    "createdAt": 1593562037000
+  },
+  {
+    "id": "hist-0438",
+    "rowNum": 438,
+    "concept": "Caña",
+    "date": "2024-11-09",
+    "type": "bizum",
+    "deltas": {
+      "cabo": -2.6,
+      "emi": 2.6
+    },
+    "createdAt": 1593562038000
+  },
+  {
+    "id": "hist-0439",
+    "rowNum": 439,
+    "concept": "Kebab",
+    "date": "2024-11-09",
+    "type": "bizum",
+    "deltas": {
+      "alex": -5.5,
+      "max": 5.5
+    },
+    "createdAt": 1593562039000
+  },
+  {
+    "id": "hist-0440",
+    "rowNum": 440,
+    "concept": "Xia Sushi",
+    "date": "2024-11-09",
+    "type": "bizum",
+    "deltas": {
+      "luis": -9.45,
+      "cabo": 9.45
+    },
+    "createdAt": 1593562040000
+  },
+  {
+    "id": "hist-0441",
+    "rowNum": 441,
+    "concept": "Supercore",
+    "date": "2024-11-09",
+    "type": "equal",
+    "deltas": {
+      "alex": -1.2,
+      "luis": -1.2,
+      "cabo": 2.4
+    },
+    "createdAt": 1593562041000
+  },
+  {
+    "id": "hist-0442",
+    "rowNum": 442,
+    "concept": "Café",
+    "date": "2024-11-11",
+    "type": "bizum",
+    "deltas": {
+      "alex": 1.6,
+      "emi": -1.6
+    },
+    "createdAt": 1593562042000
+  },
+  {
+    "id": "hist-0443",
+    "rowNum": 443,
+    "concept": "Jai Alai",
+    "date": "2024-11-16",
+    "type": "equal",
+    "deltas": {
+      "alex": -2.9,
+      "max": 5.3,
+      "cabo": -2.4
+    },
+    "createdAt": 1593562043000
+  },
+  {
+    "id": "hist-0444",
+    "rowNum": 444,
+    "concept": "Xia sushi",
+    "date": "2024-11-30",
+    "type": "equal",
+    "deltas": {
+      "alex": 31.4,
+      "luis": -13.3,
+      "max": -2.8,
+      "cabo": -15.3
+    },
+    "createdAt": 1593562044000
+  },
+  {
+    "id": "hist-0445",
+    "rowNum": 445,
+    "concept": "KFC",
+    "date": "2024-11-07",
+    "type": "bizum",
+    "deltas": {
+      "alex": -7.5,
+      "cabo": 7.5
+    },
+    "createdAt": 1593562045000
+  },
+  {
+    "id": "hist-0446",
+    "rowNum": 446,
+    "concept": "Kebab",
+    "date": "2024-11-06",
+    "type": "bizum",
+    "deltas": {
+      "alex": -5.5,
+      "cabo": 5.5
+    },
+    "createdAt": 1593562046000
+  },
+  {
+    "id": "hist-0447",
+    "rowNum": 447,
+    "concept": "Agua",
+    "date": "2024-11-07",
+    "type": "bizum",
+    "deltas": {
+      "alex": 1.2,
+      "cabo": -1.2
+    },
+    "createdAt": 1593562047000
+  },
+  {
+    "id": "hist-0448",
+    "rowNum": 448,
+    "concept": "Misska",
+    "date": "2024-12-20",
+    "type": "bizum",
+    "deltas": {
+      "luis": -22.47,
+      "cabo": 22.47
+    },
+    "createdAt": 1593562048000
+  },
+  {
+    "id": "hist-0449",
+    "rowNum": 449,
+    "concept": "Bizum",
+    "date": "2024-12-25",
+    "type": "bizum",
+    "deltas": {
+      "cabo": -97.38,
+      "emi": 97.38
+    },
+    "createdAt": 1593562049000
+  },
+  {
+    "id": "hist-0450",
+    "rowNum": 450,
+    "concept": "Ajuste",
+    "date": "2024-12-25",
+    "type": "equal",
+    "deltas": {
+      "alex": -28.9,
+      "luis": -37.17,
+      "cabo": 66.07
+    },
+    "createdAt": 1593562050000
+  },
+  {
+    "id": "hist-0451",
+    "rowNum": 451,
+    "concept": "Yelmo",
+    "date": "2024-12-07",
+    "type": "equal",
+    "deltas": {
+      "alex": -9.4,
+      "luis": -9.4,
+      "max": 28.2,
+      "cabo": -9.4
+    },
+    "createdAt": 1593562051000
+  },
+  {
+    "id": "hist-0452",
+    "rowNum": 452,
+    "concept": "Turrón",
+    "date": "2024-12-21",
+    "type": "bizum",
+    "deltas": {
+      "alex": -1.82,
+      "emi": 1.82
+    },
+    "createdAt": 1593562052000
+  },
+  {
+    "id": "hist-0453",
+    "rowNum": 453,
+    "concept": "Nosferatu",
+    "date": "2024-12-26",
+    "type": "equal",
+    "deltas": {
+      "alex": -8.9,
+      "luis": 35.6,
+      "max": -8.9,
+      "cabo": -8.9,
+      "emi": -8.9
+    },
+    "createdAt": 1593562053000
+  },
+  {
+    "id": "hist-0454",
+    "rowNum": 454,
+    "concept": "Caña",
+    "date": "2024-12-21",
+    "type": "bizum",
+    "deltas": {
+      "alex": -2.6,
+      "emi": 2.6
+    },
+    "createdAt": 1593562054000
+  },
+  {
+    "id": "hist-0455",
+    "rowNum": 455,
+    "concept": "Whiskey",
+    "date": "2024-12-25",
+    "type": "bizum",
+    "deltas": {
+      "alex": -4.5,
+      "cabo": 4.5
+    },
+    "createdAt": 1593562055000
+  },
+  {
+    "id": "hist-0456",
+    "rowNum": 456,
+    "concept": "Sushi oji",
+    "date": "2024-12-29",
+    "type": "bizum",
+    "deltas": {
+      "alex": 3.5,
+      "cabo": -3.5
+    },
+    "createdAt": 1593562056000
+  },
+  {
+    "id": "hist-0457",
+    "rowNum": 457,
+    "concept": "Café",
+    "date": "2025-01-01",
+    "type": "bizum",
+    "deltas": {
+      "alex": 2.0,
+      "cabo": -2.0
+    },
+    "createdAt": 1593562057000
+  },
+  {
+    "id": "hist-0458",
+    "rowNum": 458,
+    "concept": "Supercor",
+    "date": "2025-01-02",
+    "type": "equal",
+    "deltas": {
+      "alex": -1.383333,
+      "luis": -1.383333,
+      "cabo": 2.766667
+    },
+    "createdAt": 1593562058000
+  },
+  {
+    "id": "hist-0459",
+    "rowNum": 459,
+    "concept": "Dominos",
+    "date": "2025-01-02",
+    "type": "equal",
+    "deltas": {
+      "alex": -5.66,
+      "luis": 11.34,
+      "cabo": -5.66
+    },
+    "createdAt": 1593562059000
+  },
+  {
+    "id": "hist-0460",
+    "rowNum": 460,
+    "concept": "Radler",
+    "date": "2025-01-19",
+    "type": "bizum",
+    "deltas": {
+      "alex": 2.7,
+      "max": -2.7
+    },
+    "createdAt": 1593562060000
+  },
+  {
+    "id": "hist-0461",
+    "rowNum": 461,
+    "concept": "Xia sushi",
+    "date": "2025-01-19",
+    "type": "equal",
+    "deltas": {
+      "alex": 40.77,
+      "max": -9.09,
+      "cabo": -22.59,
+      "emi": -9.09
+    },
+    "createdAt": 1593562061000
+  },
+  {
+    "id": "hist-0462",
+    "rowNum": 462,
+    "concept": "Radler",
+    "date": "2025-01-19",
+    "type": "bizum",
+    "deltas": {
+      "cabo": -2.7,
+      "emi": 2.7
+    },
+    "createdAt": 1593562062000
+  },
+  {
+    "id": "hist-0463",
+    "rowNum": 463,
+    "concept": "Sándwich Nata",
+    "date": "2025-01-16",
+    "type": "equal",
+    "deltas": {
+      "alex": -1.5,
+      "luis": -1.5,
+      "cabo": 3.0
+    },
+    "createdAt": 1593562063000
+  },
+  {
+    "id": "hist-0464",
+    "rowNum": 464,
+    "concept": "Jai Alai",
+    "date": "2025-01-23",
+    "type": "equal",
+    "deltas": {
+      "alex": -2.7,
+      "max": -2.7,
+      "cabo": 5.4
+    },
+    "createdAt": 1593562064000
+  },
+  {
+    "id": "hist-0465",
+    "rowNum": 465,
+    "concept": "Kebab",
+    "date": "2025-01-23",
+    "type": "equal",
+    "deltas": {
+      "alex": -4.3,
+      "max": -5.5,
+      "cabo": 9.8
+    },
+    "createdAt": 1593562065000
+  },
+  {
+    "id": "hist-0466",
+    "rowNum": 466,
+    "concept": "Kebab",
+    "date": "2025-01-25",
+    "type": "equal",
+    "deltas": {
+      "alex": -7.0,
+      "luis": -8.0,
+      "cabo": 15.0
+    },
+    "createdAt": 1593562066000
+  },
+  {
+    "id": "hist-0467",
+    "rowNum": 467,
+    "concept": "Jai Alai",
+    "date": "2025-01-31",
+    "type": "bizum",
+    "deltas": {
+      "max": 2.7,
+      "cabo": -2.7
+    },
+    "createdAt": 1593562067000
+  },
+  {
+    "id": "hist-0468",
+    "rowNum": 468,
+    "concept": "Sándwich nata",
+    "date": "2025-02-01",
+    "type": "equal",
+    "deltas": {
+      "alex": 2.84,
+      "luis": -1.42,
+      "cabo": -1.42
+    },
+    "createdAt": 1593562068000
+  },
+  {
+    "id": "hist-0469",
+    "rowNum": 469,
+    "concept": "Bizum",
+    "date": "2025-02-01",
+    "type": "bizum",
+    "deltas": {
+      "cabo": 5.0,
+      "emi": -5.0
+    },
+    "createdAt": 1593562069000
+  },
+  {
+    "id": "hist-0470",
+    "rowNum": 470,
+    "concept": "Xia Sushi",
+    "date": "2025-01-31",
+    "type": "equal",
+    "deltas": {
+      "alex": -18.983333,
+      "luis": -18.983333,
+      "cabo": 37.966667
+    },
+    "createdAt": 1593562070000
+  },
+  {
+    "id": "hist-0471",
+    "rowNum": 471,
+    "concept": "Bizum",
+    "date": "2025-02-08",
+    "type": "bizum",
+    "deltas": {
+      "cabo": -5.0,
+      "emi": 5.0
+    },
+    "createdAt": 1593562071000
+  },
+  {
+    "id": "hist-0472",
+    "rowNum": 472,
+    "concept": "Bizum",
+    "date": "2025-02-08",
+    "type": "bizum",
+    "deltas": {
+      "cabo": -5.0,
+      "emi": 5.0
+    },
+    "createdAt": 1593562072000
+  },
+  {
+    "id": "hist-0473",
+    "rowNum": 473,
+    "concept": "Pizza",
+    "date": "2025-02-15",
+    "type": "equal",
+    "deltas": {
+      "alex": -3.19,
+      "max": 9.57,
+      "cabo": -3.19,
+      "emi": -3.19
+    },
+    "createdAt": 1593562073000
+  },
+  {
+    "id": "hist-0474",
+    "rowNum": 474,
+    "concept": "Dominos",
+    "date": "2025-02-23",
+    "type": "equal",
+    "deltas": {
+      "alex": -5.5,
+      "luis": 16.5,
+      "cabo": -5.5,
+      "emi": -5.5
+    },
+    "createdAt": 1593562074000
+  },
+  {
+    "id": "hist-0475",
+    "rowNum": 475,
+    "concept": "Cervezas",
+    "date": "2025-02-25",
+    "type": "equal",
+    "deltas": {
+      "alex": -1.7,
+      "luis": 6.44,
+      "max": -1.58,
+      "cabo": -1.58,
+      "emi": -1.58
+    },
+    "createdAt": 1593562075000
+  },
+  {
+    "id": "hist-0476",
+    "rowNum": 476,
+    "concept": "Kebab",
+    "date": "2025-03-02",
+    "type": "bizum",
+    "deltas": {
+      "alex": 4.5,
+      "cabo": -4.5
+    },
+    "createdAt": 1593562076000
+  },
+  {
+    "id": "hist-0477",
+    "rowNum": 477,
+    "concept": "Jai alai",
+    "date": "2025-03-08",
+    "type": "bizum",
+    "deltas": {
+      "alex": 2.7,
+      "cabo": -2.7
+    },
+    "createdAt": 1593562077000
+  },
+  {
+    "id": "hist-0478",
+    "rowNum": 478,
+    "concept": "Kebab",
+    "date": "2025-03-09",
+    "type": "equal",
+    "deltas": {
+      "alex": 11.5,
+      "luis": -7.0,
+      "cabo": -4.5
+    },
+    "createdAt": 1593562078000
+  },
+  {
+    "id": "hist-0479",
+    "rowNum": 479,
+    "concept": "Helado",
+    "date": "2025-03-09",
+    "type": "equal",
+    "deltas": {
+      "alex": -1.5,
+      "luis": -1.5,
+      "cabo": 3.0
+    },
+    "createdAt": 1593562079000
+  },
+  {
+    "id": "hist-0480",
+    "rowNum": 480,
+    "concept": "Manus",
+    "date": "2025-03-21",
+    "type": "bizum",
+    "deltas": {
+      "alex": 5.5,
+      "cabo": -5.5
+    },
+    "createdAt": 1593562080000
+  },
+  {
+    "id": "hist-0481",
+    "rowNum": 481,
+    "concept": "Jai Alai",
+    "date": "2025-04-05",
+    "type": "bizum",
+    "deltas": {
+      "alex": -2.0,
+      "cabo": 2.0
+    },
+    "createdAt": 1593562081000
+  },
+  {
+    "id": "hist-0482",
+    "rowNum": 482,
+    "concept": "Kebab",
+    "date": "2025-04-11",
+    "type": "bizum",
+    "deltas": {
+      "alex": 4.5,
+      "cabo": -4.5
+    },
+    "createdAt": 1593562082000
+  },
+  {
+    "id": "hist-0483",
+    "rowNum": 483,
+    "concept": "Cena tagliatela",
+    "date": "2025-03-15",
+    "type": "equal",
+    "deltas": {
+      "alex": -18.925,
+      "luis": -17.225,
+      "max": 54.475,
+      "cabo": -18.325
+    },
+    "createdAt": 1593562083000
+  },
+  {
+    "id": "hist-0484",
+    "rowNum": 484,
+    "concept": "Warfare cine",
+    "date": "2025-04-26",
+    "type": "equal",
+    "deltas": {
+      "alex": 26.4,
+      "luis": -6.6,
+      "max": -6.6,
+      "cabo": -6.6,
+      "emi": -6.6
+    },
+    "createdAt": 1593562084000
+  },
+  {
+    "id": "hist-0485",
+    "rowNum": 485,
+    "concept": "Pomodoro",
+    "date": "2025-04-26",
+    "type": "bizum",
+    "deltas": {
+      "alex": 6.9,
+      "cabo": -6.9
+    },
+    "createdAt": 1593562085000
+  },
+  {
+    "id": "hist-0486",
+    "rowNum": 486,
+    "concept": "Jai Alai",
+    "date": "2025-05-04",
+    "type": "equal",
+    "deltas": {
+      "alex": -4.2,
+      "luis": -4.2,
+      "cabo": 8.4
+    },
+    "createdAt": 1593562086000
+  },
+  {
+    "id": "hist-0487",
+    "rowNum": 487,
+    "concept": "Manus",
+    "date": "2025-05-04",
+    "type": "bizum",
+    "deltas": {
+      "alex": -5.3,
+      "cabo": 5.3
+    },
+    "createdAt": 1593562087000
+  },
+  {
+    "id": "hist-0488",
+    "rowNum": 488,
+    "concept": "helau",
+    "date": "2025-05-10",
+    "type": "equal",
+    "deltas": {
+      "alex": -1.34,
+      "luis": -1.34,
+      "max": -0.67,
+      "cabo": 3.35
+    },
+    "createdAt": 1593562088000
+  },
+  {
+    "id": "hist-0489",
+    "rowNum": 489,
+    "concept": "Manus",
+    "date": "2025-05-10",
+    "type": "equal",
+    "deltas": {
+      "alex": -5.8,
+      "luis": -5.7,
+      "cabo": 11.5
+    },
+    "createdAt": 1593562089000
+  },
+  {
+    "id": "hist-0490",
+    "rowNum": 490,
+    "concept": "Sanjalomo",
+    "date": "2025-05-14",
+    "type": "bizum",
+    "deltas": {
+      "luis": 3.85,
+      "cabo": -3.85
+    },
+    "createdAt": 1593562090000
+  },
+  {
+    "id": "hist-0491",
+    "rowNum": 491,
+    "concept": "Jai",
+    "date": "2025-05-24",
+    "type": "bizum",
+    "deltas": {
+      "alex": -2.6,
+      "cabo": 2.6
+    },
+    "createdAt": 1593562091000
+  },
+  {
+    "id": "hist-0492",
+    "rowNum": 492,
+    "concept": "Tabaco",
+    "date": "2025-05-24",
+    "type": "bizum",
+    "deltas": {
+      "alex": -5.0,
+      "cabo": 5.0
+    },
+    "createdAt": 1593562092000
+  },
+  {
+    "id": "hist-0493",
+    "rowNum": 493,
+    "concept": "Manus y Jai",
+    "date": "2025-06-08",
+    "type": "bizum",
+    "deltas": {
+      "alex": 10.0,
+      "cabo": -10.0
+    },
+    "createdAt": 1593562093000
+  },
+  {
+    "id": "hist-0494",
+    "rowNum": 494,
+    "concept": "Misión imposible",
+    "date": "2025-06-12",
+    "type": "equal",
+    "deltas": {
+      "alex": 16.8,
+      "luis": -8.4,
+      "cabo": -8.4
+    },
+    "createdAt": 1593562094000
+  },
+  {
+    "id": "hist-0495",
+    "rowNum": 495,
+    "concept": "Macas",
+    "date": "2025-06-12",
+    "type": "bizum",
+    "deltas": {
+      "alex": -6.6,
+      "cabo": 6.6
+    },
+    "createdAt": 1593562095000
+  },
+  {
+    "id": "hist-0496",
+    "rowNum": 496,
+    "concept": "Hanoi",
+    "date": "2025-06-14",
+    "type": "equal",
+    "deltas": {
+      "alex": -16.0,
+      "max": -16.0,
+      "cabo": 32.0
+    },
+    "createdAt": 1593562096000
+  },
+  {
+    "id": "hist-0497",
+    "rowNum": 497,
+    "concept": "Supercor",
+    "date": "2025-06-20",
+    "type": "bizum",
+    "deltas": {
+      "alex": -3.1,
+      "cabo": 3.1
+    },
+    "createdAt": 1593562097000
+  },
+  {
+    "id": "hist-0498",
+    "rowNum": 498,
+    "concept": "Kaixo",
+    "date": "2025-06-24",
+    "type": "bizum",
+    "deltas": {
+      "luis": -9.5,
+      "cabo": 9.5
+    },
+    "createdAt": 1593562098000
+  },
+  {
+    "id": "hist-0499",
+    "rowNum": 499,
+    "concept": "Arrigunaga",
+    "date": "2025-06-25",
+    "type": "bizum",
+    "deltas": {
+      "alex": -3.2,
+      "cabo": 3.2
+    },
+    "createdAt": 1593562099000
+  },
+  {
+    "id": "hist-0500",
+    "rowNum": 500,
+    "concept": "Jai Alai",
+    "date": "2025-06-01",
+    "type": "bizum",
+    "deltas": {
+      "cabo": 1.4,
+      "emi": -1.4
+    },
+    "createdAt": 1593562100000
+  },
+  {
+    "id": "hist-0501",
+    "rowNum": 501,
+    "concept": "Radler",
+    "date": "2025-07-02",
+    "type": "bizum",
+    "deltas": {
+      "alex": 3.2,
+      "cabo": -3.2
+    },
+    "createdAt": 1593562101000
+  },
+  {
+    "id": "hist-0502",
+    "rowNum": 502,
+    "concept": "Nap",
+    "date": "2025-07-05",
+    "type": "equal",
+    "deltas": {
+      "alex": -17.0,
+      "luis": -17.0,
+      "cabo": 34.0
+    },
+    "createdAt": 1593562102000
+  },
+  {
+    "id": "hist-0503",
+    "rowNum": 503,
+    "concept": "Dinamico",
+    "date": "2025-07-05",
+    "type": "bizum",
+    "deltas": {
+      "max": 15.45,
+      "cabo": -15.45
+    },
+    "createdAt": 1593562103000
+  },
+  {
+    "id": "hist-0504",
+    "rowNum": 504,
+    "concept": "Pizza SF",
+    "date": "2025-07-10",
+    "type": "bizum",
+    "deltas": {
+      "luis": 4.0,
+      "cabo": -4.0
+    },
+    "createdAt": 1593562104000
+  },
+  {
+    "id": "hist-0505",
+    "rowNum": 505,
+    "concept": "popeyes",
+    "date": "2025-07-10",
+    "type": "bizum",
+    "deltas": {
+      "luis": 8.49,
+      "cabo": -8.49
+    },
+    "createdAt": 1593562105000
+  },
+  {
+    "id": "hist-0506",
+    "rowNum": 506,
+    "concept": "Xia shusi",
+    "date": "2025-07-12",
+    "type": "equal",
+    "deltas": {
+      "alex": -12.0,
+      "luis": -12.0,
+      "max": -12.0,
+      "cabo": 36.0
+    },
+    "createdAt": 1593562106000
+  },
+  {
+    "id": "hist-0507",
+    "rowNum": 507,
+    "concept": "Cumple asis",
+    "date": "2025-07-17",
+    "type": "bizum",
+    "deltas": {
+      "alex": 19.0,
+      "cabo": -19.0
+    },
+    "createdAt": 1593562107000
+  },
+  {
+    "id": "hist-0508",
+    "rowNum": 508,
+    "concept": "Nap",
+    "date": "2025-07-19",
+    "type": "equal",
+    "deltas": {
+      "alex": 56.933333,
+      "max": -20.466667,
+      "cabo": -18.766667,
+      "emi": -17.7
+    },
+    "createdAt": 1593562108000
+  },
+  {
+    "id": "hist-0509",
+    "rowNum": 509,
+    "concept": "helado",
+    "date": "2025-07-24",
+    "type": "bizum",
+    "deltas": {
+      "luis": -3.0,
+      "cabo": 3.0
+    },
+    "createdAt": 1593562109000
+  },
+  {
+    "id": "hist-0510",
+    "rowNum": 510,
+    "concept": "Tortilla Aitxu",
+    "date": "2025-07-25",
+    "type": "bizum",
+    "deltas": {
+      "alex": 14.135,
+      "max": -14.135
+    },
+    "createdAt": 1593562110000
+  },
+  {
+    "id": "hist-0511",
+    "rowNum": 511,
+    "concept": "Tenis",
+    "date": "2025-07-26",
+    "type": "bizum",
+    "deltas": {
+      "max": -5.2,
+      "emi": 5.2
+    },
+    "createdAt": 1593562111000
+  },
+  {
+    "id": "hist-0512",
+    "rowNum": 512,
+    "concept": "Cervezas casa cabo y comida casa Ybarra",
+    "date": "2025-07-27",
+    "type": "equal",
+    "deltas": {
+      "alex": -4.7,
+      "luis": -4.7,
+      "max": 18.8,
+      "cabo": -4.7,
+      "emi": -4.7
+    },
+    "createdAt": 1593562112000
+  },
+  {
+    "id": "hist-0513",
+    "rowNum": 513,
+    "concept": "Poker",
+    "date": "2025-07-27",
+    "type": "equal",
+    "deltas": {
+      "alex": -1.08,
+      "luis": -1.63,
+      "max": 4.75,
+      "cabo": -2.04
+    },
+    "createdAt": 1593562113000
+  },
+  {
+    "id": "hist-0514",
+    "rowNum": 514,
+    "concept": "Arroz cabo",
+    "date": "2025-07-25",
+    "type": "bizum",
+    "deltas": {
+      "max": 12.95,
+      "cabo": -12.95
+    },
+    "createdAt": 1593562114000
+  },
+  {
+    "id": "hist-0515",
+    "rowNum": 515,
+    "concept": "Regularización",
+    "date": "2025-07-30",
+    "type": "bizum",
+    "deltas": {
+      "cabo": 2.35,
+      "emi": -2.35
+    },
+    "createdAt": 1593562115000
+  },
+  {
+    "id": "hist-0516",
+    "rowNum": 516,
+    "concept": "Patatas Tri",
+    "date": "2025-07-30",
+    "type": "equal",
+    "deltas": {
+      "max": 4.3,
+      "cabo": -2.15,
+      "emi": -2.15
+    },
+    "createdAt": 1593562116000
+  },
+  {
+    "id": "hist-0517",
+    "rowNum": 517,
+    "concept": "Pedrata",
+    "date": "2025-07-31",
+    "type": "bizum",
+    "deltas": {
+      "cabo": -3.5,
+      "emi": 3.5
+    },
+    "createdAt": 1593562117000
+  },
+  {
+    "id": "hist-0518",
+    "rowNum": 518,
+    "concept": "Triangu",
+    "date": "2025-07-30",
+    "type": "equal",
+    "deltas": {
+      "luis": -2.375,
+      "max": -2.375,
+      "cabo": -2.375,
+      "emi": 7.125
+    },
+    "createdAt": 1593562118000
+  },
+  {
+    "id": "hist-0519",
+    "rowNum": 519,
+    "concept": "Hotel Artaza",
+    "date": "2025-08-07",
+    "type": "bizum",
+    "deltas": {
+      "max": -3.0,
+      "emi": 3.0
+    },
+    "createdAt": 1593562119000
+  },
+  {
+    "id": "hist-0520",
+    "rowNum": 520,
+    "concept": "Artaza",
+    "date": "2025-08-07",
+    "type": "equal",
+    "deltas": {
+      "alex": -3.0,
+      "max": -19.7,
+      "cabo": -19.7,
+      "emi": 42.4
+    },
+    "createdAt": 1593562120000
+  },
+  {
+    "id": "hist-0521",
+    "rowNum": 521,
+    "concept": "Bus Málaga Marbella",
+    "date": "2025-08-08",
+    "type": "bizum",
+    "deltas": {
+      "alex": 7.82,
+      "cabo": -7.82
+    },
+    "createdAt": 1593562121000
+  },
+  {
+    "id": "hist-0522",
+    "rowNum": 522,
+    "concept": "Taxi",
+    "date": "2025-08-09",
+    "type": "bizum",
+    "deltas": {
+      "alex": 6.0,
+      "cabo": -6.0
+    },
+    "createdAt": 1593562122000
+  },
+  {
+    "id": "hist-0523",
+    "rowNum": 523,
+    "concept": "Cena",
+    "date": "2025-08-09",
+    "type": "bizum",
+    "deltas": {
+      "alex": 19.0,
+      "cabo": -19.0
+    },
+    "createdAt": 1593562123000
+  },
+  {
+    "id": "hist-0524",
+    "rowNum": 524,
+    "concept": "Entradas starlite",
+    "date": "2025-08-09",
+    "type": "bizum",
+    "deltas": {
+      "alex": 22.0,
+      "cabo": -22.0
+    },
+    "createdAt": 1593562124000
+  },
+  {
+    "id": "hist-0525",
+    "rowNum": 525,
+    "concept": "Starlite previa y taxi",
+    "date": "2025-08-10",
+    "type": "bizum",
+    "deltas": {
+      "alex": 7.9675,
+      "cabo": -7.9675
+    },
+    "createdAt": 1593562125000
+  },
+  {
+    "id": "hist-0526",
+    "rowNum": 526,
+    "concept": "Paella",
+    "date": "2025-08-11",
+    "type": "bizum",
+    "deltas": {
+      "alex": -38.75,
+      "cabo": 38.75
+    },
+    "createdAt": 1593562126000
+  },
+  {
+    "id": "hist-0527",
+    "rowNum": 527,
+    "concept": "Super",
+    "date": "2025-08-09",
+    "type": "bizum",
+    "deltas": {
+      "alex": -25.75,
+      "cabo": 25.75
+    },
+    "createdAt": 1593562127000
+  },
+  {
+    "id": "hist-0528",
+    "rowNum": 528,
+    "concept": "Puerto",
+    "date": "2025-08-12",
+    "type": "bizum",
+    "deltas": {
+      "alex": -12.8,
+      "cabo": 12.8
+    },
+    "createdAt": 1593562128000
+  },
+  {
+    "id": "hist-0529",
+    "rowNum": 529,
+    "concept": "Supercor",
+    "date": "2025-08-13",
+    "type": "bizum",
+    "deltas": {
+      "alex": -2.59,
+      "cabo": 2.59
+    },
+    "createdAt": 1593562129000
+  },
+  {
+    "id": "hist-0530",
+    "rowNum": 530,
+    "concept": "Uber ida puerto",
+    "date": "2025-08-12",
+    "type": "bizum",
+    "deltas": {
+      "alex": 9.975,
+      "cabo": -9.975
+    },
+    "createdAt": 1593562130000
+  },
+  {
+    "id": "hist-0531",
+    "rowNum": 531,
+    "concept": "Uber y bus",
+    "date": "2025-08-14",
+    "type": "bizum",
+    "deltas": {
+      "alex": 35.405,
+      "cabo": -35.405
+    },
+    "createdAt": 1593562131000
+  },
+  {
+    "id": "hist-0532",
+    "rowNum": 532,
+    "concept": "Cocacola",
+    "date": "2025-08-15",
+    "type": "bizum",
+    "deltas": {
+      "cabo": 3.0,
+      "emi": -3.0
+    },
+    "createdAt": 1593562132000
+  },
+  {
+    "id": "hist-0533",
+    "rowNum": 533,
+    "concept": "Jai Alai",
+    "date": "2025-08-15",
+    "type": "equal",
+    "deltas": {
+      "alex": -2.7,
+      "cabo": 5.4,
+      "emi": -2.7
+    },
+    "createdAt": 1593562133000
+  },
+  {
+    "id": "hist-0534",
+    "rowNum": 534,
+    "concept": "Supercor",
+    "date": "2025-08-16",
+    "type": "bizum",
+    "deltas": {
+      "alex": -3.69,
+      "emi": 3.69
+    },
+    "createdAt": 1593562134000
+  },
+  {
+    "id": "hist-0535",
+    "rowNum": 535,
+    "concept": "JaiAlai",
+    "date": "2025-08-17",
+    "type": "bizum",
+    "deltas": {
+      "cabo": 2.7,
+      "emi": -2.7
+    },
+    "createdAt": 1593562135000
+  },
+  {
+    "id": "hist-0536",
+    "rowNum": 536,
+    "concept": "Jai Alai",
+    "date": "2025-08-19",
+    "type": "equal",
+    "deltas": {
+      "alex": -2.7,
+      "max": -1.5,
+      "cabo": 6.9,
+      "emi": -2.7
+    },
+    "createdAt": 1593562136000
+  },
+  {
+    "id": "hist-0537",
+    "rowNum": 537,
+    "concept": "Nikko",
+    "date": "2025-08-21",
+    "type": "equal",
+    "deltas": {
+      "alex": -20.35,
+      "luis": 36.4,
+      "max": -33.4,
+      "cabo": 34.8,
+      "emi": -17.45
+    },
+    "createdAt": 1593562137000
+  },
+  {
+    "id": "hist-0538",
+    "rowNum": 538,
+    "concept": "Caña y Telepizza",
+    "date": "2025-08-23",
+    "type": "bizum",
+    "deltas": {
+      "alex": -10.8,
+      "emi": 10.8
+    },
+    "createdAt": 1593562138000
+  },
+  {
+    "id": "hist-0539",
+    "rowNum": 539,
+    "concept": "Astenagusi",
+    "date": "2025-08-22",
+    "type": "equal",
+    "deltas": {
+      "alex": -22.54,
+      "max": 30.06,
+      "emi": -7.52
+    },
+    "createdAt": 1593562139000
+  },
+  {
+    "id": "hist-0540",
+    "rowNum": 540,
+    "concept": "Caña",
+    "date": "2025-08-26",
+    "type": "bizum",
+    "deltas": {
+      "max": 2.9,
+      "emi": -2.9
+    },
+    "createdAt": 1593562140000
+  },
+  {
+    "id": "hist-0541",
+    "rowNum": 541,
+    "concept": "Triangu",
+    "date": "2025-08-19",
+    "type": "equal",
+    "deltas": {
+      "alex": -3.1,
+      "max": 13.77,
+      "cabo": -10.67
+    },
+    "createdAt": 1593562141000
+  },
+  {
+    "id": "hist-0542",
+    "rowNum": 542,
+    "concept": "Caña y kebab",
+    "date": "2025-08-27",
+    "type": "equal",
+    "deltas": {
+      "alex": 14.3,
+      "max": -6.5,
+      "emi": -7.8
+    },
+    "createdAt": 1593562142000
+  },
+  {
+    "id": "hist-0543",
+    "rowNum": 543,
+    "concept": "Iruña",
+    "date": "2025-08-23",
+    "type": "bizum",
+    "deltas": {
+      "alex": 4.0,
+      "max": -4.0
+    },
+    "createdAt": 1593562143000
+  },
+  {
+    "id": "hist-0544",
+    "rowNum": 544,
+    "concept": "Arroz casa Ybarra",
+    "date": "2025-07-28",
+    "type": "equal",
+    "deltas": {
+      "alex": -3.93,
+      "luis": 15.72,
+      "max": -3.93,
+      "cabo": -3.93,
+      "emi": -3.93
+    },
+    "createdAt": 1593562144000
+  },
+  {
+    "id": "hist-0545",
+    "rowNum": 545,
+    "concept": "telepi luis",
+    "date": "2025-08-28",
+    "type": "equal",
+    "deltas": {
+      "alex": -1.4,
+      "luis": 5.6,
+      "max": -1.4,
+      "emi": -2.8
+    },
+    "createdAt": 1593562145000
+  },
+  {
+    "id": "hist-0546",
+    "rowNum": 546,
+    "concept": "telepi martin",
+    "date": "2025-08-28",
+    "type": "equal",
+    "deltas": {
+      "alex": -4.2,
+      "luis": -4.2,
+      "max": 16.8,
+      "emi": -8.4
+    },
+    "createdAt": 1593562146000
+  },
+  {
+    "id": "hist-0547",
+    "rowNum": 547,
+    "concept": "bebidas",
+    "date": "2025-08-28",
+    "type": "equal",
+    "deltas": {
+      "luis": -2.0,
+      "max": -2.0,
+      "emi": 4.0
+    },
+    "createdAt": 1593562147000
+  },
+  {
+    "id": "hist-0548",
+    "rowNum": 548,
+    "concept": "Fangaloca",
+    "date": "2025-09-13",
+    "type": "bizum",
+    "deltas": {
+      "alex": 3.4,
+      "max": -3.4
+    },
+    "createdAt": 1593562148000
+  },
+  {
+    "id": "hist-0549",
+    "rowNum": 549,
+    "concept": "Manusburger",
+    "date": "2025-09-12",
+    "type": "bizum",
+    "deltas": {
+      "alex": -6.0,
+      "luis": 6.0
+    },
+    "createdAt": 1593562149000
+  },
+  {
+    "id": "hist-0550",
+    "rowNum": 550,
+    "concept": "Triangu",
+    "date": "2025-09-27",
+    "type": "bizum",
+    "deltas": {
+      "alex": 3.1,
+      "max": -3.1
+    },
+    "createdAt": 1593562150000
+  },
+  {
+    "id": "hist-0551",
+    "rowNum": 551,
+    "concept": "Jai Alai",
+    "date": "2025-10-04",
+    "type": "bizum",
+    "deltas": {
+      "luis": 2.7,
+      "max": -2.7
+    },
+    "createdAt": 1593562151000
+  },
+  {
+    "id": "hist-0552",
+    "rowNum": 552,
+    "concept": "Manus",
+    "date": "2025-12-24",
+    "type": "bizum",
+    "deltas": {
+      "alex": 8.333333,
+      "cabo": -8.333333
+    },
+    "createdAt": 1593562152000
+  },
+  {
+    "id": "hist-0553",
+    "rowNum": 553,
+    "concept": "Tipula",
+    "date": "2025-12-26",
+    "type": "bizum",
+    "deltas": {
+      "luis": 16.14,
+      "cabo": -16.14
+    },
+    "createdAt": 1593562153000
+  },
+  {
+    "id": "hist-0554",
+    "rowNum": 554,
+    "concept": "Panda",
+    "date": "2025-12-27",
+    "type": "equal",
+    "deltas": {
+      "alex": -18.94,
+      "luis": -18.94,
+      "max": -18.94,
+      "cabo": 74.56,
+      "emi": -18.94
+    },
+    "createdAt": 1593562154000
+  },
+  {
+    "id": "hist-0555",
+    "rowNum": 555,
+    "concept": "Pedratas",
+    "date": "2025-12-27",
+    "type": "equal",
+    "deltas": {
+      "alex": -3.5,
+      "luis": 7.0,
+      "cabo": -3.5
+    },
+    "createdAt": 1593562155000
+  },
+  {
+    "id": "hist-0556",
+    "rowNum": 556,
+    "concept": "Jai alai",
+    "date": "2025-12-27",
+    "type": "equal",
+    "deltas": {
+      "alex": 4.3,
+      "max": -2.7,
+      "cabo": -1.6
+    },
+    "createdAt": 1593562156000
+  },
+  {
+    "id": "hist-0557",
+    "rowNum": 557,
+    "concept": "Kebab y ColaCao",
+    "date": "2026-01-03",
+    "type": "bizum",
+    "deltas": {
+      "alex": 8.2,
+      "cabo": -8.2
+    },
+    "createdAt": 1593562157000
+  },
+  {
+    "id": "hist-0558",
+    "rowNum": 558,
+    "concept": "ColaCao y kebab",
+    "date": "2026-01-03",
+    "type": "bizum",
+    "deltas": {
+      "alex": 8.2,
+      "cabo": -8.2
+    },
+    "createdAt": 1593562158000
+  },
+  {
+    "id": "hist-0559",
+    "rowNum": 559,
+    "concept": "Xia sushi",
+    "date": "2026-01-30",
+    "type": "equal",
+    "deltas": {
+      "alex": 43.6,
+      "max": -15.2,
+      "cabo": -14.2,
+      "emi": -14.2
+    },
+    "createdAt": 1593562159000
+  },
+  {
+    "id": "hist-0560",
+    "rowNum": 560,
+    "concept": "Manus Burger",
+    "date": "2026-01-30",
+    "type": "bizum",
+    "deltas": {
+      "max": 4.3,
+      "cabo": -4.3
+    },
+    "createdAt": 1593562160000
+  },
+  {
+    "id": "hist-0561",
+    "rowNum": 561,
+    "concept": "Kebab",
+    "date": "2026-02-15",
+    "type": "bizum",
+    "deltas": {
+      "luis": -6.0,
+      "cabo": 6.0
+    },
+    "createdAt": 1593562161000
+  },
+  {
+    "id": "hist-0562",
+    "rowNum": 562,
+    "concept": "2 euro",
+    "date": "2026-02-16",
+    "type": "bizum",
+    "deltas": {
+      "luis": 2.0,
+      "cabo": -2.0
+    },
+    "createdAt": 1593562162000
+  },
+  {
+    "id": "hist-0563",
+    "rowNum": 563,
+    "concept": "Panda",
+    "date": "2026-02-27",
+    "type": "bizum",
+    "deltas": {
+      "alex": 20.57,
+      "cabo": -20.57
+    },
+    "createdAt": 1593562163000
+  },
+  {
+    "id": "hist-0564",
+    "rowNum": 564,
+    "concept": "Formigal",
+    "date": "2026-02-28",
+    "type": "bizum",
+    "deltas": {
+      "luis": 29.93,
+      "cabo": -29.93
+    },
+    "createdAt": 1593562164000
+  },
+  {
+    "id": "hist-0565",
+    "rowNum": 565,
+    "concept": "Sushi Oji",
+    "date": "2026-03-01",
+    "type": "bizum",
+    "deltas": {
+      "luis": -6.0,
+      "cabo": 6.0
+    },
+    "createdAt": 1593562165000
+  },
+  {
+    "id": "hist-0566",
+    "rowNum": 566,
+    "concept": "Golfo",
+    "date": "2026-03-01",
+    "type": "bizum",
+    "deltas": {
+      "luis": -3.0,
+      "cabo": 3.0
+    },
+    "createdAt": 1593562166000
+  },
+  {
+    "id": "hist-0567",
+    "rowNum": 567,
+    "concept": "Torrente",
+    "date": "2026-03-15",
+    "type": "equal",
+    "deltas": {
+      "alex": -11.9,
+      "luis": -11.9,
+      "max": 35.7,
+      "cabo": -11.9
+    },
+    "createdAt": 1593562167000
+  },
+  {
+    "id": "hist-0568",
+    "rowNum": 568,
+    "concept": "McDonalds",
+    "date": "2026-03-15",
+    "type": "bizum",
+    "deltas": {
+      "luis": 6.75,
+      "cabo": -6.75
+    },
+    "createdAt": 1593562168000
+  },
+  {
+    "id": "hist-0569",
+    "rowNum": 569,
+    "concept": "Palomitas",
+    "date": "2026-03-15",
+    "type": "bizum",
+    "deltas": {
+      "max": -11.4,
+      "cabo": 11.4
+    },
+    "createdAt": 1593562169000
+  },
+  {
+    "id": "hist-0570",
+    "rowNum": 570,
+    "concept": "Jai Alai",
+    "date": "2026-03-19",
+    "type": "bizum",
+    "deltas": {
+      "alex": -4.0,
+      "cabo": 4.0
+    },
+    "createdAt": 1593562170000
+  },
+  {
+    "id": "hist-0571",
+    "rowNum": 571,
+    "concept": "Kebab",
+    "date": "2026-03-21",
+    "type": "bizum",
+    "deltas": {
+      "luis": -7.0,
+      "cabo": 7.0
+    },
+    "createdAt": 1593562171000
+  },
+  {
+    "id": "hist-0572",
+    "rowNum": 572,
+    "concept": "Helado",
+    "date": "2026-03-19",
+    "type": "equal",
+    "deltas": {
+      "alex": -1.366667,
+      "luis": -1.366667,
+      "cabo": 2.733333
+    },
+    "createdAt": 1593562172000
+  },
+  {
+    "id": "hist-0573",
+    "rowNum": 573,
+    "concept": "Jai Alai",
+    "date": "2026-03-21",
+    "type": "bizum",
+    "deltas": {
+      "alex": -4.0,
+      "cabo": 4.0
+    },
+    "createdAt": 1593562173000
+  },
+  {
+    "id": "hist-0574",
+    "rowNum": 574,
+    "concept": "Chino",
+    "date": "2026-03-21",
+    "type": "bizum",
+    "deltas": {
+      "alex": -26.8,
+      "cabo": 26.8
+    },
+    "createdAt": 1593562174000
+  },
+  {
+    "id": "hist-0575",
+    "rowNum": 575,
+    "concept": "Manus",
+    "date": "2026-04-11",
+    "type": "equal",
+    "deltas": {
+      "alex": -7.56,
+      "luis": -6.86,
+      "cabo": 14.42
+    },
+    "createdAt": 1593562175000
+  },
+  {
+    "id": "hist-0576",
+    "rowNum": 576,
+    "concept": "Supercor",
+    "date": "2026-04-11",
+    "type": "equal",
+    "deltas": {
+      "alex": -1.38,
+      "luis": -1.38,
+      "cabo": 2.76
+    },
+    "createdAt": 1593562176000
+  },
+  {
+    "id": "hist-0577",
+    "rowNum": 577,
+    "concept": "Artaza",
+    "date": "2026-04-24",
+    "type": "bizum",
+    "deltas": {
+      "max": -3.0,
+      "cabo": 3.0
+    },
+    "createdAt": 1593562177000
+  },
+  {
+    "id": "hist-0578",
+    "rowNum": 578,
+    "concept": "Jai Alai",
+    "date": "2026-04-24",
+    "type": "bizum",
+    "deltas": {
+      "alex": -7.0,
+      "cabo": 7.0
+    },
+    "createdAt": 1593562178000
+  },
+  {
+    "id": "hist-0579",
+    "rowNum": 579,
+    "concept": "Patatas bravas + caña",
+    "date": "2026-04-28",
+    "type": "bizum",
+    "deltas": {
+      "max": -6.95,
+      "emi": 6.95
+    },
+    "createdAt": 1593562179000
+  },
+  {
+    "id": "hist-0580",
+    "rowNum": 580,
+    "concept": "Hotel artaza",
+    "date": "2026-04-25",
+    "type": "equal",
+    "deltas": {
+      "alex": -4.69,
+      "luis": -1.59,
+      "max": -1.59,
+      "cabo": -1.59,
+      "emi": 9.46
+    },
+    "createdAt": 1593562180000
+  },
+  {
+    "id": "hist-0581",
+    "rowNum": 581,
+    "concept": "Bocata triangu",
+    "date": "2026-04-01",
+    "type": "equal",
+    "deltas": {
+      "alex": -7.5,
+      "cabo": -7.5,
+      "emi": 15.0
+    },
+    "createdAt": 1593562181000
+  },
+  {
+    "id": "hist-0582",
+    "rowNum": 582,
+    "concept": "Tallarines pollo",
+    "date": "2026-04-30",
+    "type": "equal",
+    "deltas": {
+      "alex": -6.0,
+      "luis": 12.0,
+      "cabo": -6.0
+    },
+    "createdAt": 1593562182000
+  },
+  {
+    "id": "hist-0583",
+    "rowNum": 583,
+    "concept": "Burger",
+    "date": "2026-05-02",
+    "type": "equal",
+    "deltas": {
+      "alex": -10.98,
+      "luis": -10.2,
+      "max": 26.17,
+      "cabo": -4.99
+    },
+    "createdAt": 1593562183000
+  },
+  {
+    "id": "hist-0584",
+    "rowNum": 584,
+    "concept": "Jai kebab",
+    "date": "2026-05-16",
+    "type": "bizum",
+    "deltas": {
+      "alex": 8.8,
+      "cabo": -8.8
+    },
+    "createdAt": 1593562184000
+  },
+  {
+    "id": "hist-0585",
+    "rowNum": 585,
+    "concept": "Helados",
+    "date": "2026-05-17",
+    "type": "bizum",
+    "deltas": {
+      "alex": 4.49,
+      "cabo": -4.49
+    },
+    "createdAt": 1593562185000
+  },
+  {
+    "id": "hist-0586",
+    "rowNum": 586,
+    "concept": "Pincho mundial",
+    "date": "2026-06-17",
+    "type": "bizum",
+    "deltas": {
+      "alex": 2.8,
+      "cabo": -2.8
+    },
+    "createdAt": 1593562186000
+  },
+  {
+    "id": "hist-0587",
+    "rowNum": 587,
+    "concept": "Jai + Supercor",
+    "date": "2026-06-21",
+    "type": "bizum",
+    "deltas": {
+      "alex": 4.98,
+      "cabo": -4.98
+    },
+    "createdAt": 1593562187000
+  },
+  {
+    "id": "hist-0588",
+    "rowNum": 588,
+    "concept": "Burger",
+    "date": "2026-06-13",
+    "type": "bizum",
+    "deltas": {
+      "alex": -12.0,
+      "cabo": 12.0
+    },
+    "createdAt": 1593562188000
+  },
+  {
+    "id": "hist-0589",
+    "rowNum": 589,
+    "concept": "xia",
+    "date": "2026-06-21",
+    "type": "bizum",
+    "deltas": {
+      "alex": -12.95,
+      "cabo": 12.95
+    },
+    "createdAt": 1593562189000
+  },
+  {
+    "id": "hist-0590",
+    "rowNum": 590,
+    "concept": "Triangu",
+    "date": "2026-06-25",
+    "type": "equal",
+    "deltas": {
+      "alex": -3.0,
+      "max": -4.5,
+      "cabo": 7.5
+    },
+    "createdAt": 1593562190000
+  },
+  {
+    "id": "hist-0591",
+    "rowNum": 591,
+    "concept": "Fangaloka",
+    "date": "2026-06-27",
+    "type": "bizum",
+    "deltas": {
+      "alex": 3.25,
+      "cabo": -3.25
+    },
+    "createdAt": 1593562191000
+  },
+  {
+    "id": "hist-0592",
+    "rowNum": 592,
+    "concept": "Obsession",
+    "date": "2026-06-30",
+    "type": "equal",
+    "deltas": {
+      "alex": 20.8,
+      "cabo": -10.4,
+      "emi": -10.4
+    },
+    "createdAt": 1593562192000
+  },
+  {
+    "id": "hist-0593",
+    "rowNum": 593,
+    "concept": "Panda",
+    "date": "2026-06-30",
+    "type": "equal",
+    "deltas": {
+      "alex": 47.483333,
+      "max": -16.766667,
+      "cabo": -16.766667,
+      "emi": -13.95
+    },
+    "createdAt": 1593562193000
+  },
+  {
+    "id": "hist-0594",
+    "rowNum": 594,
+    "concept": "Triangu",
+    "date": "2026-06-29",
+    "type": "bizum",
+    "deltas": {
+      "alex": -3.2,
+      "max": 3.2
+    },
+    "createdAt": 1593562194000
+  },
+  {
+    "id": "hist-0595",
+    "rowNum": 595,
+    "concept": "Prestamo",
+    "date": "2026-07-06",
+    "type": "bizum",
+    "deltas": {
+      "cabo": 9.9,
+      "emi": -9.9
+    },
+    "createdAt": 1593562195000
+  },
+  {
+    "id": "hist-0596",
+    "rowNum": 596,
+    "concept": "Mundial",
+    "date": "2026-07-08",
+    "type": "equal",
+    "deltas": {
+      "alex": 5.4,
+      "max": -2.7,
+      "emi": -2.7
+    },
+    "createdAt": 1593562196000
+  },
+  {
+    "id": "hist-0597",
+    "rowNum": 597,
+    "concept": "Jai Alai",
+    "date": "2026-07-08",
+    "type": "bizum",
+    "deltas": {
+      "alex": -9.0,
+      "cabo": 9.0
+    },
+    "createdAt": 1593562197000
+  },
+  {
+    "id": "hist-0598",
+    "rowNum": 598,
+    "concept": "Cerve cuartos",
+    "date": "2026-07-10",
+    "type": "equal",
+    "deltas": {
+      "alex": -1.03,
+      "max": 3.09,
+      "cabo": -1.03,
+      "emi": -1.03
+    },
+    "createdAt": 1593562198000
+  },
+  {
+    "id": "hist-0599",
+    "rowNum": 599,
+    "concept": "Panda",
+    "date": "2026-07-10",
+    "type": "bizum",
+    "deltas": {
+      "max": 13.95,
+      "emi": -13.95
+    },
+    "createdAt": 1593562199000
+  },
+  {
+    "id": "hist-0600",
+    "rowNum": 600,
+    "concept": "Bbk + tabaco",
+    "date": "2026-07-12",
+    "type": "bizum",
+    "deltas": {
+      "alex": 25.0,
+      "emi": -25.0
+    },
+    "createdAt": 1593562200000
+  },
+  {
+    "id": "hist-0601",
+    "rowNum": 601,
+    "concept": "Entradas cine",
+    "date": "2026-07-24",
+    "type": "equal",
+    "deltas": {
+      "alex": -8.9,
+      "luis": -8.9,
+      "max": 44.5,
+      "cabo": -8.9,
+      "emi": -17.8
+    },
+    "createdAt": 1593562201000
+  },
+  {
+    "id": "hist-0602",
+    "rowNum": 602,
+    "concept": "Boca Madre",
+    "date": "2026-07-24",
+    "type": "equal",
+    "deltas": {
+      "alex": -25.32,
+      "max": -25.32,
+      "cabo": 101.28,
+      "emi": -50.64
+    },
+    "createdAt": 1593562202000
+  },
+  {
+    "id": "hist-0603",
+    "rowNum": 603,
+    "concept": "Helados Lotus",
+    "date": "2026-07-28",
+    "type": "equal",
+    "deltas": {
+      "alex": -1.5,
+      "luis": 3.0,
+      "cabo": -1.5
+    },
+    "createdAt": 1593562203000
+  },
+  {
+    "id": "hist-0604",
+    "rowNum": 604,
+    "concept": "Hotel Artaza xd",
+    "date": "2026-07-28",
+    "type": "equal",
+    "deltas": {
+      "alex": -0.78,
+      "luis": 2.34,
+      "max": -0.78,
+      "cabo": -0.78
+    },
+    "createdAt": 1593562204000
+  },
+  {
+    "id": "hist-0605",
+    "rowNum": 605,
+    "concept": "tallas y kebak",
+    "date": "2026-07-28",
+    "type": "equal",
+    "deltas": {
+      "alex": -3.5,
+      "luis": 9.5,
+      "cabo": -6.0
+    },
+    "createdAt": 1593562205000
+  },
+  {
+    "id": "hist-0606",
+    "rowNum": 606,
+    "concept": "Cocacola",
+    "date": "2026-07-29",
+    "type": "bizum",
+    "deltas": {
+      "alex": 2.8,
+      "cabo": -2.8
+    },
+    "createdAt": 1593562206000
+  },
+  {
+    "id": "hist-0607",
+    "rowNum": 607,
+    "concept": "Hotel artaza",
+    "date": "2026-07-29",
+    "type": "equal",
+    "deltas": {
+      "alex": -5.6,
+      "max": 11.2,
+      "cabo": -5.6
+    },
+    "createdAt": 1593562207000
+  },
+  {
+    "id": "hist-0608",
+    "rowNum": 608,
+    "concept": "Suchi oji",
+    "date": "2026-07-29",
+    "type": "equal",
+    "deltas": {
+      "alex": -5.3,
+      "max": 10.6,
+      "cabo": -5.3
+    },
+    "createdAt": 1593562208000
+  },
+  {
+    "id": "hist-0609",
+    "rowNum": 609,
+    "concept": "Pizzas",
+    "date": "2026-08-13",
+    "type": "bizum",
+    "deltas": {
+      "alex": 22.7,
+      "max": -22.7
+    },
+    "createdAt": 1593562209000
+  },
+  {
+    "id": "hist-0610",
+    "rowNum": 610,
+    "concept": "Pizzas2",
+    "date": "2026-08-15",
+    "type": "bizum",
+    "deltas": {
+      "alex": -19.4,
+      "max": 19.4
+    },
+    "createdAt": 1593562210000
+  },
+  {
+    "id": "hist-0611",
+    "rowNum": 611,
+    "concept": "Copas",
+    "date": "2026-08-13",
+    "type": "bizum",
+    "deltas": {
+      "alex": -13.5,
+      "max": 13.5
+    },
+    "createdAt": 1593562211000
+  },
+  {
+    "id": "hist-0612",
+    "rowNum": 612,
+    "concept": "kebab",
+    "date": "2026-08-23",
+    "type": "bizum",
+    "deltas": {
+      "alex": -5.5,
+      "cabo": 5.5
+    },
+    "createdAt": 1593562212000
+  },
+  {
+    "id": "hist-0613",
+    "rowNum": 613,
+    "concept": "Jai",
+    "date": "2026-08-23",
+    "type": "bizum",
+    "deltas": {
+      "alex": 2.7,
+      "cabo": -2.7
+    },
+    "createdAt": 1593562213000
+  },
+  {
+    "id": "hist-0614",
+    "rowNum": 614,
+    "concept": "cerve",
+    "date": "2026-09-02",
+    "type": "bizum",
+    "deltas": {
+      "luis": -2.8,
+      "cabo": 2.8
+    },
+    "createdAt": 1593562214000
+  },
+  {
+    "id": "hist-0615",
+    "rowNum": 615,
+    "concept": "Deuda tricount",
+    "date": "2026-09-04",
+    "type": "bizum",
+    "deltas": {
+      "alex": 36.38,
+      "emi": -36.38
+    },
+    "createdAt": 1593562215000
+  },
+  {
+    "id": "hist-0616",
+    "rowNum": 616,
+    "concept": "Colacola",
+    "date": "2026-09-06",
+    "type": "bizum",
+    "deltas": {
+      "luis": 3.2,
+      "cabo": -3.2
+    },
+    "createdAt": 1593562216000
+  },
+  {
+    "id": "hist-0617",
+    "rowNum": 617,
+    "concept": "VIPS",
+    "date": "2026-09-06",
+    "type": "equal",
+    "deltas": {
+      "alex": -18.7,
+      "luis": 38.2,
+      "cabo": -19.5
+    },
+    "createdAt": 1593562217000
+  },
+  {
+    "id": "hist-0618",
+    "rowNum": 618,
+    "concept": "Golf",
+    "date": "2026-09-12",
+    "type": "bizum",
+    "deltas": {
+      "luis": -28.5,
+      "max": 28.5
+    },
+    "createdAt": 1593562218000
+  },
+  {
+    "id": "hist-0619",
+    "rowNum": 619,
+    "concept": "Pizzas PostGolf",
+    "date": "2026-09-12",
+    "type": "equal",
+    "deltas": {
+      "luis": 16.5,
+      "max": -11.0,
+      "emi": -5.5
+    },
+    "createdAt": 1593562219000
+  },
+  {
+    "id": "hist-0620",
+    "rowNum": 620,
+    "concept": "Tabla carnes",
+    "date": "2026-09-13",
+    "type": "bizum",
+    "deltas": {
+      "alex": 16.73,
+      "cabo": -16.73
+    },
+    "createdAt": 1593562220000
+  },
+  {
+    "id": "hist-0621",
+    "rowNum": 621,
+    "concept": "Agua ambulante",
+    "date": "2026-09-13",
+    "type": "bizum",
+    "deltas": {
+      "alex": 1.6,
+      "cabo": -1.6
+    },
+    "createdAt": 1593562221000
+  },
+  {
+    "id": "hist-0622",
+    "rowNum": 622,
+    "concept": "Pizzas",
+    "date": "2026-09-27",
+    "type": "equal",
+    "deltas": {
+      "alex": 10.966667,
+      "luis": -5.483333,
+      "max": -5.483333
+    },
+    "createdAt": 1593562222000
+  },
+  {
+    "id": "hist-0623",
+    "rowNum": 623,
+    "concept": "Bizum Emi",
+    "date": "2026-09-30",
+    "type": "equal",
+    "deltas": {
+      "alex": -64.87,
+      "luis": -36.75,
+      "max": -61.16,
+      "cabo": -70.45,
+      "emi": 233.23
+    },
+    "createdAt": 1593562223000
+  },
+  {
+    "id": "hist-0624",
+    "rowNum": 624,
+    "concept": "Prestamo",
+    "date": "2026-09-29",
+    "type": "bizum",
+    "deltas": {
+      "cabo": 20.0,
+      "emi": -20.0
+    },
+    "createdAt": 1593562224000
+  },
+  {
+    "id": "hist-0625",
+    "rowNum": 625,
+    "concept": "Rock",
+    "date": "2026-10-11",
+    "type": "bizum",
+    "deltas": {
+      "luis": 15.0,
+      "cabo": -15.0
+    },
+    "createdAt": 1593562225000
+  },
+  {
+    "id": "hist-0626",
+    "rowNum": 626,
+    "concept": "Fingers",
+    "date": "2026-10-31",
+    "type": "equal",
+    "deltas": {
+      "luis": 5.33,
+      "cabo": -2.67,
+      "emi": -2.67
+    },
+    "createdAt": 1593562226000
+  },
+  {
+    "id": "hist-0627",
+    "rowNum": 627,
+    "concept": "Burger",
+    "date": "2026-10-31",
+    "type": "equal",
+    "deltas": {
+      "luis": 24.2,
+      "max": -5.45,
+      "cabo": -7.75,
+      "emi": -11.0
+    },
+    "createdAt": 1593562227000
+  },
+  {
+    "id": "hist-0628",
+    "rowNum": 628,
+    "concept": "Cañas",
+    "date": "2026-10-31",
+    "type": "equal",
+    "deltas": {
+      "max": -3.8,
+      "cabo": -3.8,
+      "emi": 7.6
+    },
+    "createdAt": 1593562228000
+  }
+]
