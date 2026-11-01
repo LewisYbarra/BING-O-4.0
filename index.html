@@ -98,10 +98,6 @@
             </div>
 
             <div class="flex items-center gap-2">
-<!--                 <button onclick="openDeployModal()" class="px-2.5 py-1.5 rounded-lg bg-slate-800/90 hover:bg-slate-700 text-xs font-medium text-slate-300 border border-slate-700 transition flex items-center gap-1.5" title="Cómo instalar en iPhone y subir a Vercel">
-                    <i class="fa-brands fa-apple text-slate-200"></i>
-                    <span class="hidden sm:inline">iPhone / Vercel</span>
-                </button> -->
                 <button onclick="switchTab('nuevo')" class="px-3 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs shadow-md shadow-emerald-500/20 transition flex items-center gap-1.5">
                     <i class="fa-solid fa-plus"></i>
                     <span>Apuntar</span>
@@ -123,23 +119,23 @@
                 <div class="grid grid-cols-3 gap-2 relative z-10">
                     <div class="bg-slate-950/50 rounded-xl p-3 border border-slate-800/80">
                         <span class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold block">Crédito Vivo</span>
-                        <span id="hero-credito" class="mono-num text-lg sm:text-xl font-bold text-amber-400 mt-0.5 block">45,28 €</span>
+                        <span id="hero-credito" class="mono-num text-lg sm:text-xl font-bold text-amber-400 mt-0.5 block">0,00 €</span>
                         <span class="text-[10px] text-slate-500">Media hist: 88,60 €</span>
                     </div>
                     <div class="bg-slate-950/50 rounded-xl p-3 border border-slate-800/80">
                         <span class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold block">Movimientos</span>
-                        <span id="hero-tx-count" class="mono-num text-lg sm:text-xl font-bold text-white mt-0.5 block">628</span>
+                        <span id="hero-tx-count" class="mono-num text-lg sm:text-xl font-bold text-white mt-0.5 block">0</span>
                         <span id="hero-new-count" class="text-[10px] text-emerald-400">+0 en v4.0</span>
                     </div>
                     <div class="bg-slate-950/50 rounded-xl p-3 border border-slate-800/80">
                         <span class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold block">Riesgo Relativo</span>
-                        <span id="hero-riesgo" class="mono-num text-lg sm:text-xl font-bold text-emerald-400 mt-0.5 block">4,6%</span>
+                        <span id="hero-riesgo" class="mono-num text-lg sm:text-xl font-bold text-emerald-400 mt-0.5 block">0,0%</span>
                         <span id="hero-riesgo-label" class="text-[10px] text-slate-500">Estable (BCE)</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Controls: Filter Core (5) vs All (8) -->
+            <!-- Controls: Filter Core (5) vs All (8) & Dynamic MAFTA -->
             <div class="flex flex-wrap items-center justify-between gap-2">
                 <div class="flex items-center bg-slate-900 p-1 rounded-xl border border-slate-800">
                     <button id="btn-filter-core" onclick="setMemberFilter('core')" class="px-3 py-1.5 rounded-lg text-xs font-semibold transition bg-emerald-500 text-slate-950">
@@ -150,9 +146,10 @@
                     </button>
                 </div>
 
-                <button onclick="openMaftaModal()" class="text-xs font-medium text-amber-400 hover:text-amber-300 bg-amber-500/10 border border-amber-500/20 px-3 py-1.5 rounded-xl flex items-center gap-1.5 transition">
+                <!-- Botón dinámico MAFTA (se oculta automáticamente si no hay descuadre) -->
+                <button id="btn-mafta-trigger" onclick="openMaftaModal()" class="hidden text-xs font-medium text-amber-400 hover:text-amber-300 bg-amber-500/10 border border-amber-500/20 px-3 py-1.5 rounded-xl items-center gap-1.5 transition">
                     <i class="fa-solid fa-wand-magic-sparkles"></i>
-                    <span>Protocolo MAFTA (-1,48€)</span>
+                    <span id="btn-mafta-label">Protocolo MAFTA</span>
                 </button>
             </div>
 
@@ -174,7 +171,7 @@
                         </div>
                     </div>
                     <span id="settlement-count-badge" class="text-[11px] mono-num font-semibold px-2.5 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
-                        3 pagos
+                        0 pagos
                     </span>
                 </div>
 
@@ -183,8 +180,8 @@
                 </div>
 
                 <p id="mafta-warning-note" class="text-[11px] text-slate-400 bg-slate-900/70 rounded-xl p-2.5 border border-slate-800/80">
-                    <i class="fa-solid fa-circle-info text-amber-400 mr-1"></i>
-                    Nota: En BING-O 3.2 hay un descuadre histórico acumulado de <strong class="text-amber-300 mono-num">-1,48 €</strong> por redondeos antiguos. Puedes absorberlo con el botón <em>Protocolo MAFTA</em>.
+                    <i class="fa-solid fa-circle-check text-emerald-400 mr-1"></i>
+                    <strong>Contabilidad perfecta:</strong> El Dinero Generado (D.G.) está cuadrado a <strong class="text-emerald-400 mono-num">0,00 €</strong>.
                 </p>
             </div>
         </section>
@@ -415,37 +412,37 @@
                 <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
                     <div class="bg-slate-950/80 rounded-xl p-3.5 border border-slate-800/90">
                         <span class="text-[10px] uppercase text-slate-400 font-semibold block">Crédito en Circulación</span>
-                        <span id="bce-cred" class="mono-num text-lg font-extrabold text-amber-400 mt-1 block">45,28 €</span>
+                        <span id="bce-cred" class="mono-num text-lg font-extrabold text-amber-400 mt-1 block">0,00 €</span>
                         <span class="text-[10px] text-slate-500 block mt-0.5">∑|Saldo_i| / 2 · Pico: 420,37€</span>
                     </div>
 
                     <div class="bg-slate-950/80 rounded-xl p-3.5 border border-slate-800/90">
                         <span class="text-[10px] uppercase text-slate-400 font-semibold block">Error Cuadrático (ECM)</span>
-                        <span id="bce-ecm" class="mono-num text-lg font-extrabold text-sky-400 mt-1 block">18,60 €</span>
+                        <span id="bce-ecm" class="mono-num text-lg font-extrabold text-sky-400 mt-1 block">0,00 €</span>
                         <span class="text-[10px] text-slate-500 block mt-0.5">√(∑Saldo² / 8) · Sin sesgo</span>
                     </div>
 
                     <div class="bg-slate-950/80 rounded-xl p-3.5 border border-slate-800/90">
                         <span class="text-[10px] uppercase text-slate-400 font-semibold block">Riesgo Absoluto (R.A.)</span>
-                        <span id="bce-ra" class="mono-num text-lg font-extrabold text-indigo-400 mt-1 block">29,02 €</span>
+                        <span id="bce-ra" class="mono-num text-lg font-extrabold text-indigo-400 mt-1 block">0,00 €</span>
                         <span class="text-[10px] text-slate-500 block mt-0.5">√(Cred.C × ECM) · Máx: 144,77€</span>
                     </div>
 
                     <div class="bg-slate-950/80 rounded-xl p-3.5 border border-slate-800/90">
                         <span class="text-[10px] uppercase text-slate-400 font-semibold block">Riesgo Relativo</span>
-                        <span id="bce-rr" class="mono-num text-lg font-extrabold text-emerald-400 mt-1 block">0,040</span>
+                        <span id="bce-rr" class="mono-num text-lg font-extrabold text-emerald-400 mt-1 block">0,000</span>
                         <span class="text-[10px] text-slate-500 block mt-0.5">(RA / Máx_RA)² · Alerta &gt; 0,50</span>
                     </div>
 
                     <div class="bg-slate-950/80 rounded-xl p-3.5 border border-slate-800/90">
                         <span class="text-[10px] uppercase text-slate-400 font-semibold block">Volumen Total Movido</span>
-                        <span id="bce-vol" class="mono-num text-lg font-extrabold text-white mt-1 block">10.071,58 €</span>
+                        <span id="bce-vol" class="mono-num text-lg font-extrabold text-white mt-1 block">0,00 €</span>
                         <span class="text-[10px] text-slate-500 block mt-0.5">Desde 22/07/2020</span>
                     </div>
 
                     <div class="bg-slate-950/80 rounded-xl p-3.5 border border-slate-800/90">
                         <span class="text-[10px] uppercase text-slate-400 font-semibold block">Dinero Generado (D.G.)</span>
-                        <span id="bce-dg" class="mono-num text-lg font-extrabold text-rose-400 mt-1 block">-1,48 €</span>
+                        <span id="bce-dg" class="mono-num text-lg font-extrabold text-emerald-400 mt-1 block">0,00 €</span>
                         <span class="text-[10px] text-emerald-400 block mt-0.5">Nuevos en v4.0: 0,00 €</span>
                     </div>
                 </div>
@@ -501,7 +498,7 @@
     </div>
 
     <!-- ========================================== -->
-    <!-- MODAL 2: PROTOCOLO MAFTA (LIMPIAR -1.48€)  -->
+    <!-- MODAL 2: PROTOCOLO MAFTA (CUADRE DINÁMICO) -->
     <!-- ========================================== -->
     <div id="modal-mafta" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
         <div class="bg-cardbg border border-slate-700 rounded-2xl max-w-md w-full p-5 space-y-4 shadow-2xl">
@@ -517,75 +514,25 @@
                 </button>
             </div>
             <p class="text-xs text-slate-300 leading-relaxed">
-                En vuestro Excel BING-O 3.2 la suma de los saldos de los 8 amigos es <strong class="text-amber-400 mono-num">-1,48 €</strong> en vez de <strong class="text-emerald-400 mono-num">0,00 €</strong> por culpa de divisiones entre 3 mal redondeadas (como los Fingers de 5,33 €) y decimales residuales en Alex, Por, Pedro y Asis.
+                El sistema detecta un descuadre total acumulado en el grupo de <strong id="mafta-modal-dg" class="text-amber-400 mono-num">0,00 €</strong> fruto de divisiones inexactas o milésimas residuales.
             </p>
             <div class="rounded-xl bg-slate-950 p-3 border border-slate-800 text-xs space-y-1.5">
-                <div class="font-semibold text-white">¿Qué hace este ajuste automático?</div>
+                <div class="font-semibold text-white">Acción del ajuste dinámico:</div>
                 <ul class="list-disc list-inside text-slate-400 space-y-1 text-[11px]">
-                    <li>Deja a <strong>Alex, Por, Pedro y Asis</strong> en <code class="text-emerald-400">0,00 €</code> exactos (limpia milésimas).</li>
-                    <li>Reparte los <code class="text-amber-400">+1,48 €</code> perdidos a partes iguales entre el Núcleo Duro (+0,30 € a Cabo, Emi, Max, Luis y +0,28 €) para que el <strong>Dinero Generado sea 0,00 €</strong> y los Bizums cuadren al céntimo.</li>
+                    <li>Pone a <strong>0,00 €</strong> exactos los decimales residuales de miembros secundarios inactivos.</li>
+                    <li>Absorbe la diferencia exacta repartiéndola a partes iguales entre los miembros del Núcleo Duro para que el <strong>Dinero Generado sea 0,00 €</strong>.</li>
                 </ul>
             </div>
             <div class="flex gap-2 pt-1">
                 <button onclick="closeMaftaModal()" class="flex-1 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300">
                     Cancelar
                 </button>
-                <button onclick="applyMaftaProtocol()" class="flex-1 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs">
-                    Ejecutar MAFTA (+1,48€)
+                <button onclick="applyMaftaProtocol()" id="btn-mafta-confirm" class="flex-1 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs">
+                    Ejecutar MAFTA
                 </button>
             </div>
         </div>
     </div>
-
-    <!-- ========================================== -->
-    <!-- MODAL 3: GUÍA IPHONE PWA + VERCEL DEPLOY   -->
-    <!-- ========================================== -->
-<!--     <div id="modal-deploy" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-        <div class="bg-cardbg border border-slate-700 rounded-2xl max-w-lg w-full p-5 space-y-4 shadow-2xl max-h-[90vh] overflow-y-auto">
-            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
-                <div class="flex items-center gap-2.5">
-                    <i class="fa-brands fa-apple text-xl text-white"></i>
-                    <h3 class="text-base font-bold text-white">Cómo usarla en iPhone y subirla a Vercel</h3>
-                </div>
-                <button onclick="closeDeployModal()" class="text-slate-400 hover:text-white">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-            </div>
-
-            <div class="space-y-3 text-xs text-slate-300">
-                <div class="p-3 rounded-xl bg-slate-950 border border-slate-800 space-y-1.5">
-                    <div class="font-bold text-emerald-400 flex items-center gap-1.5">
-                        <span>1. Subir gratis a Vercel (2 minutos)</span>
-                    </div>
-                    <p class="text-slate-400 leading-relaxed">
-                        Guarda este código como un archivo llamado <code class="text-white bg-slate-800 px-1.5 py-0.5 rounded">index.html</code> en una carpeta de tu ordenador. Entra en <strong>vercel.com</strong> (o <strong>app.netlify.com/drop</strong>), arrastra la carpeta y tendrás una URL tipo <code class="text-emerald-300">bingo-amigos.vercel.app</code> gratis para siempre.
-                    </p>
-                </div>
-
-                <div class="p-3 rounded-xl bg-slate-950 border border-slate-800 space-y-1.5">
-                    <div class="font-bold text-sky-400 flex items-center gap-1.5">
-                        <span>2. Instalar como App en iPhone (Sin App Store)</span>
-                    </div>
-                    <p class="text-slate-400 leading-relaxed">
-                        Pasa el enlace por vuestro grupo de WhatsApp. Los que tienen <strong>iPhone</strong> lo abren en <strong>Safari</strong>, pulsan el botón central de <strong>Compartir</strong> <i class="fa-solid fa-arrow-up-from-bracket text-white mx-0.5"></i> y seleccionan <strong>«Añadir a la pantalla de inicio»</strong>. Se instala con icono propio y a pantalla completa como una app nativa.
-                    </p>
-                </div>
-
-                <div class="p-3 rounded-xl bg-slate-950 border border-slate-800 space-y-1.5">
-                    <div class="font-bold text-amber-400 flex items-center gap-1.5">
-                        <span>3. Base de datos en la nube (Firebase ya integrado)</span>
-                    </div>
-                    <p class="text-slate-400 leading-relaxed">
-                        Aquí mismo ya está sincronizada en tiempo real. Si la alojas por tu cuenta fuera de este entorno, solo tienes que crear un proyecto gratuito en <strong>console.firebase.google.com</strong> (plan Spark 0€), activar <em>Firestore Database</em> y pegar tu <code class="text-white">firebaseConfig</code> en la variable del script.
-                    </p>
-                </div>
-            </div>
-
-            <button onclick="closeDeployModal()" class="w-full py-2.5 rounded-xl bg-emerald-500 text-slate-950 font-bold text-xs">
-                ¡Entendido!
-            </button>
-        </div>
-    </div> -->
 
     <!-- TOAST NOTIFICATION -->
     <div id="toast-box" class="fixed top-16 left-1/2 -translate-x-1/2 z-50 hidden px-4 py-2.5 rounded-xl bg-emerald-500 text-slate-950 font-bold text-xs shadow-xl flex items-center gap-2">
@@ -620,11 +567,10 @@
     <!-- ========================================== -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
         import { getFirestore, collection, doc, setDoc, deleteDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
         // ---------------------------------------------------------
-        // 1. EXACT HISTORICAL BASELINE FROM BING-O 3.2 (Fila 628)
+        // 1. BASE DE DATOS FIRESTORE (Dinámico al 100%)
         // ---------------------------------------------------------
         const MEMBERS = [
             { id: 'luis',  name: 'Luis',  code: 'LYB', core: true,  color: 'from-emerald-500 to-teal-600',   baseBalance: 0, baseMovs: 0, baseAdelantado: 0 },
@@ -653,19 +599,13 @@
         let entryMode = 'equal';   // 'equal', 'exact', 'bizum'
         let selectedParticipants = new Set(['luis', 'cabo', 'emi', 'max', 'alex']);
         let remainderRotationIndex = 0;
-        let dynamicTransactions = []; // New transactions added in BING-O 4.0
+        let dynamicTransactions = [];
         let currentComputedDeltas = {};
 
         // Firebase references
         let db = null;
-        let auth = null;
-        let currentUser = null;
         let isCloudActive = false;
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'bingo-4-grupo';
 
-        // ---------------------------------------------------------
-        // 3. INITIALIZE FIREBASE & UI
-        // ---------------------------------------------------------
         // ---------------------------------------------------------
         // 3. CONEXIÓN REAL A FIREBASE FIRESTORE
         // ---------------------------------------------------------
@@ -719,10 +659,10 @@
                 showToast("Fallo al sincronizar: revisa las reglas de Firestore", true);
             });
         }
+
         // ---------------------------------------------------------
         // 4. CORE ACCOUNTING & MACROECONOMIC ENGINE
         // ---------------------------------------------------------
-        // En computeGroupState(), cambiar el bucle sortedNew.forEach por este para distinguir las 628 históricas de las nuevas de v4.0
         function computeGroupState() {
             const stats = {};
             MEMBERS.forEach(m => {
@@ -974,12 +914,35 @@
                 `).join('');
             }
 
-            // Show/hide MAFTA note depending on whether totalDG is still around -1.48
+            // Control dinámico del Protocolo MAFTA y aviso D.G.
+            const maftaBtn = document.getElementById('btn-mafta-trigger');
+            const maftaLabel = document.getElementById('btn-mafta-label');
             const maftaNote = document.getElementById('mafta-warning-note');
-            if (Math.abs(state.totalDG) < 0.02) {
-                maftaNote.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-400 mr-1"></i> <strong>Contabilidad perfecta:</strong> El Dinero Generado (D.G.) está cuadrado a <strong class="text-emerald-400 mono-num">0,00 €</strong>.`;
-            } else {
-                maftaNote.innerHTML = `<i class="fa-solid fa-circle-info text-amber-400 mr-1"></i> En BING-O 3.2 hay un descuadre histórico acumulado de <strong class="text-amber-300 mono-num">${formatEuro(state.totalDG, true)}</strong>. Puedes absorberlo con el botón <em>Protocolo MAFTA</em>.`;
+            const hasDgError = Math.abs(state.totalDG) >= 0.005;
+
+            if (maftaBtn) {
+                if (hasDgError) {
+                    maftaBtn.classList.remove('hidden');
+                    maftaBtn.classList.add('flex');
+                    if (maftaLabel) maftaLabel.textContent = `Protocolo MAFTA (${formatEuro(state.totalDG, true)})`;
+                } else {
+                    maftaBtn.classList.add('hidden');
+                    maftaBtn.classList.remove('flex');
+                }
+            }
+
+            const maftaModalVal = document.getElementById('mafta-modal-dg');
+            if (maftaModalVal) maftaModalVal.textContent = formatEuro(state.totalDG, true);
+
+            const maftaConfirmBtn = document.getElementById('btn-mafta-confirm');
+            if (maftaConfirmBtn) maftaConfirmBtn.textContent = `Ejecutar MAFTA (${formatEuro(-state.totalDG, true)})`;
+
+            if (maftaNote) {
+                if (!hasDgError) {
+                    maftaNote.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-400 mr-1"></i> <strong>Contabilidad perfecta:</strong> El Dinero Generado (D.G.) está cuadrado a <strong class="text-emerald-400 mono-num">0,00 €</strong>.`;
+                } else {
+                    maftaNote.innerHTML = `<i class="fa-solid fa-circle-info text-amber-400 mr-1"></i> Descuadre acumulado en el grupo: <strong class="text-amber-300 mono-num">${formatEuro(state.totalDG, true)}</strong> por redondeos previos. Puedes absorberlo con el botón <em>Protocolo MAFTA</em>.`;
+                }
             }
         }
 
@@ -1074,7 +1037,6 @@
 
             const extraReceivers = [];
             parts.forEach((memberId, idx) => {
-                // Rotate who absorbs the extra cent(s) based on remainderRotationIndex
                 const shiftedIdx = (idx + remainderRotationIndex) % n;
                 const extra = shiftedIdx < remainderCents ? 1 : 0;
                 if (extra > 0) {
@@ -1201,6 +1163,7 @@
                 }
             }
         }
+
         async function submitTransaction() {
             const dateVal = document.getElementById('input-date').value.trim();
             // Easter Egg Row 436 check!
@@ -1263,7 +1226,6 @@
         }
 
         window.cancelTransaction = function() {
-            // Limpiar todos los campos del formulario por si había escrito algo a medias
             document.getElementById('input-concept').value = '';
             document.getElementById('equal-amount').value = '';
             document.getElementById('bizum-amount').value = '';
@@ -1317,39 +1279,40 @@
             }
         };
 
-        // Protocolo MAFTA: Clean historical -1.4842€ discrepancy & sub-cent residuals
+        // Protocolo MAFTA Dinámico: Cuadre automático de D.G. y limpieza de decimales
         window.applyMaftaProtocol = async function() {
             const state = computeGroupState();
             if (Math.abs(state.totalDG) < 0.005) {
                 closeMaftaModal();
-                showToast("El grupo ya tiene 0,00 € de Dinero Generado");
+                showToast("El grupo ya está cuadrado al céntimo (0,00 €)");
                 return;
             }
 
-            // Build adjustment deltas so every guest with sub-cent balance becomes 0 and the -1.4842€ is absorbed cleanly
             const deltas = {};
-            // Clean sub-cent residuals first
-            ['alex', 'por', 'pedro', 'asis'].forEach(id => {
-                const bal = state.membersMap[id].balance;
-                if (Math.abs(bal) > 0 && Math.abs(bal) < 0.05) {
-                    deltas[id] = -bal;
+
+            // 1. Limpiar decimales residuales (< 0.10€) en miembros que no estén en deudas activas
+            MEMBERS.forEach(m => {
+                const bal = state.membersMap[m.id].balance;
+                if (!m.core && Math.abs(bal) > 0.00001 && Math.abs(bal) < 0.10) {
+                    deltas[m.id] = -bal;
                 }
             });
 
-            // Calculate how much net discrepancy remains to reach exact 0.00 across all 8 members
+            // 2. Calcular descuadre exacto restante necesario para sumar 0.00 €
             const currentResidualFix = Object.values(deltas).reduce((a, b) => a + b, 0);
             const neededForZero = -(state.totalDG + currentResidualFix);
 
-            // Distribute neededForZero (+1.48€) among the 4 active core debtors/creditors (Cabo, Emi, Max, Luis)
-            const share = neededForZero / 4;
-            ['cabo', 'emi', 'max', 'luis'].forEach(id => {
-                deltas[id] = (deltas[id] || 0) + share;
+            // 3. Repartir equitativamente entre los miembros del Núcleo Duro
+            const coreMembers = MEMBERS.filter(m => m.core);
+            const share = neededForZero / coreMembers.length;
+            coreMembers.forEach(m => {
+                deltas[m.id] = (deltas[m.id] || 0) + share;
             });
 
             const today = new Date().toISOString().split('T')[0];
             const maftaTx = {
                 id: 'mafta-' + Date.now(),
-                concept: 'Ajuste MAFTA v4.0 (Cuadre D.G. histórico a 0,00€)',
+                concept: `Ajuste MAFTA (Cuadre D.G. de ${formatEuro(state.totalDG, true)})`,
                 date: today,
                 type: 'mafta',
                 deltas,
@@ -1368,7 +1331,6 @@
             const queryText = (document.getElementById('history-search')?.value || '').toLowerCase().trim();
             const memberFilterVal = document.getElementById('history-member-filter')?.value || 'all';
 
-            // 1. Asignar número correlativo a los nuevos y ordenar del más reciente al más antiguo
             const sortedByDate = [...dynamicTransactions].sort((a, b) => (a.createdAt || 0) - (b.createdAt || 0));
             
             let counter = 1;
@@ -1382,7 +1344,6 @@
                 };
             }).reverse();
 
-            // 2. Filtrar por texto de búsqueda y por persona
             const filtered = numberedTxs.filter(tx => {
                 const concept = (tx.concept || '').toLowerCase();
                 const date = tx.date || '';
@@ -1391,7 +1352,6 @@
                 return matchesText && matchesMember;
             });
 
-            // 3. Renderizar en el contenedor
             const container = document.getElementById('history-feed-list');
             if (filtered.length === 0) {
                 container.innerHTML = `
@@ -1601,8 +1561,6 @@
 
         window.openMaftaModal = () => document.getElementById('modal-mafta').classList.remove('hidden');
         window.closeMaftaModal = () => document.getElementById('modal-mafta').classList.add('hidden');
-        window.openDeployModal = () => document.getElementById('modal-deploy').classList.remove('hidden');
-        window.closeDeployModal = () => document.getElementById('modal-deploy').classList.add('hidden');
 
         function showToast(msg, isError = false) {
             const box = document.getElementById('toast-box');
