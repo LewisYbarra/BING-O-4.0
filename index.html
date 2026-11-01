@@ -250,7 +250,7 @@
                         <div>
                             <label class="block text-[11px] uppercase tracking-wider text-slate-400 font-semibold mb-1">Importe Total Pagado (€)</label>
                             <div class="relative">
-                                <input id="equal-amount" type="number" step="0.01" min="0" placeholder="0.00" oninput="recalcEqualSplit()" class="w-full bg-slate-950 border border-slate-800 focus:border-emerald-500 rounded-xl pl-3.5 pr-9 py-2.5 text-sm mono-num font-bold text-emerald-400 focus:outline-none">
+                                <input id="equal-amount" type="text" placeholder="0.00 (ej. =24/3)" oninput="recalcEqualSplit()" onblur="resolveFormulaInput(this); recalcEqualSplit();" class="w-full bg-slate-950 border border-slate-800 focus:border-emerald-500 rounded-xl pl-3.5 pr-9 py-2.5 text-sm mono-num font-bold text-emerald-400 focus:outline-none">
                                 <span class="absolute right-3.5 top-2.5 text-slate-500 font-bold">€</span>
                             </div>
                         </div>
@@ -326,7 +326,7 @@
                         </div>
                         <div>
                             <label class="block text-[11px] uppercase tracking-wider text-slate-400 font-semibold mb-1">Importe Bizum (€)</label>
-                            <input id="bizum-amount" type="number" step="0.01" min="0" placeholder="0.00" oninput="recalcBizumPreview()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-sm mono-num font-bold text-indigo-400">
+                            <input id="bizum-amount" type="text" placeholder="0.00 (ej. =50/2)" oninput="recalcBizumPreview()" onblur="resolveFormulaInput(this); recalcBizumPreview();" class="w-full bg-slate-950 border border-slate-800 focus:border-indigo-500 rounded-xl px-3.5 py-2.5 text-sm mono-num font-bold text-indigo-400 focus:outline-none">
                         </div>
                     </div>
                 </div>
@@ -1048,6 +1048,41 @@
         // ---------------------------------------------------------
         // 6. FORM CONTROLS & ZERO-DISCREPANCY MATH
         // ---------------------------------------------------------
+        // ---------------------------------------------------------
+        // PARSER SEGURO DE FÓRMULAS TIPO EXCEL
+        // ---------------------------------------------------------
+        function evaluateExpression(val) {
+            if (typeof val !== 'string') return Number(val) || 0;
+            val = val.trim();
+            if (!val) return 0;
+
+            if (val.startsWith('=')) {
+                const expr = val.substring(1).replace(/,/g, '.');
+                // Validador estricto: solo números, puntos, espacios y operadores aritméticos básicos
+                if (/^[0-9\.\+\-\*\/\(\)\s]+$/.test(expr)) {
+                    try {
+                        const res = new Function(`return (${expr})`)();
+                        return isFinite(res) ? Math.round(res * 100) / 100 : 0;
+                    } catch (e) {
+                        return 0;
+                    }
+                }
+                return 0;
+            }
+
+            return parseFloat(val.replace(',', '.')) || 0;
+        }
+
+        // Resuelve la fórmula en el propio input al quitar el foco (onblur)
+        window.resolveFormulaInput = function(el) {
+            if (!el || !el.value) return;
+            const v = el.value.trim();
+            if (v.startsWith('=')) {
+                const res = evaluateExpression(v);
+                el.value = res !== 0 ? res.toFixed(2) : '';
+            }
+        };
+
         function initFormSelectors() {
             const today = new Date().toISOString().split('T')[0];
             document.getElementById('input-date').value = today;
@@ -1099,19 +1134,18 @@
                         <span class="text-xs font-semibold text-white">${m.name}</span>
                     </div>
                     <div>
-                        <input type="number" step="0.01" min="0" placeholder="Pagó (+)" id="exact-paid-${m.id}" oninput="recalcExactSplit()" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-1.5 text-xs mono-num text-emerald-400 placeholder-slate-600 focus:outline-none focus:border-emerald-500">
+                        <input type="text" placeholder="Pagó (+)" id="exact-paid-${m.id}" oninput="recalcExactSplit()" onblur="resolveFormulaInput(this); recalcExactSplit();" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-1.5 text-xs mono-num text-emerald-400 placeholder-slate-600 focus:outline-none focus:border-emerald-500">
                     </div>
                     <div>
-                        <input type="number" step="0.01" min="0" placeholder="Consumió (-)" id="exact-ate-${m.id}" oninput="recalcExactSplit()" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-1.5 text-xs mono-num text-rose-400 placeholder-slate-600 focus:outline-none focus:border-rose-500">
+                        <input type="text" placeholder="Consumió (-)" id="exact-ate-${m.id}" oninput="recalcExactSplit()" onblur="resolveFormulaInput(this); recalcExactSplit();" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-1.5 text-xs mono-num text-rose-400 placeholder-slate-600 focus:outline-none focus:border-rose-500">
                     </div>
                 </div>
             `).join('');
         }
 
-        // Exact Cent Splitter (Guarantees Sum of Deltas == 0.00 €)
         function recalcEqualSplit() {
             const payerId = document.getElementById('equal-payer').value;
-            const rawAmount = parseFloat(document.getElementById('equal-amount').value) || 0;
+            const rawAmount = Math.abs(evaluateExpression(document.getElementById('equal-amount').value));
             const totalCents = Math.round(rawAmount * 100);
             const parts = Array.from(selectedParticipants);
 
@@ -1164,8 +1198,10 @@
             let totalAteCents = 0;
 
             MEMBERS.forEach(m => {
-                const paid = Math.round((parseFloat(document.getElementById(`exact-paid-${m.id}`)?.value) || 0) * 100);
-                const ate = Math.round((parseFloat(document.getElementById(`exact-ate-${m.id}`)?.value) || 0) * 100);
+                const paidVal = evaluateExpression(document.getElementById(`exact-paid-${m.id}`)?.value);
+                const ateVal = evaluateExpression(document.getElementById(`exact-ate-${m.id}`)?.value);
+                const paid = Math.round(paidVal * 100);
+                const ate = Math.round(ateVal * 100);
                 totalPaidCents += paid;
                 totalAteCents += ate;
                 const netCents = paid - ate;
@@ -1190,7 +1226,7 @@
         function recalcBizumPreview() {
             const sender = document.getElementById('bizum-sender').value;
             const receiver = document.getElementById('bizum-receiver').value;
-            const amount = Math.round((parseFloat(document.getElementById('bizum-amount').value) || 0) * 100) / 100;
+            const amount = Math.round(Math.abs(evaluateExpression(document.getElementById('bizum-amount').value)) * 100) / 100;
 
             currentComputedDeltas = {};
             if (amount > 0 && sender !== receiver) {
