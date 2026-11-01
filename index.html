@@ -194,7 +194,7 @@
                 <div class="flex items-center justify-between border-b border-slate-800 pb-3">
                     <div>
                         <h2 class="text-base font-bold text-white">Nuevo Apunte BING-O</h2>
-                        <p class="text-xs text-slate-400">Cero fórmulas rotas · Cuadre al céntimo garantizado</p>
+                        <p class="text-xs text-slate-400">Elige el tipo de apunte que deseas registrar.</p>
                     </div>
                     <span class="mono-num text-xs font-bold px-2.5 py-1 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
                         D.G. = 0,00 €
@@ -941,7 +941,7 @@
                 if (!hasDgError) {
                     maftaNote.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-400 mr-1"></i> <strong>Contabilidad perfecta:</strong> El Dinero Generado (D.G.) está cuadrado a <strong class="text-emerald-400 mono-num">0,00 €</strong>.`;
                 } else {
-                    maftaNote.innerHTML = `<i class="fa-solid fa-circle-info text-amber-400 mr-1"></i> Descuadre acumulado en el grupo: <strong class="text-amber-300 mono-num">${formatEuro(state.totalDG, true)}</strong> por redondeos previos. Puedes absorberlo con el botón <em>Protocolo MAFTA</em>.`;
+                    maftaNote.innerHTML = `<i class="fa-solid fa-circle-info text-amber-400 mr-1"></i> Hay <strong class="text-amber-300 mono-num">${formatEuro(state.totalDG, true)}</strong> generados por error. Pueden absorberse con el botón <em>Protocolo MAFTA</em>.`;
                 }
             }
         }
