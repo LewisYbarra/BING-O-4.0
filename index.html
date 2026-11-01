@@ -722,34 +722,28 @@
         // ---------------------------------------------------------
         // 3. INITIALIZE FIREBASE & UI
         // ---------------------------------------------------------
-        async function initFirebase() {
+        // ---------------------------------------------------------
+        // 3. CONEXIÓN REAL A FIREBASE FIRESTORE
+        // ---------------------------------------------------------
+        const firebaseConfig = {
+            apiKey: "AIzaSyDtwDekluxAjPg9ZMarjUOtAKQ5FzLLZs",
+            authDomain: "bing-o-95a98.firebaseapp.com",
+            projectId: "bing-o-95a98",
+            storageBucket: "bing-o-95a98.firebasestorage.app",
+            messagingSenderId: "5529645614",
+            appId: "1:5529645614:web:dae55b82332fb3bbe729bf",
+            measurementId: "G-MBFZNCFFT"
+        };
+
+        function initFirebase() {
             try {
-                if (typeof __firebase_config !== 'undefined' && __firebase_config) {
-                    const firebaseConfig = JSON.parse(__firebase_config);
-                    const app = initializeApp(firebaseConfig);
-                    auth = getAuth(app);
-                    db = getFirestore(app);
-
-                    // RULE 3: Auth Before Queries
-                    if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
-                        await signInWithCustomToken(auth, __initial_auth_token);
-                    } else {
-                        await signInAnonymously(auth);
-                    }
-
-                    onAuthStateChanged(auth, (user) => {
-                        currentUser = user;
-                        if (user) {
-                            isCloudActive = true;
-                            updateSyncBadge(true);
-                            subscribeToTransactions();
-                        }
-                    });
-                } else {
-                    updateSyncBadge(false);
-                }
+                const app = initializeApp(firebaseConfig);
+                db = getFirestore(app);
+                isCloudActive = true;
+                updateSyncBadge(true);
+                subscribeToTransactions();
             } catch (err) {
-                console.warn("Modo local activo (sin config externa de Firebase):", err);
+                console.error("Error conectando a Firebase:", err);
                 updateSyncBadge(false);
             }
         }
@@ -758,18 +752,17 @@
             const badge = document.getElementById('sync-badge');
             if (!badge) return;
             if (cloudConnected) {
-                badge.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span> CLOUD SYNC`;
+                badge.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span> CLOUD LIVE`;
                 badge.className = "inline-flex items-center gap-1 text-[10px] font-semibold px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30";
             } else {
-                badge.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span> LOCAL READY`;
-                badge.className = "inline-flex items-center gap-1 text-[10px] font-semibold px-2 py-0.5 rounded-full bg-amber-500/15 text-amber-300 border border-amber-500/30";
+                badge.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-rose-400"></span> OFFLINE`;
+                badge.className = "inline-flex items-center gap-1 text-[10px] font-semibold px-2 py-0.5 rounded-full bg-rose-500/15 text-rose-300 border border-rose-500/30";
             }
         }
 
         function subscribeToTransactions() {
-            if (!currentUser || !db) return;
-            // RULE 1: Strict Path & RULE 2: Simple collection query
-            const txColRef = collection(db, 'artifacts', appId, 'public', 'data', 'bingo_transactions');
+            if (!db) return;
+            const txColRef = collection(db, 'gastos');
             onSnapshot(txColRef, (snapshot) => {
                 const loaded = [];
                 snapshot.forEach((docSnap) => {
@@ -778,10 +771,10 @@
                 dynamicTransactions = loaded;
                 refreshAllViews();
             }, (error) => {
-                console.error("Error leyendo Firestore:", error);
+                console.error("Error sincronizando con Firestore:", error);
+                showToast("Fallo al sincronizar: revisa las reglas de Firestore", true);
             });
         }
-
         // ---------------------------------------------------------
         // 4. CORE ACCOUNTING & MACROECONOMIC ENGINE
         // ---------------------------------------------------------
@@ -1249,20 +1242,19 @@
         // 7. SAVING & DELETING TRANSACTIONS
         // ---------------------------------------------------------
         async function saveNewTransactionObject(txObj) {
-            // Always update in-memory immediately for instant responsiveness
             dynamicTransactions.push(txObj);
             refreshAllViews();
 
-            if (isCloudActive && currentUser && db) {
+            if (db) {
                 try {
-                    const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'bingo_transactions', txObj.id);
+                    const docRef = doc(db, 'gastos', txObj.id);
                     await setDoc(docRef, txObj);
                 } catch (err) {
                     console.error("Error guardando en Firestore:", err);
+                    showToast("Error al subir a la nube", true);
                 }
             }
         }
-
         async function submitTransaction() {
             const dateVal = document.getElementById('input-date').value.trim();
             // Easter Egg Row 436 check!
@@ -1352,15 +1344,15 @@
             dynamicTransactions = dynamicTransactions.filter(t => t.id !== txId);
             refreshAllViews();
 
-            if (isCloudActive && currentUser && db) {
+            if (db) {
                 try {
-                    const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'bingo_transactions', txId);
+                    const docRef = doc(db, 'gastos', txId);
                     await deleteDoc(docRef);
+                    showToast("Apunte eliminado de la nube");
                 } catch (err) {
-                    console.error("Error borrando transacción:", err);
+                    console.error("Error borrando en Firestore:", err);
                 }
             }
-            showToast("Apunte eliminado y saldos recalculados");
         };
 
         // Protocolo MAFTA: Clean historical -1.4842€ discrepancy & sub-cent residuals
