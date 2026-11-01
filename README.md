@@ -9,8 +9,8 @@
 ## Historia
 
 Entre julio de 2020 y octubre de 2026, el grupo organizó sus finanzas mediante un libro contable en Google Sheets (`BING-O cp..xlsx`):
-* **628 transacciones reales registradas**[cite: 1].
-* **Más de 10.000 € de volumen acumulado** adelantado entre miembros[cite: 1].
+* **628 transacciones reales registradas**.
+* **Más de 10.000 € de volumen acumulado** adelantado entre miembros.
 * Múltiples iteraciones de diseño, desde la disposición horizontal de la v1.0 hasta los controles macroeconómicos y fórmulas de riesgo de la v3.2.
 
 **BING-O 4.0** traslada toda esa contabilidad a una aplicación web moderna, alojada sin coste en **Vercel** y sincronizada en tiempo real mediante **Google Firebase Firestore**, eliminando para siempre las fórmulas rotas, la pérdida de decimales y las complicaciones en móviles iOS/Android.
@@ -36,7 +36,7 @@ Entre julio de 2020 y octubre de 2026, el grupo organizó sus finanzas mediante 
 * **Riesgo Absoluto (R.A.) y Relativo:** Indicador ponderado frente al máximo histórico registrado.
 * **Protocolo MAFTA dinámico:** Botón inteligente que detecta descuadres residuales y limpia milésimas automáticamente entre el núcleo duro.
 
-### 4. Seguridad & Trazabilidad (Anti-Gaslighting)
+### 4. Seguridad & Trazabilidad
 * **Acceso por PIN de grupo:** Autenticación ligera guardada en el `localStorage` del móvil que bloquea accesos no autorizados a nivel de base de datos (`Firestore Rules`).
 * **Firma de autoría:** Cada gasto guarda quién lo ha registrado en el grupo.
 * **Cero borrados físicos (`Soft Delete`):** Prohibido el borrado destructivo. Los gastos anulados quedan tachados en el historial indicando el autor y la hora de anulación, con opción de restauración.
