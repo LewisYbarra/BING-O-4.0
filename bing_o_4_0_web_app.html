@@ -1,0 +1,1662 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="BING-O 4.0">
+    <meta name="theme-color" content="#0b0f19">
+    <title>BING-O 4.0 — Sistema Monetario del Grupo</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts: Inter & JetBrains Mono -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        darkbg: '#0b0f19',
+                        cardbg: '#131b2e',
+                        cardborder: '#1e293b',
+                        accent: '#10b981',
+                        danger: '#f43f5e',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0b0f19;
+            color: #f8fafc;
+            -webkit-tap-highlight-color: transparent;
+            overscroll-behavior-y: none;
+        }
+        .mono-num {
+            font-family: 'JetBrains Mono', monospace;
+            font-variant-numeric: tabular-nums;
+        }
+        /* Hide scrollbars for horizontal chip lists */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        /* Smooth glass effect */
+        .glass-header {
+            background: rgba(11, 15, 25, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .glass-nav {
+            background: rgba(19, 27, 46, 0.92);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+        @keyframes pulse-subtle {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.65; }
+        }
+        .animate-pulse-subtle {
+            animation: pulse-subtle 2.5s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-emerald-500 selection:text-white pb-24">
+
+    <!-- TOP HEADER -->
+    <header class="sticky top-0 z-30 glass-header border-b border-slate-800/80 px-4 py-3">
+        <div class="max-w-2xl mx-auto flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center shadow-lg shadow-emerald-900/40 font-extrabold text-slate-950 text-lg tracking-tighter">
+                    B4
+                </div>
+                <div>
+                    <div class="flex items-center gap-2">
+                        <h1 class="font-extrabold text-base tracking-tight text-white">BING-O 4.0</h1>
+                        <span id="sync-badge" class="inline-flex items-center gap-1 text-[10px] font-semibold px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+                            LIVE
+                        </span>
+                    </div>
+                    <p class="text-[11px] text-slate-400">Sucesor oficial del Excel v3.2 · 0,00€ D.G.</p>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-2">
+                <button onclick="openDeployModal()" class="px-2.5 py-1.5 rounded-lg bg-slate-800/90 hover:bg-slate-700 text-xs font-medium text-slate-300 border border-slate-700 transition flex items-center gap-1.5" title="Cómo instalar en iPhone y subir a Vercel">
+                    <i class="fa-brands fa-apple text-slate-200"></i>
+                    <span class="hidden sm:inline">iPhone / Vercel</span>
+                </button>
+                <button onclick="switchTab('nuevo')" class="px-3 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs shadow-md shadow-emerald-500/20 transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-plus"></i>
+                    <span>Apuntar</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="flex-1 max-w-2xl w-full mx-auto px-4 pt-4 space-y-5">
+
+        <!-- ========================================== -->
+        <!-- TAB 1: SALDOS & LIQUIDADOR DE BIZUMS       -->
+        <!-- ========================================== -->
+        <section id="tab-saldos" class="space-y-5">
+
+            <!-- Hero Summary Banner -->
+            <div class="rounded-2xl bg-gradient-to-br from-slate-900 via-[#131b2e] to-slate-900 border border-slate-800 p-4 shadow-xl relative overflow-hidden">
+                <div class="grid grid-cols-3 gap-2 relative z-10">
+                    <div class="bg-slate-950/50 rounded-xl p-3 border border-slate-800/80">
+                        <span class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold block">Crédito Vivo</span>
+                        <span id="hero-credito" class="mono-num text-lg sm:text-xl font-bold text-amber-400 mt-0.5 block">45,28 €</span>
+                        <span class="text-[10px] text-slate-500">Media hist: 88,60 €</span>
+                    </div>
+                    <div class="bg-slate-950/50 rounded-xl p-3 border border-slate-800/80">
+                        <span class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold block">Movimientos</span>
+                        <span id="hero-tx-count" class="mono-num text-lg sm:text-xl font-bold text-white mt-0.5 block">628</span>
+                        <span id="hero-new-count" class="text-[10px] text-emerald-400">+0 en v4.0</span>
+                    </div>
+                    <div class="bg-slate-950/50 rounded-xl p-3 border border-slate-800/80">
+                        <span class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold block">Riesgo Relativo</span>
+                        <span id="hero-riesgo" class="mono-num text-lg sm:text-xl font-bold text-emerald-400 mt-0.5 block">4,6%</span>
+                        <span id="hero-riesgo-label" class="text-[10px] text-slate-500">Estable (BCE)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Controls: Filter Core (5) vs All (8) -->
+            <div class="flex flex-wrap items-center justify-between gap-2">
+                <div class="flex items-center bg-slate-900 p-1 rounded-xl border border-slate-800">
+                    <button id="btn-filter-core" onclick="setMemberFilter('core')" class="px-3 py-1.5 rounded-lg text-xs font-semibold transition bg-emerald-500 text-slate-950">
+                        Núcleo Duro (5)
+                    </button>
+                    <button id="btn-filter-all" onclick="setMemberFilter('all')" class="px-3 py-1.5 rounded-lg text-xs font-semibold transition text-slate-400 hover:text-white">
+                        Todos (8)
+                    </button>
+                </div>
+
+                <button onclick="openMaftaModal()" class="text-xs font-medium text-amber-400 hover:text-amber-300 bg-amber-500/10 border border-amber-500/20 px-3 py-1.5 rounded-xl flex items-center gap-1.5 transition">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    <span>Protocolo MAFTA (-1,48€)</span>
+                </button>
+            </div>
+
+            <!-- Member Balance Cards List -->
+            <div id="members-balance-list" class="space-y-2.5">
+                <!-- Populated dynamically via JS -->
+            </div>
+
+            <!-- LIQUIDADOR DE BIZUMS ÓPTIMO -->
+            <div class="rounded-2xl bg-cardbg border border-slate-800 p-4 space-y-3 shadow-lg">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-2.5">
+                        <div class="w-8 h-8 rounded-lg bg-indigo-500/20 border border-indigo-500/30 flex items-center justify-center text-indigo-400">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-sm font-bold text-white">Liquidador de Bizums Óptimo</h2>
+                            <p class="text-[11px] text-slate-400">Transferencias mínimas para dejar el grupo a 0,00 €</p>
+                        </div>
+                    </div>
+                    <span id="settlement-count-badge" class="text-[11px] mono-num font-semibold px-2.5 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
+                        3 pagos
+                    </span>
+                </div>
+
+                <div id="bizum-plan-list" class="space-y-2 pt-1">
+                    <!-- Populated via JS -->
+                </div>
+
+                <p id="mafta-warning-note" class="text-[11px] text-slate-400 bg-slate-900/70 rounded-xl p-2.5 border border-slate-800/80">
+                    <i class="fa-solid fa-circle-info text-amber-400 mr-1"></i>
+                    Nota: En BING-O 3.2 hay un descuadre histórico acumulado de <strong class="text-amber-300 mono-num">-1,48 €</strong> por redondeos antiguos. Puedes absorberlo con el botón <em>Protocolo MAFTA</em>.
+                </p>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- TAB 2: NUEVO GASTO / APUNTE                -->
+        <!-- ========================================== -->
+        <section id="tab-nuevo" class="hidden space-y-4">
+            <div class="rounded-2xl bg-cardbg border border-slate-800 p-4 shadow-xl space-y-4">
+                <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                    <div>
+                        <h2 class="text-base font-bold text-white">Nuevo Apunte BING-O</h2>
+                        <p class="text-xs text-slate-400">Cero fórmulas rotas · Cuadre al céntimo garantizado</p>
+                    </div>
+                    <span class="mono-num text-xs font-bold px-2.5 py-1 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                        D.G. = 0,00 €
+                    </span>
+                </div>
+
+                <!-- 3 Mode Selector Tabs -->
+                <div class="grid grid-cols-3 gap-1.5 bg-slate-950 p-1.5 rounded-xl border border-slate-800">
+                    <button id="mode-btn-equal" onclick="setEntryMode('equal')" class="py-2 px-2 rounded-lg text-xs font-bold transition bg-emerald-500 text-slate-950 flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-users"></i>
+                        <span>Partes Iguales</span>
+                    </button>
+                    <button id="mode-btn-exact" onclick="setEntryMode('exact')" class="py-2 px-2 rounded-lg text-xs font-bold transition text-slate-400 hover:text-white flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-receipt"></i>
+                        <span>Ticket Exacto</span>
+                    </button>
+                    <button id="mode-btn-bizum" onclick="setEntryMode('bizum')" class="py-2 px-2 rounded-lg text-xs font-bold transition text-slate-400 hover:text-white flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-money-bill-transfer"></i>
+                        <span>Bizum Directo</span>
+                    </button>
+                </div>
+
+                <!-- Common Fields: Asunto & Fecha -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <div class="sm:col-span-2">
+                        <label class="block text-[11px] uppercase tracking-wider text-slate-400 font-semibold mb-1">Asunto / Concepto</label>
+                        <input id="input-concept" type="text" placeholder="Ej. Cañas, Kibap, Burger, Cena..." class="w-full bg-slate-950 border border-slate-800 focus:border-emerald-500 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:outline-none transition">
+                    </div>
+                    <div>
+                        <div class="flex items-center justify-between mb-1">
+                            <label class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">Fecha</label>
+                            <button type="button" onclick="clearDateForEasterEgg()" class="text-[10px] text-amber-400 hover:underline" title="Probar validación fila 436">¿Sin fecha?</button>
+                        </div>
+                        <input id="input-date" type="date" class="w-full bg-slate-950 border border-slate-800 focus:border-emerald-500 rounded-xl px-3 py-2.5 text-sm text-white focus:outline-none transition">
+                    </div>
+                </div>
+
+                <!-- ========================================== -->
+                <!-- SUB-MODE A: REPARTO IGUALITARIO (X / P)    -->
+                <!-- ========================================== -->
+                <div id="panel-mode-equal" class="space-y-4 pt-1">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-[11px] uppercase tracking-wider text-slate-400 font-semibold mb-1">¿Quién pagó la cuenta? (X)</label>
+                            <select id="equal-payer" onchange="recalcEqualSplit()" class="w-full bg-slate-950 border border-slate-800 focus:border-emerald-500 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none">
+                                <!-- Populated via JS -->
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-[11px] uppercase tracking-wider text-slate-400 font-semibold mb-1">Importe Total Pagado (€)</label>
+                            <div class="relative">
+                                <input id="equal-amount" type="number" step="0.01" min="0" placeholder="0.00" oninput="recalcEqualSplit()" class="w-full bg-slate-950 border border-slate-800 focus:border-emerald-500 rounded-xl pl-3.5 pr-9 py-2.5 text-sm mono-num font-bold text-emerald-400 focus:outline-none">
+                                <span class="absolute right-3.5 top-2.5 text-slate-500 font-bold">€</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Participant Selector (P) -->
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <label class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">¿Quiénes participaron en el plan? (P)</label>
+                            <div class="flex gap-1.5">
+                                <button type="button" onclick="selectParticipantsPreset('core')" class="text-[10px] px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-300">Los 5 habituales</button>
+                                <button type="button" onclick="selectParticipantsPreset('all')" class="text-[10px] px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-300">Todos (8)</button>
+                                <button type="button" onclick="selectParticipantsPreset('none')" class="text-[10px] px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-400">Ninguno</button>
+                            </div>
+                        </div>
+
+                        <div id="equal-participants-grid" class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                            <!-- Participant toggle buttons populated via JS -->
+                        </div>
+                    </div>
+
+                    <!-- Cent Remainder Distribution Notice -->
+                    <div id="equal-remainder-box" class="hidden rounded-xl bg-amber-500/10 border border-amber-500/30 p-3 flex items-center justify-between gap-2">
+                        <div class="text-xs text-amber-200">
+                            <i class="fa-solid fa-coins text-amber-400 mr-1.5"></i>
+                            <span id="equal-remainder-text">División inexacta: 1 céntimo asignado automáticamente para evitar Dinero Generado.</span>
+                        </div>
+                        <button type="button" onclick="rotateRemainderTarget()" class="shrink-0 px-2.5 py-1 rounded-lg bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 text-[11px] font-semibold border border-amber-500/30">
+                            Rotar 0,01€
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ========================================== -->
+                <!-- SUB-MODE B: TICKET / CANTIDADES EXACTAS    -->
+                <!-- ========================================== -->
+                <div id="panel-mode-exact" class="hidden space-y-3 pt-1">
+                    <div class="rounded-xl bg-slate-950 p-3 border border-slate-800 flex flex-wrap items-center justify-between gap-2">
+                        <div class="text-xs text-slate-300">
+                            Pon lo que pagó cada uno y lo que consumió (ej. Burger: Luis pagó 24,20€; Emi 11€, Cabo 7,75€, Max 5,45€).
+                        </div>
+                        <div id="exact-discrepancy-badge" class="mono-num text-xs font-bold px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
+                            Descuadre: 0,00 €
+                        </div>
+                    </div>
+
+                    <div id="exact-inputs-list" class="space-y-2 max-h-80 overflow-y-auto pr-1">
+                        <!-- Populated via JS -->
+                    </div>
+                </div>
+
+                <!-- ========================================== -->
+                <!-- SUB-MODE C: BIZUM / LIQUIDACIÓN DIRECTA    -->
+                <!-- ========================================== -->
+                <div id="panel-mode-bizum" class="hidden space-y-4 pt-1">
+                    <div class="rounded-xl bg-indigo-500/10 border border-indigo-500/25 p-3 text-xs text-indigo-200">
+                        <i class="fa-solid fa-bolt text-indigo-400 mr-1"></i>
+                        En BING-O, quien <strong>envía el Bizum</strong> suma saldo (<code class="text-emerald-400">+</code>) para reducir su deuda, y quien <strong>recibe el Bizum</strong> resta saldo (<code class="text-rose-400">-</code>) porque le están devolviendo lo que adelantó.
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <div>
+                            <label class="block text-[11px] uppercase tracking-wider text-slate-400 font-semibold mb-1">Deudor (Envía Bizum +)</label>
+                            <select id="bizum-sender" onchange="recalcBizumPreview()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2.5 text-sm text-white">
+                                <!-- Populated via JS -->
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-[11px] uppercase tracking-wider text-slate-400 font-semibold mb-1">Acreedor (Recibe Bizum -)</label>
+                            <select id="bizum-receiver" onchange="recalcBizumPreview()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2.5 text-sm text-white">
+                                <!-- Populated via JS -->
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-[11px] uppercase tracking-wider text-slate-400 font-semibold mb-1">Importe Bizum (€)</label>
+                            <input id="bizum-amount" type="number" step="0.01" min="0" placeholder="0.00" oninput="recalcBizumPreview()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-sm mono-num font-bold text-indigo-400">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LIVE TRANSACTION PREVIEW BOX -->
+                <div class="rounded-xl bg-slate-950/90 border border-slate-800 p-3.5 space-y-2">
+                    <div class="flex items-center justify-between">
+                        <span class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">Vista previa de la fila contable</span>
+                        <span id="preview-sum-check" class="mono-num text-[11px] font-semibold text-emerald-400">Suma fila: 0,00 €</span>
+                    </div>
+                    <div id="live-deltas-preview" class="flex flex-wrap gap-1.5 pt-1">
+                        <span class="text-xs text-slate-500 italic">Introduce un importe para ver el desglose exacto...</span>
+                    </div>
+                </div>
+
+                <!-- SUBMIT BUTTON -->
+                <button type="button" onclick="submitTransaction()" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-extrabold text-sm shadow-lg shadow-emerald-500/20 transition flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-check-double"></i>
+                    <span>Guardar Transacción en BING-O</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- TAB 3: HISTORIAL DE MOVIMIENTOS            -->
+        <!-- ========================================== -->
+        <section id="tab-historial" class="hidden space-y-4">
+            <div class="rounded-2xl bg-cardbg border border-slate-800 p-4 space-y-3">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                    <div>
+                        <h2 class="text-base font-bold text-white">Libro Contable BING-O</h2>
+                        <p class="text-xs text-slate-400">Últimos cierres de v3.2 + nuevos apuntes en tiempo real</p>
+                    </div>
+                    <button onclick="exportToCSV()" class="self-start sm:self-auto px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-emerald-400 border border-slate-700 flex items-center gap-1.5 transition">
+                        <i class="fa-solid fa-file-csv"></i>
+                        <span>Exportar Excel (CSV)</span>
+                    </button>
+                </div>
+
+                <!-- Search & Member Filter -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-1">
+                    <div class="sm:col-span-2 relative">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3 text-slate-500 text-xs"></i>
+                        <input id="history-search" type="text" oninput="renderHistory()" placeholder="Buscar por asunto (Cañas, Burger, Bizum...)" class="w-full bg-slate-950 border border-slate-800 rounded-xl pl-9 pr-3 py-2 text-xs text-white focus:outline-none focus:border-emerald-500">
+                    </div>
+                    <div>
+                        <select id="history-member-filter" onchange="renderHistory()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white focus:outline-none">
+                            <option value="all">Todos los miembros (8)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Transactions Feed -->
+            <div id="history-feed-list" class="space-y-2.5">
+                <!-- Populated via JS -->
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- TAB 4: PANEL BCE / MACROECONOMÍA BING-O    -->
+        <!-- ========================================== -->
+        <section id="tab-bce" class="hidden space-y-4">
+            <div class="rounded-2xl bg-cardbg border border-slate-800 p-4 space-y-4">
+                <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                    <div class="flex items-center gap-2.5">
+                        <div class="w-9 h-9 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400">
+                            <i class="fa-solid fa-building-columns"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-base font-bold text-white">Panel Macroeconómico BCE</h2>
+                            <p class="text-xs text-slate-400">Indicadores oficiales de riesgo de BING-O 3.2</p>
+                        </div>
+                    </div>
+                    <span class="text-[11px] mono-num px-2.5 py-1 rounded-lg bg-slate-900 text-slate-300 border border-slate-800">
+                        Base: 628 movs
+                    </span>
+                </div>
+
+                <!-- Macro KPIs Grid -->
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                    <div class="bg-slate-950/80 rounded-xl p-3.5 border border-slate-800/90">
+                        <span class="text-[10px] uppercase text-slate-400 font-semibold block">Crédito en Circulación</span>
+                        <span id="bce-cred" class="mono-num text-lg font-extrabold text-amber-400 mt-1 block">45,28 €</span>
+                        <span class="text-[10px] text-slate-500 block mt-0.5">∑|Saldo_i| / 2 · Pico: 420,37€</span>
+                    </div>
+
+                    <div class="bg-slate-950/80 rounded-xl p-3.5 border border-slate-800/90">
+                        <span class="text-[10px] uppercase text-slate-400 font-semibold block">Error Cuadrático (ECM)</span>
+                        <span id="bce-ecm" class="mono-num text-lg font-extrabold text-sky-400 mt-1 block">18,60 €</span>
+                        <span class="text-[10px] text-slate-500 block mt-0.5">√(∑Saldo² / 8) · Sin sesgo</span>
+                    </div>
+
+                    <div class="bg-slate-950/80 rounded-xl p-3.5 border border-slate-800/90">
+                        <span class="text-[10px] uppercase text-slate-400 font-semibold block">Riesgo Absoluto (R.A.)</span>
+                        <span id="bce-ra" class="mono-num text-lg font-extrabold text-indigo-400 mt-1 block">29,02 €</span>
+                        <span class="text-[10px] text-slate-500 block mt-0.5">√(Cred.C × ECM) · Máx: 144,77€</span>
+                    </div>
+
+                    <div class="bg-slate-950/80 rounded-xl p-3.5 border border-slate-800/90">
+                        <span class="text-[10px] uppercase text-slate-400 font-semibold block">Riesgo Relativo</span>
+                        <span id="bce-rr" class="mono-num text-lg font-extrabold text-emerald-400 mt-1 block">0,040</span>
+                        <span class="text-[10px] text-slate-500 block mt-0.5">(RA / Máx_RA)² · Alerta &gt; 0,50</span>
+                    </div>
+
+                    <div class="bg-slate-950/80 rounded-xl p-3.5 border border-slate-800/90">
+                        <span class="text-[10px] uppercase text-slate-400 font-semibold block">Volumen Total Movido</span>
+                        <span id="bce-vol" class="mono-num text-lg font-extrabold text-white mt-1 block">10.071,58 €</span>
+                        <span class="text-[10px] text-slate-500 block mt-0.5">Desde 22/07/2020</span>
+                    </div>
+
+                    <div class="bg-slate-950/80 rounded-xl p-3.5 border border-slate-800/90">
+                        <span class="text-[10px] uppercase text-slate-400 font-semibold block">Dinero Generado (D.G.)</span>
+                        <span id="bce-dg" class="mono-num text-lg font-extrabold text-rose-400 mt-1 block">-1,48 €</span>
+                        <span class="text-[10px] text-emerald-400 block mt-0.5">Nuevos en v4.0: 0,00 €</span>
+                    </div>
+                </div>
+
+                <!-- Historical Volume Leaderboard Table -->
+                <div class="pt-2">
+                    <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2.5">Estadísticas Acumuladas por Miembro (2020 – 2026)</h3>
+                    <div class="overflow-x-auto rounded-xl border border-slate-800">
+                        <table class="w-full text-left border-collapse text-xs">
+                            <thead>
+                                <tr class="bg-slate-950 text-slate-400 border-b border-slate-800 text-[10px] uppercase">
+                                    <th class="py-2.5 px-3">Miembro</th>
+                                    <th class="py-2.5 px-3 text-right">Saldo Actual</th>
+                                    <th class="py-2.5 px-3 text-right">Apuntes</th>
+                                    <th class="py-2.5 px-3 text-right">Total Adelantado</th>
+                                </tr>
+                            </thead>
+                            <tbody id="bce-members-table" class="divide-y divide-slate-800/60 bg-slate-900/40">
+                                <!-- Populated via JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ========================================== -->
+    <!-- MODAL 1: EASTER EGG FILA 436 (RUMANOS)     -->
+    <!-- ========================================== -->
+    <div id="modal-rumanos" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-cardbg border-2 border-rose-500/60 rounded-2xl max-w-md w-full p-5 space-y-4 shadow-2xl">
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-2xl bg-rose-500/20 border border-rose-500/40 flex items-center justify-center text-rose-400 text-xl shrink-0">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                </div>
+                <div>
+                    <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-rose-500/20 text-rose-300">Error de Validación · Fila 436</span>
+                    <h3 class="text-base font-extrabold text-white mt-1">¡Falta la fecha del gasto!</h3>
+                </div>
+            </div>
+            <blockquote class="p-3.5 rounded-xl bg-slate-950 border-l-4 border-rose-500 text-xs italic text-slate-200 leading-relaxed">
+                "si no pones la fecha vas a tener problemas con unos amigos rumanos mios"
+                <footer class="text-[10px] text-slate-500 not-italic mt-1">— Apunte «Kibap» (-5,20 €), jurisprudencia oficial de BING-O 3.2</footer>
+            </blockquote>
+            <div class="flex justify-end gap-2">
+                <button onclick="fixDateAndCloseModal()" class="w-full py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs transition">
+                    Poner fecha de hoy por mi seguridad física
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- MODAL 2: PROTOCOLO MAFTA (LIMPIAR -1.48€)  -->
+    <!-- ========================================== -->
+    <div id="modal-mafta" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-cardbg border border-slate-700 rounded-2xl max-w-md w-full p-5 space-y-4 shadow-2xl">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                    <div class="w-9 h-9 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center">
+                        <i class="fa-solid fa-scale-balanced"></i>
+                    </div>
+                    <h3 class="text-base font-bold text-white">Protocolo MAFTA v4.0</h3>
+                </div>
+                <button onclick="closeMaftaModal()" class="text-slate-400 hover:text-white">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <p class="text-xs text-slate-300 leading-relaxed">
+                En vuestro Excel BING-O 3.2 la suma de los saldos de los 8 amigos es <strong class="text-amber-400 mono-num">-1,48 €</strong> en vez de <strong class="text-emerald-400 mono-num">0,00 €</strong> por culpa de divisiones entre 3 mal redondeadas (como los Fingers de 5,33 €) y decimales residuales en Alex, Por, Pedro y Asis.
+            </p>
+            <div class="rounded-xl bg-slate-950 p-3 border border-slate-800 text-xs space-y-1.5">
+                <div class="font-semibold text-white">¿Qué hace este ajuste automático?</div>
+                <ul class="list-disc list-inside text-slate-400 space-y-1 text-[11px]">
+                    <li>Deja a <strong>Alex, Por, Pedro y Asis</strong> en <code class="text-emerald-400">0,00 €</code> exactos (limpia milésimas).</li>
+                    <li>Reparte los <code class="text-amber-400">+1,48 €</code> perdidos a partes iguales entre el Núcleo Duro (+0,30 € a Cabo, Emi, Max, Luis y +0,28 €) para que el <strong>Dinero Generado sea 0,00 €</strong> y los Bizums cuadren al céntimo.</li>
+                </ul>
+            </div>
+            <div class="flex gap-2 pt-1">
+                <button onclick="closeMaftaModal()" class="flex-1 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300">
+                    Cancelar
+                </button>
+                <button onclick="applyMaftaProtocol()" class="flex-1 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs">
+                    Ejecutar MAFTA (+1,48€)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- MODAL 3: GUÍA IPHONE PWA + VERCEL DEPLOY   -->
+    <!-- ========================================== -->
+    <div id="modal-deploy" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-cardbg border border-slate-700 rounded-2xl max-w-lg w-full p-5 space-y-4 shadow-2xl max-h-[90vh] overflow-y-auto">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                <div class="flex items-center gap-2.5">
+                    <i class="fa-brands fa-apple text-xl text-white"></i>
+                    <h3 class="text-base font-bold text-white">Cómo usarla en iPhone y subirla a Vercel</h3>
+                </div>
+                <button onclick="closeDeployModal()" class="text-slate-400 hover:text-white">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="space-y-3 text-xs text-slate-300">
+                <div class="p-3 rounded-xl bg-slate-950 border border-slate-800 space-y-1.5">
+                    <div class="font-bold text-emerald-400 flex items-center gap-1.5">
+                        <span>1. Subir gratis a Vercel (2 minutos)</span>
+                    </div>
+                    <p class="text-slate-400 leading-relaxed">
+                        Guarda este código como un archivo llamado <code class="text-white bg-slate-800 px-1.5 py-0.5 rounded">index.html</code> en una carpeta de tu ordenador. Entra en <strong>vercel.com</strong> (o <strong>app.netlify.com/drop</strong>), arrastra la carpeta y tendrás una URL tipo <code class="text-emerald-300">bingo-amigos.vercel.app</code> gratis para siempre.
+                    </p>
+                </div>
+
+                <div class="p-3 rounded-xl bg-slate-950 border border-slate-800 space-y-1.5">
+                    <div class="font-bold text-sky-400 flex items-center gap-1.5">
+                        <span>2. Instalar como App en iPhone (Sin App Store)</span>
+                    </div>
+                    <p class="text-slate-400 leading-relaxed">
+                        Pasa el enlace por vuestro grupo de WhatsApp. Los que tienen <strong>iPhone</strong> lo abren en <strong>Safari</strong>, pulsan el botón central de <strong>Compartir</strong> <i class="fa-solid fa-arrow-up-from-bracket text-white mx-0.5"></i> y seleccionan <strong>«Añadir a la pantalla de inicio»</strong>. Se instala con icono propio y a pantalla completa como una app nativa.
+                    </p>
+                </div>
+
+                <div class="p-3 rounded-xl bg-slate-950 border border-slate-800 space-y-1.5">
+                    <div class="font-bold text-amber-400 flex items-center gap-1.5">
+                        <span>3. Base de datos en la nube (Firebase ya integrado)</span>
+                    </div>
+                    <p class="text-slate-400 leading-relaxed">
+                        Aquí mismo ya está sincronizada en tiempo real. Si la alojas por tu cuenta fuera de este entorno, solo tienes que crear un proyecto gratuito en <strong>console.firebase.google.com</strong> (plan Spark 0€), activar <em>Firestore Database</em> y pegar tu <code class="text-white">firebaseConfig</code> en la variable del script.
+                    </p>
+                </div>
+            </div>
+
+            <button onclick="closeDeployModal()" class="w-full py-2.5 rounded-xl bg-emerald-500 text-slate-950 font-bold text-xs">
+                ¡Entendido!
+            </button>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast-box" class="fixed top-16 left-1/2 -translate-x-1/2 z-50 hidden px-4 py-2.5 rounded-xl bg-emerald-500 text-slate-950 font-bold text-xs shadow-xl flex items-center gap-2">
+        <i class="fa-solid fa-circle-check"></i>
+        <span id="toast-msg">Operación guardada</span>
+    </div>
+
+    <!-- BOTTOM MOBILE NAVIGATION BAR -->
+    <nav class="fixed bottom-0 inset-x-0 z-40 glass-nav border-t border-slate-800/90 px-2 py-1.5">
+        <div class="max-w-md mx-auto grid grid-cols-4 gap-1">
+            <button id="nav-saldos" onclick="switchTab('saldos')" class="flex flex-col items-center justify-center py-1.5 rounded-xl text-emerald-400 transition">
+                <i class="fa-solid fa-wallet text-base"></i>
+                <span class="text-[10px] font-bold mt-1">Saldos</span>
+            </button>
+            <button id="nav-nuevo" onclick="switchTab('nuevo')" class="flex flex-col items-center justify-center py-1.5 rounded-xl text-slate-400 hover:text-white transition">
+                <i class="fa-solid fa-circle-plus text-base"></i>
+                <span class="text-[10px] font-bold mt-1">Apuntar</span>
+            </button>
+            <button id="nav-historial" onclick="switchTab('historial')" class="flex flex-col items-center justify-center py-1.5 rounded-xl text-slate-400 hover:text-white transition">
+                <i class="fa-solid fa-clock-rotate-left text-base"></i>
+                <span class="text-[10px] font-bold mt-1">Historial</span>
+            </button>
+            <button id="nav-bce" onclick="switchTab('bce')" class="flex flex-col items-center justify-center py-1.5 rounded-xl text-slate-400 hover:text-white transition">
+                <i class="fa-solid fa-chart-line text-base"></i>
+                <span class="text-[10px] font-bold mt-1">Panel BCE</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ========================================== -->
+    <!-- APPLICATION LOGIC + FIREBASE SYNC          -->
+    <!-- ========================================== -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, collection, doc, setDoc, deleteDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // ---------------------------------------------------------
+        // 1. EXACT HISTORICAL BASELINE FROM BING-O 3.2 (Fila 628)
+        // ---------------------------------------------------------
+        const MEMBERS = [
+            { id: 'luis',  name: 'Luis',  code: 'LYB', core: true,  color: 'from-emerald-500 to-teal-600',   baseBalance: 44.531197,  baseMovs: 342, baseAdelantado: 1754.39 },
+            { id: 'cabo',  name: 'Cabo',  code: 'JCC', core: true,  color: 'from-rose-500 to-orange-600',    baseBalance: -21.722970, baseMovs: 561, baseAdelantado: 2810.59 },
+            { id: 'emi',   name: 'Emi',   code: 'EMI', core: true,  color: 'from-amber-500 to-yellow-600',   baseBalance: -15.047439, baseMovs: 180, baseAdelantado: 1182.68 },
+            { id: 'max',   name: 'Max',   code: 'PMD', core: true,  color: 'from-purple-500 to-indigo-600',  baseBalance: -9.249318,  baseMovs: 248, baseAdelantado: 1812.54 },
+            { id: 'alex',  name: 'Alex',  code: 'ALX', core: true,  color: 'from-sky-500 to-blue-600',       baseBalance: -0.000636,  baseMovs: 447, baseAdelantado: 2462.92 },
+            { id: 'por',   name: 'Por',   code: 'POR', core: false, color: 'from-slate-600 to-slate-700',    baseBalance: 0.003333,   baseMovs: 3,   baseAdelantado: 0.32    },
+            { id: 'pedro', name: 'Pedro', code: 'PED', core: false, color: 'from-slate-600 to-slate-700',    baseBalance: 0.001667,   baseMovs: 4,   baseAdelantado: 34.13   },
+            { id: 'asis',  name: 'Asis',  code: 'ASM', core: false, color: 'from-slate-600 to-slate-700',    baseBalance: -0.000033,  baseMovs: 4,   baseAdelantado: 14.01   }
+        ];
+
+        const BASE_CONSTANTS = {
+            txCount: 628,
+            totalPrestado: 10071.58,
+            historicalDG: -1.484199,
+            maxRA: 144.768
+        };
+
+        // Recent historical transactions from Sep-Oct 2026 in BING-O 3.2 (already baked into baseBalance, shown in Historial for continuity)
+        const HISTORICAL_SEED_TXS = [
+            {
+                id: 'hist-628',
+                rowNum: 628,
+                concept: 'Cañas',
+                date: '2026-10-31',
+                type: 'equal',
+                isHistoricalBaseline: true,
+                deltas: { emi: 7.60, max: -3.80, cabo: -3.80 },
+                createdAt: 1761936000008
+            },
+            {
+                id: 'hist-627',
+                rowNum: 627,
+                concept: 'Burger',
+                date: '2026-10-31',
+                type: 'exact',
+                isHistoricalBaseline: true,
+                deltas: { luis: 24.20, emi: -11.00, cabo: -7.75, max: -5.45 },
+                createdAt: 1761936000007
+            },
+            {
+                id: 'hist-626',
+                rowNum: 626,
+                concept: 'Fingers (Descuadre -0,01€ en v3.2)',
+                date: '2026-10-31',
+                type: 'equal',
+                isHistoricalBaseline: true,
+                deltas: { luis: 5.33, cabo: -2.67, emi: -2.67 },
+                createdAt: 1761936000006
+            },
+            {
+                id: 'hist-625',
+                rowNum: 625,
+                concept: 'Rock',
+                date: '2026-10-11',
+                type: 'equal',
+                isHistoricalBaseline: true,
+                deltas: { luis: 15.00, cabo: -15.00 },
+                createdAt: 1760140800005
+            },
+            {
+                id: 'hist-624',
+                rowNum: 624,
+                concept: 'Bizum Emi (Liquidación histórica)',
+                date: '2026-09-30',
+                type: 'bizum',
+                isHistoricalBaseline: true,
+                deltas: { emi: 233.23, cabo: -70.45, alex: -64.87, max: -61.16, luis: -36.75 },
+                createdAt: 1759190400004
+            },
+            {
+                id: 'hist-623',
+                rowNum: 623,
+                concept: 'Préstamo',
+                date: '2026-09-29',
+                type: 'bizum',
+                isHistoricalBaseline: true,
+                deltas: { cabo: 20.00, emi: -20.00 },
+                createdAt: 1759104000003
+            }
+        ];
+
+        // ---------------------------------------------------------
+        // 2. APPLICATION STATE
+        // ---------------------------------------------------------
+        let memberFilter = 'core'; // 'core' or 'all'
+        let entryMode = 'equal';   // 'equal', 'exact', 'bizum'
+        let selectedParticipants = new Set(['luis', 'cabo', 'emi', 'max', 'alex']);
+        let remainderRotationIndex = 0;
+        let dynamicTransactions = []; // New transactions added in BING-O 4.0
+        let currentComputedDeltas = {};
+
+        // Firebase references
+        let db = null;
+        let auth = null;
+        let currentUser = null;
+        let isCloudActive = false;
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'bingo-4-grupo';
+
+        // ---------------------------------------------------------
+        // 3. INITIALIZE FIREBASE & UI
+        // ---------------------------------------------------------
+        async function initFirebase() {
+            try {
+                if (typeof __firebase_config !== 'undefined' && __firebase_config) {
+                    const firebaseConfig = JSON.parse(__firebase_config);
+                    const app = initializeApp(firebaseConfig);
+                    auth = getAuth(app);
+                    db = getFirestore(app);
+
+                    // RULE 3: Auth Before Queries
+                    if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                        await signInWithCustomToken(auth, __initial_auth_token);
+                    } else {
+                        await signInAnonymously(auth);
+                    }
+
+                    onAuthStateChanged(auth, (user) => {
+                        currentUser = user;
+                        if (user) {
+                            isCloudActive = true;
+                            updateSyncBadge(true);
+                            subscribeToTransactions();
+                        }
+                    });
+                } else {
+                    updateSyncBadge(false);
+                }
+            } catch (err) {
+                console.warn("Modo local activo (sin config externa de Firebase):", err);
+                updateSyncBadge(false);
+            }
+        }
+
+        function updateSyncBadge(cloudConnected) {
+            const badge = document.getElementById('sync-badge');
+            if (!badge) return;
+            if (cloudConnected) {
+                badge.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span> CLOUD SYNC`;
+                badge.className = "inline-flex items-center gap-1 text-[10px] font-semibold px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30";
+            } else {
+                badge.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span> LOCAL READY`;
+                badge.className = "inline-flex items-center gap-1 text-[10px] font-semibold px-2 py-0.5 rounded-full bg-amber-500/15 text-amber-300 border border-amber-500/30";
+            }
+        }
+
+        function subscribeToTransactions() {
+            if (!currentUser || !db) return;
+            // RULE 1: Strict Path & RULE 2: Simple collection query
+            const txColRef = collection(db, 'artifacts', appId, 'public', 'data', 'bingo_transactions');
+            onSnapshot(txColRef, (snapshot) => {
+                const loaded = [];
+                snapshot.forEach((docSnap) => {
+                    loaded.push({ id: docSnap.id, ...docSnap.data() });
+                });
+                dynamicTransactions = loaded;
+                refreshAllViews();
+            }, (error) => {
+                console.error("Error leyendo Firestore:", error);
+            });
+        }
+
+        // ---------------------------------------------------------
+        // 4. CORE ACCOUNTING & MACROECONOMIC ENGINE
+        // ---------------------------------------------------------
+        function computeGroupState() {
+            // Clone members with their baseline stats
+            const stats = {};
+            MEMBERS.forEach(m => {
+                stats[m.id] = {
+                    ...m,
+                    balance: m.baseBalance,
+                    movs: m.baseMovs,
+                    adelantado: m.baseAdelantado
+                };
+            });
+
+            let extraTxCount = 0;
+            let extraPrestado = 0;
+            let newDG = 0;
+
+            // Sort dynamic transactions chronologically for numbering
+            const sortedNew = [...dynamicTransactions].sort((a, b) => (a.createdAt || 0) - (b.createdAt || 0));
+
+            sortedNew.forEach((tx) => {
+                extraTxCount++;
+                let rowSum = 0;
+                const deltas = tx.deltas || {};
+                Object.entries(deltas).forEach(([memberId, val]) => {
+                    const num = Number(val) || 0;
+                    if (stats[memberId] && Math.abs(num) > 0.00001) {
+                        stats[memberId].balance += num;
+                        stats[memberId].movs += 1;
+                        if (num > 0) {
+                            stats[memberId].adelantado += num;
+                            extraPrestado += num;
+                        }
+                        rowSum += num;
+                    }
+                });
+                newDG += rowSum;
+            });
+
+            // Compute BCE Macro Metrics
+            let sumAbsBalances = 0;
+            let sumSqBalances = 0;
+            let netSumAllBalances = 0;
+
+            Object.values(stats).forEach(m => {
+                sumAbsBalances += Math.abs(m.balance);
+                sumSqBalances += Math.pow(m.balance, 2);
+                netSumAllBalances += m.balance;
+            });
+
+            const creditoCirculacion = sumAbsBalances / 2;
+            const ecm = Math.sqrt(sumSqBalances / MEMBERS.length);
+            const riesgoAbsoluto = Math.sqrt(creditoCirculacion * ecm);
+            const riesgoRelativo = Math.pow(riesgoAbsoluto / BASE_CONSTANTS.maxRA, 2);
+
+            return {
+                membersMap: stats,
+                membersList: Object.values(stats),
+                totalTxCount: BASE_CONSTANTS.txCount + extraTxCount,
+                newTxCount: extraTxCount,
+                totalVolume: BASE_CONSTANTS.totalPrestado + extraPrestado,
+                creditoCirculacion,
+                ecm,
+                riesgoAbsoluto,
+                riesgoRelativo,
+                totalDG: netSumAllBalances,
+                newDG
+            };
+        }
+
+        // Optimal Minimum-Transfer Debt Simplification Algorithm (Liquidador de Bizums)
+        function computeOptimalBizums(membersList) {
+            const debtors = [];
+            const creditors = [];
+
+            membersList.forEach(m => {
+                const rounded = Math.round(m.balance * 100) / 100;
+                if (rounded < -0.01) {
+                    debtors.push({ id: m.id, name: m.name, amount: Math.abs(rounded) });
+                } else if (rounded > 0.01) {
+                    creditors.push({ id: m.id, name: m.name, amount: rounded });
+                }
+            });
+
+            // Sort largest first to minimize number of Bizum transfers
+            debtors.sort((a, b) => b.amount - a.amount);
+            creditors.sort((a, b) => b.amount - a.amount);
+
+            const transfers = [];
+            let i = 0;
+            let j = 0;
+
+            while (i < debtors.length && j < creditors.length) {
+                const d = debtors[i];
+                const c = creditors[j];
+                const amount = Math.min(d.amount, c.amount);
+
+                if (amount >= 0.01) {
+                    transfers.push({
+                        fromId: d.id,
+                        fromName: d.name,
+                        toId: c.id,
+                        toName: c.name,
+                        amount: Math.round(amount * 100) / 100
+                    });
+                }
+
+                d.amount = Math.round((d.amount - amount) * 100) / 100;
+                c.amount = Math.round((c.amount - amount) * 100) / 100;
+
+                if (d.amount < 0.01) i++;
+                if (c.amount < 0.01) j++;
+            }
+
+            return transfers;
+        }
+
+        // ---------------------------------------------------------
+        // 5. RENDERING FUNCTIONS
+        // ---------------------------------------------------------
+        function formatEuro(val, showSign = false) {
+            const num = Number(val) || 0;
+            const sign = num > 0.004 ? '+' : (num < -0.004 ? '-' : '');
+            const absStr = Math.abs(num).toLocaleString('es-ES', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            });
+            return (showSign ? sign : (num < -0.004 ? '-' : '')) + absStr + ' €';
+        }
+
+        function refreshAllViews() {
+            const state = computeGroupState();
+            renderDashboard(state);
+            renderHistory();
+            renderBCE(state);
+            recalcCurrentFormPreview();
+        }
+
+        function renderDashboard(state) {
+            // Hero Metrics
+            document.getElementById('hero-credito').textContent = formatEuro(state.creditoCirculacion);
+            document.getElementById('hero-tx-count').textContent = state.totalTxCount;
+            document.getElementById('hero-new-count').textContent = `+${state.newTxCount} en v4.0`;
+
+            const rrPercent = (state.riesgoRelativo * 100).toFixed(1).replace('.', ',') + '%';
+            const rrEl = document.getElementById('hero-riesgo');
+            const rrLabel = document.getElementById('hero-riesgo-label');
+            rrEl.textContent = rrPercent;
+            if (state.riesgoRelativo < 0.15) {
+                rrEl.className = "mono-num text-lg sm:text-xl font-bold text-emerald-400 mt-0.5 block";
+                rrLabel.textContent = "Riesgo Bajo (Sano)";
+            } else if (state.riesgoRelativo < 0.45) {
+                rrEl.className = "mono-num text-lg sm:text-xl font-bold text-amber-400 mt-0.5 block";
+                rrLabel.textContent = "Riesgo Moderado";
+            } else {
+                rrEl.className = "mono-num text-lg sm:text-xl font-bold text-rose-400 mt-0.5 block";
+                rrLabel.textContent = "Alerta Morosidad";
+            }
+
+            // Filter members
+            const visibleMembers = state.membersList
+                .filter(m => memberFilter === 'all' ? true : m.core)
+                .sort((a, b) => b.balance - a.balance);
+
+            const maxAbs = Math.max(10, ...visibleMembers.map(m => Math.abs(m.balance)));
+            const container = document.getElementById('members-balance-list');
+
+            container.innerHTML = visibleMembers.map(m => {
+                const bal = m.balance;
+                const isPositive = bal > 0.005;
+                const isNegative = bal < -0.005;
+                const barWidth = Math.min(100, Math.max(2, (Math.abs(bal) / maxAbs) * 100));
+
+                const badgeClass = isPositive
+                    ? 'bg-emerald-500/15 text-emerald-400 border-emerald-500/30'
+                    : (isNegative ? 'bg-rose-500/15 text-rose-400 border-rose-500/30' : 'bg-slate-800 text-slate-400 border-slate-700');
+
+                const statusText = isPositive
+                    ? 'Le deben dinero'
+                    : (isNegative ? 'Debe al grupo' : 'En paz (0,00 €)');
+
+                const barColor = isPositive ? 'bg-emerald-500' : (isNegative ? 'bg-rose-500' : 'bg-slate-600');
+
+                return `
+                    <div class="rounded-2xl bg-cardbg border border-slate-800/90 p-3.5 shadow-sm hover:border-slate-700 transition">
+                        <div class="flex items-center justify-between gap-3">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-gradient-to-br ${m.color} flex items-center justify-center font-extrabold text-xs text-white shadow-md">
+                                    ${m.code}
+                                </div>
+                                <div>
+                                    <div class="flex items-center gap-2">
+                                        <h3 class="font-bold text-sm text-white">${m.name}</h3>
+                                        <span class="text-[10px] px-2 py-0.5 rounded-full border ${badgeClass} font-medium">
+                                            ${statusText}
+                                        </span>
+                                    </div>
+                                    <div class="text-[11px] text-slate-400 mt-0.5">
+                                        <span>${m.movs} apuntes</span> · <span>Adelantado: <strong class="text-slate-300 mono-num">${formatEuro(m.adelantado)}</strong></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="text-right">
+                                <div class="mono-num text-base sm:text-lg font-extrabold ${isPositive ? 'text-emerald-400' : (isNegative ? 'text-rose-400' : 'text-slate-400')}">
+                                    ${formatEuro(bal, true)}
+                                </div>
+                                ${Math.abs(bal) > 0 && Math.abs(bal) < 0.01 ? `<span class="text-[10px] text-amber-400 mono-num">Residuo: ${bal.toFixed(4)}€</span>` : ''}
+                            </div>
+                        </div>
+
+                        <!-- Progress Bar -->
+                        <div class="mt-2.5 w-full bg-slate-950 h-2 rounded-full overflow-hidden p-0.5 border border-slate-800/80">
+                            <div class="${barColor} h-full rounded-full transition-all duration-500" style="width: ${barWidth}%"></div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            // Render Optimal Bizum Plan
+            const transfers = computeOptimalBizums(state.membersList);
+            const planList = document.getElementById('bizum-plan-list');
+            const countBadge = document.getElementById('settlement-count-badge');
+            countBadge.textContent = `${transfers.length} ${transfers.length === 1 ? 'pago' : 'pagos'}`;
+
+            if (transfers.length === 0) {
+                planList.innerHTML = `
+                    <div class="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-center text-xs text-emerald-300 font-semibold">
+                        <i class="fa-solid fa-champagne-glasses mr-1.5"></i>
+                        ¡Histórico! Todo el grupo está exactamente en paz a 0,00 €.
+                    </div>
+                `;
+            } else {
+                planList.innerHTML = transfers.map(t => `
+                    <div class="flex items-center justify-between gap-2 p-3 rounded-xl bg-slate-950/90 border border-slate-800/90">
+                        <div class="flex items-center gap-2 text-xs">
+                            <span class="font-bold text-rose-400">${t.fromName}</span>
+                            <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
+                            <span class="font-bold text-emerald-400">${t.toName}</span>
+                            <span class="mono-num font-extrabold text-white bg-slate-900 px-2 py-0.5 rounded-md border border-slate-800 ml-1">
+                                ${formatEuro(t.amount)}
+                            </span>
+                        </div>
+                        <button onclick="quickSettleBizum('${t.fromId}', '${t.toId}', ${t.amount})" class="px-3 py-1.5 rounded-lg bg-indigo-500 hover:bg-indigo-400 text-slate-950 font-bold text-[11px] transition flex items-center gap-1 shrink-0 shadow">
+                            <i class="fa-solid fa-check"></i>
+                            <span>Liquidar Bizum</span>
+                        </button>
+                    </div>
+                `).join('');
+            }
+
+            // Show/hide MAFTA note depending on whether totalDG is still around -1.48
+            const maftaNote = document.getElementById('mafta-warning-note');
+            if (Math.abs(state.totalDG) < 0.02) {
+                maftaNote.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-400 mr-1"></i> <strong>Contabilidad perfecta:</strong> El Dinero Generado (D.G.) está cuadrado a <strong class="text-emerald-400 mono-num">0,00 €</strong>.`;
+            } else {
+                maftaNote.innerHTML = `<i class="fa-solid fa-circle-info text-amber-400 mr-1"></i> En BING-O 3.2 hay un descuadre histórico acumulado de <strong class="text-amber-300 mono-num">${formatEuro(state.totalDG, true)}</strong>. Puedes absorberlo con el botón <em>Protocolo MAFTA</em>.`;
+            }
+        }
+
+        // ---------------------------------------------------------
+        // 6. FORM CONTROLS & ZERO-DISCREPANCY MATH
+        // ---------------------------------------------------------
+        function initFormSelectors() {
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('input-date').value = today;
+
+            // Populate selects
+            const payerSelect = document.getElementById('equal-payer');
+            const senderSelect = document.getElementById('bizum-sender');
+            const receiverSelect = document.getElementById('bizum-receiver');
+            const historyFilter = document.getElementById('history-member-filter');
+
+            const optionsHtml = MEMBERS.map(m => `<option value="${m.id}">${m.name} (${m.code})</option>`).join('');
+            payerSelect.innerHTML = optionsHtml;
+            senderSelect.innerHTML = optionsHtml;
+            receiverSelect.innerHTML = optionsHtml;
+            senderSelect.value = 'cabo';
+            receiverSelect.value = 'luis';
+
+            historyFilter.innerHTML = `<option value="all">Todos los miembros (8)</option>` + optionsHtml;
+
+            renderParticipantPills();
+            renderExactInputs();
+            recalcEqualSplit();
+        }
+
+        function renderParticipantPills() {
+            const grid = document.getElementById('equal-participants-grid');
+            grid.innerHTML = MEMBERS.map(m => {
+                const active = selectedParticipants.has(m.id);
+                return `
+                    <button type="button" onclick="toggleParticipant('${m.id}')" class="flex items-center justify-between px-3 py-2 rounded-xl border text-xs font-bold transition ${
+                        active
+                        ? 'bg-emerald-500/20 border-emerald-500 text-emerald-300 shadow-sm'
+                        : 'bg-slate-950 border-slate-800 text-slate-500 hover:text-slate-300'
+                    }">
+                        <span>${m.name}</span>
+                        <span class="w-4 h-4 rounded-md flex items-center justify-center text-[10px] ${active ? 'bg-emerald-500 text-slate-950' : 'bg-slate-900 text-slate-600'}">
+                            ${active ? 'P' : '–'}
+                        </span>
+                    </button>
+                `;
+            }).join('');
+        }
+
+        function renderExactInputs() {
+            const list = document.getElementById('exact-inputs-list');
+            list.innerHTML = MEMBERS.map(m => `
+                <div class="grid grid-cols-3 gap-2 items-center bg-slate-950/70 p-2 rounded-xl border border-slate-800/80">
+                    <div class="flex items-center gap-2">
+                        <span class="w-6 h-6 rounded-md bg-gradient-to-br ${m.color} text-[10px] font-bold flex items-center justify-center text-white">${m.code}</span>
+                        <span class="text-xs font-semibold text-white">${m.name}</span>
+                    </div>
+                    <div>
+                        <input type="number" step="0.01" min="0" placeholder="Pagó (+)" id="exact-paid-${m.id}" oninput="recalcExactSplit()" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-1.5 text-xs mono-num text-emerald-400 placeholder-slate-600 focus:outline-none focus:border-emerald-500">
+                    </div>
+                    <div>
+                        <input type="number" step="0.01" min="0" placeholder="Consumió (-)" id="exact-ate-${m.id}" oninput="recalcExactSplit()" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-1.5 text-xs mono-num text-rose-400 placeholder-slate-600 focus:outline-none focus:border-rose-500">
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Exact Cent Splitter (Guarantees Sum of Deltas == 0.00 €)
+        function recalcEqualSplit() {
+            const payerId = document.getElementById('equal-payer').value;
+            const rawAmount = parseFloat(document.getElementById('equal-amount').value) || 0;
+            const totalCents = Math.round(rawAmount * 100);
+            const parts = Array.from(selectedParticipants);
+
+            currentComputedDeltas = {};
+            const remainderBox = document.getElementById('equal-remainder-box');
+
+            if (totalCents <= 0 || parts.length === 0) {
+                remainderBox.classList.add('hidden');
+                renderDeltasPreview({});
+                return;
+            }
+
+            const n = parts.length;
+            const baseShareCents = Math.floor(totalCents / n);
+            const remainderCents = totalCents % n;
+
+            // Initialize payer with +totalCents
+            const centsMap = {};
+            MEMBERS.forEach(m => centsMap[m.id] = 0);
+            centsMap[payerId] += totalCents;
+
+            const extraReceivers = [];
+            parts.forEach((memberId, idx) => {
+                // Rotate who absorbs the extra cent(s) based on remainderRotationIndex
+                const shiftedIdx = (idx + remainderRotationIndex) % n;
+                const extra = shiftedIdx < remainderCents ? 1 : 0;
+                if (extra > 0) {
+                    const mObj = MEMBERS.find(x => x.id === memberId);
+                    if (mObj) extraReceivers.push(mObj.name);
+                }
+                centsMap[memberId] -= (baseShareCents + extra);
+            });
+
+            if (remainderCents > 0) {
+                remainderBox.classList.remove('hidden');
+                document.getElementById('equal-remainder-text').innerHTML =
+                    `División inexacta (${(totalCents/100).toFixed(2)}€ / ${n}): <strong>${extraReceivers.join(', ')}</strong> asume +0,01€ para que <strong>D.G. = 0,00€</strong>.`;
+            } else {
+                remainderBox.classList.add('hidden');
+            }
+
+            Object.entries(centsMap).forEach(([id, c]) => {
+                if (c !== 0) currentComputedDeltas[id] = c / 100;
+            });
+
+            renderDeltasPreview(currentComputedDeltas);
+        }
+
+        function recalcExactSplit() {
+            currentComputedDeltas = {};
+            let totalPaidCents = 0;
+            let totalAteCents = 0;
+
+            MEMBERS.forEach(m => {
+                const paid = Math.round((parseFloat(document.getElementById(`exact-paid-${m.id}`)?.value) || 0) * 100);
+                const ate = Math.round((parseFloat(document.getElementById(`exact-ate-${m.id}`)?.value) || 0) * 100);
+                totalPaidCents += paid;
+                totalAteCents += ate;
+                const netCents = paid - ate;
+                if (netCents !== 0) {
+                    currentComputedDeltas[m.id] = netCents / 100;
+                }
+            });
+
+            const diffCents = totalPaidCents - totalAteCents;
+            const badge = document.getElementById('exact-discrepancy-badge');
+            if (diffCents === 0) {
+                badge.textContent = "Descuadre: 0,00 € (Perfecto)";
+                badge.className = "mono-num text-xs font-bold px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-400 border border-emerald-500/30";
+            } else {
+                badge.textContent = `Descuadre: ${formatEuro(diffCents / 100, true)}`;
+                badge.className = "mono-num text-xs font-bold px-2.5 py-1 rounded-lg bg-rose-500/20 text-rose-400 border border-rose-500/40";
+            }
+
+            renderDeltasPreview(currentComputedDeltas);
+        }
+
+        function recalcBizumPreview() {
+            const sender = document.getElementById('bizum-sender').value;
+            const receiver = document.getElementById('bizum-receiver').value;
+            const amount = Math.round((parseFloat(document.getElementById('bizum-amount').value) || 0) * 100) / 100;
+
+            currentComputedDeltas = {};
+            if (amount > 0 && sender !== receiver) {
+                currentComputedDeltas[sender] = amount;
+                currentComputedDeltas[receiver] = -amount;
+            }
+            renderDeltasPreview(currentComputedDeltas);
+        }
+
+        function recalcCurrentFormPreview() {
+            if (entryMode === 'equal') recalcEqualSplit();
+            else if (entryMode === 'exact') recalcExactSplit();
+            else if (entryMode === 'bizum') recalcBizumPreview();
+        }
+
+        function renderDeltasPreview(deltas) {
+            const box = document.getElementById('live-deltas-preview');
+            const sumCheck = document.getElementById('preview-sum-check');
+            const entries = Object.entries(deltas).filter(([_, v]) => Math.abs(v) >= 0.005);
+
+            if (entries.length === 0) {
+                box.innerHTML = `<span class="text-xs text-slate-500 italic">Introduce un importe para ver el desglose contable...</span>`;
+                sumCheck.textContent = "Suma fila: 0,00 €";
+                sumCheck.className = "mono-num text-[11px] font-semibold text-slate-400";
+                return;
+            }
+
+            let sum = 0;
+            box.innerHTML = entries.map(([id, val]) => {
+                sum += val;
+                const m = MEMBERS.find(x => x.id === id);
+                const isPos = val > 0;
+                return `
+                    <div class="px-2.5 py-1 rounded-lg border text-xs mono-num font-bold flex items-center gap-1.5 ${
+                        isPos ? 'bg-emerald-500/15 border-emerald-500/30 text-emerald-300' : 'bg-rose-500/15 border-rose-500/30 text-rose-300'
+                    }">
+                        <span class="font-sans font-semibold text-white">${m ? m.name : id}:</span>
+                        <span>${formatEuro(val, true)}</span>
+                    </div>
+                `;
+            }).join('');
+
+            const roundedSum = Math.round(sum * 100) / 100;
+            if (Math.abs(roundedSum) === 0) {
+                sumCheck.textContent = "Suma fila: 0,00 € (D.G. = 0)";
+                sumCheck.className = "mono-num text-[11px] font-semibold text-emerald-400";
+            } else {
+                sumCheck.textContent = `Error fila: ${formatEuro(roundedSum, true)}`;
+                sumCheck.className = "mono-num text-[11px] font-semibold text-rose-400";
+            }
+        }
+
+        // ---------------------------------------------------------
+        // 7. SAVING & DELETING TRANSACTIONS
+        // ---------------------------------------------------------
+        async function saveNewTransactionObject(txObj) {
+            // Always update in-memory immediately for instant responsiveness
+            dynamicTransactions.push(txObj);
+            refreshAllViews();
+
+            if (isCloudActive && currentUser && db) {
+                try {
+                    const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'bingo_transactions', txObj.id);
+                    await setDoc(docRef, txObj);
+                } catch (err) {
+                    console.error("Error guardando en Firestore:", err);
+                }
+            }
+        }
+
+        async function submitTransaction() {
+            const dateVal = document.getElementById('input-date').value.trim();
+            // Easter Egg Row 436 check!
+            if (!dateVal) {
+                document.getElementById('modal-rumanos').classList.remove('hidden');
+                return;
+            }
+
+            let concept = document.getElementById('input-concept').value.trim();
+            if (!concept) {
+                if (entryMode === 'bizum') {
+                    const s = MEMBERS.find(x => x.id === document.getElementById('bizum-sender').value)?.name;
+                    const r = MEMBERS.find(x => x.id === document.getElementById('bizum-receiver').value)?.name;
+                    concept = `Bizum de ${s} a ${r}`;
+                } else {
+                    showToast("Pon un asunto para el gasto (ej. Cañas, Cena)", true);
+                    document.getElementById('input-concept').focus();
+                    return;
+                }
+            }
+
+            const entries = Object.entries(currentComputedDeltas).filter(([_, v]) => Math.abs(v) >= 0.005);
+            if (entries.length === 0) {
+                showToast("Introduce un importe válido mayor que 0,00 €", true);
+                return;
+            }
+
+            // Verify zero sum
+            const totalRowSum = entries.reduce((acc, [_, v]) => acc + v, 0);
+            if (Math.abs(totalRowSum) >= 0.01) {
+                showToast(`La fila está descuadrada por ${formatEuro(totalRowSum, true)}. Cuádrala a 0,00 € antes de guardar.`, true);
+                return;
+            }
+
+            const newTx = {
+                id: 'tx-' + Date.now() + '-' + Math.random().toString(36).substring(2, 6),
+                concept,
+                date: dateVal,
+                type: entryMode,
+                deltas: { ...currentComputedDeltas },
+                createdAt: Date.now()
+            };
+
+            await saveNewTransactionObject(newTx);
+
+            // Reset inputs
+            document.getElementById('input-concept').value = '';
+            document.getElementById('equal-amount').value = '';
+            document.getElementById('bizum-amount').value = '';
+            MEMBERS.forEach(m => {
+                const p = document.getElementById(`exact-paid-${m.id}`);
+                const a = document.getElementById(`exact-ate-${m.id}`);
+                if (p) p.value = '';
+                if (a) a.value = '';
+            });
+
+            recalcCurrentFormPreview();
+            showToast(`Apuntado: «${concept}» (D.G. 0,00 €)`);
+            switchTab('saldos');
+        }
+
+        // 1-Click Optimal Bizum Settlement
+        window.quickSettleBizum = async function(fromId, toId, amount) {
+            const fromM = MEMBERS.find(x => x.id === fromId);
+            const toM = MEMBERS.find(x => x.id === toId);
+            if (!fromM || !toM) return;
+
+            const today = new Date().toISOString().split('T')[0];
+            const txObj = {
+                id: 'bizum-' + Date.now(),
+                concept: `Bizum Liquidación (${fromM.name} → ${toM.name})`,
+                date: today,
+                type: 'bizum',
+                deltas: {
+                    [fromId]: amount,
+                    [toId]: -amount
+                },
+                createdAt: Date.now()
+            };
+
+            await saveNewTransactionObject(txObj);
+            showToast(`Bizum de ${fromM.name} a ${toM.name} (${formatEuro(amount)}) registrado`);
+        };
+
+        // Delete a new v4.0 transaction
+        window.deleteTransaction = async function(txId) {
+            dynamicTransactions = dynamicTransactions.filter(t => t.id !== txId);
+            refreshAllViews();
+
+            if (isCloudActive && currentUser && db) {
+                try {
+                    const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'bingo_transactions', txId);
+                    await deleteDoc(docRef);
+                } catch (err) {
+                    console.error("Error borrando transacción:", err);
+                }
+            }
+            showToast("Apunte eliminado y saldos recalculados");
+        };
+
+        // Protocolo MAFTA: Clean historical -1.4842€ discrepancy & sub-cent residuals
+        window.applyMaftaProtocol = async function() {
+            const state = computeGroupState();
+            if (Math.abs(state.totalDG) < 0.005) {
+                closeMaftaModal();
+                showToast("El grupo ya tiene 0,00 € de Dinero Generado");
+                return;
+            }
+
+            // Build adjustment deltas so every guest with sub-cent balance becomes 0 and the -1.4842€ is absorbed cleanly
+            const deltas = {};
+            // Clean sub-cent residuals first
+            ['alex', 'por', 'pedro', 'asis'].forEach(id => {
+                const bal = state.membersMap[id].balance;
+                if (Math.abs(bal) > 0 && Math.abs(bal) < 0.05) {
+                    deltas[id] = -bal;
+                }
+            });
+
+            // Calculate how much net discrepancy remains to reach exact 0.00 across all 8 members
+            const currentResidualFix = Object.values(deltas).reduce((a, b) => a + b, 0);
+            const neededForZero = -(state.totalDG + currentResidualFix);
+
+            // Distribute neededForZero (+1.48€) among the 4 active core debtors/creditors (Cabo, Emi, Max, Luis)
+            const share = neededForZero / 4;
+            ['cabo', 'emi', 'max', 'luis'].forEach(id => {
+                deltas[id] = (deltas[id] || 0) + share;
+            });
+
+            const today = new Date().toISOString().split('T')[0];
+            const maftaTx = {
+                id: 'mafta-' + Date.now(),
+                concept: 'Ajuste MAFTA v4.0 (Cuadre D.G. histórico a 0,00€)',
+                date: today,
+                type: 'mafta',
+                deltas,
+                createdAt: Date.now()
+            };
+
+            await saveNewTransactionObject(maftaTx);
+            closeMaftaModal();
+            showToast("Protocolo MAFTA aplicado: D.G. ahora es 0,00 € exactos");
+        };
+
+        // ---------------------------------------------------------
+        // 8. RENDER HISTORY & BCE TABS
+        // ---------------------------------------------------------
+        function renderHistory() {
+            const queryText = (document.getElementById('history-search')?.value || '').toLowerCase().trim();
+            const memberFilterVal = document.getElementById('history-member-filter')?.value || 'all';
+
+            // Number new transactions sequentially starting at 629
+            const sortedNew = [...dynamicTransactions].sort((a, b) => (a.createdAt || 0) - (b.createdAt || 0));
+            const numberedNew = sortedNew.map((tx, idx) => ({
+                ...tx,
+                rowNum: BASE_CONSTANTS.txCount + idx + 1
+            }));
+
+            const allTxs = [...numberedNew.reverse(), ...HISTORICAL_SEED_TXS];
+
+            const filtered = allTxs.filter(tx => {
+                const matchesText = !queryText || tx.concept.toLowerCase().includes(queryText) || (tx.date && tx.date.includes(queryText));
+                const matchesMember = memberFilterVal === 'all' || (tx.deltas && Math.abs(tx.deltas[memberFilterVal] || 0) > 0.0001);
+                return matchesText && matchesMember;
+            });
+
+            const container = document.getElementById('history-feed-list');
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div class="p-8 rounded-2xl bg-cardbg border border-slate-800 text-center text-xs text-slate-400">
+                        No se encontraron movimientos con ese filtro.
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = filtered.map(tx => {
+                const entries = Object.entries(tx.deltas || {}).filter(([_, v]) => Math.abs(v) > 0.0001);
+                const positiveVol = entries.reduce((acc, [_, v]) => v > 0 ? acc + v : acc, 0);
+
+                const badgesHtml = entries.map(([id, val]) => {
+                    const m = MEMBERS.find(x => x.id === id);
+                    const isPos = val > 0;
+                    return `
+                        <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[11px] mono-num font-semibold border ${
+                            isPos ? 'bg-emerald-500/10 border-emerald-500/25 text-emerald-300' : 'bg-rose-500/10 border-rose-500/25 text-rose-300'
+                        }">
+                            <strong class="font-sans text-white">${m ? m.name : id}:</strong> ${formatEuro(val, true)}
+                        </span>
+                    `;
+                }).join('');
+
+                return `
+                    <div class="rounded-2xl bg-cardbg border border-slate-800/90 p-3.5 space-y-2.5">
+                        <div class="flex items-start justify-between gap-2">
+                            <div class="flex items-center gap-2.5">
+                                <span class="mono-num text-[11px] font-bold px-2 py-1 rounded-lg ${tx.isHistoricalBaseline ? 'bg-slate-800 text-slate-400' : 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'}">
+                                    #${tx.rowNum}
+                                </span>
+                                <div>
+                                    <h4 class="text-sm font-bold text-white leading-tight">${tx.concept}</h4>
+                                    <span class="text-[11px] text-slate-400 mono-num">${tx.date} · Movido: ${formatEuro(positiveVol)}</span>
+                                </div>
+                            </div>
+
+                            ${tx.isHistoricalBaseline ? `
+                                <span class="text-[10px] px-2 py-0.5 rounded bg-slate-900 text-slate-500 border border-slate-800">
+                                    Excel v3.2
+                                </span>
+                            ` : `
+                                <button onclick="deleteTransaction('${tx.id}')" class="text-slate-500 hover:text-rose-400 p-1.5 rounded-lg hover:bg-rose-500/10 transition" title="Borrar apunte">
+                                    <i class="fa-solid fa-trash-can text-xs"></i>
+                                </button>
+                            `}
+                        </div>
+
+                        <div class="flex flex-wrap gap-1.5 pt-0.5">
+                            ${badgesHtml}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function renderBCE(state) {
+            document.getElementById('bce-cred').textContent = formatEuro(state.creditoCirculacion);
+            document.getElementById('bce-ecm').textContent = formatEuro(state.ecm);
+            document.getElementById('bce-ra').textContent = formatEuro(state.riesgoAbsoluto);
+            document.getElementById('bce-rr').textContent = state.riesgoRelativo.toFixed(3).replace('.', ',');
+            document.getElementById('bce-vol').textContent = formatEuro(state.totalVolume);
+            document.getElementById('bce-dg').textContent = formatEuro(state.totalDG, true);
+
+            const tbody = document.getElementById('bce-members-table');
+            const sortedByVol = [...state.membersList].sort((a, b) => b.adelantado - a.adelantado);
+
+            tbody.innerHTML = sortedByVol.map(m => {
+                const isPos = m.balance > 0.005;
+                const isNeg = m.balance < -0.005;
+                return `
+                    <tr class="hover:bg-slate-800/40 transition">
+                        <td class="py-2.5 px-3 font-semibold text-white flex items-center gap-2">
+                            <span class="w-5 h-5 rounded bg-gradient-to-br ${m.color} text-[9px] font-bold flex items-center justify-center text-white">${m.code}</span>
+                            <span>${m.name}</span>
+                        </td>
+                        <td class="py-2.5 px-3 text-right mono-num font-bold ${isPos ? 'text-emerald-400' : (isNeg ? 'text-rose-400' : 'text-slate-400')}">
+                            ${formatEuro(m.balance, true)}
+                        </td>
+                        <td class="py-2.5 px-3 text-right mono-num text-slate-300">${m.movs}</td>
+                        <td class="py-2.5 px-3 text-right mono-num text-slate-200 font-semibold">${formatEuro(m.adelantado)}</td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        // Export CSV compatible with BING-O 3.2 columns
+        window.exportToCSV = function() {
+            const headers = ['N_Tx', 'Asunto', 'Cabo', 'Alex', 'Luis', 'Max', 'Emi', 'Por', 'Asis', 'Pedro', 'Fecha'];
+            const sortedNew = [...dynamicTransactions].sort((a, b) => (a.createdAt || 0) - (b.createdAt || 0));
+            const numberedNew = sortedNew.map((tx, idx) => ({ ...tx, rowNum: BASE_CONSTANTS.txCount + idx + 1 }));
+            const allRows = [...HISTORICAL_SEED_TXS.slice().reverse(), ...numberedNew];
+
+            const csvLines = [headers.join(';')];
+            allRows.forEach(tx => {
+                const d = tx.deltas || {};
+                const row = [
+                    tx.rowNum,
+                    `"${(tx.concept || '').replace(/"/g, '""')}"`,
+                    (d.cabo || 0).toFixed(2).replace('.', ','),
+                    (d.alex || 0).toFixed(2).replace('.', ','),
+                    (d.luis || 0).toFixed(2).replace('.', ','),
+                    (d.max || 0).toFixed(2).replace('.', ','),
+                    (d.emi || 0).toFixed(2).replace('.', ','),
+                    (d.por || 0).toFixed(2).replace('.', ','),
+                    (d.asis || 0).toFixed(2).replace('.', ','),
+                    (d.pedro || 0).toFixed(2).replace('.', ','),
+                    tx.date || ''
+                ];
+                csvLines.push(row.join(';'));
+            });
+
+            const blob = new Blob(["\uFEFF" + csvLines.join('\n')], { type: 'text/csv;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `BINGO_4.0_Export_${new Date().toISOString().slice(0,10)}.csv`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            showToast("Archivo CSV descargado para Excel");
+        };
+
+        // ---------------------------------------------------------
+        // 9. UI HELPERS & GLOBAL BINDINGS
+        // ---------------------------------------------------------
+        window.switchTab = function(tabName) {
+            ['saldos', 'nuevo', 'historial', 'bce'].forEach(t => {
+                document.getElementById(`tab-${t}`).classList.toggle('hidden', t !== tabName);
+                const navBtn = document.getElementById(`nav-${t}`);
+                if (navBtn) {
+                    navBtn.className = t === tabName
+                        ? "flex flex-col items-center justify-center py-1.5 rounded-xl text-emerald-400 transition"
+                        : "flex flex-col items-center justify-center py-1.5 rounded-xl text-slate-400 hover:text-white transition";
+                }
+            });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+
+        window.setMemberFilter = function(mode) {
+            memberFilter = mode;
+            document.getElementById('btn-filter-core').className = mode === 'core'
+                ? "px-3 py-1.5 rounded-lg text-xs font-semibold transition bg-emerald-500 text-slate-950"
+                : "px-3 py-1.5 rounded-lg text-xs font-semibold transition text-slate-400 hover:text-white";
+            document.getElementById('btn-filter-all').className = mode === 'all'
+                ? "px-3 py-1.5 rounded-lg text-xs font-semibold transition bg-emerald-500 text-slate-950"
+                : "px-3 py-1.5 rounded-lg text-xs font-semibold transition text-slate-400 hover:text-white";
+            refreshAllViews();
+        };
+
+        window.setEntryMode = function(mode) {
+            entryMode = mode;
+            ['equal', 'exact', 'bizum'].forEach(m => {
+                document.getElementById(`panel-mode-${m}`).classList.toggle('hidden', m !== mode);
+                const btn = document.getElementById(`mode-btn-${m}`);
+                btn.className = m === mode
+                    ? "py-2 px-2 rounded-lg text-xs font-bold transition bg-emerald-500 text-slate-950 flex items-center justify-center gap-1.5"
+                    : "py-2 px-2 rounded-lg text-xs font-bold transition text-slate-400 hover:text-white flex items-center justify-center gap-1.5";
+            });
+            recalcCurrentFormPreview();
+        };
+
+        window.toggleParticipant = function(memberId) {
+            if (selectedParticipants.has(memberId)) {
+                selectedParticipants.delete(memberId);
+            } else {
+                selectedParticipants.add(memberId);
+            }
+            renderParticipantPills();
+            recalcEqualSplit();
+        };
+
+        window.selectParticipantsPreset = function(preset) {
+            selectedParticipants.clear();
+            if (preset === 'core') {
+                MEMBERS.filter(m => m.core).forEach(m => selectedParticipants.add(m.id));
+            } else if (preset === 'all') {
+                MEMBERS.forEach(m => selectedParticipants.add(m.id));
+            }
+            renderParticipantPills();
+            recalcEqualSplit();
+        };
+
+        window.rotateRemainderTarget = function() {
+            remainderRotationIndex = (remainderRotationIndex + 1) % Math.max(1, selectedParticipants.size);
+            recalcEqualSplit();
+        };
+
+        window.recalcEqualSplit = recalcEqualSplit;
+        window.recalcExactSplit = recalcExactSplit;
+        window.recalcBizumPreview = recalcBizumPreview;
+        window.submitTransaction = submitTransaction;
+        window.renderHistory = renderHistory;
+
+        window.clearDateForEasterEgg = function() {
+            document.getElementById('input-date').value = '';
+            document.getElementById('modal-rumanos').classList.remove('hidden');
+        };
+
+        window.fixDateAndCloseModal = function() {
+            document.getElementById('input-date').value = new Date().toISOString().split('T')[0];
+            document.getElementById('modal-rumanos').classList.add('hidden');
+        };
+
+        window.openMaftaModal = () => document.getElementById('modal-mafta').classList.remove('hidden');
+        window.closeMaftaModal = () => document.getElementById('modal-mafta').classList.add('hidden');
+        window.openDeployModal = () => document.getElementById('modal-deploy').classList.remove('hidden');
+        window.closeDeployModal = () => document.getElementById('modal-deploy').classList.add('hidden');
+
+        function showToast(msg, isError = false) {
+            const box = document.getElementById('toast-box');
+            const text = document.getElementById('toast-msg');
+            text.textContent = msg;
+            box.className = `fixed top-16 left-1/2 -translate-x-1/2 z-50 px-4 py-2.5 rounded-xl font-bold text-xs shadow-xl flex items-center gap-2 ${
+                isError ? 'bg-rose-500 text-white' : 'bg-emerald-500 text-slate-950'
+            }`;
+            box.classList.remove('hidden');
+            setTimeout(() => box.classList.add('hidden'), 3200);
+        }
+
+        // Boot App
+        window.addEventListener('DOMContentLoaded', () => {
+            initFormSelectors();
+            refreshAllViews();
+            initFirebase();
+        });
+    </script>
+</body>
+</html>
