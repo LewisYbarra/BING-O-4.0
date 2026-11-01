@@ -639,8 +639,17 @@
         let dynamicTransactions = [];
         let currentComputedDeltas = {};
 
-        // Security variables
-        const GROUP_PIN = "BINGO2026";
+        // SEGURIDAD: Guardamos únicamente el hash SHA-256 del PIN (nunca en texto plano)
+        const GROUP_PIN_HASH = "1e9ea592bfbc6dbc5cd08b3b08324d4a31795c0e784baebefa450253e6ee6f0d";
+
+        // Función auxiliar asíncrona para calcular SHA-256 en el navegador
+        async function sha256(message) {
+            const msgBuffer = new TextEncoder().encode(message);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+        }
+
         let myUserId = localStorage.getItem('bingo_user_id') || null;
         let storedPin = localStorage.getItem('bingo_group_pin') || null;
 
@@ -1191,7 +1200,7 @@
         // 7. SEGURIDAD, SAVING & SOFT DELETING TRANSACTIONS
         // ---------------------------------------------------------
         function checkUserAuth() {
-            if (!myUserId || storedPin !== GROUP_PIN) {
+            if (!myUserId || storedPin !== GROUP_PIN_HASH) {
                 document.getElementById('modal-auth').classList.remove('hidden');
                 const sel = document.getElementById('auth-user-select');
                 sel.innerHTML = MEMBERS.map(m => `<option value="${m.id}">${m.name} (${m.code})</option>`).join('');
@@ -1201,17 +1210,21 @@
             }
         }
 
-        window.saveUserSession = function() {
+        window.saveUserSession = async function() {
             const chosenUser = document.getElementById('auth-user-select').value;
             const enteredPin = document.getElementById('auth-pin-input').value.trim();
 
-            if (enteredPin !== GROUP_PIN) {
-                alert("PIN incorrecto. Revisa el PIN del grupo.");
+            // Calculamos el hash SHA-256 del PIN introducido
+            const enteredHash = await sha256(enteredPin);
+
+            if (enteredHash !== GROUP_PIN_HASH) {
+                alert("PIN incorrecto. Revisa la clave del grupo.");
+                document.getElementById('auth-pin-input').value = '';
                 return;
             }
 
             myUserId = chosenUser;
-            storedPin = enteredPin;
+            storedPin = enteredHash; // Guardamos el hash en el navegador, no la contraseña
             localStorage.setItem('bingo_user_id', myUserId);
             localStorage.setItem('bingo_group_pin', storedPin);
 
@@ -1234,7 +1247,7 @@
         }
 
         async function saveNewTransactionObject(txObj) {
-            if (storedPin !== GROUP_PIN) {
+            if (storedPin !== GROUP_PIN_HASH) {
                 checkUserAuth();
                 return;
             }
@@ -1243,7 +1256,7 @@
 
             const payload = {
                 ...txObj,
-                groupPin: GROUP_PIN,
+                groupPinHash: GROUP_PIN_HASH, // Enviamos el hash en lugar del PIN en plano
                 creadoPor: authorName,
                 creadorId: myUserId,
                 anulado: false
@@ -1360,7 +1373,7 @@
 
         // SOFT DELETE: El documento no se destruye, se anula y queda firmado (Anti-Gaslighting)
         window.deleteTransaction = async function(txId) {
-            if (storedPin !== GROUP_PIN) {
+            if (storedPin !== GROUP_PIN_HASH) {
                 checkUserAuth();
                 return;
             }
@@ -1384,7 +1397,7 @@
                         anulado: true,
                         anuladoPor: deleterName,
                         fechaAnulacion: tx.fechaAnulacion,
-                        groupPin: GROUP_PIN
+                        groupPin: GROUP_PIN_HASH
                     }, { merge: true });
                     showToast(`Gasto anulado por ${deleterName}`);
                 } catch (err) {
