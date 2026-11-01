@@ -98,9 +98,13 @@
             </div>
 
             <div class="flex items-center gap-2">
+                <button onclick="openAuthModal()" id="btn-current-user" class="px-2.5 py-1.5 rounded-lg bg-slate-800 text-xs font-semibold text-slate-300 border border-slate-700 hover:border-slate-500 flex items-center gap-1.5 transition">
+                    <i class="fa-solid fa-user text-emerald-400"></i>
+                    <span id="label-current-user">Identifícate</span>
+                </button>
                 <button onclick="switchTab('nuevo')" class="px-3 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs shadow-md shadow-emerald-500/20 transition flex items-center gap-1.5">
                     <i class="fa-solid fa-plus"></i>
-                    <span>Apuntar</span>
+                    <span class="hidden sm:inline">Apuntar</span>
                 </button>
             </div>
         </div>
@@ -534,6 +538,39 @@
         </div>
     </div>
 
+    <!-- ========================================== -->
+    <!-- MODAL 3: IDENTIFICACIÓN Y SEGURIDAD        -->
+    <!-- ========================================== -->
+    <div id="modal-auth" class="fixed inset-0 z-50 hidden bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-cardbg border border-slate-700 rounded-2xl max-w-sm w-full p-5 space-y-4 shadow-2xl">
+            <div class="text-center space-y-1">
+                <div class="w-12 h-12 mx-auto rounded-2xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <h3 class="text-base font-extrabold text-white">Acceso al BING-O</h3>
+                <p class="text-xs text-slate-400">Identifícate en este móvil para firmar tus apuntes.</p>
+            </div>
+
+            <div class="space-y-3">
+                <div>
+                    <label class="block text-[11px] uppercase tracking-wider text-slate-400 font-semibold mb-1">¿Quién eres?</label>
+                    <select id="auth-user-select" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2.5 text-sm text-white focus:outline-none focus:border-emerald-500">
+                        <!-- Populated via JS -->
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-[11px] uppercase tracking-wider text-slate-400 font-semibold mb-1">PIN del Grupo</label>
+                    <input id="auth-pin-input" type="password" placeholder="Introduce el PIN" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-sm text-center tracking-widest text-white focus:outline-none focus:border-emerald-500">
+                </div>
+            </div>
+
+            <button onclick="saveUserSession()" class="w-full py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-xs transition">
+                Entrar al Grupo
+            </button>
+        </div>
+    </div>
+
+
     <!-- TOAST NOTIFICATION -->
     <div id="toast-box" class="fixed top-16 left-1/2 -translate-x-1/2 z-50 hidden px-4 py-2.5 rounded-xl bg-emerald-500 text-slate-950 font-bold text-xs shadow-xl flex items-center gap-2">
         <i class="fa-solid fa-circle-check"></i>
@@ -593,14 +630,19 @@
         const HISTORICAL_SEED_TXS = [];
 
         // ---------------------------------------------------------
-        // 2. APPLICATION STATE
+        // 2. APPLICATION STATE & SECURITY
         // ---------------------------------------------------------
-        let memberFilter = 'core'; // 'core' or 'all'
-        let entryMode = 'equal';   // 'equal', 'exact', 'bizum'
+        let memberFilter = 'core'; 
+        let entryMode = 'equal';   
         let selectedParticipants = new Set(['luis', 'cabo', 'emi', 'max', 'alex']);
         let remainderRotationIndex = 0;
         let dynamicTransactions = [];
         let currentComputedDeltas = {};
+
+        // Security variables
+        const GROUP_PIN = "BINGO2026";
+        let myUserId = localStorage.getItem('bingo_user_id') || null;
+        let storedPin = localStorage.getItem('bingo_group_pin') || null;
 
         // Firebase references
         let db = null;
@@ -682,6 +724,9 @@
             const sortedAll = [...dynamicTransactions].sort((a, b) => (a.createdAt || 0) - (b.createdAt || 0));
 
             sortedAll.forEach((tx) => {
+                // EXCLUIR LOS ANULADOS DEL CÁLCULO DE SALDOS
+                if (tx.anulado) return;
+
                 totalTxCount++;
                 const isHist = tx.id && tx.id.startsWith('hist-');
                 if (!isHist) newV4Count++;
@@ -882,7 +927,6 @@
                 `;
             }).join('');
 
-            // Render Optimal Bizum Plan
             const transfers = computeOptimalBizums(state.membersList);
             const planList = document.getElementById('bizum-plan-list');
             const countBadge = document.getElementById('settlement-count-badge');
@@ -914,7 +958,6 @@
                 `).join('');
             }
 
-            // Control dinámico del Protocolo MAFTA y aviso D.G.
             const maftaBtn = document.getElementById('btn-mafta-trigger');
             const maftaLabel = document.getElementById('btn-mafta-label');
             const maftaNote = document.getElementById('mafta-warning-note');
@@ -953,7 +996,6 @@
             const today = new Date().toISOString().split('T')[0];
             document.getElementById('input-date').value = today;
 
-            // Populate selects
             const payerSelect = document.getElementById('equal-payer');
             const senderSelect = document.getElementById('bizum-sender');
             const receiverSelect = document.getElementById('bizum-receiver');
@@ -1030,7 +1072,6 @@
             const baseShareCents = Math.floor(totalCents / n);
             const remainderCents = totalCents % n;
 
-            // Initialize payer with +totalCents
             const centsMap = {};
             MEMBERS.forEach(m => centsMap[m.id] = 0);
             centsMap[payerId] += totalCents;
@@ -1147,26 +1188,83 @@
         }
 
         // ---------------------------------------------------------
-        // 7. SAVING & DELETING TRANSACTIONS
+        // 7. SEGURIDAD, SAVING & SOFT DELETING TRANSACTIONS
         // ---------------------------------------------------------
+        function checkUserAuth() {
+            if (!myUserId || storedPin !== GROUP_PIN) {
+                document.getElementById('modal-auth').classList.remove('hidden');
+                const sel = document.getElementById('auth-user-select');
+                sel.innerHTML = MEMBERS.map(m => `<option value="${m.id}">${m.name} (${m.code})</option>`).join('');
+                if (myUserId) sel.value = myUserId;
+            } else {
+                updateUserHeader();
+            }
+        }
+
+        window.saveUserSession = function() {
+            const chosenUser = document.getElementById('auth-user-select').value;
+            const enteredPin = document.getElementById('auth-pin-input').value.trim();
+
+            if (enteredPin !== GROUP_PIN) {
+                alert("PIN incorrecto. Revisa el PIN del grupo.");
+                return;
+            }
+
+            myUserId = chosenUser;
+            storedPin = enteredPin;
+            localStorage.setItem('bingo_user_id', myUserId);
+            localStorage.setItem('bingo_group_pin', storedPin);
+
+            document.getElementById('modal-auth').classList.add('hidden');
+            updateUserHeader();
+            showToast(`Sesión iniciada como ${MEMBERS.find(m => m.id === myUserId)?.name}`);
+        };
+
+        window.openAuthModal = function() {
+            document.getElementById('modal-auth').classList.remove('hidden');
+            const sel = document.getElementById('auth-user-select');
+            sel.innerHTML = MEMBERS.map(m => `<option value="${m.id}">${m.name} (${m.code})</option>`).join('');
+            if (myUserId) sel.value = myUserId;
+        };
+
+        function updateUserHeader() {
+            const btn = document.getElementById('label-current-user');
+            const m = MEMBERS.find(x => x.id === myUserId);
+            if (btn && m) btn.textContent = m.name;
+        }
+
         async function saveNewTransactionObject(txObj) {
-            dynamicTransactions.push(txObj);
+            if (storedPin !== GROUP_PIN) {
+                checkUserAuth();
+                return;
+            }
+
+            const authorName = MEMBERS.find(m => m.id === myUserId)?.name || 'Anónimo';
+
+            const payload = {
+                ...txObj,
+                groupPin: GROUP_PIN,
+                creadoPor: authorName,
+                creadorId: myUserId,
+                anulado: false
+            };
+
+            dynamicTransactions.push(payload);
             refreshAllViews();
 
             if (db) {
                 try {
                     const docRef = doc(db, 'gastos', txObj.id);
-                    await setDoc(docRef, txObj);
+                    await setDoc(docRef, payload);
                 } catch (err) {
                     console.error("Error guardando en Firestore:", err);
-                    showToast("Error al subir a la nube", true);
+                    showToast("Error de permisos: PIN no autorizado", true);
                 }
             }
         }
 
         async function submitTransaction() {
             const dateVal = document.getElementById('input-date').value.trim();
-            // Easter Egg Row 436 check!
             if (!dateVal) {
                 document.getElementById('modal-rumanos').classList.remove('hidden');
                 return;
@@ -1191,7 +1289,6 @@
                 return;
             }
 
-            // Verify zero sum
             const totalRowSum = entries.reduce((acc, [_, v]) => acc + v, 0);
             if (Math.abs(totalRowSum) >= 0.01) {
                 showToast(`La fila está descuadrada por ${formatEuro(totalRowSum, true)}. Cuádrala a 0,00 € antes de guardar.`, true);
@@ -1209,7 +1306,6 @@
 
             await saveNewTransactionObject(newTx);
 
-            // Reset inputs
             document.getElementById('input-concept').value = '';
             document.getElementById('equal-amount').value = '';
             document.getElementById('bizum-amount').value = '';
@@ -1240,7 +1336,6 @@
             switchTab('saldos');
         };
 
-        // 1-Click Optimal Bizum Settlement
         window.quickSettleBizum = async function(fromId, toId, amount) {
             const fromM = MEMBERS.find(x => x.id === fromId);
             const toM = MEMBERS.find(x => x.id === toId);
@@ -1263,23 +1358,67 @@
             showToast(`Bizum de ${fromM.name} a ${toM.name} (${formatEuro(amount)}) registrado`);
         };
 
-        // Delete a new v4.0 transaction
+        // SOFT DELETE: El documento no se destruye, se anula y queda firmado (Anti-Gaslighting)
         window.deleteTransaction = async function(txId) {
-            dynamicTransactions = dynamicTransactions.filter(t => t.id !== txId);
+            if (storedPin !== GROUP_PIN) {
+                checkUserAuth();
+                return;
+            }
+            const tx = dynamicTransactions.find(t => t.id === txId);
+            if (!tx) return;
+
+            const deleterName = MEMBERS.find(m => m.id === myUserId)?.name || 'Alguien';
+
+            const confirmAnular = confirm(`¿Seguro que quieres anular el gasto «${tx.concept}»? Quedará registrado en el historial que lo has anulado tú.`);
+            if (!confirmAnular) return;
+
+            tx.anulado = true;
+            tx.anuladoPor = deleterName;
+            tx.fechaAnulacion = new Date().toLocaleString('es-ES', { dateStyle: 'short', timeStyle: 'short' });
             refreshAllViews();
 
             if (db) {
                 try {
                     const docRef = doc(db, 'gastos', txId);
-                    await deleteDoc(docRef);
-                    showToast("Apunte eliminado de la nube");
+                    await setDoc(docRef, {
+                        anulado: true,
+                        anuladoPor: deleterName,
+                        fechaAnulacion: tx.fechaAnulacion,
+                        groupPin: GROUP_PIN
+                    }, { merge: true });
+                    showToast(`Gasto anulado por ${deleterName}`);
                 } catch (err) {
-                    console.error("Error borrando en Firestore:", err);
+                    console.error("Error al anular en Firestore:", err);
+                    showToast("Fallo al anular en la nube", true);
                 }
             }
         };
 
-        // Protocolo MAFTA Dinámico: Cuadre automático de D.G. y limpieza de decimales
+        window.restoreTransaction = async function(txId) {
+            if (storedPin !== GROUP_PIN) {
+                checkUserAuth();
+                return;
+            }
+            const tx = dynamicTransactions.find(t => t.id === txId);
+            if (!tx) return;
+
+            tx.anulado = false;
+            delete tx.anuladoPor;
+            delete tx.fechaAnulacion;
+            refreshAllViews();
+
+            if (db) {
+                const docRef = doc(db, 'gastos', txId);
+                await setDoc(docRef, {
+                    anulado: false,
+                    anuladoPor: null,
+                    fechaAnulacion: null,
+                    groupPin: GROUP_PIN
+                }, { merge: true });
+                showToast("Gasto restaurado en las cuentas");
+            }
+        };
+
         window.applyMaftaProtocol = async function() {
             const state = computeGroupState();
             if (Math.abs(state.totalDG) < 0.005) {
@@ -1363,8 +1502,23 @@
             }
 
             container.innerHTML = filtered.map(tx => {
+                const isAnulado = !!tx.anulado;
                 const entries = Object.entries(tx.deltas || {}).filter(([_, v]) => Math.abs(v) > 0.0001);
                 const positiveVol = entries.reduce((acc, [_, v]) => v > 0 ? acc + v : acc, 0);
+
+                if (isAnulado) {
+                    return `
+                        <div class="rounded-2xl bg-rose-950/20 border border-rose-900/40 p-3.5 space-y-2 opacity-60">
+                            <div class="flex items-center justify-between text-xs">
+                                <span class="line-through text-slate-400 font-bold">#${tx.rowNum} ${tx.concept} (${formatEuro(positiveVol)})</span>
+                                <button onclick="restoreTransaction('${tx.id}')" class="text-[11px] text-emerald-400 hover:underline">Restaurar</button>
+                            </div>
+                            <p class="text-[11px] text-rose-300">
+                                <i class="fa-solid fa-ban mr-1"></i> Anulado por <strong>${tx.anuladoPor || 'un usuario'}</strong> (${tx.fechaAnulacion || 'recientemente'}).
+                            </p>
+                        </div>
+                    `;
+                }
 
                 const badgesHtml = entries.map(([id, val]) => {
                     const m = MEMBERS.find(x => x.id === id);
@@ -1396,7 +1550,7 @@
                                     Excel v3.2
                                 </span>
                             ` : `
-                                <button onclick="deleteTransaction('${tx.id}')" class="text-slate-500 hover:text-rose-400 p-1.5 rounded-lg hover:bg-rose-500/10 transition" title="Borrar apunte">
+                                <button onclick="deleteTransaction('${tx.id}')" class="text-slate-500 hover:text-rose-400 p-1.5 rounded-lg hover:bg-rose-500/10 transition" title="Anular apunte">
                                     <i class="fa-solid fa-trash-can text-xs"></i>
                                 </button>
                             `}
@@ -1405,6 +1559,12 @@
                         <div class="flex flex-wrap gap-1.5 pt-0.5">
                             ${badgesHtml}
                         </div>
+                        
+                        ${!tx.isHistorical ? `
+                            <div class="pt-1.5 border-t border-slate-800/60 flex items-center justify-between">
+                                <span class="text-[10px] text-slate-500"><i class="fa-solid fa-pen-nib mr-1"></i>Creado por ${tx.creadoPor || 'Sistema'}</span>
+                            </div>
+                        ` : ''}
                     </div>
                 `;
             }).join('');
@@ -1440,9 +1600,9 @@
             }).join('');
         }
 
-        // Export CSV compatible with BING-O 3.2 columns
+        // Export CSV
         window.exportToCSV = function() {
-            const headers = ['N_Tx', 'Asunto', 'Cabo', 'Alex', 'Luis', 'Max', 'Emi', 'Por', 'Asis', 'Pedro', 'Fecha'];
+            const headers = ['N_Tx', 'Asunto', 'Cabo', 'Alex', 'Luis', 'Max', 'Emi', 'Por', 'Asis', 'Pedro', 'Fecha', 'Estado'];
             const sortedAll = [...dynamicTransactions].sort((a, b) => (a.createdAt || 0) - (b.createdAt || 0));
 
             let counter = 1;
@@ -1451,6 +1611,7 @@
                 const rowNum = tx.rowNum ? tx.rowNum : counter;
                 counter = Math.max(counter + 1, rowNum + 1);
                 const d = tx.deltas || {};
+                const estado = tx.anulado ? 'ANULADO' : 'OK';
                 const row = [
                     rowNum,
                     `"${(tx.concept || '').replace(/"/g, '""')}"`,
@@ -1462,7 +1623,8 @@
                     (d.por || 0).toFixed(2).replace('.', ','),
                     (d.asis || 0).toFixed(2).replace('.', ','),
                     (d.pedro || 0).toFixed(2).replace('.', ','),
-                    tx.date || ''
+                    tx.date || '',
+                    estado
                 ];
                 csvLines.push(row.join(';'));
             });
@@ -1578,6 +1740,7 @@
             initFormSelectors();
             refreshAllViews();
             initFirebase();
+            checkUserAuth(); // Pide el PIN si no hay sesión guardada
         });
     </script>
 </body>
