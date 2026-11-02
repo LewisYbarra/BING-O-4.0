@@ -733,14 +733,30 @@
             });
         }
 
+        // Añade signInWithRedirect y getRedirectResult en tu import de firebase-auth.js arriba:
+        // import { getAuth, signInWithPopup, signInWithRedirect, getRedirectResult, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+
         window.loginWithGoogle = async function() {
             if (!auth) return;
             const provider = new GoogleAuthProvider();
             try {
                 await signInWithPopup(auth, provider);
             } catch (err) {
-                console.error("Error en login con Google:", err);
-                showToast("Error al conectar con Google", true);
+                console.error("Error detallado en login con Google:", err);
+
+                // Si falla por bloqueo de ventana en móvil/PWA, usamos redirección en la misma pestaña
+                if (err.code === 'auth/popup-blocked' || err.code === 'auth/operation-not-supported-in-this-environment') {
+                    if (window.location.protocol === 'file:') {
+                        alert("Error: No puedes iniciar sesión abriendo el archivo con doble clic (file://). Usa Live Server (localhost) o súbelo a Vercel.");
+                        return;
+                    }
+                    await signInWithRedirect(auth, provider);
+                    return;
+                }
+
+                // Muestra el código exacto de Firebase para saber qué falta configurar
+                alert(`Fallo de Firebase Auth (${err.code}):\n${err.message}`);
+                showToast(`Error: ${err.code || 'al conectar'}`, true);
             }
         };
 
