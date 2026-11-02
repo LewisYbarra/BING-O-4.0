@@ -413,7 +413,7 @@
                         </div>
                     </div>
                     <span class="text-[10px] sm:text-[11px] mono-num px-2 py-1 rounded-lg bg-slate-900 text-slate-300 border border-slate-800 whitespace-nowrap shrink-0">
-                        Base: 628 movs
+                        v 4.0
                     </span>
                 </div>
 
@@ -458,7 +458,7 @@
 
                 <!-- Historical Volume Leaderboard Table -->
                 <div class="pt-2">
-                    <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2.5">Estadísticas Acumuladas por Miembro (2020 – 2026)</h3>
+                    <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2.5">Estadísticas acumuladas por miembro</h3>
                     <div class="overflow-x-auto rounded-xl border border-slate-800">
                         <table class="w-full text-left border-collapse text-xs">
                             <thead>
@@ -1597,7 +1597,7 @@
             const today = new Date().toISOString().split('T')[0];
             const maftaTx = {
                 id: 'mafta-' + Date.now(),
-                concept: `Ajuste MAFTA (Cuadre D.G. de ${formatEuro(state.totalDG, true)})`,
+                concept: `Ajuste MAFTA (${formatEuro(state.totalDG, true)})`,
                 date: today,
                 type: 'mafta',
                 deltas,
