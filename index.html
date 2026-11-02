@@ -9,6 +9,10 @@
     <meta name="theme-color" content="#0b0f19">
     <title>BING-O 4.0 — Banco Internacional Nacional de GENTES Organización</title>
 
+    <!-- Favicon SVG & Apple Touch Icon -->
+    <link rel="icon" type="image/svg+xml" href="./icon.svg">
+    <link rel="apple-touch-icon" href="./icon.svg">
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome Icons -->
@@ -82,9 +86,10 @@
     <header class="sticky top-0 z-30 glass-header border-b border-slate-800/80 px-4 py-3">
         <div class="max-w-2xl mx-auto flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center shadow-lg shadow-emerald-900/40 font-extrabold text-slate-950 text-lg tracking-tighter">
+                <!-- <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center shadow-lg shadow-emerald-900/40 font-extrabold text-slate-950 text-lg tracking-tighter">
                     B4
-                </div>
+                </div> -->
+                <img src="./icon.svg" alt="Logo BING-O" class="w-10 h-10 rounded-xl shadow-lg shadow-emerald-900/40 object-contain shrink-0">
                 <div>
                     <div class="flex items-center gap-2">
                         <h1 class="font-extrabold text-base tracking-tight text-white">BING-O 4.0</h1>
@@ -98,9 +103,9 @@
             </div>
 
             <div class="flex items-center gap-2">
-                <button onclick="openAuthModal()" id="btn-current-user" class="px-2.5 py-1.5 rounded-lg bg-slate-800 text-xs font-semibold text-slate-300 border border-slate-700 hover:border-slate-500 flex items-center gap-1.5 transition">
-                    <i class="fa-solid fa-user text-emerald-400"></i>
-                    <span id="label-current-user">Identifícate</span>
+                <button onclick="handleAuthClick()" id="btn-current-user" class="px-2.5 py-1.5 rounded-lg bg-slate-800 text-xs font-semibold text-slate-300 border border-slate-700 hover:border-slate-500 flex items-center gap-1.5 transition">
+                    <i class="fa-brands fa-google text-slate-400" id="auth-user-icon"></i>
+                    <span id="label-current-user">Iniciar sesión</span>
                 </button>
                 <button onclick="switchTab('nuevo')" class="px-3 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs shadow-md shadow-emerald-500/20 transition flex items-center gap-1.5">
                     <i class="fa-solid fa-plus"></i>
@@ -250,7 +255,7 @@
                         <div>
                             <label class="block text-[11px] uppercase tracking-wider text-slate-400 font-semibold mb-1">Importe Total Pagado (€)</label>
                             <div class="relative">
-                                <input id="equal-amount" type="text" placeholder="0.00 (ej. =24/3)" oninput="recalcEqualSplit()" onblur="resolveFormulaInput(this); recalcEqualSplit();" class="w-full bg-slate-950 border border-slate-800 focus:border-emerald-500 rounded-xl pl-3.5 pr-9 py-2.5 text-sm mono-num font-bold text-emerald-400 focus:outline-none">
+                                <input id="equal-amount" type="text" placeholder="0.00" oninput="recalcEqualSplit()" onblur="resolveFormulaInput(this); recalcEqualSplit();" class="w-full bg-slate-950 border border-slate-800 focus:border-emerald-500 rounded-xl pl-3.5 pr-9 py-2.5 text-sm mono-num font-bold text-emerald-400 focus:outline-none">
                                 <span class="absolute right-3.5 top-2.5 text-slate-500 font-bold">€</span>
                             </div>
                         </div>
@@ -290,7 +295,7 @@
                 <div id="panel-mode-exact" class="hidden space-y-3 pt-1">
                     <div class="rounded-xl bg-slate-950 p-3 border border-slate-800 flex flex-wrap items-center justify-between gap-2">
                         <div class="text-xs text-slate-300">
-                            Pon lo que pagó cada uno y lo que consumió (ej. Burger: Luis pagó 24,20€; Emi 11€, Cabo 7,75€, Max 5,45€).
+                            Introduce manualmente lo que pagó o consumió cada participante. Se aceptan fórmulas simples (ej. =50/2).
                         </div>
                         <div id="exact-discrepancy-badge" class="mono-num text-xs font-bold px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
                             Descuadre: 0,00 €
@@ -350,7 +355,7 @@
                     </button>
                     <button type="button" onclick="submitTransaction()" class="sm:col-span-2 w-full py-3.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-extrabold text-sm shadow-lg shadow-emerald-500/20 transition flex items-center justify-center gap-2 order-1 sm:order-2">
                         <i class="fa-solid fa-check-double"></i>
-                        <span>Guardar Transacción en BING-O</span>
+                        <span>Guardar transacción</span>
                     </button>
                 </div>
             </div>
@@ -404,7 +409,7 @@
                         </div>
                         <div>
                             <h2 class="text-base font-bold text-white">Panel Macroeconómico BCE</h2>
-                            <p class="text-xs text-slate-400">Indicadores oficiales de riesgo de BING-O 3.2</p>
+                            <p class="text-xs text-slate-400">Indicadores oficiales de riesgo de BING-O</p>
                         </div>
                     </div>
                     <span class="text-[11px] mono-num px-2.5 py-1 rounded-lg bg-slate-900 text-slate-300 border border-slate-800">
@@ -518,7 +523,7 @@
                 </button>
             </div>
             <p class="text-xs text-slate-300 leading-relaxed">
-                El sistema detecta un descuadre total acumulado en el grupo de <strong id="mafta-modal-dg" class="text-amber-400 mono-num">0,00 €</strong> fruto de divisiones inexactas o milésimas residuales.
+                El sistema detecta un descuadre total acumulado en el grupo de <strong id="mafta-modal-dg" class="text-amber-400 mono-num">0,00 €</strong> fruto de errores humanos o de redondeo.
             </p>
             <div class="rounded-xl bg-slate-950 p-3 border border-slate-800 text-xs space-y-1.5">
                 <div class="font-semibold text-white">Acción del ajuste dinámico:</div>
@@ -539,33 +544,25 @@
     </div>
 
     <!-- ========================================== -->
-    <!-- MODAL 3: IDENTIFICACIÓN Y SEGURIDAD        -->
+    <!-- MODAL: AUTENTICACIÓN GOOGLE                -->
     <!-- ========================================== -->
     <div id="modal-auth" class="fixed inset-0 z-50 hidden bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
-        <div class="bg-cardbg border border-slate-700 rounded-2xl max-w-sm w-full p-5 space-y-4 shadow-2xl">
-            <div class="text-center space-y-1">
-                <div class="w-12 h-12 mx-auto rounded-2xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xl">
-                    <i class="fa-solid fa-shield-halved"></i>
-                </div>
-                <h3 class="text-base font-extrabold text-white">Acceso al BING-O</h3>
-                <p class="text-xs text-slate-400">Identifícate en este móvil para firmar tus apuntes.</p>
+        <div class="bg-cardbg border border-slate-700 rounded-2xl max-w-sm w-full p-6 space-y-4 shadow-2xl text-center">
+            <div class="w-14 h-14 mx-auto rounded-2xl bg-slate-950 border border-slate-800 flex items-center justify-center text-2xl shadow-inner">
+                <i class="fa-brands fa-google text-emerald-400"></i>
+            </div>
+            <div>
+                <h3 class="text-base font-extrabold text-white">Acceso a BING-O 4.0</h3>
+                <p class="text-xs text-slate-400 mt-1 leading-relaxed">Inicia sesión con tu cuenta de Google para firmar apuntes y gestionar saldos.</p>
             </div>
 
-            <div class="space-y-3">
-                <div>
-                    <label class="block text-[11px] uppercase tracking-wider text-slate-400 font-semibold mb-1">¿Quién eres?</label>
-                    <select id="auth-user-select" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2.5 text-sm text-white focus:outline-none focus:border-emerald-500">
-                        <!-- Populated via JS -->
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-[11px] uppercase tracking-wider text-slate-400 font-semibold mb-1">PIN del Grupo</label>
-                    <input id="auth-pin-input" type="password" placeholder="Introduce el PIN" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-sm text-center tracking-widest text-white focus:outline-none focus:border-emerald-500">
-                </div>
-            </div>
+            <button onclick="loginWithGoogle()" class="w-full py-3 px-4 rounded-xl bg-white hover:bg-slate-100 text-slate-900 font-bold text-xs flex items-center justify-center gap-2.5 shadow-lg transition">
+                <i class="fa-brands fa-google text-base text-rose-500"></i>
+                <span>Continuar con Google</span>
+            </button>
 
-            <button onclick="saveUserSession()" class="w-full py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-xs transition">
-                Entrar al Grupo
+            <button onclick="document.getElementById('modal-auth').classList.add('hidden')" class="text-[11px] text-slate-500 hover:text-slate-400 underline">
+                Entrar en modo solo lectura
             </button>
         </div>
     </div>
@@ -604,6 +601,13 @@
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { 
+            getAuth, 
+            signInWithPopup, 
+            GoogleAuthProvider, 
+            onAuthStateChanged, 
+            signOut 
+        } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { 
             initializeFirestore, 
             persistentLocalCache, 
             persistentMultipleTabManager,
@@ -640,34 +644,33 @@
         const HISTORICAL_SEED_TXS = [];
 
         // ---------------------------------------------------------
-        // 2. APPLICATION STATE & SECURITY
+        // 2. APPLICATION STATE & GOOGLE AUTH
         // ---------------------------------------------------------
         let memberFilter = 'core'; 
         let entryMode = 'equal';   
         let selectedParticipants = new Set(['luis', 'cabo', 'emi', 'max', 'alex']);
         let remainderRotationIndex = 0;
-        let oldTransactions = []; // Cargadas desde history_old.json (0 lecturas Firestore)
+        let oldTransactions = []; // Cargadas desde old-transactions.json (0 lecturas Firestore)
         let dynamicTransactions = []; // Nuevas transacciones sincronizadas con Firestore
         let currentComputedDeltas = {};
 
         function getAllTransactions() {
-            // Combina el histórico estático v3.2 con los nuevos movimientos en vivo
             return [...oldTransactions, ...dynamicTransactions];
         }
 
-        // SEGURIDAD: Guardamos únicamente el hash SHA-256 del PIN (nunca en texto plano)
-        const GROUP_PIN_HASH = "1e9ea592bfbc6dbc5cd08b3b08324d4a31795c0e784baebefa450253e6ee6f0d";
+        // AQUÍ VA TU BLOQUE (sustituyendo GROUP_PIN_HASH, sha256, myUserId y storedPin):
+        const MEMBER_EMAILS = {
+            'juancaboc@gmail.com': 'cabo',
+            'luisybarraaspi@gmail.com': 'luis',
+            'alejandrodesosab@gmail.com': 'alex',
+            'emitxuamann@gmail.com': 'emi',
+            'pablomdiez10@gmail.com': 'max',
+            'luisybarraaspi2@gmail.com': 'luis'
+        };
 
-        // Función auxiliar asíncrona para calcular SHA-256 en el navegador
-        async function sha256(message) {
-            const msgBuffer = new TextEncoder().encode(message);
-            const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
-            const hashArray = Array.from(new Uint8Array(hashBuffer));
-            return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-        }
-
-        let myUserId = localStorage.getItem('bingo_user_id') || null;
-        let storedPin = localStorage.getItem('bingo_group_pin') || null;
+        let auth = null;
+        let currentUser = null; // Objeto del usuario autenticado por Google
+        let activeMember = null; // Datos del miembro activo (Luis, Cabo, etc.)
 
         // Firebase references
         let db = null;
@@ -689,7 +692,7 @@
         function initFirebase() {
             try {
                 const app = initializeApp(firebaseConfig);
-                // Activación de la caché persistente local (IndexedDB) para minimizar lecturas de red
+                auth = getAuth(app);
                 db = initializeFirestore(app, {
                     localCache: persistentLocalCache({
                         tabManager: persistentMultipleTabManager()
@@ -697,10 +700,75 @@
                 });
                 isCloudActive = true;
                 updateSyncBadge(true);
+                initAuthListener();
                 subscribeToTransactions();
             } catch (err) {
                 console.error("Error conectando a Firebase:", err);
                 updateSyncBadge(false);
+            }
+        }
+
+        function initAuthListener() {
+            if (!auth) return;
+            onAuthStateChanged(auth, (user) => {
+                currentUser = user;
+                if (user && user.email) {
+                    const memberId = MEMBER_EMAILS[user.email.toLowerCase()];
+                    if (memberId) {
+                        activeMember = MEMBERS.find(m => m.id === memberId);
+                        updateUserHeader(activeMember.name, user.photoURL);
+                        document.getElementById('modal-auth').classList.add('hidden');
+                        showToast(`Conectado como ${activeMember.name}`);
+                    } else {
+                        // El correo no está autorizado
+                        activeMember = null;
+                        alert(`El correo ${user.email} no forma parte de los miembros de BING-O.`);
+                        signOut(auth);
+                        updateUserHeader(null, null);
+                    }
+                } else {
+                    activeMember = null;
+                    updateUserHeader(null, null);
+                }
+            });
+        }
+
+        window.loginWithGoogle = async function() {
+            if (!auth) return;
+            const provider = new GoogleAuthProvider();
+            try {
+                await signInWithPopup(auth, provider);
+            } catch (err) {
+                console.error("Error en login con Google:", err);
+                showToast("Error al conectar con Google", true);
+            }
+        };
+
+        window.handleAuthClick = function() {
+            if (currentUser && activeMember) {
+                const logout = confirm(`Sesión iniciada como ${activeMember.name} (${currentUser.email}). ¿Quieres cerrar sesión?`);
+                if (logout) signOut(auth);
+            } else {
+                document.getElementById('modal-auth').classList.remove('hidden');
+            }
+        };
+
+        function updateUserHeader(name, photoUrl) {
+            const label = document.getElementById('label-current-user');
+            const icon = document.getElementById('auth-user-icon');
+            if (name) {
+                label.textContent = name;
+                if (photoUrl) {
+                    icon.className = "w-5 h-5 rounded-full bg-cover bg-center shrink-0 inline-block";
+                    icon.style.backgroundImage = `url('${photoUrl}')`;
+                } else {
+                    icon.className = "fa-solid fa-circle-user text-emerald-400";
+                    icon.style.backgroundImage = 'none';
+                }
+            } else {
+                label.textContent = "Iniciar sesión";
+                icon.className = "fa-brands fa-google text-slate-400";
+                icon.style.backgroundImage = 'none';
             }
         }
 
@@ -1282,65 +1350,18 @@
         // ---------------------------------------------------------
         // 7. SEGURIDAD, SAVING & SOFT DELETING TRANSACTIONS
         // ---------------------------------------------------------
-        function checkUserAuth() {
-            if (!myUserId || storedPin !== GROUP_PIN_HASH) {
-                document.getElementById('modal-auth').classList.remove('hidden');
-                const sel = document.getElementById('auth-user-select');
-                sel.innerHTML = MEMBERS.map(m => `<option value="${m.id}">${m.name} (${m.code})</option>`).join('');
-                if (myUserId) sel.value = myUserId;
-            } else {
-                updateUserHeader();
-            }
-        }
-
-        window.saveUserSession = async function() {
-            const chosenUser = document.getElementById('auth-user-select').value;
-            const enteredPin = document.getElementById('auth-pin-input').value.trim();
-
-            const enteredHash = await sha256(enteredPin);
-
-            if (enteredHash !== GROUP_PIN_HASH) {
-                alert("PIN incorrecto. Revisa la clave del grupo.");
-                document.getElementById('auth-pin-input').value = '';
-                return;
-            }
-
-            myUserId = chosenUser;
-            storedPin = enteredHash;
-            localStorage.setItem('bingo_user_id', myUserId);
-            localStorage.setItem('bingo_group_pin', storedPin);
-
-            document.getElementById('modal-auth').classList.add('hidden');
-            updateUserHeader();
-            showToast(`Sesión iniciada como ${MEMBERS.find(m => m.id === myUserId)?.name}`);
-        };
-
-        window.openAuthModal = function() {
-            document.getElementById('modal-auth').classList.remove('hidden');
-            const sel = document.getElementById('auth-user-select');
-            sel.innerHTML = MEMBERS.map(m => `<option value="${m.id}">${m.name} (${m.code})</option>`).join('');
-            if (myUserId) sel.value = myUserId;
-        };
-
-        function updateUserHeader() {
-            const btn = document.getElementById('label-current-user');
-            const m = MEMBERS.find(x => x.id === myUserId);
-            if (btn && m) btn.textContent = m.name;
-        }
-
         async function saveNewTransactionObject(txObj) {
-            if (storedPin !== GROUP_PIN_HASH) {
-                checkUserAuth();
-                return;
+            if (!currentUser || !activeMember) {
+                document.getElementById('modal-auth').classList.remove('hidden');
+                showToast("Debes iniciar sesión con tu cuenta de Google", true);
+                return false; // <-- Devolver false para frenar al invocador
             }
-
-            const authorName = MEMBERS.find(m => m.id === myUserId)?.name || 'Anónimo';
 
             const payload = {
                 ...txObj,
-                groupPinHash: GROUP_PIN_HASH,
-                creadoPor: authorName,
-                creadorId: myUserId,
+                userEmail: currentUser.email,
+                creadoPor: activeMember.name,
+                creadorId: activeMember.id,
                 anulado: false
             };
 
@@ -1353,9 +1374,11 @@
                     await setDoc(docRef, payload);
                 } catch (err) {
                     console.error("Error guardando en Firestore:", err);
-                    showToast("Error de permisos: PIN no autorizado", true);
+                    showToast("Permiso denegado: tu cuenta no está autorizada", true);
+                    return false;
                 }
             }
+            return true; // <-- Guardado con éxito
         }
 
         async function submitTransaction() {
@@ -1399,7 +1422,8 @@
                 createdAt: Date.now()
             };
 
-            await saveNewTransactionObject(newTx);
+            const guardado = await saveNewTransactionObject(newTx);
+            if (!guardado) return;
 
             document.getElementById('input-concept').value = '';
             document.getElementById('equal-amount').value = '';
@@ -1449,26 +1473,26 @@
                 createdAt: Date.now()
             };
 
-            await saveNewTransactionObject(txObj);
+            const guardado = await saveNewTransactionObject(txObj);
+            if (!guardado) return;
             showToast(`Bizum de ${fromM.name} a ${toM.name} (${formatEuro(amount)}) registrado`);
         };
 
-        // SOFT DELETE: El documento no se destruye, se anula y queda firmado (Anti-Gaslighting)
+        //SOFT DELETE 
         window.deleteTransaction = async function(txId) {
-            if (storedPin !== GROUP_PIN_HASH) {
-                checkUserAuth();
+            if (!currentUser || !activeMember) {
+                document.getElementById('modal-auth').classList.remove('hidden');
                 return;
             }
+
             const tx = dynamicTransactions.find(t => t.id === txId);
             if (!tx) return;
 
-            const deleterName = MEMBERS.find(m => m.id === myUserId)?.name || 'Alguien';
-
-            const confirmAnular = confirm(`¿Seguro que quieres anular el gasto «${tx.concept}»? Quedará registrado en el historial que lo has anulado tú.`);
+            const confirmAnular = confirm(`¿Seguro que quieres anular el gasto «${tx.concept}»? Quedará registrado que lo has anulado tú.`);
             if (!confirmAnular) return;
 
             tx.anulado = true;
-            tx.anuladoPor = deleterName;
+            tx.anuladoPor = activeMember.name;
             tx.fechaAnulacion = new Date().toLocaleString('es-ES', { dateStyle: 'short', timeStyle: 'short' });
             refreshAllViews();
 
@@ -1477,11 +1501,11 @@
                     const docRef = doc(db, 'gastos', txId);
                     await setDoc(docRef, {
                         anulado: true,
-                        anuladoPor: deleterName,
+                        anuladoPor: activeMember.name,
                         fechaAnulacion: tx.fechaAnulacion,
-                        groupPinHash: GROUP_PIN_HASH
+                        userEmail: currentUser.email
                     }, { merge: true });
-                    showToast(`Gasto anulado por ${deleterName}`);
+                    showToast(`Gasto anulado por ${activeMember.name}`);
                 } catch (err) {
                     console.error("Error al anular en Firestore:", err);
                     showToast("Fallo al anular en la nube", true);
@@ -1490,8 +1514,8 @@
         };
 
         window.restoreTransaction = async function(txId) {
-            if (storedPin !== GROUP_PIN_HASH) {
-                checkUserAuth();
+            if (!currentUser || !activeMember) {
+                document.getElementById('modal-auth').classList.remove('hidden');
                 return;
             }
             const tx = dynamicTransactions.find(t => t.id === txId);
@@ -1503,14 +1527,19 @@
             refreshAllViews();
 
             if (db) {
-                const docRef = doc(db, 'gastos', txId);
-                await setDoc(docRef, {
-                    anulado: false,
-                    anuladoPor: null,
-                    fechaAnulacion: null,
-                    groupPinHash: GROUP_PIN_HASH
-                }, { merge: true });
-                showToast("Gasto restaurado en las cuentas");
+                try {
+                    const docRef = doc(db, 'gastos', txId);
+                    await setDoc(docRef, {
+                        anulado: false,
+                        anuladoPor: null,
+                        fechaAnulacion: null,
+                        userEmail: currentUser.email
+                    }, { merge: true });
+                    showToast("Gasto restaurado en las cuentas");
+                } catch (err) {
+                    console.error("Error al restaurar en Firestore:", err);
+                    showToast("Fallo al restaurar en la nube", true);
+                }
             }
         };
 
@@ -1553,7 +1582,8 @@
                 createdAt: Date.now()
             };
 
-            await saveNewTransactionObject(maftaTx);
+            const guardado = await saveNewTransactionObject(maftaTx);
+            if (!guardado) return;
             closeMaftaModal();
             showToast("Protocolo MAFTA aplicado: D.G. ahora es 0,00 € exactos");
         };
@@ -1838,7 +1868,6 @@
             refreshAllViews();
             loadOldTransactions(); // Carga las 628 transacciones históricas desde history_old.json (0 lecturas)
             initFirebase();        // Conecta con Firestore usando caché persistente (IndexedDB)
-            checkUserAuth();       // Pide el PIN si no hay sesión guardada
         });
     </script>
 </body>
