@@ -83,32 +83,32 @@
 <body class="min-h-screen flex flex-col selection:bg-emerald-500 selection:text-white pb-24">
 
     <!-- TOP HEADER -->
-    <header class="sticky top-0 z-30 glass-header border-b border-slate-800/80 px-4 py-3">
-        <div class="max-w-2xl mx-auto flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <!-- <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center shadow-lg shadow-emerald-900/40 font-extrabold text-slate-950 text-lg tracking-tighter">
-                    B4
-                </div> -->
-                <img src="./icon.svg" alt="Logo BING-O" class="w-10 h-10 rounded-xl shadow-lg shadow-emerald-900/40 object-contain shrink-0">
-                <div>
+    <header class="sticky top-0 z-30 glass-header border-b border-slate-800/80 px-3 sm:px-4 py-2.5 sm:py-3">
+        <div class="max-w-2xl mx-auto flex items-center justify-between gap-2">
+            <!-- Bloque izquierdo (Logo y Título) con min-w-0 para evitar desbordamiento -->
+            <div class="flex items-center gap-2.5 min-w-0">
+                <img src="./icon.svg" alt="Logo BING-O" class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl shadow-lg shadow-emerald-900/40 object-contain shrink-0">
+                <div class="min-w-0">
                     <div class="flex items-center gap-2">
-                        <h1 class="font-extrabold text-base tracking-tight text-white">BING-O 4.0</h1>
-                        <span id="sync-badge" class="inline-flex items-center gap-1 text-[10px] font-semibold px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
+                        <img src="./title.svg" alt="BING-O 4.0" class="h-5 sm:h-6 w-auto object-contain shrink-0">
+                        <span id="sync-badge" class="inline-flex items-center gap-1 text-[9px] sm:text-[10px] font-semibold px-1.5 sm:px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 whitespace-nowrap shrink-0">
                             <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
-                            LIVE
+                            CARGANDO
                         </span>
                     </div>
-                    <p class="text-[11px] text-slate-400">Banco Internacional Nacional de GENTES - Organización</p>
+                    <!-- Ocultamos el subtítulo kilométrico en móviles muy pequeños o lo truncamos elegantemente -->
+                    <p class="text-[10px] sm:text-[11px] text-slate-400 truncate hidden xs:block">Banco Internacional Nacional de GENTES</p>
                 </div>
             </div>
 
-            <div class="flex items-center gap-2">
-                <button onclick="handleAuthClick()" id="btn-current-user" class="px-2.5 py-1.5 rounded-lg bg-slate-800 text-xs font-semibold text-slate-300 border border-slate-700 hover:border-slate-500 flex items-center gap-1.5 transition">
-                    <i class="fa-brands fa-google text-slate-400" id="auth-user-icon"></i>
+            <!-- Bloque derecho (Botones protegidos contra aplastamiento) -->
+            <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
+                <button onclick="handleAuthClick()" id="btn-current-user" class="px-2 sm:px-2.5 py-1.5 rounded-lg bg-slate-800 text-[11px] sm:text-xs font-semibold text-slate-300 border border-slate-700 hover:border-slate-500 flex items-center gap-1.5 transition whitespace-nowrap shrink-0">
+                    <i class="fa-brands fa-google text-slate-400 text-xs shrink-0" id="auth-user-icon"></i>
                     <span id="label-current-user">Iniciar sesión</span>
                 </button>
-                <button onclick="switchTab('nuevo')" class="px-3 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs shadow-md shadow-emerald-500/20 transition flex items-center gap-1.5">
-                    <i class="fa-solid fa-plus"></i>
+                <button onclick="switchTab('nuevo')" class="w-8 h-8 sm:w-auto px-0 sm:px-3 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs shadow-md shadow-emerald-500/20 transition flex items-center justify-center gap-1.5 shrink-0" title="Apuntar gasto">
+                    <i class="fa-solid fa-plus text-xs"></i>
                     <span class="hidden sm:inline">Apuntar</span>
                 </button>
             </div>
@@ -129,7 +129,7 @@
                     <div class="bg-slate-950/50 rounded-xl p-3 border border-slate-800/80">
                         <span class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold block">Crédito Vivo</span>
                         <span id="hero-credito" class="mono-num text-lg sm:text-xl font-bold text-amber-400 mt-0.5 block">0,00 €</span>
-                        <span class="text-[10px] text-slate-500">Media hist: 88,60 €</span>
+                        <span class="text-[10px] text-slate-500">Media: 88,60 €</span>
                     </div>
                     <div class="bg-slate-950/50 rounded-xl p-3 border border-slate-800/80">
                         <span class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold block">Movimientos</span>
@@ -176,7 +176,7 @@
                         </div>
                         <div>
                             <h2 class="text-sm font-bold text-white">Liquidador de Bizums Óptimo</h2>
-                            <p class="text-[11px] text-slate-400">Transferencias mínimas para dejar el grupo a 0,00 €</p>
+                            <p class="text-[11px] text-slate-400">Transferencias mínimas para saldar deudas</p>
                         </div>
                     </div>
                     <span id="settlement-count-badge" class="text-[11px] mono-num font-semibold px-2.5 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
@@ -200,12 +200,12 @@
         <!-- ========================================== -->
         <section id="tab-nuevo" class="hidden space-y-4">
             <div class="rounded-2xl bg-cardbg border border-slate-800 p-4 shadow-xl space-y-4">
-                <div class="flex items-center justify-between border-b border-slate-800 pb-3">
-                    <div>
-                        <h2 class="text-base font-bold text-white">Nuevo Apunte BING-O</h2>
-                        <p class="text-xs text-slate-400">Elige el tipo de apunte que deseas registrar.</p>
+                <div class="flex items-center justify-between gap-3 border-b border-slate-800 pb-3">
+                    <div class="min-w-0">
+                        <h2 class="text-sm sm:text-base font-bold text-white leading-tight">Nuevo Apunte</h2>
+                        <p class="text-[11px] sm:text-xs text-slate-400 leading-normal">Elige el tipo de apunte contable</p>
                     </div>
-                    <span class="mono-num text-xs font-bold px-2.5 py-1 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                    <span class="mono-num text-[11px] sm:text-xs font-bold px-2.5 py-1 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 whitespace-nowrap shrink-0">
                         D.G. = 0,00 €
                     </span>
                 </div>
@@ -230,7 +230,7 @@
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
                     <div class="sm:col-span-2">
                         <label class="block text-[11px] uppercase tracking-wider text-slate-400 font-semibold mb-1">Asunto / Concepto</label>
-                        <input id="input-concept" type="text" placeholder="Ej. Cañas, Kibap, Burger, Cena..." class="w-full bg-slate-950 border border-slate-800 focus:border-emerald-500 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:outline-none transition">
+                        <input id="input-concept" type="text" placeholder="Ej. Cañas, Kebab, Burger, Cena..." class="w-full bg-slate-950 border border-slate-800 focus:border-emerald-500 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:outline-none transition">
                     </div>
                     <div>
                         <div class="flex items-center justify-between mb-1">
@@ -242,12 +242,12 @@
                 </div>
 
                 <!-- ========================================== -->
-                <!-- SUB-MODE A: REPARTO IGUALITARIO (X / P)    -->
+                <!-- SUB-MODE A: REPARTO IGUALITARIO            -->
                 <!-- ========================================== -->
                 <div id="panel-mode-equal" class="space-y-4 pt-1">
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         <div>
-                            <label class="block text-[11px] uppercase tracking-wider text-slate-400 font-semibold mb-1">¿Quién pagó la cuenta? (X)</label>
+                            <label class="block text-[11px] uppercase tracking-wider text-slate-400 font-semibold mb-1">¿Quién pagó la cuenta?</label>
                             <select id="equal-payer" onchange="recalcEqualSplit()" class="w-full bg-slate-950 border border-slate-800 focus:border-emerald-500 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none">
                                 <!-- Populated via JS -->
                             </select>
@@ -264,7 +264,7 @@
                     <!-- Participant Selector (P) -->
                     <div>
                         <div class="flex items-center justify-between mb-2">
-                            <label class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">¿Quiénes participaron en el plan? (P)</label>
+                            <label class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">¿Quiénes participaron en el plan?</label>
                             <div class="flex gap-1.5">
                                 <button type="button" onclick="selectParticipantsPreset('core')" class="text-[10px] px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-300">Los 5 habituales</button>
                                 <button type="button" onclick="selectParticipantsPreset('all')" class="text-[10px] px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-300">Todos (8)</button>
@@ -340,7 +340,7 @@
                 <div class="rounded-xl bg-slate-950/90 border border-slate-800 p-3.5 space-y-2">
                     <div class="flex items-center justify-between">
                         <span class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">Vista previa de la fila contable</span>
-                        <span id="preview-sum-check" class="mono-num text-[11px] font-semibold text-emerald-400">Suma fila: 0,00 €</span>
+                        <span id="preview-sum-check" class="mono-num text-[11px] font-semibold text-emerald-400">Suma: 0,00 €</span>
                     </div>
                     <div id="live-deltas-preview" class="flex flex-wrap gap-1.5 pt-1">
                         <span class="text-xs text-slate-500 italic">Introduce un importe para ver el desglose exacto...</span>
@@ -368,7 +368,7 @@
             <div class="rounded-2xl bg-cardbg border border-slate-800 p-4 space-y-3">
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                     <div>
-                        <h2 class="text-base font-bold text-white">Libro Contable BING-O</h2>
+                        <h2 class="text-base font-bold text-white">Libro Contable</h2>
                         <p class="text-xs text-slate-400">Banco Internacional Nacional de GENTES - Organización</p>
                     </div>
                     <button onclick="exportToCSV()" class="self-start sm:self-auto px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-emerald-400 border border-slate-700 flex items-center gap-1.5 transition">
@@ -402,17 +402,17 @@
         <!-- ========================================== -->
         <section id="tab-bce" class="hidden space-y-4">
             <div class="rounded-2xl bg-cardbg border border-slate-800 p-4 space-y-4">
-                <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                <div class="flex items-center justify-between gap-2.5 border-b border-slate-800 pb-3">
                     <div class="flex items-center gap-2.5">
-                        <div class="w-9 h-9 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400">
-                            <i class="fa-solid fa-building-columns"></i>
+                        <div class="w-9 h-9 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400 shrink-0">
+                            <i class="fa-solid fa-building-columns text-sm"></i>
                         </div>
                         <div>
-                            <h2 class="text-base font-bold text-white">Panel Macroeconómico BCE</h2>
-                            <p class="text-xs text-slate-400">Indicadores oficiales de riesgo de BING-O</p>
+                            <h2 class="text-sm sm:text-base font-bold text-white leading-tight">Panel Macroeconómico BCE</h2>
+                            <p class="text-[10px] sm:text-xs text-slate-400 leading-normal">Indicadores oficiales de riesgo</p>
                         </div>
                     </div>
-                    <span class="text-[11px] mono-num px-2.5 py-1 rounded-lg bg-slate-900 text-slate-300 border border-slate-800">
+                    <span class="text-[10px] sm:text-[11px] mono-num px-2 py-1 rounded-lg bg-slate-900 text-slate-300 border border-slate-800 whitespace-nowrap shrink-0">
                         Base: 628 movs
                     </span>
                 </div>
@@ -463,10 +463,10 @@
                         <table class="w-full text-left border-collapse text-xs">
                             <thead>
                                 <tr class="bg-slate-950 text-slate-400 border-b border-slate-800 text-[10px] uppercase">
-                                    <th class="py-2.5 px-3">Miembro</th>
-                                    <th class="py-2.5 px-3 text-right">Saldo Actual</th>
-                                    <th class="py-2.5 px-3 text-right">Apuntes</th>
-                                    <th class="py-2.5 px-3 text-right">Total Adelantado</th>
+                                    <th class="py-2.5 px-2 sm:px-3">Miembro</th>
+                                    <th class="py-2.5 px-2 sm:px-3 text-right whitespace-nowrap">Saldo</th>
+                                    <th class="py-2.5 px-1.5 sm:px-3 text-right whitespace-nowrap">Apuntes</th>
+                                    <th class="py-2.5 px-2 sm:px-3 text-right whitespace-nowrap">Adelantado</th>
                                 </tr>
                             </thead>
                             <tbody id="bce-members-table" class="divide-y divide-slate-800/60 bg-slate-900/40">
@@ -658,15 +658,21 @@
             return [...oldTransactions, ...dynamicTransactions];
         }
 
-        // AQUÍ VA TU BLOQUE (sustituyendo GROUP_PIN_HASH, sha256, myUserId y storedPin):
-        const MEMBER_EMAILS = {
-            'juancaboc@gmail.com': 'cabo',
-            'luisybarraaspi@gmail.com': 'luis',
-            'alejandrodesosab@gmail.com': 'alex',
-            'emitxuamann@gmail.com': 'emi',
-            'pablomdiez10@gmail.com': 'max',
-            'luisybarraaspi2@gmail.com': 'luis'
+        // Hashes SHA-256 de los correos autorizados para acceder a la app (no se guardan los correos, solo sus hashes)
+        const MEMBER_EMAIL_HASHES = {
+            '2fa4e4cfaee2a00600c42f5454fbd7de30c4731883ea3bfdacf7338edccbc4a3': 'cabo',
+            'b85abcdf5e301cc1327cf676a704ebce50b9fd68d91dbb259702545b0ca07c24': 'luis',
+            '562d5f27dfbde82888f5160220061ea344efa673af4ca73aae67d4bed5878661': 'alex',
+            '2063384a26e1ca36d4fa5ce2057b6bafd7e85182872f4e94b7a137004e3b4b55': 'emi',
+            '02664676fc404772b0487f7c8b8a1afe802cd39e6c3a4783b7c68b7579fe5213': 'max',
+            '074f0748447bf12a3d2d0e3a5aaf510e8978f2b08dcd3e6f851b3c74dc875105': 'luis'
         };
+
+        // Función nativa para sacar el hash SHA-256 del correo
+        async function hashEmail(email) {
+            const buffer = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(email.toLowerCase().trim()));
+            return Array.from(new Uint8Array(buffer)).map(b => b.toString(16).padStart(2, '0')).join('');
+        }
 
         let auth = null;
         let currentUser = null; // Objeto del usuario autenticado por Google
@@ -710,19 +716,19 @@
 
         function initAuthListener() {
             if (!auth) return;
-            onAuthStateChanged(auth, (user) => {
+            onAuthStateChanged(auth, async (user) => {
                 currentUser = user;
                 if (user && user.email) {
-                    const memberId = MEMBER_EMAILS[user.email.toLowerCase()];
+                    const emailHash = await hashEmail(user.email);
+                    const memberId = MEMBER_EMAIL_HASHES[emailHash];
                     if (memberId) {
                         activeMember = MEMBERS.find(m => m.id === memberId);
                         updateUserHeader(activeMember.name, user.photoURL);
                         document.getElementById('modal-auth').classList.add('hidden');
                         showToast(`Conectado como ${activeMember.name}`);
                     } else {
-                        // El correo no está autorizado
                         activeMember = null;
-                        alert(`El correo ${user.email} no forma parte de los miembros de BING-O.`);
+                        alert("Esta cuenta de Google no tiene acceso a BING-O.");
                         signOut(auth);
                         updateUserHeader(null, null);
                     }
@@ -792,7 +798,7 @@
             const badge = document.getElementById('sync-badge');
             if (!badge) return;
             if (cloudConnected) {
-                badge.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span> CLOUD LIVE`;
+                badge.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span> EN LÍNEA`;
                 badge.className = "inline-flex items-center gap-1 text-[10px] font-semibold px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30";
             } else {
                 badge.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-rose-400"></span> OFFLINE`;
@@ -975,7 +981,7 @@
                 minimumFractionDigits: 2,
                 maximumFractionDigits: 2
             });
-            return (showSign ? sign : (num < -0.004 ? '-' : '')) + absStr + ' €';
+            return (showSign ? sign : (num < -0.004 ? '-' : '')) + absStr + '\u00A0€';
         }
 
         function refreshAllViews() {
@@ -998,7 +1004,7 @@
             rrEl.textContent = rrPercent;
             if (state.riesgoRelativo < 0.15) {
                 rrEl.className = "mono-num text-lg sm:text-xl font-bold text-emerald-400 mt-0.5 block";
-                rrLabel.textContent = "Riesgo Bajo (Sano)";
+                rrLabel.textContent = "Riesgo Bajo";
             } else if (state.riesgoRelativo < 0.45) {
                 rrEl.className = "mono-num text-lg sm:text-xl font-bold text-amber-400 mt-0.5 block";
                 rrLabel.textContent = "Riesgo Moderado";
@@ -1033,29 +1039,29 @@
 
                 return `
                     <div class="rounded-2xl bg-cardbg border border-slate-800/90 p-3.5 shadow-sm hover:border-slate-700 transition">
-                        <div class="flex items-center justify-between gap-3">
-                            <div class="flex items-center gap-3">
-                                <div class="w-10 h-10 rounded-xl bg-gradient-to-br ${m.color} flex items-center justify-center font-extrabold text-xs text-white shadow-md">
+                        <div class="flex items-center justify-between gap-2.5">
+                            <div class="flex items-center gap-2.5 sm:gap-3 min-w-0">
+                                <div class="w-10 h-10 rounded-xl bg-gradient-to-br ${m.color} flex items-center justify-center font-extrabold text-xs text-white shadow-md shrink-0">
                                     ${m.code}
                                 </div>
-                                <div>
-                                    <div class="flex items-center gap-2">
+                                <div class="min-w-0">
+                                    <div class="flex items-center gap-1.5 sm:gap-2">
                                         <h3 class="font-bold text-sm text-white">${m.name}</h3>
-                                        <span class="text-[10px] px-2 py-0.5 rounded-full border ${badgeClass} font-medium">
+                                        <span class="text-[10px] px-2 py-0.5 rounded-full border ${badgeClass} font-medium whitespace-nowrap">
                                             ${statusText}
                                         </span>
                                     </div>
                                     <div class="text-[11px] text-slate-400 mt-0.5">
-                                        <span>${m.movs} apuntes</span> · <span>Adelantado: <strong class="text-slate-300 mono-num">${formatEuro(m.adelantado)}</strong></span>
+                                        <span>${m.movs} apuntes</span> · <span class="whitespace-nowrap">Adelantado: <strong class="text-slate-300 mono-num">${formatEuro(m.adelantado)}</strong></span>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="text-right">
-                                <div class="mono-num text-base sm:text-lg font-extrabold ${isPositive ? 'text-emerald-400' : (isNegative ? 'text-rose-400' : 'text-slate-400')}">
+                            <div class="text-right shrink-0">
+                                <div class="mono-num text-base sm:text-lg font-extrabold whitespace-nowrap ${isPositive ? 'text-emerald-400' : (isNegative ? 'text-rose-400' : 'text-slate-400')}">
                                     ${formatEuro(bal, true)}
                                 </div>
-                                ${Math.abs(bal) > 0 && Math.abs(bal) < 0.01 ? `<span class="text-[10px] text-amber-400 mono-num">Residuo: ${bal.toFixed(4)}€</span>` : ''}
+                                ${Math.abs(bal) > 0 && Math.abs(bal) < 0.01 ? `<div class="text-[8px] text-amber-400 mono-num whitespace-nowrap">Residuo:${bal.toFixed(4)}€</div>` : ''}
                             </div>
                         </div>
 
@@ -1202,7 +1208,7 @@
                     }">
                         <span>${m.name}</span>
                         <span class="w-4 h-4 rounded-md flex items-center justify-center text-[10px] ${active ? 'bg-emerald-500 text-slate-950' : 'bg-slate-900 text-slate-600'}">
-                            ${active ? 'P' : '–'}
+                            ${active ? '<i class="fa-solid fa-check text-[9px]"></i>' : '–'}
                         </span>
                     </button>
                 `;
@@ -1333,7 +1339,7 @@
 
             if (entries.length === 0) {
                 box.innerHTML = `<span class="text-xs text-slate-500 italic">Introduce un importe para ver el desglose contable...</span>`;
-                sumCheck.textContent = "Suma fila: 0,00 €";
+                sumCheck.textContent = "Suma: 0,00 €";
                 sumCheck.className = "mono-num text-[11px] font-semibold text-slate-400";
                 return;
             }
@@ -1728,15 +1734,15 @@
                 const isNeg = m.balance < -0.005;
                 return `
                     <tr class="hover:bg-slate-800/40 transition">
-                        <td class="py-2.5 px-3 font-semibold text-white flex items-center gap-2">
-                            <span class="w-5 h-5 rounded bg-gradient-to-br ${m.color} text-[9px] font-bold flex items-center justify-center text-white">${m.code}</span>
+                        <td class="py-2.5 px-2 sm:px-3 font-semibold text-white flex items-center gap-2 whitespace-nowrap">
+                            <span class="w-5 h-5 rounded bg-gradient-to-br ${m.color} text-[9px] font-bold flex items-center justify-center text-white shrink-0">${m.code}</span>
                             <span>${m.name}</span>
                         </td>
-                        <td class="py-2.5 px-3 text-right mono-num font-bold ${isPos ? 'text-emerald-400' : (isNeg ? 'text-rose-400' : 'text-slate-400')}">
+                        <td class="py-2.5 px-2 sm:px-3 text-right mono-num font-bold whitespace-nowrap ${isPos ? 'text-emerald-400' : (isNeg ? 'text-rose-400' : 'text-slate-400')}">
                             ${formatEuro(m.balance, true)}
                         </td>
-                        <td class="py-2.5 px-3 text-right mono-num text-slate-300">${m.movs}</td>
-                        <td class="py-2.5 px-3 text-right mono-num text-slate-200 font-semibold">${formatEuro(m.adelantado)}</td>
+                        <td class="py-2.5 px-1.5 sm:px-3 text-right mono-num text-slate-300 whitespace-nowrap">${m.movs}</td>
+                        <td class="py-2.5 px-2 sm:px-3 text-right mono-num text-slate-200 font-semibold whitespace-nowrap">${formatEuro(m.adelantado)}</td>
                     </tr>
                 `;
             }).join('');
