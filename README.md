@@ -48,16 +48,5 @@ Entre julio de 2020 y octubre de 2026, el grupo organizó sus finanzas mediante 
 * **Frontend:** HTML5 semántico, JavaScript Vanilla (ES6 Modules).
 * **Estilos:** [Tailwind CSS](https://tailwindcss.com/) (CDN) en modo oscuro nativo, Google Fonts (`Inter` y `JetBrains Mono`).
 * **Iconos:** [FontAwesome 6](https://fontawesome.com/).
-* **Base de datos:** [Google Firebase Firestore](https://firebase.google.com/) (SDK v11 modular).
-* **Despliegue / Hosting:** [Vercel](https://vercel.com/) (estático, 0€ de coste).
-
----
-
-## Estructura del Proyecto
-
-```text
-├── index.html                   # Aplicación completa (SPA modular en un solo archivo)
-├── subir_a_firebase.py          # Script de migración masiva desde el Excel a Firestore
-├── bingo_628_transacciones.json # Copia de respaldo estructurada de las 628 transacciones
-├── BING-O cp..xlsx              # Archivo Excel histórico original
-└── README.md                    # Documentación del proyecto
+* **Base de datos:** [Google Firebase Firestore](https://firebase.google.com/).
+* **Despliegue / Hosting:** [Vercel](https://vercel.com/) (estático, gratuito).
