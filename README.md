@@ -1,5 +1,5 @@
 # BING-O 4.0 (alpha 1)
-### Banco Internacional Nacional de GENTES — Organización
+### Banco de Inversión Nacional de GENTES — Organización
 
 > **Modernización web de la legendaria hoja de cálculo compartida BING-O (v1.0 → v3.2).**  
 > Diseñado como una Progressive Web App (PWA) móvil para repartir gastos entre amigos, liquidar deudas vía Bizum con transferencias mínimas y mantener indicadores de riesgo macroeconómico en tiempo real.

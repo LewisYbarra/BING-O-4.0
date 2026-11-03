@@ -7,7 +7,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="BING-O 4.0">
     <meta name="theme-color" content="#0b0f19">
-    <title>BING-O 4.0 — Banco Internacional Nacional de GENTES Organización</title>
+    <title>BING-O 4.0</title>
 
     <!-- Favicon SVG & Apple Touch Icon -->
     <link rel="icon" type="image/svg+xml" href="./resources/icon.svg">
@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- Google Fonts: Inter & JetBrains Mono -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- Chart.js para la gráfica histórica del BCE -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 
     <script>
         tailwind.config = {
@@ -97,7 +99,7 @@
                         </span>
                     </div>
                     <!-- Ocultamos el subtítulo kilométrico en móviles muy pequeños o lo truncamos elegantemente -->
-                    <p class="text-[10px] sm:text-[11px] text-slate-400 truncate hidden xs:block">Banco Internacional Nacional de GENTES</p>
+                    <p class="text-[10px] sm:text-[11px] text-slate-400 truncate hidden xs:block">Banco de Inversión Nacional de GENTES</p>
                 </div>
             </div>
 
@@ -218,7 +220,7 @@
                     </button>
                     <button id="mode-btn-exact" onclick="setEntryMode('exact')" class="py-2 px-2 rounded-lg text-xs font-bold transition text-slate-400 hover:text-white flex items-center justify-center gap-1.5">
                         <i class="fa-solid fa-receipt"></i>
-                        <span>Ticket Exacto</span>
+                        <span>Modo Manual</span>
                     </button>
                     <button id="mode-btn-bizum" onclick="setEntryMode('bizum')" class="py-2 px-2 rounded-lg text-xs font-bold transition text-slate-400 hover:text-white flex items-center justify-center gap-1.5">
                         <i class="fa-solid fa-money-bill-transfer"></i>
@@ -313,7 +315,7 @@
                 <div id="panel-mode-bizum" class="hidden space-y-4 pt-1">
                     <div class="rounded-xl bg-indigo-500/10 border border-indigo-500/25 p-3 text-xs text-indigo-200">
                         <i class="fa-solid fa-bolt text-indigo-400 mr-1"></i>
-                        En BING-O, quien <strong>envía el Bizum</strong> suma saldo (<code class="text-emerald-400">+</code>) para reducir su deuda, y quien <strong>recibe el Bizum</strong> resta saldo (<code class="text-rose-400">-</code>) porque le están devolviendo lo que adelantó.
+                        Quien <strong>envía el Bizum</strong> suma saldo (<code class="text-emerald-400">+</code>) para reducir su deuda, y quien <strong>recibe el Bizum</strong> resta saldo (<code class="text-rose-400">-</code>) porque le están devolviendo lo que adelantó.
                     </div>
 
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -369,7 +371,7 @@
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                     <div>
                         <h2 class="text-base font-bold text-white">Libro Contable</h2>
-                        <p class="text-xs text-slate-400">Banco Internacional Nacional de GENTES - Organización</p>
+                        <p class="text-xs text-slate-400">Banco de Inversión Nacional de GENTES - Organización</p>
                     </div>
                     <button onclick="exportToCSV()" class="self-start sm:self-auto px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-emerald-400 border border-slate-700 flex items-center gap-1.5 transition">
                         <i class="fa-solid fa-file-csv"></i>
@@ -473,6 +475,25 @@
                                 <!-- Populated via JS -->
                             </tbody>
                         </table>
+                    </div>
+                </div>
+                <!-- Gráfica de Evolución Histórica de Saldos y Crédito -->
+                <div class="pt-4 border-t border-slate-800/80 space-y-3">
+                    <div class="flex flex-wrap items-center justify-between gap-2">
+                        <div>
+                            <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400">Evolución Histórica de Saldos y Crédito</h3>
+                            <p class="text-[10px] text-slate-500">Pulsa en los marcadores de la leyenda para mostrar u ocultar sus datos</p>
+                        </div>
+                        <div class="flex items-center bg-slate-950 p-1 rounded-lg border border-slate-800 text-[10px] font-semibold">
+                            <button type="button" id="chart-btn-all" onclick="setChartFilter('all')" class="px-2 py-1 rounded bg-emerald-500 text-slate-950 transition">Todos (8)</button>
+                            <button type="button" id="chart-btn-core" onclick="setChartFilter('core')" class="px-2 py-1 rounded text-slate-400 hover:text-white transition">Núcleo (5)</button>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-950/90 rounded-xl p-2.5 sm:p-4 border border-slate-800/90">
+                        <div class="relative h-72 sm:h-80 w-full">
+                            <canvas id="bce-history-chart"></canvas>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -869,6 +890,14 @@
             const allTxs = getAllTransactions();
             const sortedAll = [...allTxs].sort((a, b) => (a.createdAt || 0) - (b.createdAt || 0));
 
+            // Punto inicial en 0,00 € antes del primer movimiento
+            const timeline = [{
+                date: '04/08/20',
+                concept: 'Inicio BING-O',
+                balances: { alex: 0, luis: 0, max: 0, cabo: 0, emi: 0, por: 0, asis: 0, pedro: 0 },
+                credito: 0
+            }];
+
             sortedAll.forEach((tx) => {
                 // EXCLUIR LOS ANULADOS DEL CÁLCULO DE SALDOS
                 if (tx.anulado) return;
@@ -892,6 +921,29 @@
                     }
                 });
                 if (!isHist) newDG += rowSum;
+
+                // Guardar foto para la gráfica histórica
+                let stepAbs = 0;
+                const snapBalances = {};
+                MEMBERS.forEach(m => {
+                    const b = Math.round(stats[m.id].balance * 100) / 100;
+                    snapBalances[m.id] = b;
+                    stepAbs += Math.abs(b);
+                });
+
+                // Formatear fecha a DD/MM/YY como en el Excel original
+                let shortDate = tx.date || '';
+                if (/^\d{4}-\d{2}-\d{2}$/.test(shortDate)) {
+                    const [yyyy, mm, dd] = shortDate.split('-');
+                    shortDate = `${dd}/${mm}/${yyyy.slice(2)}`;
+                }
+
+                timeline.push({
+                    date: shortDate,
+                    concept: tx.concept || `Mov #${totalTxCount}`,
+                    balances: snapBalances,
+                    credito: Math.round((stepAbs / 2) * 100) / 100
+                });
             });
 
             let sumAbsBalances = 0;
@@ -920,7 +972,8 @@
                 riesgoAbsoluto,
                 riesgoRelativo,
                 totalDG: netSumAllBalances,
-                newDG
+                newDG,
+                timeline
             };
         }
 
@@ -1128,7 +1181,7 @@
 
             if (maftaNote) {
                 if (!hasDgError) {
-                    maftaNote.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-400 mr-1"></i> <strong>Contabilidad perfecta:</strong> El Dinero Generado (D.G.) está cuadrado a <strong class="text-emerald-400 mono-num">0,00 €</strong>.`;
+                    maftaNote.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-400 mr-1"></i> <strong>Contabilidad perfecta:</strong> El Dinero Generado (D.G.) es exactamente <strong class="text-emerald-400 mono-num">0,00 €</strong>.`;
                 } else {
                     maftaNote.innerHTML = `<i class="fa-solid fa-circle-info text-amber-400 mr-1"></i> Hay <strong class="text-amber-300 mono-num">${formatEuro(state.totalDG, true)}</strong> generados por error. Pueden absorberse con el botón <em>Protocolo MAFTA</em>.`;
                 }
@@ -1746,6 +1799,179 @@
                     </tr>
                 `;
             }).join('');
+            //llamada a la función para renderizar el gráfico
+            renderBCEChart(state.timeline);
+        }
+
+        let bceChartInstance = null;
+        let chartFilterMode = 'all';
+
+        window.setChartFilter = function(mode) {
+            chartFilterMode = mode;
+            document.getElementById('chart-btn-all').className = mode === 'all'
+                ? "px-2 py-1 rounded bg-emerald-500 text-slate-950 transition"
+                : "px-2 py-1 rounded text-slate-400 hover:text-white transition";
+            document.getElementById('chart-btn-core').className = mode === 'core'
+                ? "px-2 py-1 rounded bg-emerald-500 text-slate-950 transition"
+                : "px-2 py-1 rounded text-slate-400 hover:text-white transition";
+            
+            const state = computeGroupState();
+            renderBCEChart(state.timeline);
+        };
+
+        // Icono con 2 puntos/guiones compactos para Crédito
+        function createDashedLegendIcon(color) {
+            const c = document.createElement('canvas');
+            c.width = 14;  // 14px a escala retina 2x
+            c.height = 14;
+            const ctx = c.getContext('2d');
+            ctx.strokeStyle = color;
+            ctx.lineWidth = 3;
+            ctx.lineCap = 'round';
+            // Patrón corto: 4px trazo, 4px espacio (dibuja 2 guiones simétricos)
+            ctx.setLineDash([4, 4]);
+            ctx.beginPath();
+            ctx.moveTo(1, 7);
+            ctx.lineTo(27, 7);
+            ctx.stroke();
+            return c;
+        }
+
+        function renderBCEChart(timeline) {
+            const canvas = document.getElementById('bce-history-chart');
+            if (!canvas || typeof Chart === 'undefined' || !timeline) return;
+
+            const labels = timeline.map(pt => pt.date);
+
+            // Colores exactos de la gráfica clásica de Google Sheets
+            const seriesConfig = [
+                { id: 'alex',  label: 'ALX', color: '#4285F4', core: true },
+                { id: 'luis',  label: 'LYB', color: '#EA4335', core: true },
+                { id: 'max',   label: 'PMD', color: '#CA8A04', core: true },
+                { id: 'cabo',  label: 'JCC', color: '#34A853', core: true },
+                { id: 'emi',   label: 'EMI', color: '#FF6D01', core: true },
+                { id: 'por',   label: 'POR', color: '#2EC4B6', core: false },
+                { id: 'asis',  label: 'ASM', color: '#7BAAF7', core: false },
+                { id: 'pedro', label: 'PED', color: '#F07167', core: false }
+            ];
+
+            // 1. En datasets de miembros: pointStyle 'line' individual
+            const datasets = seriesConfig
+                .filter(s => chartFilterMode === 'all' ? true : s.core)
+                .map(s => ({
+                    label: s.label,
+                    data: timeline.map(pt => pt.balances[s.id]),
+                    borderColor: s.color,
+                    backgroundColor: s.color,
+                    borderWidth: 1.8,
+                    pointStyle: 'line', // Línea sólida estándar para cada miembro
+                    pointRadius: 0,
+                    pointHoverRadius: 4,
+                    tension: 0.1
+                }));
+
+            // 2. En Crédito: pointStyle con el canvas punteado
+            datasets.push({
+                label: 'Crédito',
+                data: timeline.map(pt => pt.credito),
+                borderColor: '#93C5FD',
+                backgroundColor: 'transparent',
+                borderWidth: 2,
+                borderDash: [4, 4],
+                pointStyle: createDashedLegendIcon('#93C5FD'), // Su propio icono discontinuo
+                pointRadius: 0,
+                pointHoverRadius: 4,
+                tension: 0.1
+            });
+
+            if (bceChartInstance) {
+                bceChartInstance.data.labels = labels;
+                bceChartInstance.data.datasets = datasets;
+                bceChartInstance.options.plugins.tooltip.callbacks.title = (items) => {
+                    const idx = items[0].dataIndex;
+                    return `${timeline[idx].date} — ${timeline[idx].concept}`;
+                };
+                bceChartInstance.update();
+                return;
+            }
+
+            bceChartInstance = new Chart(canvas, {
+                type: 'line',
+                data: { labels, datasets },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    interaction: {
+                        mode: 'index',
+                        intersect: false
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                color: '#cbd5e1',
+                                font: { family: 'Inter', size: 10, weight: '600' },
+                                usePointStyle: true,
+                                boxWidth: 14,
+                                boxHeight: 7,
+                                padding: 8,
+                                generateLabels: (chart) => {
+                                    return chart.data.datasets.map((ds, i) => ({
+                                        text: ds.label,
+                                        fontColor: '#cbd5e1', // Fija el texto gris claro en modo oscuro
+                                        fillStyle: ds.borderColor,
+                                        strokeStyle: ds.borderColor,
+                                        lineWidth: ds.borderWidth,
+                                        hidden: !chart.isDatasetVisible(i),
+                                        pointStyle: ds.pointStyle, // Línea estándar para miembros, canvas para Crédito
+                                        datasetIndex: i
+                                    }));
+                                }
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(11, 15, 25, 0.95)',
+                            titleColor: '#f8fafc',
+                            bodyColor: '#cbd5e1',
+                            borderColor: '#334155',
+                            borderWidth: 1,
+                            padding: 10,
+                            bodyFont: { family: 'JetBrains Mono', size: 11 },
+                            callbacks: {
+                                title: (items) => {
+                                    const idx = items[0].dataIndex;
+                                    return `${timeline[idx].date} — ${timeline[idx].concept}`;
+                                },
+                                label: (ctx) => `${ctx.dataset.label}: ${formatEuro(ctx.parsed.y, ctx.dataset.label !== 'Crédito')}`
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            ticks: {
+                                color: '#64748b',
+                                font: { family: 'JetBrains Mono', size: 9 },
+                                maxRotation: 35,
+                                minRotation: 35,
+                                autoSkip: true,
+                                maxTicksLimit: 12
+                            },
+                            grid: { display: false }
+                        },
+                        y: {
+                            ticks: {
+                                color: '#64748b',
+                                font: { family: 'JetBrains Mono', size: 10 },
+                                callback: (val) => val + ' €'
+                            },
+                            grid: {
+                                color: (ctx) => ctx.tick.value === 0 ? 'rgba(148, 163, 184, 0.45)' : 'rgba(30, 41, 59, 0.7)',
+                                lineWidth: (ctx) => ctx.tick.value === 0 ? 1.5 : 1
+                            }
+                        }
+                    }
+                }
+            });
         }
 
         // Export CSV
