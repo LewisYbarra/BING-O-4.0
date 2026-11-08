@@ -8085,5 +8085,18 @@
       "emi": 0.29783360000001374
     },
     "createdAt": 1793615849020
+  },
+    {
+    "id": "hist-0629",
+    "rowNum": 629,
+    "concept": "Triangu pollo",
+    "date": "2026-11-07",
+    "type": "equal",
+    "deltas": {
+      "max": -3.33,
+      "luis": 6.67,
+      "emi": -3.33
+    },
+    "createdAt": 1794085200
   }
 ]
