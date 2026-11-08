@@ -8091,7 +8091,7 @@
     "type": "equal",
     "deltas": {
       "max": -3.33,
-      "luis": 6.67,
+      "luis": 6.66,
       "emi": -3.33
     },
     "createdAt": 1794085200000
