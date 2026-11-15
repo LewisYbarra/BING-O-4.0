@@ -602,7 +602,7 @@
                 </button>
                 <button onclick="executeConfirmedBizum()" class="flex-1 py-2.5 rounded-xl bg-indigo-500 hover:bg-indigo-400 text-slate-950 font-bold text-xs shadow-lg shadow-indigo-500/20 transition flex items-center justify-center gap-1.5">
                     <i class="fa-solid fa-check"></i>
-                    <span>Sí, liquidar</span>
+                    <span>Confirmar</span>
                 </button>
             </div>
         </div>
@@ -1573,6 +1573,7 @@
             recalcCurrentFormPreview();
             switchTab('saldos');
         };
+        
         let pendingBizumSettlement = null;
         window.quickSettleBizum = function(fromId, toId, amount) {
             const fromM = MEMBERS.find(x => x.id === fromId);
@@ -1580,10 +1581,18 @@
             if (!fromM || !toM) return;
 
             pendingBizumSettlement = { fromM, toM, amount };
+            const formattedAmount = formatEuro(amount);
 
+            // 1. Párrafo de texto
+            document.getElementById('bizum-confirm-from-name').textContent = fromM.name;
+            document.getElementById('bizum-confirm-to-name').textContent = toM.name;
+            document.getElementById('bizum-confirm-amount-display').textContent = formattedAmount;
+
+            // 2. Cajita resumen con flecha
             document.getElementById('bizum-confirm-from').textContent = fromM.name;
             document.getElementById('bizum-confirm-to').textContent = toM.name;
-            document.getElementById('bizum-confirm-amount').textContent = formatEuro(amount);
+            document.getElementById('bizum-confirm-amount').textContent = formattedAmount;
+
             document.getElementById('modal-bizum-confirm').classList.remove('hidden');
         };
 
