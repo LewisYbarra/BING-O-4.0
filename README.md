@@ -1,5 +1,5 @@
 # BING-O 4.0 (alpha 1)
-### Banco de Inversión Nacional de GENTES — Organización
+### Banco de Inversión Nacional de GENTES - Organización
 
 > **Modernización web de la legendaria hoja de cálculo compartida BING-O (v1.0 → v3.2).**  
 > Diseñado como una Progressive Web App (PWA) móvil para repartir gastos entre amigos, liquidar deudas vía Bizum con transferencias mínimas y mantener indicadores de riesgo macroeconómico en tiempo real.
@@ -21,9 +21,9 @@ Entre julio de 2020 y octubre de 2026, el grupo organizó sus finanzas mediante 
 
 ### 1. Reparto sin descuadres (`D.G. = 0,00 €`)
 * **3 modos de registro:**
-  * **Partes Iguales (`X / P`):** Selecciona pagador, importe y quiénes estaban. El algoritmo distribuye los céntimos indivisibles de forma rotativa y transparente para que la suma de la fila sea siempre exactamente `0,00 €`.
-  * **Ticket Exacto:** Entrada libre para gastos desglosados (ej. comidas con importes distintos) con detector de descuadre en vivo.
-  * **Bizum Directo:** Liquidaciones directas entre deudor y acreedor.
+  * **Partes iguales:** Selecciona pagador, importe y quiénes estaban. El algoritmo distribuye los céntimos indivisibles de forma rotativa y transparente para que la suma de la fila sea siempre exactamente `0,00 €`.
+  * **Modo manual:** Entrada libre para gastos desglosados (ej. comidas con importes distintos) con detector de descuadre en vivo.
+  * **Bizum:** Liquidaciones directas entre deudor y acreedor.
 * **Jurisprudencia Fila 436:** Validación estricta de fechas con homenaje al mítico apunte del *Kibap*.
 
 ### 2. Liquidador de Bizums Óptimo
@@ -37,7 +37,7 @@ Entre julio de 2020 y octubre de 2026, el grupo organizó sus finanzas mediante 
 * **Protocolo MAFTA dinámico:** Botón inteligente que detecta descuadres residuales y limpia milésimas automáticamente entre el núcleo duro.
 
 ### 4. Seguridad & Trazabilidad
-* **Acceso por PIN de grupo:** Autenticación ligera guardada en el `localStorage` del móvil que bloquea accesos no autorizados a nivel de base de datos (`Firestore Rules`).
+* **Acceso con cuenta de Google:** Autenticación a nivel de base de datos (`Firestore Rules`).
 * **Firma de autoría:** Cada gasto guarda quién lo ha registrado en el grupo.
 * **Cero borrados físicos (`Soft Delete`):** Prohibido el borrado destructivo. Los gastos anulados quedan tachados en el historial indicando el autor y la hora de anulación, con opción de restauración.
 
