@@ -80,6 +80,17 @@
         .animate-pulse-subtle {
             animation: pulse-subtle 2.5s infinite ease-in-out;
         }
+        /* Flecha personalizada y respirada para todos los desplegables */
+        select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            padding-right: 2.25rem !important;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2394a3b8' stroke-width='2.5'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.85rem center;
+            background-size: 0.95rem;
+        }
     </style>
 </head>
 <body class="min-h-screen flex flex-col selection:bg-emerald-500 selection:text-white pb-24">
@@ -1158,7 +1169,7 @@
                                 <div class="mono-num text-base sm:text-lg font-extrabold whitespace-nowrap ${isPositive ? 'text-emerald-400' : (isNegative ? 'text-rose-400' : 'text-slate-400')}">
                                     ${formatEuro(bal, true)}
                                 </div>
-                                ${Math.abs(bal) > 0 && Math.abs(bal) < 0.01 ? `<div class="text-[8px] text-amber-400 mono-num whitespace-nowrap">Residuo:${bal.toFixed(4)}€</div>` : ''}
+                                <!-- ${Math.abs(bal) > 0 && Math.abs(bal) < 0.01 ? `<div class="text-[8px] text-amber-400 mono-num whitespace-nowrap">Residuo:${bal.toFixed(4)}€</div>` : ''} -->
                             </div>
                         </div>
 
@@ -1691,31 +1702,54 @@
 
         window.applyMaftaProtocol = async function() {
             const state = computeGroupState();
-            if (Math.abs(state.totalDG) < 0.005) {
+            const deltas = {};
+            let residualDust = 0;
+
+            // 1. Purgar el polvo sub-céntimo de TODOS los miembros.
+            MEMBERS.forEach(m => {
+                const bal = state.membersMap[m.id].balance;
+                const roundedBal = Math.round(bal * 100) / 100;
+                const dust = bal - roundedBal;
+                if (Math.abs(dust) > 0.00001) {
+                    deltas[m.id] = -Number(dust.toFixed(6));
+                    residualDust += deltas[m.id];
+                }
+            });
+
+            // 2. Calcular los céntimos enteros restantes para dejar el D.G. global en 0,00 €
+            const centsToDistribute = -Math.round((state.totalDG + residualDust) * 100);
+
+            if (centsToDistribute === 0 && Object.keys(deltas).length === 0) {
                 closeMaftaModal();
                 showToast("El grupo ya está cuadrado al céntimo (0,00 €)");
                 return;
             }
 
-            const deltas = {};
+            // 3. Ordenar el núcleo duro por saldo (más deudor primero) ya limpiado al céntimo
+            const sortedCore = MEMBERS
+                .filter(m => m.core)
+                .map(m => ({
+                    id: m.id,
+                    balance: Math.round((state.membersMap[m.id].balance + (deltas[m.id] || 0)) * 100) / 100
+                }))
+                .sort((a, b) => a.balance - b.balance);
 
-            // 1. Limpiar decimales residuales (< 0.10€) en miembros que no estén en deudas activas
-            MEMBERS.forEach(m => {
-                const bal = state.membersMap[m.id].balance;
-                if (!m.core && Math.abs(bal) > 0.00001 && Math.abs(bal) < 0.10) {
-                    deltas[m.id] = -bal;
+            const n = sortedCore.length; // 5
+            const baseShare = Math.trunc(centsToDistribute / n);
+            let remainder = Math.abs(centsToDistribute % n);
+            const sign = centsToDistribute >= 0 ? 1 : -1;
+
+            sortedCore.forEach(m => {
+                let shareCents = baseShare;
+                if (remainder > 0) {
+                    shareCents += sign;
+                    remainder--;
                 }
-            });
-
-            // 2. Calcular descuadre exacto restante necesario para sumar 0.00 €
-            const currentResidualFix = Object.values(deltas).reduce((a, b) => a + b, 0);
-            const neededForZero = -(state.totalDG + currentResidualFix);
-
-            // 3. Repartir equitativamente entre los miembros del Núcleo Duro
-            const coreMembers = MEMBERS.filter(m => m.core);
-            const share = neededForZero / coreMembers.length;
-            coreMembers.forEach(m => {
-                deltas[m.id] = (deltas[m.id] || 0) + share;
+                const eur = shareCents / 100;
+                const finalDelta = Math.round(((deltas[m.id] || 0) + eur) * 1000000) / 1000000;
+                if (Math.abs(finalDelta) > 0.00001) {
+                    deltas[m.id] = finalDelta;
+                }
             });
 
             const today = new Date().toISOString().split('T')[0];
@@ -1731,7 +1765,7 @@
             const guardado = await saveNewTransactionObject(maftaTx);
             if (!guardado) return;
             closeMaftaModal();
-            showToast("Protocolo MAFTA aplicado: D.G. ahora es 0,00 € exactos");
+            showToast("Protocolo MAFTA aplicado al céntimo exacto");
         };
 
         // ---------------------------------------------------------
