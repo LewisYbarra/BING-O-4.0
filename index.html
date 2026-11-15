@@ -565,6 +565,50 @@
     </div>
 
     <!-- ========================================== -->
+    <!-- MODAL 3: CONFIRMACIÓN DE LIQUIDAR BIZUM    -->
+    <!-- ========================================== -->
+    <div id="modal-bizum-confirm" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-cardbg border border-slate-700 rounded-2xl max-w-sm w-full p-5 space-y-4 shadow-2xl">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                    <div class="w-9 h-9 rounded-xl bg-indigo-500/20 border border-indigo-500/30 text-indigo-400 flex items-center justify-center">
+                        <i class="fa-solid fa-money-bill-transfer"></i>
+                    </div>
+                    <h3 class="text-base font-bold text-white">Confirmar Bizum</h3>
+                </div>
+                <button onclick="closeBizumConfirmModal()" class="text-slate-400 hover:text-white">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <p class="text-xs text-slate-300 leading-relaxed">
+                ¿Registrar transferencia directa entre <strong id="bizum-confirm-from-name" class="text-rose-400">Deudor</strong> y <strong id="bizum-confirm-to-name" class="text-emerald-400">Acreedor</strong> por un importe de <strong id="bizum-confirm-amount-display" class="mono-num text-white">0,00 €</strong>?
+            </p>
+
+            <div class="rounded-xl bg-slate-950 p-3.5 border border-slate-800 flex items-center justify-between gap-2">
+                <div class="flex items-center gap-2 text-xs">
+                    <span id="bizum-confirm-from" class="font-bold text-rose-400">Deudor</span>
+                    <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
+                    <span id="bizum-confirm-to" class="font-bold text-emerald-400">Acreedor</span>
+                </div>
+                <span id="bizum-confirm-amount" class="mono-num text-sm font-extrabold text-white bg-slate-900 px-2.5 py-1 rounded-lg border border-slate-800">
+                    0,00 €
+                </span>
+            </div>
+
+            <div class="flex gap-2 pt-1">
+                <button onclick="closeBizumConfirmModal()" class="flex-1 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300 transition">
+                    Cancelar
+                </button>
+                <button onclick="executeConfirmedBizum()" class="flex-1 py-2.5 rounded-xl bg-indigo-500 hover:bg-indigo-400 text-slate-950 font-bold text-xs shadow-lg shadow-indigo-500/20 transition flex items-center justify-center gap-1.5">
+                    <i class="fa-solid fa-check"></i>
+                    <span>Sí, liquidar</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
     <!-- MODAL: AUTENTICACIÓN GOOGLE                -->
     <!-- ========================================== -->
     <div id="modal-auth" class="fixed inset-0 z-50 hidden bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
@@ -1529,21 +1573,39 @@
             recalcCurrentFormPreview();
             switchTab('saldos');
         };
-
-        window.quickSettleBizum = async function(fromId, toId, amount) {
+        let pendingBizumSettlement = null;
+        window.quickSettleBizum = function(fromId, toId, amount) {
             const fromM = MEMBERS.find(x => x.id === fromId);
             const toM = MEMBERS.find(x => x.id === toId);
             if (!fromM || !toM) return;
 
+            pendingBizumSettlement = { fromM, toM, amount };
+
+            document.getElementById('bizum-confirm-from').textContent = fromM.name;
+            document.getElementById('bizum-confirm-to').textContent = toM.name;
+            document.getElementById('bizum-confirm-amount').textContent = formatEuro(amount);
+            document.getElementById('modal-bizum-confirm').classList.remove('hidden');
+        };
+
+        window.closeBizumConfirmModal = function() {
+            pendingBizumSettlement = null;
+            document.getElementById('modal-bizum-confirm').classList.add('hidden');
+        };
+
+        window.executeConfirmedBizum = async function() {
+            if (!pendingBizumSettlement) return;
+            const { fromM, toM, amount } = pendingBizumSettlement;
+            closeBizumConfirmModal();
+
             const today = new Date().toISOString().split('T')[0];
             const txObj = {
                 id: 'bizum-' + Date.now(),
-                concept: `Bizum Liquidación (${fromM.name} → ${toM.name})`,
+                concept: `Bizum liquidación (${fromM.name} → ${toM.name})`,
                 date: today,
                 type: 'bizum',
                 deltas: {
-                    [fromId]: amount,
-                    [toId]: -amount
+                    [fromM.id]: amount,
+                    [toM.id]: -amount
                 },
                 createdAt: Date.now()
             };

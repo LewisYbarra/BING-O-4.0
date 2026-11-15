@@ -8085,5 +8085,41 @@
       "emi": 0.29783360000001374
     },
     "createdAt": 1793615849020
+  },
+  {
+    "id": "hist-0630",
+    "rowNum": 630,
+    "concept": "Madris",
+    "date": "2026-11-07",
+    "type": "equal",
+    "deltas": {
+      "alex": 36.2,
+      "cabo": -36.2
+    },
+    "createdAt": 1794081600000
+  },
+  {
+    "id": "hist-0631",
+    "rowNum": 631,
+    "concept": "Barceló",
+    "date": "2026-11-15",
+    "type": "equal",
+    "deltas": {
+      "cabo": -37.50,
+      "luis": 37.50
+    },
+    "createdAt": 1794772800000
+  },
+  {
+    "id": "hist-0632",
+    "rowNum": 632,
+    "concept": "Cena grad",
+    "date": "2026-11-13",
+    "type": "equal",
+    "deltas": {
+      "cabo": 24.90,
+      "luis": -24.90
+    },
+    "createdAt": 1794600000000
   }
 ]
