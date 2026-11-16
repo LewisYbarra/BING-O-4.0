@@ -585,7 +585,7 @@
                     <div class="w-9 h-9 rounded-xl bg-indigo-500/20 border border-indigo-500/30 text-indigo-400 flex items-center justify-center">
                         <i class="fa-solid fa-money-bill-transfer"></i>
                     </div>
-                    <h3 class="text-base font-bold text-white">Confirmar Bizum</h3>
+                    <h3 class="text-base font-bold text-white">Liquidar Bizum</h3>
                 </div>
                 <button onclick="closeBizumConfirmModal()" class="text-slate-400 hover:text-white">
                     <i class="fa-solid fa-xmark"></i>
@@ -593,7 +593,8 @@
             </div>
 
             <p class="text-xs text-slate-300 leading-relaxed">
-                ¿Registrar transferencia directa entre <strong id="bizum-confirm-from-name" class="text-rose-400">Deudor</strong> y <strong id="bizum-confirm-to-name" class="text-emerald-400">Acreedor</strong> por un importe de <strong id="bizum-confirm-amount-display" class="mono-num text-white">0,00 €</strong>?
+                Confirma que deseas registrar la siguiente transferencia directa:
+                <!-- ¿Registrar transferencia directa entre <strong id="bizum-confirm-from-name" class="text-rose-400">Deudor</strong> y <strong id="bizum-confirm-to-name" class="text-emerald-400">Acreedor</strong> por un importe de <strong id="bizum-confirm-amount-display" class="mono-num text-white">0,00 €</strong>? -->
             </p>
 
             <div class="rounded-xl bg-slate-950 p-3.5 border border-slate-800 flex items-center justify-between gap-2">
@@ -1613,9 +1614,9 @@
             const formattedAmount = formatEuro(amount);
 
             // 1. Párrafo de texto
-            document.getElementById('bizum-confirm-from-name').textContent = fromM.name;
+/*             document.getElementById('bizum-confirm-from-name').textContent = fromM.name;
             document.getElementById('bizum-confirm-to-name').textContent = toM.name;
-            document.getElementById('bizum-confirm-amount-display').textContent = formattedAmount;
+            document.getElementById('bizum-confirm-amount-display').textContent = formattedAmount; */
 
             // 2. Cajita resumen con flecha
             document.getElementById('bizum-confirm-from').textContent = fromM.name;
@@ -2131,7 +2132,7 @@
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = `BINGO_4.0_Export_${new Date().toISOString().slice(0,10)}.csv`;
+            a.download = `BINGO_4.0_Export_${getLocalToday()}.csv`;
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
