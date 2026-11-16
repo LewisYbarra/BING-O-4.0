@@ -1743,7 +1743,7 @@
             const deltas = {};
             let residualDust = 0;
 
-            // 1. Purgar el polvo sub-céntimo de TODOS los miembros.
+            // 1. Purgar el polvo sub-céntimo de TODOS los miembros
             MEMBERS.forEach(m => {
                 const bal = state.membersMap[m.id].balance;
                 const roundedBal = Math.round(bal * 100) / 100;
@@ -1763,19 +1763,21 @@
                 return;
             }
 
-            // 3. Ordenar el núcleo duro por saldo (más deudor primero) ya limpiado al céntimo
+            const n = MEMBERS.filter(m => m.core).length; // 5
+            const baseShare = Math.trunc(centsToDistribute / n);
+            let remainder = Math.abs(centsToDistribute % n);
+            const sign = centsToDistribute >= 0 ? 1 : -1;
+
+            // 3. Castigar siempre al más deudor:
+            // - Si toca repartir (+), los céntimos extra van al que más presta (b - a), dejando fuera al más deudor.
+            // - Si toca quitar (-), los céntimos extra se le restan al que más debe (a - b).
             const sortedCore = MEMBERS
                 .filter(m => m.core)
                 .map(m => ({
                     id: m.id,
                     balance: Math.round((state.membersMap[m.id].balance + (deltas[m.id] || 0)) * 100) / 100
                 }))
-                .sort((a, b) => a.balance - b.balance);
-
-            const n = sortedCore.length; // 5
-            const baseShare = Math.trunc(centsToDistribute / n);
-            let remainder = Math.abs(centsToDistribute % n);
-            const sign = centsToDistribute >= 0 ? 1 : -1;
+                .sort((a, b) => sign > 0 ? b.balance - a.balance : a.balance - b.balance);
 
             sortedCore.forEach(m => {
                 let shareCents = baseShare;
