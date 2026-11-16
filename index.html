@@ -1289,6 +1289,16 @@
             return new Date().toLocaleDateString('sv-SE');
         }
 
+        // Neutraliza etiquetas HTML maliciosas o accidentales en asuntos/nombres
+        function escapeHtml(str) {
+            return String(str ?? '')
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        }
+
         function initFormSelectors() {
             const today = getLocalToday();
             document.getElementById('input-date').value = today;
@@ -1824,11 +1834,11 @@
                     return `
                         <div class="rounded-2xl bg-rose-950/20 border border-rose-900/40 p-3.5 space-y-2 opacity-60">
                             <div class="flex items-center justify-between text-xs">
-                                <span class="line-through text-slate-400 font-bold">#${tx.rowNum} ${tx.concept} (${formatEuro(positiveVol)})</span>
-                                <button onclick="restoreTransaction('${tx.id}')" class="text-[11px] text-emerald-400 hover:underline">Restaurar</button>
+                                <span class="line-through text-slate-400 font-bold">#${tx.rowNum} ${escapeHtml(tx.concept)} (${formatEuro(positiveVol)})</span>
+                                <button onclick="restoreTransaction('${escapeHtml(tx.id)}')" class="text-[11px] text-emerald-400 hover:underline">Restaurar</button>
                             </div>
                             <p class="text-[11px] text-rose-300">
-                                <i class="fa-solid fa-ban mr-1"></i> Anulado por <strong>${tx.anuladoPor || 'un usuario'}</strong> (${tx.fechaAnulacion || 'recientemente'}).
+                                <i class="fa-solid fa-ban mr-1"></i> Anulado por <strong>${escapeHtml(tx.anuladoPor || 'un usuario')}</strong> (${escapeHtml(tx.fechaAnulacion || 'recientemente')}).
                             </p>
                         </div>
                     `;
@@ -1841,7 +1851,7 @@
                         <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[11px] mono-num font-semibold border ${
                             isPos ? 'bg-emerald-500/10 border-emerald-500/25 text-emerald-300' : 'bg-rose-500/10 border-rose-500/25 text-rose-300'
                         }">
-                            <strong class="font-sans text-white">${m ? m.name : id}:</strong> ${formatEuro(val, true)}
+                            <strong class="font-sans text-white">${escapeHtml(m ? m.name : id)}:</strong> ${formatEuro(val, true)}
                         </span>
                     `;
                 }).join('');
@@ -1854,8 +1864,8 @@
                                     #${tx.rowNum}
                                 </span>
                                 <div>
-                                    <h4 class="text-sm font-bold text-white leading-tight">${tx.concept}</h4>
-                                    <span class="text-[11px] text-slate-400 mono-num">${tx.date} · Movido: ${formatEuro(positiveVol)}</span>
+                                    <h4 class="text-sm font-bold text-white leading-tight">${escapeHtml(tx.concept)}</h4>
+                                    <span class="text-[11px] text-slate-400 mono-num">${escapeHtml(tx.date)} · Movido: ${formatEuro(positiveVol)}</span>
                                 </div>
                             </div>
 
@@ -1864,7 +1874,7 @@
                                     Excel v3.2
                                 </span>
                             ` : `
-                                <button onclick="deleteTransaction('${tx.id}')" class="text-slate-500 hover:text-rose-400 p-1.5 rounded-lg hover:bg-rose-500/10 transition" title="Anular apunte">
+                                <button onclick="deleteTransaction('${escapeHtml(tx.id)}')" class="text-slate-500 hover:text-rose-400 p-1.5 rounded-lg hover:bg-rose-500/10 transition" title="Anular apunte">
                                     <i class="fa-solid fa-trash-can text-xs"></i>
                                 </button>
                             `}
@@ -1876,7 +1886,7 @@
                         
                         ${!tx.isHistorical ? `
                             <div class="pt-1.5 border-t border-slate-800/60 flex items-center justify-between">
-                                <span class="text-[10px] text-slate-500"><i class="fa-solid fa-pen-nib mr-1"></i>Creado por ${tx.creadoPor || 'Sistema'}</span>
+                                <span class="text-[10px] text-slate-500"><i class="fa-solid fa-pen-nib mr-1"></i>Creado por ${escapeHtml(tx.creadoPor || 'Sistema')}</span>
                             </div>
                         ` : ''}
                     </div>
