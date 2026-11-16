@@ -560,8 +560,8 @@
             <div class="rounded-xl bg-slate-950 p-3 border border-slate-800 text-xs space-y-1.5">
                 <div class="font-semibold text-white">Acción del ajuste dinámico:</div>
                 <ul class="list-disc list-inside text-slate-400 space-y-1 text-[11px]">
-                    <li>Pone a <strong>0,00 €</strong> exactos los decimales residuales de miembros secundarios inactivos.</li>
-                    <li>Absorbe la diferencia exacta repartiéndola a partes iguales entre los miembros de GENTES para que el <strong>Dinero Generado sea 0,00 €</strong>.</li>
+                    <li>Limpia las fracciones de céntimo residuales de todos los miembros del grupo.</li>
+                    <li>Reparte el Dinero Generado (D.G.) equitativamente entre los miembros de GENTES.</li>
                 </ul>
             </div>
             <div class="flex gap-2 pt-1">
@@ -1083,13 +1083,16 @@
         // 5. RENDERING FUNCTIONS
         // ---------------------------------------------------------
         function formatEuro(val, showSign = false) {
-            const num = Number(val) || 0;
-            const sign = num > 0.004 ? '+' : (num < -0.004 ? '-' : '');
-            const absStr = Math.abs(num).toLocaleString('es-ES', {
+            // Redondeamos al céntimo real y eliminamos el -0 de JavaScript (+ 0)
+            const cleanNum = (Math.round((Number(val) || 0) * 100) / 100) + 0;
+            
+            const sign = cleanNum > 0 ? '+' : (cleanNum < 0 ? '-' : '');
+            const absStr = Math.abs(cleanNum).toLocaleString('es-ES', {
                 minimumFractionDigits: 2,
                 maximumFractionDigits: 2
             });
-            return (showSign ? sign : (num < -0.004 ? '-' : '')) + absStr + '\u00A0€';
+
+            return (showSign ? sign : (cleanNum < 0 ? '-' : '')) + absStr + '\u00A0€';
         }
 
         function refreshAllViews() {
@@ -1115,10 +1118,10 @@
                 rrLabel.textContent = "Riesgo bajo";
             } else if (state.riesgoRelativo < 0.45) {
                 rrEl.className = "mono-num text-lg sm:text-xl font-bold text-amber-400 mt-0.5 block";
-                rrLabel.textContent = "Riesgo Moderado";
+                rrLabel.textContent = "Riesgo moderado";
             } else {
                 rrEl.className = "mono-num text-lg sm:text-xl font-bold text-rose-400 mt-0.5 block";
-                rrLabel.textContent = "Alerta Morosidad";
+                rrLabel.textContent = "Alerta: morosidad alta";
             }
 
             // Filter members
