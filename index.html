@@ -308,14 +308,14 @@
                 <div id="panel-mode-exact" class="hidden space-y-3 pt-1">
                     <div class="rounded-xl bg-slate-950 p-3 border border-slate-800 flex flex-wrap items-center justify-between gap-2">
                         <div class="text-xs text-slate-300">
-                            Introduce manualmente lo que pagó o consumió cada participante. Se aceptan fórmulas simples (ej. =50/2).
+                            Introduce el saldo neto de cada uno (<strong class="text-emerald-400">+</strong> si adelantó, <strong class="text-rose-400">-</strong> si debe). Acepta fórmulas (ej. <code class="text-slate-200">=25-8.50</code>).
                         </div>
                         <div id="exact-discrepancy-badge" class="mono-num text-xs font-bold px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
                             D.G. = 0,00 €
                         </div>
                     </div>
 
-                    <div id="exact-inputs-list" class="space-y-2 max-h-80 overflow-y-auto pr-1">
+                    <div id="exact-inputs-list" class="grid grid-cols-1 sm:grid-cols-2 gap-2">
                         <!-- Populated via JS -->
                     </div>
                 </div>
@@ -1345,16 +1345,14 @@
         function renderExactInputs() {
             const list = document.getElementById('exact-inputs-list');
             list.innerHTML = MEMBERS.map(m => `
-                <div class="grid grid-cols-3 gap-2 items-center bg-slate-950/70 p-2 rounded-xl border border-slate-800/80">
-                    <div class="flex items-center gap-2">
-                        <span class="w-6 h-6 rounded-md bg-gradient-to-br ${m.color} text-[10px] font-bold flex items-center justify-center text-white">${m.code}</span>
-                        <span class="text-xs font-semibold text-white">${m.name}</span>
+                <div class="flex items-center justify-between gap-2.5 bg-slate-950/70 p-2 rounded-xl border border-slate-800/80">
+                    <div class="flex items-center gap-2 min-w-0">
+                        <span class="w-6 h-6 rounded-md bg-gradient-to-br ${m.color} text-[10px] font-bold flex items-center justify-center text-white shrink-0">${m.code}</span>
+                        <span class="text-xs font-semibold text-white truncate">${m.name}</span>
                     </div>
-                    <div>
-                        <input type="text" placeholder="Pagó (+)" id="exact-paid-${m.id}" oninput="recalcExactSplit()" onblur="resolveFormulaInput(this); recalcExactSplit();" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-1.5 text-xs mono-num text-emerald-400 placeholder-slate-600 focus:outline-none focus:border-emerald-500">
-                    </div>
-                    <div>
-                        <input type="text" placeholder="Consumió (-)" id="exact-ate-${m.id}" oninput="recalcExactSplit()" onblur="resolveFormulaInput(this); recalcExactSplit();" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-1.5 text-xs mono-num text-rose-400 placeholder-slate-600 focus:outline-none focus:border-rose-500">
+                    <div class="relative w-32 shrink-0">
+                        <input type="text" placeholder="0,00" id="exact-net-${m.id}" oninput="recalcExactSplit()" onblur="resolveFormulaInput(this); recalcExactSplit();" class="w-full bg-slate-900 border border-slate-800 rounded-lg pl-2.5 pr-6 py-1.5 text-xs text-right mono-num font-bold text-slate-200 placeholder-slate-600 focus:outline-none focus:border-emerald-500 transition">
+                        <span class="absolute right-2 top-1.5 text-slate-500 text-xs font-bold">€</span>
                     </div>
                 </div>
             `).join('');
@@ -1411,29 +1409,32 @@
 
         function recalcExactSplit() {
             currentComputedDeltas = {};
-            let totalPaidCents = 0;
-            let totalAteCents = 0;
+            let totalCents = 0;
 
             MEMBERS.forEach(m => {
-                const paidVal = evaluateExpression(document.getElementById(`exact-paid-${m.id}`)?.value);
-                const ateVal = evaluateExpression(document.getElementById(`exact-ate-${m.id}`)?.value);
-                const paid = Math.round(paidVal * 100);
-                const ate = Math.round(ateVal * 100);
-                totalPaidCents += paid;
-                totalAteCents += ate;
-                const netCents = paid - ate;
-                if (netCents !== 0) {
-                    currentComputedDeltas[m.id] = netCents / 100;
+                const inputEl = document.getElementById(`exact-net-${m.id}`);
+                const rawVal = evaluateExpression(inputEl?.value);
+                const cents = Math.round(rawVal * 100);
+                totalCents += cents;
+
+                if (inputEl) {
+                    inputEl.classList.remove('text-emerald-400', 'text-rose-400', 'text-slate-200');
+                    if (cents > 0) inputEl.classList.add('text-emerald-400');
+                    else if (cents < 0) inputEl.classList.add('text-rose-400');
+                    else inputEl.classList.add('text-slate-200');
+                }
+
+                if (cents !== 0) {
+                    currentComputedDeltas[m.id] = cents / 100;
                 }
             });
 
-            const diffCents = totalPaidCents - totalAteCents;
             const badge = document.getElementById('exact-discrepancy-badge');
-            if (diffCents === 0) {
+            if (totalCents === 0) {
                 badge.textContent = "D.G. = 0,00 €";
                 badge.className = "mono-num text-xs font-bold px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-400 border border-emerald-500/30";
             } else {
-                badge.textContent = `D.G. = ${formatEuro(diffCents / 100, true)}`;
+                badge.textContent = `D.G. = ${formatEuro(totalCents / 100, true)}`;
                 badge.className = "mono-num text-xs font-bold px-2.5 py-1 rounded-lg bg-rose-500/20 text-rose-400 border border-rose-500/40";
             }
 
@@ -1578,10 +1579,8 @@
             document.getElementById('equal-amount').value = '';
             document.getElementById('bizum-amount').value = '';
             MEMBERS.forEach(m => {
-                const p = document.getElementById(`exact-paid-${m.id}`);
-                const a = document.getElementById(`exact-ate-${m.id}`);
-                if (p) p.value = '';
-                if (a) a.value = '';
+                const netInput = document.getElementById(`exact-net-${m.id}`);
+                if (netInput) netInput.value = '';
             });
 
             recalcCurrentFormPreview();
@@ -1595,10 +1594,8 @@
             document.getElementById('bizum-amount').value = '';
             document.getElementById('input-date').value = getLocalToday();
             MEMBERS.forEach(m => {
-                const p = document.getElementById(`exact-paid-${m.id}`);
-                const a = document.getElementById(`exact-ate-${m.id}`);
-                if (p) p.value = '';
-                if (a) a.value = '';
+                const netInput = document.getElementById(`exact-net-${m.id}`);
+                if (netInput) netInput.value = '';
             });
             recalcCurrentFormPreview();
             switchTab('saldos');
