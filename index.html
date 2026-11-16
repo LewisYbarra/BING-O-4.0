@@ -982,7 +982,7 @@
                 if (tx.anulado) return;
 
                 totalTxCount++;
-                const isHist = (tx.id && tx.id.startsWith('hist-')) || (tx.rowNum && tx.rowNum <= 628);
+                const isHist = Boolean(tx.id && tx.id.startsWith('hist-'));
                 if (!isHist) newV4Count++;
 
                 let rowSum = 0;
@@ -1823,7 +1823,7 @@
                 return {
                     ...tx,
                     rowNum: rowNum,
-                    isHistorical: (tx.id && tx.id.startsWith('hist-')) || (tx.rowNum && tx.rowNum <= 628)
+                    isHistorical: Boolean(tx.id && tx.id.startsWith('hist-'))
                 };
             }).reverse();
 
@@ -2127,7 +2127,7 @@
             const csvLines = [headers.join(';')];
             sortedAll.forEach(tx => {
                 const rowNum = tx.rowNum ? tx.rowNum : counter;
-                counter = Math.max(counter + 1, rowNum + 1);
+                counter = Math.max(counter, rowNum + 1);
                 const d = tx.deltas || {};
                 const estado = tx.anulado ? 'ANULADO' : 'OK';
                 const row = [
