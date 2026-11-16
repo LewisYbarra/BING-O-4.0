@@ -678,7 +678,8 @@
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { 
             getAuth, 
-            signInWithPopup, 
+            signInWithPopup,
+            signInWithRedirect,
             GoogleAuthProvider, 
             onAuthStateChanged, 
             signOut 
@@ -1284,8 +1285,12 @@
             }
         };
 
+        function getLocalToday() {
+            return new Date().toLocaleDateString('sv-SE');
+        }
+
         function initFormSelectors() {
-            const today = new Date().toISOString().split('T')[0];
+            const today = getLocalToday();
             document.getElementById('input-date').value = today;
 
             const payerSelect = document.getElementById('equal-payer');
@@ -1577,7 +1582,7 @@
             document.getElementById('input-concept').value = '';
             document.getElementById('equal-amount').value = '';
             document.getElementById('bizum-amount').value = '';
-            document.getElementById('input-date').value = new Date().toISOString().split('T')[0];
+            document.getElementById('input-date').value = getLocalToday();
             MEMBERS.forEach(m => {
                 const p = document.getElementById(`exact-paid-${m.id}`);
                 const a = document.getElementById(`exact-ate-${m.id}`);
@@ -1620,7 +1625,7 @@
             const { fromM, toM, amount } = pendingBizumSettlement;
             closeBizumConfirmModal();
 
-            const today = new Date().toISOString().split('T')[0];
+            const today = getLocalToday();
             const txObj = {
                 id: 'bizum-' + Date.now(),
                 concept: `Bizum liquidación (${fromM.name} → ${toM.name})`,
@@ -1755,7 +1760,7 @@
                 }
             });
 
-            const today = new Date().toISOString().split('T')[0];
+            const today = getLocalToday();
             const maftaTx = {
                 id: 'mafta-' + Date.now(),
                 concept: `Ajuste MAFTA (${formatEuro(state.totalDG, true)})`,
@@ -2200,7 +2205,7 @@
         };
 
         window.fixDateAndCloseModal = function() {
-            document.getElementById('input-date').value = new Date().toISOString().split('T')[0];
+            document.getElementById('input-date').value = getLocalToday();
             document.getElementById('modal-rumanos').classList.add('hidden');
         };
 
