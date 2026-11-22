@@ -8071,21 +8071,6 @@
   {
     "id": "hist-0629",
     "rowNum": 629,
-    "concept": "MAFTA (-1,48€)",
-    "date": "2026-11-02",
-    "type": "equal",
-    "deltas": {
-      "alex": 0.30,
-      "max": 0.29,
-      "cabo": 0.30,
-      "luis": 0.29,
-      "emi": 0.30
-    },
-    "createdAt": 1793615849020
-  },
-    {
-    "id": "hist-0630",
-    "rowNum": 630,
     "concept": "Triangu pollo",
     "date": "2026-11-07",
     "type": "equal",
@@ -8094,6 +8079,60 @@
       "luis": 6.66,
       "emi": -3.33
     },
+    "createdAt": 1794081600000
+  },
+  {
+    "id": "hist-0630",
+    "rowNum": 630,
+    "concept": "Madris",
+    "date": "2026-11-07",
+    "type": "equal",
+    "deltas": {
+      "alex": 36.2,
+      "cabo": -36.2
+    },
     "createdAt": 1794085200000
+  },
+  {
+    "id": "hist-0631",
+    "rowNum": 631,
+    "concept": "Barceló",
+    "date": "2026-11-15",
+    "type": "equal",
+    "deltas": {
+      "cabo": -37.50,
+      "luis": 37.50
+    },
+    "createdAt": 1794600000000
+  },
+  {
+    "id": "hist-0632",
+    "rowNum": 632,
+    "concept": "Cena grad",
+    "date": "2026-11-13",
+    "type": "equal",
+    "deltas": {
+      "cabo": 24.90,
+      "luis": -24.90
+    },
+    "createdAt": 1794772800000
+  },
+  {
+    "id": "hist-0633",
+    "rowNum": 633,
+    "concept": "MAFTA (-1,48€)",
+    "date": "2026-11-16",
+    "type": "equal",
+    "deltas": {
+      "alex": 0.300637,
+      "asis": 0.000033,
+      "max": 0.299319,
+      "cabo": 0.30297,
+      "luis": 0.288802,
+      "emi": 0.29744,
+      "pedro": -0.001667,
+      "por": -0.003333
+    },
+    "createdAt": 1794828010760
   }
 ]

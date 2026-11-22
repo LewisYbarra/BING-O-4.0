@@ -32,11 +32,29 @@
                         mono: ['JetBrains Mono', 'monospace'],
                     },
                     colors: {
-                        darkbg: '#0b0f19',
-                        cardbg: '#131b2e',
-                        cardborder: '#1e293b',
-                        accent: '#10b981',
+                        darkbg: 'rgb(var(--c-bg-main) / <alpha-value>)',
+                        cardbg: 'rgb(var(--c-bg-card) / <alpha-value>)',
+                        cardborder: 'rgb(var(--c-border-main) / <alpha-value>)',
+                        accent: 'rgb(var(--c-accent-500) / <alpha-value>)',
                         danger: '#f43f5e',
+                        slate: {
+                            100: 'rgb(var(--c-slate-100) / <alpha-value>)',
+                            200: 'rgb(var(--c-slate-200) / <alpha-value>)',
+                            300: 'rgb(var(--c-slate-300) / <alpha-value>)',
+                            400: 'rgb(var(--c-slate-400) / <alpha-value>)',
+                            500: 'rgb(var(--c-slate-500) / <alpha-value>)',
+                            600: 'rgb(var(--c-slate-600) / <alpha-value>)',
+                            700: 'rgb(var(--c-slate-700) / <alpha-value>)',
+                            800: 'rgb(var(--c-slate-800) / <alpha-value>)',
+                            900: 'rgb(var(--c-slate-900) / <alpha-value>)',
+                            950: 'rgb(var(--c-slate-950) / <alpha-value>)',
+                        },
+                        emerald: {
+                            300: 'rgb(var(--c-accent-300) / <alpha-value>)',
+                            400: 'rgb(var(--c-accent-400) / <alpha-value>)',
+                            500: 'rgb(var(--c-accent-500) / <alpha-value>)',
+                            900: 'rgb(var(--c-accent-900) / <alpha-value>)',
+                        }
                     }
                 }
             }
@@ -44,43 +62,304 @@
     </script>
 
     <style>
+        /* ========================================= */
+        /* TEMAS (CSS VARIABLES RGB PARA TAILWIND)   */
+        /* ========================================= */
+
+        /* 1. BING-O Clásico (Por defecto) */
+        :root, html[data-theme="default"] {
+            --c-bg-main: 11 15 25;
+            --c-bg-card: 19 27 46;
+            --c-border-main: 30 41 59;
+            --c-header-bg: 11 15 25;
+            --c-nav-bg: 19 27 46;
+            --c-text-main: 248 250 252;
+            --c-slate-100: 241 245 249;
+            --c-slate-200: 226 232 240;
+            --c-slate-300: 203 213 225;
+            --c-slate-400: 148 163 184;
+            --c-slate-500: 100 116 139;
+            --c-slate-600: 71 85 105;
+            --c-slate-700: 51 65 85;
+            --c-slate-800: 30 41 59;
+            --c-slate-900: 15 23 42;
+            --c-slate-950: 2 6 23;
+            --c-accent-300: 110 231 183;
+            --c-accent-400: 52 211 153;
+            --c-accent-500: 16 185 129;
+            --c-accent-900: 6 78 59;
+        }
+
+        /* 2. OLED Negro */
+        html[data-theme="amoled"] {
+            --c-bg-main: 0 0 0;
+            --c-bg-card: 14 14 17;
+            --c-border-main: 34 34 40;
+            --c-header-bg: 0 0 0;
+            --c-nav-bg: 10 10 12;
+            --c-text-main: 250 250 250;
+            --c-slate-100: 244 244 245;
+            --c-slate-200: 228 228 231;
+            --c-slate-300: 212 212 216;
+            --c-slate-400: 161 161 170;
+            --c-slate-500: 113 113 122;
+            --c-slate-600: 82 82 91;
+            --c-slate-700: 54 54 62;
+            --c-slate-800: 34 34 40;
+            --c-slate-900: 18 18 22;
+            --c-slate-950: 6 6 8;
+            --c-accent-300: 110 231 183;
+            --c-accent-400: 52 211 153;
+            --c-accent-500: 16 185 129;
+            --c-accent-900: 6 78 59;
+        }
+
+        /* 3. Nord */
+        html[data-theme="nord"] {
+            --c-bg-main: 36 41 51;
+            --c-bg-card: 46 52 64;
+            --c-border-main: 67 76 94;
+            --c-header-bg: 36 41 51;
+            --c-nav-bg: 46 52 64;
+            --c-text-main: 236 239 244;
+            --c-slate-100: 236 239 244;
+            --c-slate-200: 229 233 240;
+            --c-slate-300: 216 222 233;
+            --c-slate-400: 168 179 199;
+            --c-slate-500: 129 141 163;
+            --c-slate-600: 96 108 132;
+            --c-slate-700: 76 86 106;
+            --c-slate-800: 59 66 82;
+            --c-slate-900: 46 52 64;
+            --c-slate-950: 33 38 46;
+            --c-accent-300: 163 213 224;
+            --c-accent-400: 136 192 208;
+            --c-accent-500: 129 161 193;
+            --c-accent-900: 46 68 89;
+        }
+
+        /* 4. Drácula */
+        html[data-theme="dracula"] {
+            --c-bg-main: 25 26 35;
+            --c-bg-card: 40 42 54;
+            --c-border-main: 68 71 90;
+            --c-header-bg: 25 26 35;
+            --c-nav-bg: 40 42 54;
+            --c-text-main: 248 248 242;
+            --c-slate-100: 248 248 242;
+            --c-slate-200: 235 237 245;
+            --c-slate-300: 214 218 232;
+            --c-slate-400: 168 176 206;
+            --c-slate-500: 128 139 178;
+            --c-slate-600: 98 114 164;
+            --c-slate-700: 68 71 90;
+            --c-slate-800: 54 57 73;
+            --c-slate-900: 33 34 44;
+            --c-slate-950: 21 22 30;
+            --c-accent-300: 214 188 250;
+            --c-accent-400: 189 147 249;
+            --c-accent-500: 167 119 246;
+            --c-accent-900: 68 42 110;
+        }
+
+        /* 5. Claro (Light) */
+        html[data-theme="light"] {
+            --c-bg-main: 241 245 249;
+            --c-bg-card: 255 255 255;
+            --c-border-main: 226 232 240;
+            --c-header-bg: 255 255 255;
+            --c-nav-bg: 255 255 255;
+            --c-text-main: 15 23 42;
+            --c-slate-100: 15 23 42;
+            --c-slate-200: 30 41 59;
+            --c-slate-300: 51 65 85;
+            --c-slate-400: 71 85 105;
+            --c-slate-500: 100 116 139;
+            --c-slate-600: 100 116 139;
+            --c-slate-700: 203 213 225;
+            --c-slate-800: 226 232 240;
+            --c-slate-900: 241 245 249;
+            --c-slate-950: 248 250 252;
+            --c-accent-300: 6 95 70;
+            --c-accent-400: 4 120 87;
+            --c-accent-500: 5 150 105;
+            --c-accent-900: 209 250 229;
+        }
+
+        /* 6. Sepia (Papel cálido) */
+        html[data-theme="sepia"] {
+            --c-bg-main: 243 236 225;
+            --c-bg-card: 253 250 245;
+            --c-border-main: 224 214 198;
+            --c-header-bg: 253 250 245;
+            --c-nav-bg: 253 250 245;
+            --c-text-main: 41 35 28;
+            --c-slate-100: 28 24 19;
+            --c-slate-200: 41 35 28;
+            --c-slate-300: 68 60 50;
+            --c-slate-400: 92 82 70;
+            --c-slate-500: 120 109 95;
+            --c-slate-600: 120 109 95;
+            --c-slate-700: 203 190 170;
+            --c-slate-800: 224 214 198;
+            --c-slate-900: 238 230 217;
+            --c-slate-950: 247 242 234;
+            --c-accent-300: 17 94 89;
+            --c-accent-400: 15 118 110;
+            --c-accent-500: 13 148 136;
+            --c-accent-900: 204 251 241;
+        }
+
+        /* 7. Latte (Catppuccin claro) */
+        html[data-theme="latte"] {
+            --c-bg-main: 239 241 245;
+            --c-bg-card: 255 255 255;
+            --c-border-main: 220 224 232;
+            --c-header-bg: 255 255 255;
+            --c-nav-bg: 255 255 255;
+            --c-text-main: 46 52 79;
+            --c-slate-100: 30 34 54;
+            --c-slate-200: 46 52 79;
+            --c-slate-300: 76 79 105;
+            --c-slate-400: 92 95 119;
+            --c-slate-500: 108 111 133;
+            --c-slate-600: 108 111 133;
+            --c-slate-700: 188 194 209;
+            --c-slate-800: 214 219 229;
+            --c-slate-900: 230 233 239;
+            --c-slate-950: 245 247 250;
+            --c-accent-300: 67 56 202;
+            --c-accent-400: 79 70 229;
+            --c-accent-500: 99 102 241;
+            --c-accent-900: 224 231 255;
+        }
+
+        /* 8. Menta (Claro verdoso) */
+        html[data-theme="mint"] {
+            --c-bg-main: 236 247 242;
+            --c-bg-card: 255 255 255;
+            --c-border-main: 209 235 224;
+            --c-header-bg: 255 255 255;
+            --c-nav-bg: 255 255 255;
+            --c-text-main: 12 45 36;
+            --c-slate-100: 12 45 36;
+            --c-slate-200: 18 48 39;
+            --c-slate-300: 36 68 57;
+            --c-slate-400: 55 92 79;
+            --c-slate-500: 82 117 104;
+            --c-slate-600: 82 117 104;
+            --c-slate-700: 174 218 200;
+            --c-slate-800: 209 235 224;
+            --c-slate-900: 230 244 238;
+            --c-slate-950: 243 250 247;
+            --c-accent-300: 6 95 70;
+            --c-accent-400: 4 120 87;
+            --c-accent-500: 5 150 105;
+            --c-accent-900: 209 250 229;
+        }
+
         body {
-            background-color: #0b0f19;
-            color: #f8fafc;
+            background-color: rgb(var(--c-bg-main));
+            color: rgb(var(--c-text-main));
             -webkit-tap-highlight-color: transparent;
             overscroll-behavior-y: none;
+            transition: background-color 0.2s ease, color 0.2s ease;
         }
         .mono-num {
             font-family: 'JetBrains Mono', monospace;
             font-variant-numeric: tabular-nums;
         }
-        /* Hide scrollbars for horizontal chip lists */
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        .no-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-        /* Smooth glass effect */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
         .glass-header {
-            background: rgba(11, 15, 25, 0.85);
+            background: rgba(var(--c-header-bg), 0.88);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
         }
         .glass-nav {
-            background: rgba(19, 27, 46, 0.92);
+            background: rgba(var(--c-nav-bg), 0.94);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
         }
+
         @keyframes pulse-subtle {
             0%, 100% { opacity: 1; }
             50% { opacity: 0.65; }
         }
-        .animate-pulse-subtle {
-            animation: pulse-subtle 2.5s infinite ease-in-out;
+        .animate-pulse-subtle { animation: pulse-subtle 2.5s infinite ease-in-out; }
+
+        /* Flecha personalizada para select */
+        select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            padding-right: 2.25rem !important;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2394a3b8' stroke-width='2.5'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.85rem center;
+            background-size: 0.95rem;
         }
+        /* Input de fecha nativo */
+        input[type="date"] {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            color-scheme: dark;
+            position: relative;
+            padding-right: 2.25rem !important;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2394a3b8' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.85rem center;
+            background-size: 1rem;
+        }
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            opacity: 0;
+            position: absolute;
+            right: 0;
+            width: 2.5rem;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        /* ========================================= */
+        /* AJUSTES DE LEGIBILIDAD PARA TEMAS CLAROS  */
+        /* ========================================= */
+        html[data-mode="light"] input[type="date"] { color-scheme: light; }
+        html[data-mode="light"] .text-white { color: rgb(var(--c-text-main)); }
+        html[data-mode="light"] .hover\:text-white:hover { color: rgb(var(--c-text-main)); }
+        /* Mantener texto blanco real sobre avatares de colores y botones rojos */
+        html[data-mode="light"] [class*="bg-gradient-to-"].text-white,
+        html[data-mode="light"] .bg-rose-500.text-white,
+        html[data-mode="light"] .keep-white { color: #ffffff !important; }
+        /* Colores semánticos más profundos sobre fondo blanco */
+        html[data-mode="light"] .text-amber-400,
+        html[data-mode="light"] .text-amber-300,
+        html[data-mode="light"] .text-amber-200 { color: #b45309; }
+        html[data-mode="light"] .text-rose-400,
+        html[data-mode="light"] .text-rose-300 { color: #e11d48; }
+        html[data-mode="light"] .text-indigo-400,
+        html[data-mode="light"] .text-indigo-300,
+        html[data-mode="light"] .text-indigo-200 { color: #4338ca; }
+        html[data-mode="light"] .text-sky-400 { color: #0284c7; }
+        html[data-mode="light"] .bg-rose-950\/20 { background-color: rgba(244, 63, 94, 0.08); }
+        html[data-mode="light"] .border-rose-900\/40 { border-color: rgba(244, 63, 94, 0.3); }
+        html[data-mode="light"] .bg-amber-500.text-slate-950 { background-color: #d97706; color: #ffffff; }
+        /* Invierte el SVG del título si sus letras son blancas en modo oscuro */
+        html[data-mode="light"] .theme-logo-title { filter: invert(1) hue-rotate(180deg); }
     </style>
+
+    <!-- Carga instantánea del tema guardado antes de pintar el body -->
+    <script>
+        (function() {
+            const saved = localStorage.getItem('bingo_theme') || 'default';
+            const lightIds = ['light', 'sepia', 'latte', 'mint'];
+            const mode = lightIds.includes(saved) ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', saved);
+            document.documentElement.setAttribute('data-mode', mode);
+            document.documentElement.classList.toggle('dark', mode === 'dark');
+        })();
+    </script>
 </head>
 <body class="min-h-screen flex flex-col selection:bg-emerald-500 selection:text-white pb-24">
 
@@ -92,8 +371,7 @@
                 <img src="./resources/icon.svg" alt="Logo BING-O" class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl shadow-lg shadow-emerald-900/40 object-contain shrink-0">
                 <div class="min-w-0">
                     <div class="flex items-center gap-2">
-                        <img src="./resources/title.svg" alt="BING-O 4.0" class="h-5 sm:h-6 w-auto object-contain shrink-0">
-                        <span id="sync-badge" class="inline-flex items-center gap-1 text-[9px] sm:text-[10px] font-semibold px-1.5 sm:px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 whitespace-nowrap shrink-0">
+                            <img src="./resources/title.svg" alt="BING-O 4.0" class="h-5 sm:h-6 w-auto object-contain shrink-0 theme-logo-title">                        <span id="sync-badge" class="inline-flex items-center gap-1 text-[9px] sm:text-[10px] font-semibold px-1.5 sm:px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 whitespace-nowrap shrink-0">
                             <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
                             CARGANDO
                         </span>
@@ -113,6 +391,10 @@
                     <i class="fa-solid fa-plus text-xs"></i>
                     <span class="hidden sm:inline">Añadir</span>
                 </button>
+                <button onclick="openThemeModal()" class="w-8 h-8 sm:w-auto px-0 sm:px-2.5 py-1.5 rounded-lg bg-slate-800 hover:border-emerald-500/60 text-slate-300 border border-slate-700 font-semibold text-[11px] sm:text-xs transition flex items-center justify-center gap-1.5 shrink-0" title="Cambiar tema">
+                    <i class="fa-solid fa-palette text-emerald-400 text-xs"></i>
+                    <span class="hidden sm:inline">Temas</span>
+                </button>
             </div>
         </div>
     </header>
@@ -126,7 +408,7 @@
         <section id="tab-saldos" class="space-y-5">
 
             <!-- Hero Summary Banner -->
-            <div class="rounded-2xl bg-gradient-to-br from-slate-900 via-[#131b2e] to-slate-900 border border-slate-800 p-4 shadow-xl relative overflow-hidden">
+            <div class="rounded-2xl bg-gradient-to-br from-slate-900 via-cardbg to-slate-900 border border-slate-800 p-4 shadow-xl relative overflow-hidden">
                 <div class="grid grid-cols-3 gap-2 relative z-10">
                     <div class="bg-slate-950/50 rounded-xl p-3 border border-slate-800/80">
                         <span class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold block">Crédito en Circulación</span>
@@ -308,7 +590,7 @@
                 <div id="panel-mode-exact" class="hidden space-y-3 pt-1">
                     <div class="rounded-xl bg-slate-950 p-3 border border-slate-800 flex flex-wrap items-center justify-between gap-2">
                         <div class="text-xs text-slate-300">
-                            Introduce el saldo de cada participante y combina, si lo necesitas, los repartos <strong>P</strong> (positivo) y <strong>X</strong> (negativo). Se aceptan fórmulas simples (ej. =50/2).
+                            Introduce el saldo neto de cada participante (<strong class="text-emerald-400">+</strong> si adelantó, <strong class="text-rose-400">-</strong> si debe) y combina, si lo necesitas, los repartos <strong>P</strong> (positivo) y <strong>X</strong> (negativo). Se aceptan fórmulas simples (ej. <code class="text-slate-200">=25-8.50</code>).
                         </div>
                         <p id="exact-validation-error" class="hidden w-full text-xs text-rose-300 bg-rose-500/10 border border-rose-500/20 rounded-lg px-3 py-2"></p>
                         <div id="exact-discrepancy-badge" class="mono-num text-xs font-bold px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
@@ -316,7 +598,7 @@
                         </div>
                     </div>
 
-                    <div id="exact-inputs-list" class="space-y-2 max-h-80 overflow-y-auto pr-1">
+                    <div id="exact-inputs-list" class="grid grid-cols-1 sm:grid-cols-2 gap-2">
                         <!-- Populated via JS -->
                     </div>
                 </div>
@@ -623,8 +905,8 @@
             <div class="rounded-xl bg-slate-950 p-3 border border-slate-800 text-xs space-y-1.5">
                 <div class="font-semibold text-white">Acción del ajuste dinámico:</div>
                 <ul class="list-disc list-inside text-slate-400 space-y-1 text-[11px]">
-                    <li>Pone a <strong>0,00 €</strong> exactos los decimales residuales de miembros secundarios inactivos.</li>
-                    <li>Absorbe la diferencia exacta repartiéndola a partes iguales entre los miembros de GENTES para que el <strong>Dinero Generado sea 0,00 €</strong>.</li>
+                    <li>Limpia las fracciones de céntimo residuales de todos los miembros del grupo.</li>
+                    <li>Reparte el Dinero Generado (D.G.) equitativamente entre los miembros de GENTES.</li>
                 </ul>
             </div>
             <div class="flex gap-2 pt-1">
@@ -633,6 +915,51 @@
                 </button>
                 <button onclick="applyMaftaProtocol()" id="btn-mafta-confirm" class="flex-1 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs">
                     Ejecutar MAFTA
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- MODAL 3: CONFIRMACIÓN DE LIQUIDAR BIZUM    -->
+    <!-- ========================================== -->
+    <div id="modal-bizum-confirm" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-cardbg border border-slate-700 rounded-2xl max-w-sm w-full p-5 space-y-4 shadow-2xl">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                    <div class="w-9 h-9 rounded-xl bg-indigo-500/20 border border-indigo-500/30 text-indigo-400 flex items-center justify-center">
+                        <i class="fa-solid fa-money-bill-transfer"></i>
+                    </div>
+                    <h3 class="text-base font-bold text-white">Liquidar Bizum</h3>
+                </div>
+                <button onclick="closeBizumConfirmModal()" class="text-slate-400 hover:text-white">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <p class="text-xs text-slate-300 leading-relaxed">
+                Confirma que deseas registrar la siguiente transferencia directa:
+                <!-- ¿Registrar transferencia directa entre <strong id="bizum-confirm-from-name" class="text-rose-400">Deudor</strong> y <strong id="bizum-confirm-to-name" class="text-emerald-400">Acreedor</strong> por un importe de <strong id="bizum-confirm-amount-display" class="mono-num text-white">0,00 €</strong>? -->
+            </p>
+
+            <div class="rounded-xl bg-slate-950 p-3.5 border border-slate-800 flex items-center justify-between gap-2">
+                <div class="flex items-center gap-2 text-xs">
+                    <span id="bizum-confirm-from" class="font-bold text-rose-400">Deudor</span>
+                    <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
+                    <span id="bizum-confirm-to" class="font-bold text-emerald-400">Acreedor</span>
+                </div>
+                <span id="bizum-confirm-amount" class="mono-num text-sm font-extrabold text-white bg-slate-900 px-2.5 py-1 rounded-lg border border-slate-800">
+                    0,00 €
+                </span>
+            </div>
+
+            <div class="flex gap-2 pt-1">
+                <button onclick="closeBizumConfirmModal()" class="flex-1 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300 transition">
+                    Cancelar
+                </button>
+                <button onclick="executeConfirmedBizum()" class="flex-1 py-2.5 rounded-xl bg-indigo-500 hover:bg-indigo-400 text-slate-950 font-bold text-xs shadow-lg shadow-indigo-500/20 transition flex items-center justify-center gap-1.5">
+                    <i class="fa-solid fa-check"></i>
+                    <span>Confirmar</span>
                 </button>
             </div>
         </div>
@@ -651,13 +978,78 @@
                 <p class="text-xs text-slate-400 mt-1 leading-relaxed">Inicia sesión con tu cuenta de Google para firmar transacciones y gestionar saldos.</p>
             </div>
 
-            <button onclick="loginWithGoogle()" class="w-full py-3 px-4 rounded-xl bg-white hover:bg-slate-100 text-slate-900 font-bold text-xs flex items-center justify-center gap-2.5 shadow-lg transition">
-                <i class="fa-brands fa-google text-base text-rose-500"></i>
+            <button onclick="loginWithGoogle()" class="w-full py-3 px-4 rounded-xl bg-white hover:bg-neutral-100 text-neutral-900 border border-neutral-200 font-bold text-xs flex items-center justify-center gap-2.5 shadow-lg transition">                <i class="fa-brands fa-google text-base text-rose-500"></i>
                 <span>Continuar con Google</span>
             </button>
 
             <button onclick="document.getElementById('modal-auth').classList.add('hidden')" class="text-[11px] text-slate-500 hover:text-slate-400 underline">
                 Entrar en modo solo lectura
+            </button>
+        </div>
+    </div>
+    <!-- ========================================== -->
+    <!-- MODAL: SESIÓN INICIADA / CERRAR SESIÓN     -->
+    <!-- ========================================== -->
+    <div id="modal-account" onclick="if(event.target === this) closeAccountModal()" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-cardbg border border-slate-700 rounded-2xl max-w-sm w-full p-5 space-y-4 shadow-2xl">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                    <div class="w-9 h-9 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center">
+                        <i class="fa-solid fa-user-check"></i>
+                    </div>
+                    <h3 class="text-base font-bold text-white">Cuenta conectada</h3>
+                </div>
+                <button onclick="closeAccountModal()" class="text-slate-400 hover:text-white transition">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="rounded-xl bg-slate-950 p-4 border border-slate-800 text-center space-y-2.5">
+                <div id="account-modal-avatar" class="w-14 h-14 mx-auto rounded-2xl bg-slate-800 flex items-center justify-center font-extrabold text-base text-white shadow-md"></div>
+                <p class="text-xs text-slate-300 leading-relaxed">
+                    Sesión iniciada como <strong id="account-modal-name" class="text-white">Usuario</strong>
+                    (<span id="account-modal-email" class="text-slate-400 break-all">correo@gmail.com</span>)
+                </p>
+            </div>
+
+            <div class="flex gap-2 pt-1">
+                <button onclick="closeAccountModal()" class="flex-1 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300 transition">
+                    Volver
+                </button>
+                <button onclick="confirmLogout()" class="flex-1 py-2.5 rounded-xl bg-rose-500 hover:bg-rose-400 text-white keep-white font-bold text-xs shadow-lg shadow-rose-500/20 transition flex items-center justify-center gap-1.5">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Cerrar sesión</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- MODAL: SELECTOR DE TEMAS                   -->
+    <!-- ========================================== -->
+    <div id="modal-themes" onclick="if(event.target === this) closeThemeModal()" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-cardbg border border-slate-700 rounded-2xl max-w-sm w-full p-5 space-y-4 shadow-2xl">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                    <div class="w-9 h-9 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center">
+                        <i class="fa-solid fa-palette"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-bold text-white leading-tight">Temas</h3>
+                        <p class="text-[11px] text-slate-400">Elige el aspecto de BING-O</p>
+                    </div>
+                </div>
+                <button onclick="closeThemeModal()" class="text-slate-400 hover:text-white transition">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div id="themes-modal-content" class="space-y-3.5">
+                <!-- Populated via JS -->
+            </div>
+
+            <button onclick="closeThemeModal()" class="w-full py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300 transition">
+                Cerrar
             </button>
         </div>
     </div>
@@ -701,7 +1093,8 @@
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { 
             getAuth, 
-            signInWithPopup, 
+            signInWithPopup,
+            signInWithRedirect,
             GoogleAuthProvider, 
             onAuthStateChanged, 
             signOut 
@@ -725,7 +1118,7 @@
         const DEFAULT_MEMBERS = [
             { id: 'alex',  name: 'Alex',  code: 'ALX', core: true,  admin: false, color: 'from-sky-500 to-blue-600',        chartColor: '#4285F4', baseBalance: 0, baseMovs: 0, baseAdelantado: 0 },
             { id: 'luis',  name: 'Luis',  code: 'LYB', core: true,  admin: true,  color: 'from-red-500 to-rose-600',        chartColor: '#EA4335', baseBalance: 0, baseMovs: 0, baseAdelantado: 0 },
-            { id: 'max',   name: 'Max',   code: 'PMD', core: true,  admin: false, color: 'from-yellow-500 to-amber-600',    chartColor: '#CA8A04', baseBalance: 0, baseMovs: 0, baseAdelantado: 0 },
+            { id: 'max',   name: 'Martínez', code: 'PMD', core: true, admin: false, color: 'from-yellow-500 to-amber-600',  chartColor: '#CA8A04', baseBalance: 0, baseMovs: 0, baseAdelantado: 0 },
             { id: 'cabo',  name: 'Cabo',  code: 'JCC', core: true,  admin: true,  color: 'from-green-500 to-emerald-600',  chartColor: '#34A853', baseBalance: 0, baseMovs: 0, baseAdelantado: 0 },
             { id: 'emi',   name: 'Emi',   code: 'EMI', core: true,  admin: false, color: 'from-orange-500 to-orange-700',  chartColor: '#FF6D01', baseBalance: 0, baseMovs: 0, baseAdelantado: 0 },
             { id: 'por',   name: 'Por',   code: 'POR', core: false, admin: false, color: 'from-slate-600 to-slate-600',    chartColor: '#2EC4B6', baseBalance: 0, baseMovs: 0, baseAdelantado: 0 },
@@ -896,10 +1289,35 @@
 
         window.handleAuthClick = function() {
             if (currentUser && activeMember) {
-                const logout = confirm(`Sesión iniciada como ${activeMember.name} (${currentUser.email}). ¿Quieres cerrar sesión?`);
-                if (logout) signOut(auth);
+                document.getElementById('account-modal-name').textContent = activeMember.name;
+                document.getElementById('account-modal-email').textContent = currentUser.email;
+
+                const avatarEl = document.getElementById('account-modal-avatar');
+                if (currentUser.photoURL) {
+                    avatarEl.className = "w-14 h-14 mx-auto rounded-2xl bg-cover bg-center border border-slate-700 shadow-md";
+                    avatarEl.style.backgroundImage = `url('${currentUser.photoURL}')`;
+                    avatarEl.textContent = '';
+                } else {
+                    avatarEl.className = `w-14 h-14 mx-auto rounded-2xl bg-gradient-to-br ${activeMember.color} flex items-center justify-center font-extrabold text-base text-white keep-white shadow-md`;
+                    avatarEl.style.backgroundImage = 'none';
+                    avatarEl.textContent = activeMember.code;
+                }
+
+                document.getElementById('modal-account').classList.remove('hidden');
             } else {
                 document.getElementById('modal-auth').classList.remove('hidden');
+            }
+        };
+
+        window.closeAccountModal = function() {
+            document.getElementById('modal-account').classList.add('hidden');
+        };
+
+        window.confirmLogout = async function() {
+            closeAccountModal();
+            if (auth) {
+                await signOut(auth);
+                showToast("Sesión cerrada");
             }
         };
 
@@ -1068,7 +1486,7 @@
                 if (tx.anulado) return;
 
                 totalTxCount++;
-                const isHist = (tx.id && tx.id.startsWith('hist-')) || (tx.rowNum && tx.rowNum <= 628);
+                const isHist = Boolean(tx.id && tx.id.startsWith('hist-'));
                 if (!isHist) newV4Count++;
 
                 let rowSum = 0;
@@ -1149,9 +1567,9 @@
 
             membersList.forEach(m => {
                 const rounded = Math.round(m.balance * 100) / 100;
-                if (rounded < -0.01) {
+                if (rounded <= -0.01) {
                     debtors.push({ id: m.id, name: m.name, amount: Math.abs(rounded) });
-                } else if (rounded > 0.01) {
+                } else if (rounded >= 0.01) {
                     creditors.push({ id: m.id, name: m.name, amount: rounded });
                 }
             });
@@ -1193,13 +1611,16 @@
         // 5. RENDERING FUNCTIONS
         // ---------------------------------------------------------
         function formatEuro(val, showSign = false) {
-            const num = Number(val) || 0;
-            const sign = num > 0.004 ? '+' : (num < -0.004 ? '-' : '');
-            const absStr = Math.abs(num).toLocaleString('es-ES', {
+            // Redondeamos al céntimo real y eliminamos el -0 de JavaScript (+ 0)
+            const cleanNum = (Math.round((Number(val) || 0) * 100) / 100) + 0;
+
+            const sign = cleanNum > 0 ? '+' : (cleanNum < 0 ? '-' : '');
+            const absStr = Math.abs(cleanNum).toLocaleString('es-ES', {
                 minimumFractionDigits: 2,
                 maximumFractionDigits: 2
             });
-            return (showSign ? sign : (num < -0.004 ? '-' : '')) + absStr + '\u00A0€';
+
+            return (showSign ? sign : (cleanNum < 0 ? '-' : '')) + absStr + '\u00A0€';
         }
 
         function refreshAllViews() {
@@ -1225,10 +1646,10 @@
                 rrLabel.textContent = "Riesgo bajo";
             } else if (state.riesgoRelativo < 0.45) {
                 rrEl.className = "mono-num text-lg sm:text-xl font-bold text-amber-400 mt-0.5 block";
-                rrLabel.textContent = "Riesgo Moderado";
+                rrLabel.textContent = "Riesgo moderado";
             } else {
                 rrEl.className = "mono-num text-lg sm:text-xl font-bold text-rose-400 mt-0.5 block";
-                rrLabel.textContent = "Alerta Morosidad";
+                rrLabel.textContent = "Alerta: morosidad alta";
             }
 
             // Filter members
@@ -1279,7 +1700,7 @@
                                 <div class="mono-num text-base sm:text-lg font-extrabold whitespace-nowrap ${isPositive ? 'text-emerald-400' : (isNegative ? 'text-rose-400' : 'text-slate-400')}">
                                     ${formatEuro(bal, true)}
                                 </div>
-                                ${Math.abs(bal) > 0 && Math.abs(bal) < 0.01 ? `<div class="text-[8px] text-amber-400 mono-num whitespace-nowrap">Residuo:${bal.toFixed(4)}€</div>` : ''}
+                                <!-- ${Math.abs(bal) > 0 && Math.abs(bal) < 0.01 ? `<div class="text-[8px] text-amber-400 mono-num whitespace-nowrap">Residuo:${bal.toFixed(4)}€</div>` : ''} -->
                             </div>
                         </div>
 
@@ -1401,8 +1822,12 @@
             recalcCurrentFormPreview();
         };
 
+        function getLocalToday() {
+            return new Date().toLocaleDateString('sv-SE');
+        }
+
         function initFormSelectors() {
-            const today = new Date().toISOString().split('T')[0];
+            const today = getLocalToday();
             if (!document.getElementById('input-date').value) document.getElementById('input-date').value = today;
             refreshMemberSelectors({ sender: 'cabo', receiver: 'luis' });
             recalcEqualSplit();
@@ -1473,10 +1898,13 @@
             list.innerHTML = MEMBERS.map(m => `
                 <div class="grid grid-cols-[minmax(0,1.25fr)_minmax(5rem,1fr)_2.25rem_2.25rem] gap-2 items-center bg-slate-950/70 p-2 rounded-xl border border-slate-800/80">
                     <div class="flex items-center gap-2 min-w-0">
-                        <span class="w-6 h-6 rounded-md bg-gradient-to-br ${m.color} text-[10px] font-bold flex items-center justify-center text-white">${m.code}</span>
+                        <span class="w-6 h-6 rounded-md bg-gradient-to-br ${m.color} text-[10px] font-bold flex items-center justify-center text-white shrink-0">${m.code}</span>
                         <span class="text-xs font-semibold text-white truncate">${m.name}</span>
                     </div>
-                    <input type="text" placeholder="0,00" id="exact-value-${m.id}" oninput="recalcExactSplit()" onfocus="restoreFormulaInput(this)" onblur="resolveFormulaInput(this); recalcExactSplit();" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-1.5 text-xs mono-num text-white placeholder-slate-600 focus:outline-none focus:border-emerald-500">
+                    <div class="relative min-w-0">
+                        <input type="text" placeholder="0,00" id="exact-value-${m.id}" oninput="recalcExactSplit()" onfocus="restoreFormulaInput(this)" onblur="resolveFormulaInput(this); recalcExactSplit();" class="w-full bg-slate-900 border border-slate-800 rounded-lg pl-2.5 pr-6 py-1.5 text-xs text-right mono-num font-bold text-white placeholder-slate-600 focus:outline-none focus:border-emerald-500 transition">
+                        <span class="absolute right-2 top-1.5 text-slate-500 text-xs font-bold">€</span>
+                    </div>
                     <button type="button" onclick="toggleExactRole('${m.id}', 'p')" title="Reparto positivo" class="w-9 h-9 rounded-lg border text-xs font-extrabold transition ${manualPParticipants.has(m.id) ? 'bg-emerald-500 border-emerald-400 text-slate-950' : 'bg-slate-900 border-slate-700 text-slate-400 hover:text-white'}">P</button>
                     <button type="button" onclick="toggleExactRole('${m.id}', 'x')" title="Reparto negativo" class="w-9 h-9 rounded-lg border text-xs font-extrabold transition ${manualXParticipants.has(m.id) ? 'bg-rose-500 border-rose-400 text-white' : 'bg-slate-900 border-slate-700 text-slate-400 hover:text-white'}">X</button>
                 </div>
@@ -1553,7 +1981,16 @@
             const rawCents = {};
 
             MEMBERS.forEach(m => {
-                rawCents[m.id] = Math.round(evaluateExpression(document.getElementById(`exact-value-${m.id}`)?.value) * 100);
+                const inputEl = document.getElementById(`exact-value-${m.id}`);
+                const cents = Math.round(evaluateExpression(inputEl?.value) * 100);
+                rawCents[m.id] = cents;
+
+                if (inputEl) {
+                    inputEl.classList.remove('text-emerald-400', 'text-rose-400', 'text-slate-200', 'text-white');
+                    if (cents > 0) inputEl.classList.add('text-emerald-400');
+                    else if (cents < 0) inputEl.classList.add('text-rose-400');
+                    else inputEl.classList.add('text-slate-200');
+                }
             });
 
             const pIds = MEMBERS.filter(m => manualPParticipants.has(m.id)).map(m => m.id);
@@ -1788,7 +2225,7 @@
             document.getElementById('input-concept').value = '';
             document.getElementById('equal-amount').value = '';
             document.getElementById('bizum-amount').value = '';
-            document.getElementById('input-date').value = new Date().toISOString().split('T')[0];
+            document.getElementById('input-date').value = getLocalToday();
             MEMBERS.forEach(m => {
                 const input = document.getElementById(`exact-value-${m.id}`);
                 if (input) {
@@ -1803,20 +2240,47 @@
             switchTab('saldos');
         };
 
-        window.quickSettleBizum = async function(fromId, toId, amount) {
+        let pendingBizumSettlement = null;
+        window.quickSettleBizum = function(fromId, toId, amount) {
             const fromM = MEMBERS.find(x => x.id === fromId);
             const toM = MEMBERS.find(x => x.id === toId);
             if (!fromM || !toM) return;
 
-            const today = new Date().toISOString().split('T')[0];
+            pendingBizumSettlement = { fromM, toM, amount };
+            const formattedAmount = formatEuro(amount);
+
+            // 1. Párrafo de texto
+/*             document.getElementById('bizum-confirm-from-name').textContent = fromM.name;
+            document.getElementById('bizum-confirm-to-name').textContent = toM.name;
+            document.getElementById('bizum-confirm-amount-display').textContent = formattedAmount; */
+
+            // 2. Cajita resumen con flecha
+            document.getElementById('bizum-confirm-from').textContent = fromM.name;
+            document.getElementById('bizum-confirm-to').textContent = toM.name;
+            document.getElementById('bizum-confirm-amount').textContent = formattedAmount;
+
+            document.getElementById('modal-bizum-confirm').classList.remove('hidden');
+        };
+
+        window.closeBizumConfirmModal = function() {
+            pendingBizumSettlement = null;
+            document.getElementById('modal-bizum-confirm').classList.add('hidden');
+        };
+
+        window.executeConfirmedBizum = async function() {
+            if (!pendingBizumSettlement) return;
+            const { fromM, toM, amount } = pendingBizumSettlement;
+            closeBizumConfirmModal();
+
+            const today = getLocalToday();
             const txObj = {
                 id: 'bizum-' + Date.now(),
-                concept: `Bizum Liquidación (${fromM.name} → ${toM.name})`,
+                concept: `Bizum liquidación (${fromM.name} → ${toM.name})`,
                 date: today,
                 type: 'bizum',
                 deltas: {
-                    [fromId]: amount,
-                    [toId]: -amount
+                    [fromM.id]: amount,
+                    [toM.id]: -amount
                 },
                 createdAt: Date.now()
             };
@@ -1897,34 +2361,59 @@
                 return;
             }
             const state = computeGroupState();
-            if (Math.abs(state.totalDG) < 0.005) {
+            const deltas = {};
+            let residualDust = 0;
+
+            // 1. Purgar el polvo sub-céntimo de TODOS los miembros
+            MEMBERS.forEach(m => {
+                const bal = state.membersMap[m.id].balance;
+                const roundedBal = Math.round(bal * 100) / 100;
+                const dust = bal - roundedBal;
+                if (Math.abs(dust) > 0.00001) {
+                    deltas[m.id] = -Number(dust.toFixed(6));
+                    residualDust += deltas[m.id];
+                }
+            });
+
+            // 2. Calcular los céntimos enteros restantes para dejar el D.G. global en 0,00 €
+            const centsToDistribute = -Math.round((state.totalDG + residualDust) * 100);
+
+            if (centsToDistribute === 0 && Object.keys(deltas).length === 0) {
                 closeMaftaModal();
                 showToast("El grupo ya está cuadrado al céntimo (0,00 €)");
                 return;
             }
 
-            const deltas = {};
+            const n = MEMBERS.filter(m => m.core).length; // 5
+            const baseShare = Math.trunc(centsToDistribute / n);
+            let remainder = Math.abs(centsToDistribute % n);
+            const sign = centsToDistribute >= 0 ? 1 : -1;
 
-            // 1. Limpiar decimales residuales (< 0.10€) en miembros que no estén en deudas activas
-            MEMBERS.forEach(m => {
-                const bal = state.membersMap[m.id].balance;
-                if (!m.core && Math.abs(bal) > 0.00001 && Math.abs(bal) < 0.10) {
-                    deltas[m.id] = -bal;
+            // 3. Castigar siempre al más deudor:
+            // - Si toca repartir (+), los céntimos extra van al que más presta (b - a), dejando fuera al más deudor.
+            // - Si toca quitar (-), los céntimos extra se le restan al que más debe (a - b).
+            const sortedCore = MEMBERS
+                .filter(m => m.core)
+                .map(m => ({
+                    id: m.id,
+                    balance: Math.round((state.membersMap[m.id].balance + (deltas[m.id] || 0)) * 100) / 100
+                }))
+                .sort((a, b) => sign > 0 ? b.balance - a.balance : a.balance - b.balance);
+
+            sortedCore.forEach(m => {
+                let shareCents = baseShare;
+                if (remainder > 0) {
+                    shareCents += sign;
+                    remainder--;
+                }
+                const eur = shareCents / 100;
+                const finalDelta = Math.round(((deltas[m.id] || 0) + eur) * 1000000) / 1000000;
+                if (Math.abs(finalDelta) > 0.00001) {
+                    deltas[m.id] = finalDelta;
                 }
             });
 
-            // 2. Calcular descuadre exacto restante necesario para sumar 0.00 €
-            const currentResidualFix = Object.values(deltas).reduce((a, b) => a + b, 0);
-            const neededForZero = -(state.totalDG + currentResidualFix);
-
-            // 3. Repartir equitativamente entre los miembros del Núcleo Duro
-            const coreMembers = MEMBERS.filter(m => m.core);
-            const share = neededForZero / coreMembers.length;
-            coreMembers.forEach(m => {
-                deltas[m.id] = (deltas[m.id] || 0) + share;
-            });
-
-            const today = new Date().toISOString().split('T')[0];
+            const today = getLocalToday();
             const maftaTx = {
                 id: 'mafta-' + Date.now(),
                 concept: `Ajuste MAFTA (${formatEuro(state.totalDG, true)})`,
@@ -1937,7 +2426,7 @@
             const guardado = await saveNewTransactionObject(maftaTx);
             if (!guardado) return;
             closeMaftaModal();
-            showToast("Protocolo MAFTA aplicado: D.G. ahora es 0,00 € exactos");
+            showToast("Protocolo MAFTA aplicado al céntimo exacto");
         };
 
         function isAuthorizedAdmin() {
@@ -2194,7 +2683,7 @@
                 return {
                     ...tx,
                     rowNum: rowNum,
-                    isHistorical: (tx.id && tx.id.startsWith('hist-')) || (tx.rowNum && tx.rowNum <= 628)
+                    isHistorical: Boolean(tx.id && tx.id.startsWith('hist-'))
                 };
             }).reverse();
 
@@ -2225,11 +2714,11 @@
                     return `
                         <div class="rounded-2xl bg-rose-950/20 border border-rose-900/40 p-3.5 space-y-2 opacity-60">
                             <div class="flex items-center justify-between text-xs">
-                                <span class="line-through text-slate-400 font-bold">#${tx.rowNum} ${tx.concept} (${formatEuro(positiveVol)})</span>
-                                <button onclick="restoreTransaction('${tx.id}')" class="text-[11px] text-emerald-400 hover:underline">Restaurar</button>
+                                <span class="line-through text-slate-400 font-bold">#${tx.rowNum} ${escapeHtml(tx.concept)} (${formatEuro(positiveVol)})</span>
+                                <button onclick="restoreTransaction('${escapeHtml(tx.id)}')" class="text-[11px] text-emerald-400 hover:underline">Restaurar</button>
                             </div>
                             <p class="text-[11px] text-rose-300">
-                                <i class="fa-solid fa-ban mr-1"></i> Anulado por <strong>${tx.anuladoPor || 'un usuario'}</strong> (${tx.fechaAnulacion || 'recientemente'}).
+                                <i class="fa-solid fa-ban mr-1"></i> Anulado por <strong>${escapeHtml(tx.anuladoPor || 'un usuario')}</strong> (${escapeHtml(tx.fechaAnulacion || 'recientemente')}).
                             </p>
                         </div>
                     `;
@@ -2242,7 +2731,7 @@
                         <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[11px] mono-num font-semibold border ${
                             isPos ? 'bg-emerald-500/10 border-emerald-500/25 text-emerald-300' : 'bg-rose-500/10 border-rose-500/25 text-rose-300'
                         }">
-                            <strong class="font-sans text-white">${m ? m.code : id}:</strong> ${formatEuro(val, true)}
+                            <strong class="font-sans text-white">${escapeHtml(m ? m.code : id)}:</strong> ${formatEuro(val, true)}
                         </span>
                     `;
                 }).join('');
@@ -2255,8 +2744,8 @@
                                     #${tx.rowNum}
                                 </span>
                                 <div>
-                                    <h4 class="text-sm font-bold text-white leading-tight">${tx.concept}</h4>
-                                    <span class="text-[11px] text-slate-400 mono-num">${tx.date} · Movido: ${formatEuro(positiveVol)}</span>
+                                    <h4 class="text-sm font-bold text-white leading-tight">${escapeHtml(tx.concept)}</h4>
+                                    <span class="text-[11px] text-slate-400 mono-num">${escapeHtml(tx.date)} · Movido: ${formatEuro(positiveVol)}</span>
                                 </div>
                             </div>
 
@@ -2265,7 +2754,7 @@
                                     Excel v3.2
                                 </span>
                             ` : `
-                                <button onclick="deleteTransaction('${tx.id}')" class="text-slate-500 hover:text-rose-400 p-1.5 rounded-lg hover:bg-rose-500/10 transition" title="Anular transacción">
+                                <button onclick="deleteTransaction('${escapeHtml(tx.id)}')" class="text-slate-500 hover:text-rose-400 p-1.5 rounded-lg hover:bg-rose-500/10 transition" title="Anular transacción">
                                     <i class="fa-solid fa-trash-can text-xs"></i>
                                 </button>
                             `}
@@ -2277,7 +2766,7 @@
                         
                         ${!tx.isHistorical ? `
                             <div class="pt-1.5 border-t border-slate-800/60 flex items-center justify-between">
-                                <span class="text-[10px] text-slate-500"><i class="fa-solid fa-pen-nib mr-1"></i>Creado por ${tx.creadoPor || 'Sistema'}</span>
+                                <span class="text-[10px] text-slate-500"><i class="fa-solid fa-pen-nib mr-1"></i>Creado por ${escapeHtml(tx.creadoPor || 'Sistema')}</span>
                             </div>
                         ` : ''}
                     </div>
@@ -2355,6 +2844,12 @@
             const canvas = document.getElementById('bce-history-chart');
             if (!canvas || typeof Chart === 'undefined' || !timeline) return;
 
+            const isLight = document.documentElement.getAttribute('data-mode') === 'light';
+            const legendColor = isLight ? '#334155' : '#cbd5e1';
+            const gridColor = isLight ? 'rgba(148, 163, 184, 0.28)' : 'rgba(30, 41, 59, 0.7)';
+            const zeroGridColor = isLight ? 'rgba(71, 85, 105, 0.5)' : 'rgba(148, 163, 184, 0.45)';
+            const creditColor = isLight ? '#2563eb' : '#93C5FD';
+
             const labels = timeline.map(pt => pt.date);
 
             // Colores exactos de la gráfica clásica de Google Sheets
@@ -2365,7 +2860,6 @@
                 core: member.core
             }));
 
-            // 1. En datasets de miembros: pointStyle 'line' individual
             const datasets = seriesConfig
                 .filter(s => chartFilterMode === 'all' ? true : s.core)
                 .map(s => ({
@@ -2374,21 +2868,20 @@
                     borderColor: s.color,
                     backgroundColor: s.color,
                     borderWidth: 1.8,
-                    pointStyle: 'line', // Línea sólida estándar para cada miembro
+                    pointStyle: 'line',
                     pointRadius: 0,
                     pointHoverRadius: 4,
                     tension: 0.1
                 }));
 
-            // 2. En Crédito: pointStyle con el canvas punteado
             datasets.push({
                 label: 'Crédito',
                 data: timeline.map(pt => pt.credito),
-                borderColor: '#93C5FD',
+                borderColor: creditColor,
                 backgroundColor: 'transparent',
                 borderWidth: 2,
                 borderDash: [4, 4],
-                pointStyle: createDashedLegendIcon('#93C5FD'), // Su propio icono discontinuo
+                pointStyle: createDashedLegendIcon(creditColor),
                 pointRadius: 0,
                 pointHoverRadius: 4,
                 tension: 0.1
@@ -2411,15 +2904,12 @@
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    interaction: {
-                        mode: 'index',
-                        intersect: false
-                    },
+                    interaction: { mode: 'index', intersect: false },
                     plugins: {
                         legend: {
                             position: 'top',
                             labels: {
-                                color: '#cbd5e1',
+                                color: legendColor,
                                 font: { family: 'Inter', size: 10, weight: '600' },
                                 usePointStyle: true,
                                 boxWidth: 14,
@@ -2428,22 +2918,22 @@
                                 generateLabels: (chart) => {
                                     return chart.data.datasets.map((ds, i) => ({
                                         text: ds.label,
-                                        fontColor: '#cbd5e1', // Fija el texto gris claro en modo oscuro
+                                        fontColor: legendColor,
                                         fillStyle: ds.borderColor,
                                         strokeStyle: ds.borderColor,
                                         lineWidth: ds.borderWidth,
                                         hidden: !chart.isDatasetVisible(i),
-                                        pointStyle: ds.pointStyle, // Línea estándar para miembros, canvas para Crédito
+                                        pointStyle: ds.pointStyle,
                                         datasetIndex: i
                                     }));
                                 }
                             }
                         },
                         tooltip: {
-                            backgroundColor: 'rgba(11, 15, 25, 0.95)',
-                            titleColor: '#f8fafc',
-                            bodyColor: '#cbd5e1',
-                            borderColor: '#334155',
+                            backgroundColor: isLight ? 'rgba(255, 255, 255, 0.96)' : 'rgba(11, 15, 25, 0.95)',
+                            titleColor: isLight ? '#0f172a' : '#f8fafc',
+                            bodyColor: isLight ? '#334155' : '#cbd5e1',
+                            borderColor: isLight ? '#cbd5e1' : '#334155',
                             borderWidth: 1,
                             padding: 10,
                             bodyFont: { family: 'JetBrains Mono', size: 11 },
@@ -2475,7 +2965,7 @@
                                 callback: (val) => val + ' €'
                             },
                             grid: {
-                                color: (ctx) => ctx.tick.value === 0 ? 'rgba(148, 163, 184, 0.45)' : 'rgba(30, 41, 59, 0.7)',
+                                color: (ctx) => ctx.tick.value === 0 ? zeroGridColor : gridColor,
                                 lineWidth: (ctx) => ctx.tick.value === 0 ? 1.5 : 1
                             }
                         }
@@ -2494,7 +2984,7 @@
             const csvLines = [headers.join(';')];
             sortedAll.forEach(tx => {
                 const rowNum = tx.rowNum ? tx.rowNum : counter;
-                counter = Math.max(counter + 1, rowNum + 1);
+                counter = Math.max(counter, rowNum + 1);
                 const d = tx.deltas || {};
                 const estado = tx.anulado ? 'ANULADO' : 'OK';
                 const row = [
@@ -2511,7 +3001,7 @@
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = `BINGO_4.0_Export_${new Date().toISOString().slice(0,10)}.csv`;
+            a.download = `BINGO_4.0_Export_${getLocalToday()}.csv`;
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
@@ -2596,7 +3086,7 @@
         };
 
         window.fixDateAndCloseModal = function() {
-            document.getElementById('input-date').value = new Date().toISOString().split('T')[0];
+            document.getElementById('input-date').value = getLocalToday();
             document.getElementById('modal-rumanos').classList.add('hidden');
         };
 
@@ -2622,8 +3112,95 @@
             setTimeout(() => box.classList.add('hidden'), 3200);
         }
 
+        // ---------------------------------------------------------
+        // GESTOR DE TEMAS
+        // ---------------------------------------------------------
+        const THEMES = [
+            { id: 'default', name: 'BING-O Clásico', mode: 'dark',  meta: '#0b0f19', swatches: ['#0b0f19', '#131b2e', '#10b981'] },
+            { id: 'amoled',  name: 'OLED Negro',     mode: 'dark',  meta: '#000000', swatches: ['#000000', '#0e0e11', '#10b981'] },
+            { id: 'nord',    name: 'Nord',           mode: 'dark',  meta: '#242933', swatches: ['#242933', '#2e3440', '#88c0d0'] },
+            { id: 'dracula', name: 'Drácula',        mode: 'dark',  meta: '#191a23', swatches: ['#191a23', '#282a36', '#bd93f9'] },
+            { id: 'light',   name: 'Claro',          mode: 'light', meta: '#ffffff', swatches: ['#f1f5f9', '#ffffff', '#059669'] },
+            { id: 'sepia',   name: 'Sepia',          mode: 'light', meta: '#fdfaf5', swatches: ['#f3ece1', '#fdfaf5', '#0d9488'] },
+            { id: 'latte',   name: 'Latte',          mode: 'light', meta: '#ffffff', swatches: ['#eff1f5', '#ffffff', '#4f46e5'] },
+            { id: 'mint',    name: 'Menta',          mode: 'light', meta: '#ffffff', swatches: ['#ecf7f2', '#ffffff', '#047857'] }
+        ];
+
+        function applyTheme(themeId, silent = false) {
+            const theme = THEMES.find(t => t.id === themeId) || THEMES[0];
+            document.documentElement.setAttribute('data-theme', theme.id);
+            document.documentElement.setAttribute('data-mode', theme.mode);
+            document.documentElement.classList.toggle('dark', theme.mode === 'dark');
+
+            const metaTheme = document.querySelector('meta[name="theme-color"]');
+            if (metaTheme) metaTheme.setAttribute('content', theme.meta);
+
+            localStorage.setItem('bingo_theme', theme.id);
+            renderThemePicker();
+
+            // Repintar gráfica BCE con los colores del tema activo
+            if (bceChartInstance) {
+                bceChartInstance.destroy();
+                bceChartInstance = null;
+                renderBCEChart(computeGroupState().timeline);
+            }
+
+            if (!silent) showToast(`Tema: ${theme.name}`);
+        }
+
+        function renderThemePicker() {
+            const container = document.getElementById('themes-modal-content');
+            if (!container) return;
+            const activeId = document.documentElement.getAttribute('data-theme') || 'default';
+
+            const renderGroup = (title, icon, items) => `
+                <div>
+                    <div class="text-[10px] uppercase tracking-wider text-slate-400 font-bold mb-2 flex items-center gap-1.5">
+                        <i class="fa-solid ${icon} text-[10px]"></i>
+                        <span>${title}</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2">
+                        ${items.map(t => {
+                            const isActive = t.id === activeId;
+                            return `
+                                <button type="button" onclick="selectTheme('${t.id}')" class="p-2.5 rounded-xl border text-left transition flex flex-col gap-2 ${
+                                    isActive
+                                        ? 'bg-emerald-500/10 border-emerald-500 ring-1 ring-emerald-500/40'
+                                        : 'bg-slate-950/70 border-slate-800 hover:border-slate-600'
+                                }">
+                                    <div class="flex items-center justify-between w-full">
+                                        <div class="flex items-center -space-x-1">
+                                            ${t.swatches.map(hex => `<span class="w-4 h-4 rounded-full border border-black/25 shadow-sm" style="background:${hex}"></span>`).join('')}
+                                        </div>
+                                        ${isActive ? '<i class="fa-solid fa-circle-check text-emerald-400 text-xs"></i>' : ''}
+                                    </div>
+                                    <span class="text-xs font-bold text-white truncate">${t.name}</span>
+                                </button>
+                            `;
+                        }).join('')}
+                    </div>
+                </div>
+            `;
+
+            container.innerHTML =
+                renderGroup('Oscuros', 'fa-moon', THEMES.filter(t => t.mode === 'dark')) +
+                renderGroup('Claros', 'fa-sun', THEMES.filter(t => t.mode === 'light'));
+        }
+
+        window.openThemeModal = function() {
+            renderThemePicker();
+            document.getElementById('modal-themes').classList.remove('hidden');
+        };
+        window.closeThemeModal = function() {
+            document.getElementById('modal-themes').classList.add('hidden');
+        };
+        window.selectTheme = function(id) {
+            applyTheme(id, false);
+        };
+
         // Boot App
         window.addEventListener('DOMContentLoaded', () => {
+            applyTheme(localStorage.getItem('bingo_theme') || 'default', true);
             initFormSelectors();
             refreshAllViews();
             loadOldTransactions(); // Carga las 628 transacciones históricas desde history_old.json (0 lecturas)
