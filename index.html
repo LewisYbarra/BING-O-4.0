@@ -1102,10 +1102,12 @@
 
             <div class="rounded-xl bg-slate-950 p-4 border border-slate-800 text-center space-y-2.5">
                 <div id="account-modal-avatar" class="w-14 h-14 mx-auto rounded-2xl bg-slate-800 flex items-center justify-center font-extrabold text-base text-white shadow-md"></div>
-                <p class="text-xs text-slate-300 leading-relaxed">
-                    Sesión iniciada como <strong id="account-modal-name" class="text-white">Usuario</strong>
-                    (<span id="account-modal-email" class="text-slate-400 break-all">correo@gmail.com</span>)
-                </p>
+                <div class="space-y-1">
+                    <p class="text-xs text-slate-300">
+                        Sesión iniciada como <strong id="account-modal-name" class="text-white">Usuario</strong>
+                    </p>
+                    <p id="account-modal-email" class="text-[11px] text-slate-400 break-words">correo@gmail.com</p>
+                </div>
             </div>
 
             <div class="flex gap-2 pt-1">
