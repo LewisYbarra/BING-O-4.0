@@ -383,9 +383,9 @@
 
             <!-- Bloque derecho (Botones protegidos contra aplastamiento) -->
             <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
-                <button onclick="handleAuthClick()" id="btn-current-user" class="px-2 sm:px-2.5 py-1.5 rounded-lg bg-slate-800 text-[11px] sm:text-xs font-semibold text-slate-300 border border-slate-700 hover:border-slate-500 flex items-center gap-1.5 transition whitespace-nowrap shrink-0">
+                <button onclick="handleAuthClick()" id="btn-current-user" title="Iniciar sesión" class="w-8 h-8 sm:w-auto sm:h-auto px-0 sm:px-2.5 py-1.5 rounded-lg bg-slate-800 text-[11px] sm:text-xs font-semibold text-slate-300 border border-slate-700 hover:border-slate-500 flex items-center justify-center gap-1.5 transition whitespace-nowrap shrink-0">
                     <i class="fa-brands fa-google text-slate-400 text-xs shrink-0" id="auth-user-icon"></i>
-                    <span id="label-current-user">Iniciar sesión</span>
+                    <span id="label-current-user" class="hidden sm:inline">Iniciar sesión</span>
                 </button>
                 <button onclick="switchTab('nuevo')" class="w-8 h-8 sm:w-auto px-0 sm:px-3 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs shadow-md shadow-emerald-500/20 transition flex items-center justify-center gap-1.5 shrink-0" title="Añadir transacción">
                     <i class="fa-solid fa-plus text-xs"></i>
@@ -407,18 +407,17 @@
         <!-- ========================================== -->
         <section id="tab-saldos" class="space-y-5">
 
+            <p class="text-center text-[10px] sm:text-[11px] tracking-wide text-slate-500">
+                Una aplicación del Banco de Inversión Nacional de Gentes
+            </p>
+
             <!-- Hero Summary Banner -->
             <div class="rounded-2xl bg-gradient-to-br from-slate-900 via-cardbg to-slate-900 border border-slate-800 p-4 shadow-xl relative overflow-hidden">
-                <div class="grid grid-cols-3 gap-2 relative z-10">
+                <div class="grid grid-cols-2 gap-2 relative z-10">
                     <div class="bg-slate-950/50 rounded-xl p-3 border border-slate-800/80">
                         <span class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold block">Crédito en Circulación</span>
                         <span id="hero-credito" class="mono-num text-lg sm:text-xl font-bold text-amber-400 mt-0.5 block">0,00 €</span>
                         <span class="text-[10px] text-slate-500">Media: 88,60 €</span>
-                    </div>
-                    <div class="bg-slate-950/50 rounded-xl p-3 border border-slate-800/80">
-                        <span class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold block">Movimientos</span>
-                        <span id="hero-tx-count" class="mono-num text-lg sm:text-xl font-bold text-white mt-0.5 block">0</span>
-                        <span id="hero-new-count" class="text-[10px] text-emerald-400">0 en v4.0</span>
                     </div>
                     <div class="bg-slate-950/50 rounded-xl p-3 border border-slate-800/80">
                         <span class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold block">Riesgo Relativo</span>
@@ -559,7 +558,7 @@
                     <!-- Participant Selector (P) -->
                     <div>
                         <div class="flex items-center justify-between mb-2">
-                            <label class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">¿Quiénes participaron en el plan?</label>
+                            <label class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">Participantes</label>
                             <div class="flex gap-1.5">
                                 <button type="button" onclick="selectParticipantsPreset('core')" class="text-[10px] px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-300">GENTES (5)</button>
                                 <button type="button" onclick="selectParticipantsPreset('all')" class="text-[10px] px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-300">Todos (8)</button>
@@ -635,7 +634,7 @@
                 <!-- LIVE TRANSACTION PREVIEW BOX -->
                 <div class="rounded-xl bg-slate-950/90 border border-slate-800 p-3.5 space-y-2">
                     <div class="flex items-center justify-between">
-                        <span class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">Vista previa de la fila contable</span>
+                        <span class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">Vista previa de la transacción</span>
                         <span id="preview-sum-check" class="mono-num text-[11px] font-semibold text-emerald-400">Suma: 0,00 €</span>
                     </div>
                     <div id="live-deltas-preview" class="flex flex-wrap gap-1.5 pt-1">
@@ -755,7 +754,7 @@
                                 <tr class="bg-slate-950 text-slate-400 border-b border-slate-800 text-[10px] uppercase">
                                     <th class="py-2.5 px-2 sm:px-3">Miembro</th>
                                     <th class="py-2.5 px-2 sm:px-3 text-right whitespace-nowrap">Saldo</th>
-                                    <th class="py-2.5 px-1.5 sm:px-3 text-right whitespace-nowrap">Transacciones</th>
+                                    <th class="py-2.5 px-1.5 sm:px-3 text-right whitespace-nowrap">N.º</th>
                                     <th class="py-2.5 px-2 sm:px-3 text-right whitespace-nowrap">Total</th>
                                 </tr>
                             </thead>
@@ -1322,8 +1321,10 @@
         };
 
         function updateUserHeader(name, photoUrl) {
+            const button = document.getElementById('btn-current-user');
             const label = document.getElementById('label-current-user');
             const icon = document.getElementById('auth-user-icon');
+            button.title = name || 'Iniciar sesión';
             if (name) {
                 label.textContent = name;
                 if (photoUrl) {
@@ -1568,9 +1569,9 @@
             membersList.forEach(m => {
                 const rounded = Math.round(m.balance * 100) / 100;
                 if (rounded <= -0.01) {
-                    debtors.push({ id: m.id, name: m.name, amount: Math.abs(rounded) });
+                    debtors.push({ id: m.id, code: m.code, amount: Math.abs(rounded) });
                 } else if (rounded >= 0.01) {
-                    creditors.push({ id: m.id, name: m.name, amount: rounded });
+                    creditors.push({ id: m.id, code: m.code, amount: rounded });
                 }
             });
 
@@ -1590,9 +1591,9 @@
                 if (amount >= 0.01) {
                     transfers.push({
                         fromId: d.id,
-                        fromName: d.name,
+                        fromCode: d.code,
                         toId: c.id,
-                        toName: c.name,
+                        toCode: c.code,
                         amount: Math.round(amount * 100) / 100
                     });
                 }
@@ -1634,8 +1635,6 @@
         function renderDashboard(state) {
             // Hero Metrics
             document.getElementById('hero-credito').textContent = formatEuro(state.creditoCirculacion);
-            document.getElementById('hero-tx-count').textContent = state.totalTxCount;
-            document.getElementById('hero-new-count').textContent = `${state.newTxCount} en v4.0`;
 
             const rrPercent = (state.riesgoRelativo * 100).toFixed(1).replace('.', ',') + '%';
             const rrEl = document.getElementById('hero-riesgo');
@@ -1690,9 +1689,6 @@
                                             ${statusText}
                                         </span>
                                     </div>
-                                    <div class="text-[11px] text-slate-400 mt-0.5">
-                                        <span>${m.movs} transacciones</span> · <span class="whitespace-nowrap">Total: <strong class="text-slate-300 mono-num">${formatEuro(m.adelantado)}</strong></span>
-                                    </div>
                                 </div>
                             </div>
 
@@ -1728,9 +1724,9 @@
                 planList.innerHTML = transfers.map(t => `
                     <div class="flex items-center justify-between gap-2 p-3 rounded-xl bg-slate-950/90 border border-slate-800/90">
                         <div class="flex items-center gap-2 text-xs">
-                            <span class="font-bold text-rose-400">${t.fromName}</span>
+                            <span class="font-bold text-rose-400">${t.fromCode}</span>
                             <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
-                            <span class="font-bold text-emerald-400">${t.toName}</span>
+                            <span class="font-bold text-emerald-400">${t.toCode}</span>
                             <span class="mono-num font-extrabold text-white bg-slate-900 px-2 py-0.5 rounded-md border border-slate-800 ml-1">
                                 ${formatEuro(t.amount)}
                             </span>
@@ -2217,7 +2213,7 @@
             recalcCurrentFormPreview();
             showToast(maftaActive
                 ? `Transacción MAFTA registrada: «${concept}» (${formatEuro(totalRowSum, true)})`
-                : `Transacción registrada: «${concept}» (D.G. 0,00 €)`);
+                : `Transacción registrada: «${concept}»`);
             switchTab('saldos');
         }
 
