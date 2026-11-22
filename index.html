@@ -257,6 +257,101 @@
             --c-accent-500: 5 150 105;
             --c-accent-900: 209 250 229;
         }
+        /* 9. Gruvbox (Oscuro cálido) */
+        html[data-theme="gruvbox"] {
+            --c-bg-main: 29 32 33;
+            --c-bg-card: 40 40 40;
+            --c-border-main: 60 56 54;
+            --c-header-bg: 29 32 33;
+            --c-nav-bg: 40 40 40;
+            --c-text-main: 235 219 178;
+            --c-slate-100: 251 241 199;
+            --c-slate-200: 235 219 178;
+            --c-slate-300: 213 196 161;
+            --c-slate-400: 189 174 147;
+            --c-slate-500: 146 131 116;
+            --c-slate-600: 124 111 100;
+            --c-slate-700: 80 73 69;
+            --c-slate-800: 60 56 54;
+            --c-slate-900: 40 40 40;
+            --c-slate-950: 24 26 27;
+            --c-accent-300: 250 189 47;
+            --c-accent-400: 254 128 25;
+            --c-accent-500: 214 93 14;
+            --c-accent-900: 66 32 6;
+        }
+
+        /* 10. Rosé Pine (Oscuro aterciopelado) */
+        html[data-theme="rosepine"] {
+            --c-bg-main: 25 23 36;
+            --c-bg-card: 31 29 46;
+            --c-border-main: 64 61 82;
+            --c-header-bg: 25 23 36;
+            --c-nav-bg: 31 29 46;
+            --c-text-main: 224 222 244;
+            --c-slate-100: 224 222 244;
+            --c-slate-200: 212 209 236;
+            --c-slate-300: 192 188 220;
+            --c-slate-400: 144 140 170;
+            --c-slate-500: 110 106 134;
+            --c-slate-600: 82 79 103;
+            --c-slate-700: 64 61 82;
+            --c-slate-800: 50 47 68;
+            --c-slate-900: 38 35 58;
+            --c-slate-950: 20 18 30;
+            --c-accent-300: 246 193 119;
+            --c-accent-400: 235 188 186;
+            --c-accent-500: 235 111 146;
+            --c-accent-900: 76 29 52;
+        }
+
+        /* 11. Sakura (Claro rosado) */
+        html[data-theme="sakura"] {
+            --c-bg-main: 253 242 248;
+            --c-bg-card: 255 255 255;
+            --c-border-main: 249 216 232;
+            --c-header-bg: 255 255 255;
+            --c-nav-bg: 255 255 255;
+            --c-text-main: 59 18 39;
+            --c-slate-100: 59 18 39;
+            --c-slate-200: 80 23 52;
+            --c-slate-300: 108 42 74;
+            --c-slate-400: 131 66 98;
+            --c-slate-500: 157 98 127;
+            --c-slate-600: 157 98 127;
+            --c-slate-700: 244 182 212;
+            --c-slate-800: 249 216 232;
+            --c-slate-900: 252 231 243;
+            --c-slate-950: 255 247 251;
+            --c-accent-300: 157 23 77;
+            --c-accent-400: 190 24 93;
+            --c-accent-500: 219 39 119;
+            --c-accent-900: 252 231 243;
+        }
+
+        /* 12. Solarized (Claro clásico crema + azul) */
+        html[data-theme="solarized"] {
+            --c-bg-main: 243 236 218;
+            --c-bg-card: 253 246 227;
+            --c-border-main: 224 215 191;
+            --c-header-bg: 253 246 227;
+            --c-nav-bg: 253 246 227;
+            --c-text-main: 7 54 66;
+            --c-slate-100: 0 43 54;
+            --c-slate-200: 7 54 66;
+            --c-slate-300: 88 110 117;
+            --c-slate-400: 101 123 131;
+            --c-slate-500: 131 148 150;
+            --c-slate-600: 131 148 150;
+            --c-slate-700: 205 195 168;
+            --c-slate-800: 224 215 191;
+            --c-slate-900: 238 232 213;
+            --c-slate-950: 250 243 224;
+            --c-accent-300: 23 99 156;
+            --c-accent-400: 29 118 184;
+            --c-accent-500: 38 139 210;
+            --c-accent-900: 219 234 254;
+        }
 
         body {
             background-color: rgb(var(--c-bg-main));
@@ -353,7 +448,7 @@
     <script>
         (function() {
             const saved = localStorage.getItem('bingo_theme') || 'default';
-            const lightIds = ['light', 'sepia', 'latte', 'mint'];
+            const lightIds = ['light', 'sepia', 'latte', 'mint', 'sakura', 'solarized'];
             const mode = lightIds.includes(saved) ? 'light' : 'dark';
             document.documentElement.setAttribute('data-theme', saved);
             document.documentElement.setAttribute('data-mode', mode);
@@ -1045,7 +1140,7 @@
                 </button>
             </div>
 
-            <div id="themes-modal-content" class="space-y-3.5">
+            <div id="themes-modal-content" class="space-y-3.5 max-h-[65vh] overflow-y-auto no-scrollbar">
                 <!-- Populated via JS -->
             </div>
 
@@ -3114,14 +3209,18 @@
         // GESTOR DE TEMAS
         // ---------------------------------------------------------
         const THEMES = [
-            { id: 'default', name: 'BING-O Clásico', mode: 'dark',  meta: '#0b0f19', swatches: ['#0b0f19', '#131b2e', '#10b981'] },
-            { id: 'amoled',  name: 'OLED Negro',     mode: 'dark',  meta: '#000000', swatches: ['#000000', '#0e0e11', '#10b981'] },
-            { id: 'nord',    name: 'Nord',           mode: 'dark',  meta: '#242933', swatches: ['#242933', '#2e3440', '#88c0d0'] },
-            { id: 'dracula', name: 'Drácula',        mode: 'dark',  meta: '#191a23', swatches: ['#191a23', '#282a36', '#bd93f9'] },
-            { id: 'light',   name: 'Claro',          mode: 'light', meta: '#ffffff', swatches: ['#f1f5f9', '#ffffff', '#059669'] },
-            { id: 'sepia',   name: 'Sepia',          mode: 'light', meta: '#fdfaf5', swatches: ['#f3ece1', '#fdfaf5', '#0d9488'] },
-            { id: 'latte',   name: 'Latte',          mode: 'light', meta: '#ffffff', swatches: ['#eff1f5', '#ffffff', '#4f46e5'] },
-            { id: 'mint',    name: 'Menta',          mode: 'light', meta: '#ffffff', swatches: ['#ecf7f2', '#ffffff', '#047857'] }
+            { id: 'default',   name: 'BING-O Clásico', mode: 'dark',  meta: '#0b0f19', swatches: ['#0b0f19', '#131b2e', '#10b981'] },
+            { id: 'amoled',    name: 'OLED Negro',     mode: 'dark',  meta: '#000000', swatches: ['#000000', '#0e0e11', '#10b981'] },
+            { id: 'nord',      name: 'Nord',           mode: 'dark',  meta: '#242933', swatches: ['#242933', '#2e3440', '#88c0d0'] },
+            { id: 'dracula',   name: 'Drácula',        mode: 'dark',  meta: '#191a23', swatches: ['#191a23', '#282a36', '#bd93f9'] },
+            { id: 'gruvbox',   name: 'Gruvbox',        mode: 'dark',  meta: '#1d2021', swatches: ['#1d2021', '#282828', '#d65d0e'] },
+            { id: 'rosepine',  name: 'Rosé Pine',      mode: 'dark',  meta: '#191724', swatches: ['#191724', '#1f1d2e', '#eb6f92'] },
+            { id: 'light',     name: 'Claro',          mode: 'light', meta: '#ffffff', swatches: ['#f1f5f9', '#ffffff', '#059669'] },
+            { id: 'sepia',     name: 'Sepia',          mode: 'light', meta: '#fdfaf5', swatches: ['#f3ece1', '#fdfaf5', '#0d9488'] },
+            { id: 'latte',     name: 'Latte',          mode: 'light', meta: '#ffffff', swatches: ['#eff1f5', '#ffffff', '#4f46e5'] },
+            { id: 'mint',      name: 'Menta',          mode: 'light', meta: '#ffffff', swatches: ['#ecf7f2', '#ffffff', '#047857'] },
+            { id: 'sakura',    name: 'Sakura',         mode: 'light', meta: '#ffffff', swatches: ['#fdf2f8', '#ffffff', '#db2777'] },
+            { id: 'solarized', name: 'Solarized',      mode: 'light', meta: '#fdf6e3', swatches: ['#f3ecda', '#fdf6e3', '#268bd2'] }
         ];
 
         function applyTheme(themeId, silent = false) {
