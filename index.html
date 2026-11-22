@@ -109,9 +109,9 @@
                     <i class="fa-brands fa-google text-slate-400 text-xs shrink-0" id="auth-user-icon"></i>
                     <span id="label-current-user">Iniciar sesión</span>
                 </button>
-                <button onclick="switchTab('nuevo')" class="w-8 h-8 sm:w-auto px-0 sm:px-3 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs shadow-md shadow-emerald-500/20 transition flex items-center justify-center gap-1.5 shrink-0" title="Apuntar gasto">
+                <button onclick="switchTab('nuevo')" class="w-8 h-8 sm:w-auto px-0 sm:px-3 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs shadow-md shadow-emerald-500/20 transition flex items-center justify-center gap-1.5 shrink-0" title="Añadir transacción">
                     <i class="fa-solid fa-plus text-xs"></i>
-                    <span class="hidden sm:inline">Apuntar</span>
+                    <span class="hidden sm:inline">Añadir</span>
                 </button>
             </div>
         </div>
@@ -129,7 +129,7 @@
             <div class="rounded-2xl bg-gradient-to-br from-slate-900 via-[#131b2e] to-slate-900 border border-slate-800 p-4 shadow-xl relative overflow-hidden">
                 <div class="grid grid-cols-3 gap-2 relative z-10">
                     <div class="bg-slate-950/50 rounded-xl p-3 border border-slate-800/80">
-                        <span class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold block">Crédito Vivo</span>
+                        <span class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold block">Crédito en Circulación</span>
                         <span id="hero-credito" class="mono-num text-lg sm:text-xl font-bold text-amber-400 mt-0.5 block">0,00 €</span>
                         <span class="text-[10px] text-slate-500">Media: 88,60 €</span>
                     </div>
@@ -141,7 +141,7 @@
                     <div class="bg-slate-950/50 rounded-xl p-3 border border-slate-800/80">
                         <span class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold block">Riesgo Relativo</span>
                         <span id="hero-riesgo" class="mono-num text-lg sm:text-xl font-bold text-emerald-400 mt-0.5 block">0,0%</span>
-                        <span id="hero-riesgo-label" class="text-[10px] text-slate-500">Estable (BCE)</span>
+                        <span id="hero-riesgo-label" class="text-[10px] text-slate-500">Estable</span>
                     </div>
                 </div>
             </div>
@@ -177,8 +177,8 @@
                             <i class="fa-solid fa-bolt"></i>
                         </div>
                         <div>
-                            <h2 class="text-sm font-bold text-white">Liquidador de Bizums Óptimo</h2>
-                            <p class="text-[11px] text-slate-400">Transferencias mínimas para saldar deudas</p>
+                            <h2 class="text-sm font-bold text-white">Liquidar deuda</h2>
+                            <p class="text-[11px] text-slate-400">Propuesta de pagos para saldar los balances</p>
                         </div>
                     </div>
                     <span id="settlement-count-badge" class="text-[11px] mono-num font-semibold px-2.5 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
@@ -204,8 +204,8 @@
             <div class="rounded-2xl bg-cardbg border border-slate-800 p-4 shadow-xl space-y-4">
                 <div class="flex items-center justify-between gap-3 border-b border-slate-800 pb-3">
                     <div class="min-w-0">
-                        <h2 class="text-sm sm:text-base font-bold text-white leading-tight">Nuevo Apunte</h2>
-                        <p class="text-[11px] sm:text-xs text-slate-400 leading-normal">Elige el tipo de apunte contable</p>
+                        <h2 class="text-sm sm:text-base font-bold text-white leading-tight">Nueva transacción</h2>
+                        <p class="text-[11px] sm:text-xs text-slate-400 leading-normal">Elige el tipo de transacción</p>
                     </div>
                     <span class="mono-num text-[11px] sm:text-xs font-bold px-2.5 py-1 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 whitespace-nowrap shrink-0">
                         D.G. = 0,00 €
@@ -232,7 +232,7 @@
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
                     <div class="sm:col-span-2">
                         <label class="block text-[11px] uppercase tracking-wider text-slate-400 font-semibold mb-1">Asunto / Concepto</label>
-                        <input id="input-concept" type="text" placeholder="Ej. Cañas, Kebab, Burger, Cena..." class="w-full bg-slate-950 border border-slate-800 focus:border-emerald-500 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:outline-none transition">
+                        <input id="input-concept" type="text" placeholder="Ej. Jai Alai, Tri, Cena, Cañas..." class="w-full bg-slate-950 border border-slate-800 focus:border-emerald-500 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-slate-600 focus:outline-none transition">
                     </div>
                     <div>
                         <div class="flex items-center justify-between mb-1">
@@ -241,6 +241,17 @@
                         </div>
                         <input id="input-date" type="date" class="w-full bg-slate-950 border border-slate-800 focus:border-emerald-500 rounded-xl px-3 py-2.5 text-sm text-white focus:outline-none transition">
                     </div>
+                </div>
+
+                <div id="mafta-entry-banner" class="hidden rounded-xl bg-amber-500/10 border border-amber-500/30 p-3 items-center justify-between gap-3">
+                    <div>
+                        <div class="text-xs font-bold text-amber-300">Protocolo MAFTA habilitado</div>
+                        <p class="text-[11px] text-amber-100/70 mt-0.5">La próxima transacción puede tener un saldo distinto de cero.</p>
+                    </div>
+                    <label class="inline-flex items-center gap-2 text-xs font-semibold text-amber-200 cursor-pointer shrink-0">
+                        <input id="mafta-entry-enabled" type="checkbox" checked onchange="updateMaftaEntryState()" class="accent-amber-500 w-4 h-4">
+                        Aplicar
+                    </label>
                 </div>
 
                 <!-- ========================================== -->
@@ -257,7 +268,7 @@
                         <div>
                             <label class="block text-[11px] uppercase tracking-wider text-slate-400 font-semibold mb-1">Importe Total Pagado (€)</label>
                             <div class="relative">
-                                <input id="equal-amount" type="text" placeholder="0.00" oninput="recalcEqualSplit()" onblur="resolveFormulaInput(this); recalcEqualSplit();" class="w-full bg-slate-950 border border-slate-800 focus:border-emerald-500 rounded-xl pl-3.5 pr-9 py-2.5 text-sm mono-num font-bold text-emerald-400 focus:outline-none">
+                                <input id="equal-amount" type="text" placeholder="0.00" oninput="recalcEqualSplit()" onfocus="restoreFormulaInput(this)" onblur="resolveFormulaInput(this); recalcEqualSplit();" class="w-full bg-slate-950 border border-slate-800 focus:border-emerald-500 rounded-xl pl-3.5 pr-9 py-2.5 text-sm mono-num font-bold text-emerald-400 focus:outline-none">
                                 <span class="absolute right-3.5 top-2.5 text-slate-500 font-bold">€</span>
                             </div>
                         </div>
@@ -297,8 +308,9 @@
                 <div id="panel-mode-exact" class="hidden space-y-3 pt-1">
                     <div class="rounded-xl bg-slate-950 p-3 border border-slate-800 flex flex-wrap items-center justify-between gap-2">
                         <div class="text-xs text-slate-300">
-                            Introduce manualmente lo que pagó o consumió cada participante. Se aceptan fórmulas simples (ej. =50/2).
+                            Introduce el saldo de cada participante y combina, si lo necesitas, los repartos <strong>P</strong> (positivo) y <strong>X</strong> (negativo). Se aceptan fórmulas simples (ej. =50/2).
                         </div>
+                        <p id="exact-validation-error" class="hidden w-full text-xs text-rose-300 bg-rose-500/10 border border-rose-500/20 rounded-lg px-3 py-2"></p>
                         <div id="exact-discrepancy-badge" class="mono-num text-xs font-bold px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
                             D.G. = 0,00 €
                         </div>
@@ -333,7 +345,7 @@
                         </div>
                         <div>
                             <label class="block text-[11px] uppercase tracking-wider text-slate-400 font-semibold mb-1">Importe Bizum (€)</label>
-                            <input id="bizum-amount" type="text" placeholder="0.00 (ej. =50/2)" oninput="recalcBizumPreview()" onblur="resolveFormulaInput(this); recalcBizumPreview();" class="w-full bg-slate-950 border border-slate-800 focus:border-indigo-500 rounded-xl px-3.5 py-2.5 text-sm mono-num font-bold text-indigo-400 focus:outline-none">
+                            <input id="bizum-amount" type="text" placeholder="0.00 (ej. =50/2)" oninput="recalcBizumPreview()" onfocus="restoreFormulaInput(this)" onblur="resolveFormulaInput(this); recalcBizumPreview();" class="w-full bg-slate-950 border border-slate-800 focus:border-indigo-500 rounded-xl px-3.5 py-2.5 text-sm mono-num font-bold text-indigo-400 focus:outline-none">
                         </div>
                     </div>
                 </div>
@@ -370,7 +382,7 @@
             <div class="rounded-2xl bg-cardbg border border-slate-800 p-4 space-y-3">
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                     <div>
-                        <h2 class="text-base font-bold text-white">Libro Contable</h2>
+                        <h2 class="text-base font-bold text-white">Historial</h2>
                         <p class="text-xs text-slate-400">Banco de Inversión Nacional de GENTES - Organización</p>
                     </div>
                     <button onclick="exportToCSV()" class="self-start sm:self-auto px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-emerald-400 border border-slate-700 flex items-center gap-1.5 transition">
@@ -383,7 +395,7 @@
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-1">
                     <div class="sm:col-span-2 relative">
                         <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3 text-slate-500 text-xs"></i>
-                        <input id="history-search" type="text" oninput="renderHistory()" placeholder="Buscar por asunto (Cañas, Burger, Bizum...)" class="w-full bg-slate-950 border border-slate-800 rounded-xl pl-9 pr-3 py-2 text-xs text-white focus:outline-none focus:border-emerald-500">
+                        <input id="history-search" type="text" oninput="renderHistory()" placeholder="Buscar por asunto" class="w-full bg-slate-950 border border-slate-800 rounded-xl pl-9 pr-3 py-2 text-xs text-white focus:outline-none focus:border-emerald-500">
                     </div>
                     <div>
                         <select id="history-member-filter" onchange="renderHistory()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white focus:outline-none">
@@ -400,7 +412,7 @@
         </section>
 
         <!-- ========================================== -->
-        <!-- TAB 4: PANEL BCE / MACROECONOMÍA BING-O    -->
+        <!-- TAB 4: ESTADÍSTICAS MACROECONÓMICAS        -->
         <!-- ========================================== -->
         <section id="tab-bce" class="hidden space-y-4">
             <div class="rounded-2xl bg-cardbg border border-slate-800 p-4 space-y-4">
@@ -410,8 +422,7 @@
                             <i class="fa-solid fa-building-columns text-sm"></i>
                         </div>
                         <div>
-                            <h2 class="text-sm sm:text-base font-bold text-white leading-tight">Panel Macroeconómico BCE</h2>
-                            <p class="text-[10px] sm:text-xs text-slate-400 leading-normal">Indicadores oficiales de riesgo</p>
+                            <h2 class="text-sm sm:text-base font-bold text-white leading-tight">Panel Macroeconómico</h2>
                         </div>
                     </div>
                     <span class="text-[10px] sm:text-[11px] mono-num px-2 py-1 rounded-lg bg-slate-900 text-slate-300 border border-slate-800 whitespace-nowrap shrink-0">
@@ -424,31 +435,26 @@
                     <div class="bg-slate-950/80 rounded-xl p-3.5 border border-slate-800/90">
                         <span class="text-[10px] uppercase text-slate-400 font-semibold block">Crédito en Circulación</span>
                         <span id="bce-cred" class="mono-num text-lg font-extrabold text-amber-400 mt-1 block">0,00 €</span>
-                        <span class="text-[10px] text-slate-500 block mt-0.5">∑|Saldo_i| / 2 · Pico: 420,37€</span>
                     </div>
 
                     <div class="bg-slate-950/80 rounded-xl p-3.5 border border-slate-800/90">
                         <span class="text-[10px] uppercase text-slate-400 font-semibold block">Error Cuadrático (ECM)</span>
                         <span id="bce-ecm" class="mono-num text-lg font-extrabold text-sky-400 mt-1 block">0,00 €</span>
-                        <span class="text-[10px] text-slate-500 block mt-0.5">√(∑Saldo² / 8) · Sin sesgo</span>
                     </div>
 
                     <div class="bg-slate-950/80 rounded-xl p-3.5 border border-slate-800/90">
                         <span class="text-[10px] uppercase text-slate-400 font-semibold block">Riesgo Absoluto (R.A.)</span>
                         <span id="bce-ra" class="mono-num text-lg font-extrabold text-indigo-400 mt-1 block">0,00 €</span>
-                        <span class="text-[10px] text-slate-500 block mt-0.5">√(Cred.C × ECM) · Máx: 144,77€</span>
                     </div>
 
                     <div class="bg-slate-950/80 rounded-xl p-3.5 border border-slate-800/90">
                         <span class="text-[10px] uppercase text-slate-400 font-semibold block">Riesgo Relativo</span>
                         <span id="bce-rr" class="mono-num text-lg font-extrabold text-emerald-400 mt-1 block">0,000</span>
-                        <span class="text-[10px] text-slate-500 block mt-0.5">(RA / Máx_RA)² · Alerta &gt; 0,50</span>
                     </div>
 
                     <div class="bg-slate-950/80 rounded-xl p-3.5 border border-slate-800/90">
                         <span class="text-[10px] uppercase text-slate-400 font-semibold block">Volumen Total Movido</span>
                         <span id="bce-vol" class="mono-num text-lg font-extrabold text-white mt-1 block">0,00 €</span>
-                        <span class="text-[10px] text-slate-500 block mt-0.5">Desde 22/07/2020</span>
                     </div>
 
                     <div class="bg-slate-950/80 rounded-xl p-3.5 border border-slate-800/90">
@@ -467,8 +473,8 @@
                                 <tr class="bg-slate-950 text-slate-400 border-b border-slate-800 text-[10px] uppercase">
                                     <th class="py-2.5 px-2 sm:px-3">Miembro</th>
                                     <th class="py-2.5 px-2 sm:px-3 text-right whitespace-nowrap">Saldo</th>
-                                    <th class="py-2.5 px-1.5 sm:px-3 text-right whitespace-nowrap">Apuntes</th>
-                                    <th class="py-2.5 px-2 sm:px-3 text-right whitespace-nowrap">Adelantado</th>
+                                    <th class="py-2.5 px-1.5 sm:px-3 text-right whitespace-nowrap">Transacciones</th>
+                                    <th class="py-2.5 px-2 sm:px-3 text-right whitespace-nowrap">Total</th>
                                 </tr>
                             </thead>
                             <tbody id="bce-members-table" class="divide-y divide-slate-800/60 bg-slate-900/40">
@@ -499,6 +505,74 @@
             </div>
         </section>
 
+        <!-- ========================================== -->
+        <!-- TAB 5: ADMINISTRAR                         -->
+        <!-- ========================================== -->
+        <section id="tab-administrar" class="hidden space-y-4">
+            <div class="rounded-2xl bg-cardbg border border-slate-800 p-4 shadow-xl space-y-4">
+                <div class="flex items-center gap-2.5 border-b border-slate-800 pb-3">
+                    <div class="w-9 h-9 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+                        <i class="fa-solid fa-user-gear"></i>
+                    </div>
+                    <h2 class="text-base font-bold text-white">Administrar usuario</h2>
+                </div>
+
+                <div id="admin-auth-required" class="rounded-xl bg-slate-950 border border-slate-800 p-5 text-center space-y-3">
+                    <p class="text-sm text-slate-300">Inicia sesión para administrar tu usuario.</p>
+                    <button onclick="handleAuthClick()" class="px-4 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-sm font-bold">Iniciar sesión</button>
+                </div>
+
+                <div id="admin-user-content" class="hidden space-y-3">
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <div class="sm:col-span-2">
+                            <label class="block text-xs uppercase tracking-wider text-slate-400 font-semibold mb-1">Nombre</label>
+                            <input id="admin-self-name" type="text" maxlength="30" class="w-full bg-slate-950 border border-slate-800 focus:border-emerald-500 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-slate-400 font-semibold mb-1">Ticker</label>
+                            <input id="admin-self-code" type="text" maxlength="3" oninput="normalizeTickerInput(this)" class="w-full bg-slate-950 border border-slate-800 focus:border-emerald-500 rounded-xl px-3.5 py-2.5 text-sm mono-num uppercase text-white focus:outline-none">
+                        </div>
+                    </div>
+                    <button onclick="saveOwnProfile()" class="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-sm font-bold">Guardar mis cambios</button>
+                </div>
+            </div>
+
+            <div id="authorized-admin-block" class="hidden rounded-2xl bg-cardbg border border-amber-500/20 p-4 shadow-xl space-y-5">
+                <div class="flex items-center gap-2.5 border-b border-slate-800 pb-3">
+                    <div class="w-9 h-9 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-base font-bold text-white">Administrador autorizado</h2>
+                        <p class="text-xs text-slate-400">Gestión del grupo y operaciones excepcionales</p>
+                    </div>
+                </div>
+
+                <div class="space-y-2">
+                    <h3 class="text-sm font-bold text-white">Usuarios</h3>
+                    <div id="admin-members-list" class="space-y-2"></div>
+                </div>
+
+                <div class="rounded-xl bg-slate-950/70 border border-slate-800 p-3 space-y-3">
+                    <h3 class="text-sm font-bold text-white">Crear nuevo usuario</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-6 gap-2">
+                        <input id="admin-new-name" type="text" maxlength="30" placeholder="Nombre" class="sm:col-span-2 bg-slate-900 border border-slate-800 rounded-lg px-3 py-2.5 text-sm text-white focus:outline-none focus:border-emerald-500">
+                        <input id="admin-new-code" type="text" maxlength="3" placeholder="Ticker" oninput="normalizeTickerInput(this)" class="bg-slate-900 border border-slate-800 rounded-lg px-3 py-2.5 text-sm mono-num uppercase text-white focus:outline-none focus:border-emerald-500">
+                        <input id="admin-new-email" type="email" placeholder="Correo de acceso" class="sm:col-span-2 bg-slate-900 border border-slate-800 rounded-lg px-3 py-2.5 text-sm text-white focus:outline-none focus:border-emerald-500">
+                        <button onclick="createNewMember()" class="rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-xs font-bold px-3 py-2.5">Crear</button>
+                    </div>
+                </div>
+
+                <div class="rounded-xl bg-amber-500/10 border border-amber-500/25 p-4 space-y-3">
+                    <div>
+                        <h3 class="text-sm font-bold text-amber-300">Protocolo MAFTA</h3>
+                        <p class="text-xs text-slate-300 mt-1">Movimiento Autorizado de Fondos por Transacción Arbitraria. Permite registrar una única transacción sin exigir que su suma sea cero.</p>
+                    </div>
+                    <button id="btn-enable-mafta-entry" onclick="enableMaftaEntry()" class="px-4 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 text-sm font-bold">Habilitar transacción MAFTA</button>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <!-- ========================================== -->
@@ -517,7 +591,7 @@
             </div>
             <blockquote class="p-3.5 rounded-xl bg-slate-950 border-l-4 border-rose-500 text-xs italic text-slate-200 leading-relaxed">
                 "si no pones la fecha vas a tener problemas con unos amigos rumanos mios"
-                <footer class="text-[10px] text-slate-500 not-italic mt-1">— Apunte «Kibap» (-5,20 €), jurisprudencia oficial de BING-O 3.2</footer>
+                <footer class="text-[10px] text-slate-500 not-italic mt-1">— Transacción «Kibap» (-5,20 €), jurisprudencia oficial de BING-O 3.2</footer>
             </blockquote>
             <div class="flex justify-end gap-2">
                 <button onclick="fixDateAndCloseModal()" class="w-full py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs transition">
@@ -574,7 +648,7 @@
             </div>
             <div>
                 <h3 class="text-base font-extrabold text-white">Acceso a BING-O 4.0</h3>
-                <p class="text-xs text-slate-400 mt-1 leading-relaxed">Inicia sesión con tu cuenta de Google para firmar apuntes y gestionar saldos.</p>
+                <p class="text-xs text-slate-400 mt-1 leading-relaxed">Inicia sesión con tu cuenta de Google para firmar transacciones y gestionar saldos.</p>
             </div>
 
             <button onclick="loginWithGoogle()" class="w-full py-3 px-4 rounded-xl bg-white hover:bg-slate-100 text-slate-900 font-bold text-xs flex items-center justify-center gap-2.5 shadow-lg transition">
@@ -596,14 +670,14 @@
 
     <!-- BOTTOM MOBILE NAVIGATION BAR -->
     <nav class="fixed bottom-0 inset-x-0 z-40 glass-nav border-t border-slate-800/90 px-2 py-1.5">
-        <div class="max-w-md mx-auto grid grid-cols-4 gap-1">
+        <div class="max-w-2xl mx-auto grid grid-cols-5 gap-1">
             <button id="nav-saldos" onclick="switchTab('saldos')" class="flex flex-col items-center justify-center py-1.5 rounded-xl text-emerald-400 transition">
                 <i class="fa-solid fa-wallet text-base"></i>
                 <span class="text-[10px] font-bold mt-1">Saldos</span>
             </button>
             <button id="nav-nuevo" onclick="switchTab('nuevo')" class="flex flex-col items-center justify-center py-1.5 rounded-xl text-slate-400 hover:text-white transition">
                 <i class="fa-solid fa-circle-plus text-base"></i>
-                <span class="text-[10px] font-bold mt-1">Apuntar</span>
+                <span class="text-[10px] font-bold mt-1">Añadir</span>
             </button>
             <button id="nav-historial" onclick="switchTab('historial')" class="flex flex-col items-center justify-center py-1.5 rounded-xl text-slate-400 hover:text-white transition">
                 <i class="fa-solid fa-clock-rotate-left text-base"></i>
@@ -611,7 +685,11 @@
             </button>
             <button id="nav-bce" onclick="switchTab('bce')" class="flex flex-col items-center justify-center py-1.5 rounded-xl text-slate-400 hover:text-white transition">
                 <i class="fa-solid fa-chart-line text-base"></i>
-                <span class="text-[10px] font-bold mt-1">Panel BCE</span>
+                <span class="text-[10px] font-bold mt-1">Estadísticas</span>
+            </button>
+            <button id="nav-administrar" onclick="switchTab('administrar')" class="flex flex-col items-center justify-center py-1.5 rounded-xl text-slate-400 hover:text-white transition">
+                <i class="fa-solid fa-user-gear text-base"></i>
+                <span class="text-[10px] font-bold mt-1">Administrar</span>
             </button>
         </div>
     </nav>
@@ -644,16 +722,17 @@
         // ---------------------------------------------------------
         // 1. BASE DE DATOS FIRESTORE (Dinámico al 100%)
         // ---------------------------------------------------------
-        const MEMBERS = [
-            { id: 'alex',  name: 'Alex',  code: 'ALX', core: true,  color: 'from-sky-500 to-blue-600',       baseBalance: 0, baseMovs: 0, baseAdelantado: 0 },
-            { id: 'luis',  name: 'Luis',  code: 'LYB', core: true,  color: 'from-red-500 to-rose-600',   baseBalance: 0, baseMovs: 0, baseAdelantado: 0 },
-            { id: 'max',   name: 'Max',   code: 'PMD', core: true,  color: 'from-yellow-500 to-amber-600',  baseBalance: 0, baseMovs: 0, baseAdelantado: 0 },
-            { id: 'cabo',  name: 'Cabo',  code: 'JCC', core: true,  color: 'from-green-500 to-emerald-600',    baseBalance: 0, baseMovs: 0, baseAdelantado: 0 },
-            { id: 'emi',   name: 'Emi',   code: 'EMI', core: true,  color: 'from-orange-500 to-orange-700',   baseBalance: 0, baseMovs: 0, baseAdelantado: 0 },
-            { id: 'por',   name: 'Por',   code: 'POR', core: false, color: 'from-slate-600 to-slate-600',   baseBalance: 0, baseMovs: 0, baseAdelantado: 0 },
-            { id: 'pedro', name: 'Pedro', code: 'PED', core: false, color: 'from-slate-600 to-slate-600',   baseBalance: 0, baseMovs: 0, baseAdelantado: 0 },
-            { id: 'asis',  name: 'Asis',  code: 'ASM', core: false, color: 'from-slate-600 to-slate-600',   baseBalance: 0, baseMovs: 0, baseAdelantado: 0 }
+        const DEFAULT_MEMBERS = [
+            { id: 'alex',  name: 'Alex',  code: 'ALX', core: true,  admin: false, color: 'from-sky-500 to-blue-600',        chartColor: '#4285F4', baseBalance: 0, baseMovs: 0, baseAdelantado: 0 },
+            { id: 'luis',  name: 'Luis',  code: 'LYB', core: true,  admin: true,  color: 'from-red-500 to-rose-600',        chartColor: '#EA4335', baseBalance: 0, baseMovs: 0, baseAdelantado: 0 },
+            { id: 'max',   name: 'Max',   code: 'PMD', core: true,  admin: false, color: 'from-yellow-500 to-amber-600',    chartColor: '#CA8A04', baseBalance: 0, baseMovs: 0, baseAdelantado: 0 },
+            { id: 'cabo',  name: 'Cabo',  code: 'JCC', core: true,  admin: true,  color: 'from-green-500 to-emerald-600',  chartColor: '#34A853', baseBalance: 0, baseMovs: 0, baseAdelantado: 0 },
+            { id: 'emi',   name: 'Emi',   code: 'EMI', core: true,  admin: false, color: 'from-orange-500 to-orange-700',  chartColor: '#FF6D01', baseBalance: 0, baseMovs: 0, baseAdelantado: 0 },
+            { id: 'por',   name: 'Por',   code: 'POR', core: false, admin: false, color: 'from-slate-600 to-slate-600',    chartColor: '#2EC4B6', baseBalance: 0, baseMovs: 0, baseAdelantado: 0 },
+            { id: 'pedro', name: 'Pedro', code: 'PED', core: false, admin: false, color: 'from-slate-600 to-slate-600',    chartColor: '#F07167', baseBalance: 0, baseMovs: 0, baseAdelantado: 0 },
+            { id: 'asis',  name: 'Asis',  code: 'ASM', core: false, admin: false, color: 'from-slate-600 to-slate-600',    chartColor: '#7BAAF7', baseBalance: 0, baseMovs: 0, baseAdelantado: 0 }
         ];
+        let MEMBERS = DEFAULT_MEMBERS.map(member => ({ ...member }));
 
         const BASE_CONSTANTS = {
             txCount: 0,
@@ -674,6 +753,11 @@
         let oldTransactions = []; // Cargadas desde old-transactions.json (0 lecturas Firestore)
         let dynamicTransactions = []; // Nuevas transacciones sincronizadas con Firestore
         let currentComputedDeltas = {};
+        let currentManualError = '';
+        let manualPParticipants = new Set();
+        let manualXParticipants = new Set();
+        let maftaEntryAuthorized = false;
+        let memberDirectoryReady = false;
 
         function getAllTransactions() {
             return [...oldTransactions, ...dynamicTransactions];
@@ -727,6 +811,7 @@
                 });
                 isCloudActive = true;
                 updateSyncBadge(true);
+                subscribeToMembers();
                 initAuthListener();
                 subscribeToTransactions();
             } catch (err) {
@@ -740,24 +825,46 @@
             onAuthStateChanged(auth, async (user) => {
                 currentUser = user;
                 if (user && user.email) {
-                    const emailHash = await hashEmail(user.email);
-                    const memberId = MEMBER_EMAIL_HASHES[emailHash];
-                    if (memberId) {
-                        activeMember = MEMBERS.find(m => m.id === memberId);
-                        updateUserHeader(activeMember.name, user.photoURL);
-                        document.getElementById('modal-auth').classList.add('hidden');
-                        showToast(`Conectado como ${activeMember.name}`);
-                    } else {
-                        activeMember = null;
-                        alert("Esta cuenta de Google no tiene acceso a BING-O.");
-                        signOut(auth);
-                        updateUserHeader(null, null);
-                    }
+                    await resolveAuthenticatedMember(user);
                 } else {
                     activeMember = null;
+                    maftaEntryAuthorized = false;
                     updateUserHeader(null, null);
+                    renderAdminPanel();
+                    renderMaftaEntryControls();
                 }
             });
+        }
+
+        async function resolveAuthenticatedMember(user) {
+            if (!user?.email) return;
+            const emailHash = await hashEmail(user.email);
+            const memberId = MEMBER_EMAIL_HASHES[emailHash]
+                || MEMBERS.find(member => member.emailHash === emailHash)?.id;
+
+            if (!memberId && !memberDirectoryReady) {
+                updateUserHeader('Verificando…', user.photoURL);
+                return;
+            }
+
+            const matchedMember = MEMBERS.find(member => member.id === memberId);
+            if (matchedMember) {
+                const wasDisconnected = !activeMember;
+                activeMember = matchedMember;
+                updateUserHeader(activeMember.name, user.photoURL);
+                document.getElementById('modal-auth').classList.add('hidden');
+                renderAdminPanel();
+                renderMaftaEntryControls();
+                refreshAllViews();
+                if (wasDisconnected) showToast(`Conectado como ${activeMember.name}`);
+                return;
+            }
+
+            activeMember = null;
+            alert("Esta cuenta de Google no tiene acceso a BING-O.");
+            await signOut(auth);
+            updateUserHeader(null, null);
+            renderAdminPanel();
         }
 
         // Añade signInWithRedirect y getRedirectResult en tu import de firebase-auth.js arriba:
@@ -854,6 +961,64 @@
             });
         }
 
+        function subscribeToMembers() {
+            if (!db) return;
+            const membersRef = collection(db, 'miembros');
+
+            onSnapshot(membersRef, async (snapshot) => {
+                const remoteMembers = new Map();
+                snapshot.forEach(docSnap => remoteMembers.set(docSnap.id, docSnap.data()));
+
+                const nextMembers = DEFAULT_MEMBERS.map(defaultMember => {
+                    const remote = remoteMembers.get(defaultMember.id) || {};
+                    remoteMembers.delete(defaultMember.id);
+                    return {
+                        ...defaultMember,
+                        name: typeof remote.name === 'string' && remote.name.trim() ? remote.name.trim() : defaultMember.name,
+                        code: /^[A-Z]{3}$/.test(remote.code || '') ? remote.code : defaultMember.code,
+                        admin: typeof remote.admin === 'boolean' ? remote.admin : defaultMember.admin,
+                        emailHash: /^[a-f0-9]{64}$/.test(remote.emailHash || '') ? remote.emailHash : undefined
+                    };
+                });
+
+                remoteMembers.forEach((remote, id) => {
+                    if (!/^[a-z0-9-]+$/.test(id)) return;
+                    const name = typeof remote.name === 'string' ? remote.name.trim() : '';
+                    const code = typeof remote.code === 'string' ? remote.code.toUpperCase() : '';
+                    if (!name || !/^[A-Z]{3}$/.test(code)) return;
+                    nextMembers.push({
+                        id,
+                        name,
+                        code,
+                        core: false,
+                        admin: remote.admin === true,
+                        emailHash: /^[a-f0-9]{64}$/.test(remote.emailHash || '') ? remote.emailHash : undefined,
+                        color: 'from-slate-600 to-slate-700',
+                        chartColor: '#94A3B8',
+                        baseBalance: 0,
+                        baseMovs: 0,
+                        baseAdelantado: 0
+                    });
+                });
+
+                MEMBERS = nextMembers;
+                MEMBERS.forEach(member => {
+                    if (member.emailHash) MEMBER_EMAIL_HASHES[member.emailHash] = member.id;
+                });
+                memberDirectoryReady = true;
+
+                if (activeMember) activeMember = MEMBERS.find(member => member.id === activeMember.id) || null;
+                refreshMemberSelectors();
+                renderAdminPanel();
+                refreshAllViews();
+                if (currentUser && !activeMember) await resolveAuthenticatedMember(currentUser);
+            }, async (error) => {
+                console.warn("No se pudo cargar la configuración de miembros:", error);
+                memberDirectoryReady = true;
+                if (currentUser && !activeMember) await resolveAuthenticatedMember(currentUser);
+            });
+        }
+
         async function loadOldTransactions() {
             try {
                 const res = await fetch('./history_old.json');
@@ -894,7 +1059,7 @@
             const timeline = [{
                 date: '04/08/20',
                 concept: 'Inicio BING-O',
-                balances: { alex: 0, luis: 0, max: 0, cabo: 0, emi: 0, por: 0, asis: 0, pedro: 0 },
+                balances: Object.fromEntries(MEMBERS.map(member => [member.id, 0])),
                 credito: 0
             }];
 
@@ -1085,8 +1250,8 @@
                     : (isNegative ? 'bg-rose-500/15 text-rose-400 border-rose-500/30' : 'bg-slate-800 text-slate-400 border-slate-700');
 
                 const statusText = isPositive
-                    ? 'Le deben dinero'
-                    : (isNegative ? 'Debe al grupo' : 'En paz (0,00 €)');
+                    ? 'Acreedor'
+                    : (isNegative ? 'Deudor' : 'Libre (0,00 €)');
 
                 const barColor = isPositive ? 'bg-emerald-500' : (isNegative ? 'bg-rose-500' : 'bg-slate-600');
 
@@ -1105,7 +1270,7 @@
                                         </span>
                                     </div>
                                     <div class="text-[11px] text-slate-400 mt-0.5">
-                                        <span>${m.movs} apuntes</span> · <span class="whitespace-nowrap">Adelantado: <strong class="text-slate-300 mono-num">${formatEuro(m.adelantado)}</strong></span>
+                                        <span>${m.movs} transacciones</span> · <span class="whitespace-nowrap">Total: <strong class="text-slate-300 mono-num">${formatEuro(m.adelantado)}</strong></span>
                                     </div>
                                 </div>
                             </div>
@@ -1135,7 +1300,7 @@
                 planList.innerHTML = `
                     <div class="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-center text-xs text-emerald-300 font-semibold">
                         <i class="fa-solid fa-champagne-glasses mr-1.5"></i>
-                        ¡Histórico! Todo el grupo está exactamente en paz a 0,00 €.
+                        No hay deudas pendientes
                     </div>
                 `;
             } else {
@@ -1163,7 +1328,7 @@
             const hasDgError = Math.abs(state.totalDG) >= 0.005;
 
             if (maftaBtn) {
-                if (hasDgError) {
+                if (hasDgError && isAuthorizedAdmin()) {
                     maftaBtn.classList.remove('hidden');
                     maftaBtn.classList.add('flex');
                     if (maftaLabel) maftaLabel.textContent = `Protocolo MAFTA (${formatEuro(state.totalDG, true)})`;
@@ -1222,31 +1387,60 @@
             const v = el.value.trim();
             if (v.startsWith('=')) {
                 const res = evaluateExpression(v);
-                el.value = res !== 0 ? res.toFixed(2) : '';
+                el.dataset.formula = v;
+                el.value = res.toFixed(2);
+            } else {
+                delete el.dataset.formula;
             }
+        };
+
+        window.restoreFormulaInput = function(el) {
+            if (!el?.dataset.formula) return;
+            el.value = el.dataset.formula;
+            requestAnimationFrame(() => el.setSelectionRange?.(el.value.length, el.value.length));
+            recalcCurrentFormPreview();
         };
 
         function initFormSelectors() {
             const today = new Date().toISOString().split('T')[0];
-            document.getElementById('input-date').value = today;
+            if (!document.getElementById('input-date').value) document.getElementById('input-date').value = today;
+            refreshMemberSelectors({ sender: 'cabo', receiver: 'luis' });
+            recalcEqualSplit();
+        }
 
+        function refreshMemberSelectors(preferredValues = {}) {
             const payerSelect = document.getElementById('equal-payer');
             const senderSelect = document.getElementById('bizum-sender');
             const receiverSelect = document.getElementById('bizum-receiver');
             const historyFilter = document.getElementById('history-member-filter');
+            if (!payerSelect || !senderSelect || !receiverSelect || !historyFilter) return;
+
+            const previous = {
+                payer: payerSelect.value || preferredValues.payer,
+                sender: senderSelect.value || preferredValues.sender,
+                receiver: receiverSelect.value || preferredValues.receiver,
+                history: historyFilter.value || preferredValues.history
+            };
 
             const optionsHtml = MEMBERS.map(m => `<option value="${m.id}">${m.name} (${m.code})</option>`).join('');
             payerSelect.innerHTML = optionsHtml;
             senderSelect.innerHTML = optionsHtml;
             receiverSelect.innerHTML = optionsHtml;
-            senderSelect.value = 'cabo';
-            receiverSelect.value = 'luis';
+            if (MEMBERS.some(m => m.id === previous.payer)) payerSelect.value = previous.payer;
+            if (MEMBERS.some(m => m.id === previous.sender)) senderSelect.value = previous.sender;
+            if (MEMBERS.some(m => m.id === previous.receiver)) receiverSelect.value = previous.receiver;
 
-            historyFilter.innerHTML = `<option value="all">Todos los miembros (8)</option>` + optionsHtml;
+            historyFilter.innerHTML = `<option value="all">Todos los miembros (${MEMBERS.length})</option>` + optionsHtml;
+            if (previous.history === 'all' || MEMBERS.some(m => m.id === previous.history)) historyFilter.value = previous.history || 'all';
+
+            const coreCount = MEMBERS.filter(member => member.core).length;
+            document.getElementById('btn-filter-core').textContent = `GENTES (${coreCount})`;
+            document.getElementById('btn-filter-all').textContent = `Todos (${MEMBERS.length})`;
+            document.getElementById('chart-btn-core').textContent = `GENTES (${coreCount})`;
+            document.getElementById('chart-btn-all').textContent = `Todos (${MEMBERS.length})`;
 
             renderParticipantPills();
             renderExactInputs();
-            recalcEqualSplit();
         }
 
         function renderParticipantPills() {
@@ -1270,21 +1464,39 @@
 
         function renderExactInputs() {
             const list = document.getElementById('exact-inputs-list');
+            const draftValues = {};
+            MEMBERS.forEach(member => {
+                const input = document.getElementById(`exact-value-${member.id}`);
+                if (input) draftValues[member.id] = { value: input.value, formula: input.dataset.formula || '' };
+            });
+
             list.innerHTML = MEMBERS.map(m => `
-                <div class="grid grid-cols-3 gap-2 items-center bg-slate-950/70 p-2 rounded-xl border border-slate-800/80">
-                    <div class="flex items-center gap-2">
+                <div class="grid grid-cols-[minmax(0,1.25fr)_minmax(5rem,1fr)_2.25rem_2.25rem] gap-2 items-center bg-slate-950/70 p-2 rounded-xl border border-slate-800/80">
+                    <div class="flex items-center gap-2 min-w-0">
                         <span class="w-6 h-6 rounded-md bg-gradient-to-br ${m.color} text-[10px] font-bold flex items-center justify-center text-white">${m.code}</span>
-                        <span class="text-xs font-semibold text-white">${m.name}</span>
+                        <span class="text-xs font-semibold text-white truncate">${m.name}</span>
                     </div>
-                    <div>
-                        <input type="text" placeholder="Pagó (+)" id="exact-paid-${m.id}" oninput="recalcExactSplit()" onblur="resolveFormulaInput(this); recalcExactSplit();" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-1.5 text-xs mono-num text-emerald-400 placeholder-slate-600 focus:outline-none focus:border-emerald-500">
-                    </div>
-                    <div>
-                        <input type="text" placeholder="Consumió (-)" id="exact-ate-${m.id}" oninput="recalcExactSplit()" onblur="resolveFormulaInput(this); recalcExactSplit();" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-1.5 text-xs mono-num text-rose-400 placeholder-slate-600 focus:outline-none focus:border-rose-500">
-                    </div>
+                    <input type="text" placeholder="0,00" id="exact-value-${m.id}" oninput="recalcExactSplit()" onfocus="restoreFormulaInput(this)" onblur="resolveFormulaInput(this); recalcExactSplit();" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-1.5 text-xs mono-num text-white placeholder-slate-600 focus:outline-none focus:border-emerald-500">
+                    <button type="button" onclick="toggleExactRole('${m.id}', 'p')" title="Reparto positivo" class="w-9 h-9 rounded-lg border text-xs font-extrabold transition ${manualPParticipants.has(m.id) ? 'bg-emerald-500 border-emerald-400 text-slate-950' : 'bg-slate-900 border-slate-700 text-slate-400 hover:text-white'}">P</button>
+                    <button type="button" onclick="toggleExactRole('${m.id}', 'x')" title="Reparto negativo" class="w-9 h-9 rounded-lg border text-xs font-extrabold transition ${manualXParticipants.has(m.id) ? 'bg-rose-500 border-rose-400 text-white' : 'bg-slate-900 border-slate-700 text-slate-400 hover:text-white'}">X</button>
                 </div>
             `).join('');
+
+            Object.entries(draftValues).forEach(([id, draft]) => {
+                const input = document.getElementById(`exact-value-${id}`);
+                if (!input) return;
+                input.value = draft.value;
+                if (draft.formula) input.dataset.formula = draft.formula;
+            });
         }
+
+        window.toggleExactRole = function(memberId, role) {
+            const target = role === 'p' ? manualPParticipants : manualXParticipants;
+            if (target.has(memberId)) target.delete(memberId);
+            else target.add(memberId);
+            renderExactInputs();
+            recalcExactSplit();
+        };
 
         function recalcEqualSplit() {
             const payerId = document.getElementById('equal-payer').value;
@@ -1337,33 +1549,73 @@
 
         function recalcExactSplit() {
             currentComputedDeltas = {};
-            let totalPaidCents = 0;
-            let totalAteCents = 0;
+            currentManualError = '';
+            const rawCents = {};
 
             MEMBERS.forEach(m => {
-                const paidVal = evaluateExpression(document.getElementById(`exact-paid-${m.id}`)?.value);
-                const ateVal = evaluateExpression(document.getElementById(`exact-ate-${m.id}`)?.value);
-                const paid = Math.round(paidVal * 100);
-                const ate = Math.round(ateVal * 100);
-                totalPaidCents += paid;
-                totalAteCents += ate;
-                const netCents = paid - ate;
-                if (netCents !== 0) {
-                    currentComputedDeltas[m.id] = netCents / 100;
-                }
+                rawCents[m.id] = Math.round(evaluateExpression(document.getElementById(`exact-value-${m.id}`)?.value) * 100);
             });
 
-            const diffCents = totalPaidCents - totalAteCents;
+            const pIds = MEMBERS.filter(m => manualPParticipants.has(m.id)).map(m => m.id);
+            const xIds = MEMBERS.filter(m => manualXParticipants.has(m.id)).map(m => m.id);
+            const netCents = Object.values(rawCents).reduce((sum, value) => sum + value, 0);
+            const finalCents = { ...rawCents };
+
+            if (pIds.length > 0 && xIds.length > 0) {
+                const positiveCents = Object.values(rawCents).reduce((sum, value) => sum + Math.max(0, value), 0);
+                const negativeCents = Object.values(rawCents).reduce((sum, value) => sum + Math.max(0, -value), 0);
+                const positiveDistribution = distributeCents(negativeCents, pIds);
+                const negativeDistribution = distributeCents(positiveCents, xIds);
+                pIds.forEach(id => finalCents[id] += positiveDistribution[id]);
+                xIds.forEach(id => finalCents[id] -= negativeDistribution[id]);
+            } else if (xIds.length > 0) {
+                if (netCents < 0) {
+                    currentManualError = 'El reparto X solo es válido cuando la suma de los importes es positiva o cero.';
+                } else {
+                    const distribution = distributeCents(netCents, xIds);
+                    xIds.forEach(id => finalCents[id] -= distribution[id]);
+                }
+            } else if (pIds.length > 0) {
+                if (netCents > 0) {
+                    currentManualError = 'El reparto P solo es válido cuando la suma de los importes es negativa o cero.';
+                } else {
+                    const distribution = distributeCents(-netCents, pIds);
+                    pIds.forEach(id => finalCents[id] += distribution[id]);
+                }
+            } else if (netCents !== 0) {
+                currentManualError = 'Sin botones P o X, los importes introducidos deben sumar cero.';
+            }
+
+            Object.entries(finalCents).forEach(([id, cents]) => {
+                if (cents !== 0) currentComputedDeltas[id] = cents / 100;
+            });
+
+            const diffCents = Object.values(finalCents).reduce((sum, value) => sum + value, 0);
             const badge = document.getElementById('exact-discrepancy-badge');
-            if (diffCents === 0) {
+            const errorBox = document.getElementById('exact-validation-error');
+            if (!currentManualError && diffCents === 0) {
                 badge.textContent = "D.G. = 0,00 €";
                 badge.className = "mono-num text-xs font-bold px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-400 border border-emerald-500/30";
+                errorBox.classList.add('hidden');
             } else {
                 badge.textContent = `D.G. = ${formatEuro(diffCents / 100, true)}`;
                 badge.className = "mono-num text-xs font-bold px-2.5 py-1 rounded-lg bg-rose-500/20 text-rose-400 border border-rose-500/40";
+                errorBox.textContent = currentManualError || 'Esta combinación no permite cuadrar la transacción.';
+                errorBox.classList.remove('hidden');
             }
 
             renderDeltasPreview(currentComputedDeltas);
+        }
+
+        function distributeCents(totalCents, memberIds) {
+            const distribution = Object.fromEntries(memberIds.map(id => [id, 0]));
+            if (totalCents <= 0 || memberIds.length === 0) return distribution;
+            const base = Math.floor(totalCents / memberIds.length);
+            const remainder = totalCents % memberIds.length;
+            memberIds.forEach((id, index) => {
+                distribution[id] = base + (index < remainder ? 1 : 0);
+            });
+            return distribution;
         }
 
         function recalcBizumPreview() {
@@ -1457,6 +1709,7 @@
         }
 
         async function submitTransaction() {
+            const maftaActive = isMaftaEntryActive();
             const dateVal = document.getElementById('input-date').value.trim();
             if (!dateVal) {
                 document.getElementById('modal-rumanos').classList.remove('hidden');
@@ -1483,7 +1736,11 @@
             }
 
             const totalRowSum = entries.reduce((acc, [_, v]) => acc + v, 0);
-            if (Math.abs(totalRowSum) >= 0.01) {
+            if (entryMode === 'exact' && currentManualError && !maftaActive) {
+                showToast(currentManualError, true);
+                return;
+            }
+            if (Math.abs(Math.round(totalRowSum * 100)) >= 1 && !maftaActive) {
                 showToast(`La fila está descuadrada por ${formatEuro(totalRowSum, true)}. Cuádrala a 0,00 € antes de guardar.`, true);
                 return;
             }
@@ -1494,7 +1751,12 @@
                 date: dateVal,
                 type: entryMode,
                 deltas: { ...currentComputedDeltas },
-                createdAt: Date.now()
+                createdAt: Date.now(),
+                ...(maftaActive ? {
+                    maftaAuthorized: true,
+                    maftaAuthorizedBy: activeMember.id,
+                    maftaImbalance: Math.round(totalRowSum * 100) / 100
+                } : {})
             };
 
             const guardado = await saveNewTransactionObject(newTx);
@@ -1504,14 +1766,21 @@
             document.getElementById('equal-amount').value = '';
             document.getElementById('bizum-amount').value = '';
             MEMBERS.forEach(m => {
-                const p = document.getElementById(`exact-paid-${m.id}`);
-                const a = document.getElementById(`exact-ate-${m.id}`);
-                if (p) p.value = '';
-                if (a) a.value = '';
+                const input = document.getElementById(`exact-value-${m.id}`);
+                if (input) {
+                    input.value = '';
+                    delete input.dataset.formula;
+                }
             });
+            manualPParticipants.clear();
+            manualXParticipants.clear();
+            renderExactInputs();
+            if (maftaActive) disableMaftaEntry();
 
             recalcCurrentFormPreview();
-            showToast(`Apuntado: «${concept}» (D.G. 0,00 €)`);
+            showToast(maftaActive
+                ? `Transacción MAFTA registrada: «${concept}» (${formatEuro(totalRowSum, true)})`
+                : `Transacción registrada: «${concept}» (D.G. 0,00 €)`);
             switchTab('saldos');
         }
 
@@ -1521,11 +1790,15 @@
             document.getElementById('bizum-amount').value = '';
             document.getElementById('input-date').value = new Date().toISOString().split('T')[0];
             MEMBERS.forEach(m => {
-                const p = document.getElementById(`exact-paid-${m.id}`);
-                const a = document.getElementById(`exact-ate-${m.id}`);
-                if (p) p.value = '';
-                if (a) a.value = '';
+                const input = document.getElementById(`exact-value-${m.id}`);
+                if (input) {
+                    input.value = '';
+                    delete input.dataset.formula;
+                }
             });
+            manualPParticipants.clear();
+            manualXParticipants.clear();
+            renderExactInputs();
             recalcCurrentFormPreview();
             switchTab('saldos');
         };
@@ -1619,6 +1892,10 @@
         };
 
         window.applyMaftaProtocol = async function() {
+            if (!isAuthorizedAdmin()) {
+                showToast("Solo un administrador autorizado puede ejecutar MAFTA", true);
+                return;
+            }
             const state = computeGroupState();
             if (Math.abs(state.totalDG) < 0.005) {
                 closeMaftaModal();
@@ -1662,6 +1939,243 @@
             closeMaftaModal();
             showToast("Protocolo MAFTA aplicado: D.G. ahora es 0,00 € exactos");
         };
+
+        function isAuthorizedAdmin() {
+            return !!(currentUser && activeMember?.admin);
+        }
+
+        function validateMemberProfile(name, code, excludeId = null) {
+            const cleanName = (name || '').trim();
+            const cleanCode = (code || '').trim().toUpperCase();
+            if (!cleanName || cleanName.length > 30 || !/^[\p{L}\p{M} .'-]+$/u.test(cleanName)) {
+                return { error: 'Introduce un nombre válido de hasta 30 caracteres.' };
+            }
+            if (!/^[A-Z]{3}$/.test(cleanCode)) {
+                return { error: 'El ticker debe contener exactamente tres letras mayúsculas.' };
+            }
+            if (MEMBERS.some(member => member.id !== excludeId && member.code === cleanCode)) {
+                return { error: `El ticker ${cleanCode} ya está asignado a otro usuario.` };
+            }
+            return { name: cleanName, code: cleanCode };
+        }
+
+        function refreshAfterMemberChange() {
+            if (activeMember) activeMember = MEMBERS.find(member => member.id === activeMember.id) || null;
+            refreshMemberSelectors();
+            refreshAllViews();
+            renderAdminPanel();
+            if (activeMember) updateUserHeader(activeMember.name, currentUser?.photoURL);
+        }
+
+        async function persistMemberProfile(memberId, name, code) {
+            const member = MEMBERS.find(item => item.id === memberId);
+            const canEdit = activeMember?.id === memberId || isAuthorizedAdmin();
+            if (!member || !canEdit || !db) {
+                showToast('No tienes permiso para modificar este usuario.', true);
+                return false;
+            }
+
+            const validation = validateMemberProfile(name, code, memberId);
+            if (validation.error) {
+                showToast(validation.error, true);
+                return false;
+            }
+
+            const previous = { name: member.name, code: member.code };
+            member.name = validation.name;
+            member.code = validation.code;
+            refreshAfterMemberChange();
+
+            try {
+                await setDoc(doc(db, 'miembros', memberId), {
+                    name: validation.name,
+                    code: validation.code,
+                    updatedAt: Date.now(),
+                    updatedBy: activeMember.id
+                }, { merge: true });
+                showToast(`Usuario ${validation.name} actualizado`);
+                return true;
+            } catch (error) {
+                member.name = previous.name;
+                member.code = previous.code;
+                refreshAfterMemberChange();
+                console.error('Error actualizando miembro:', error);
+                showToast('No se pudieron guardar los cambios del usuario.', true);
+                return false;
+            }
+        }
+
+        window.normalizeTickerInput = function(input) {
+            input.value = input.value.toUpperCase().replace(/[^A-Z]/g, '').slice(0, 3);
+        };
+
+        window.saveOwnProfile = async function() {
+            if (!activeMember) {
+                document.getElementById('modal-auth').classList.remove('hidden');
+                return;
+            }
+            await persistMemberProfile(
+                activeMember.id,
+                document.getElementById('admin-self-name').value,
+                document.getElementById('admin-self-code').value
+            );
+        };
+
+        window.saveManagedMember = async function(memberId) {
+            if (!isAuthorizedAdmin()) {
+                showToast('Solo un administrador autorizado puede editar otros usuarios.', true);
+                return;
+            }
+            await persistMemberProfile(
+                memberId,
+                document.getElementById(`managed-name-${memberId}`).value,
+                document.getElementById(`managed-code-${memberId}`).value
+            );
+        };
+
+        window.createNewMember = async function() {
+            if (!isAuthorizedAdmin() || !db) {
+                showToast('Solo un administrador autorizado puede crear usuarios.', true);
+                return;
+            }
+
+            const nameInput = document.getElementById('admin-new-name');
+            const codeInput = document.getElementById('admin-new-code');
+            const emailInput = document.getElementById('admin-new-email');
+            const validation = validateMemberProfile(nameInput.value, codeInput.value);
+            if (validation.error) {
+                showToast(validation.error, true);
+                return;
+            }
+            const email = emailInput.value.trim().toLowerCase();
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                showToast('Introduce un correo válido para el acceso del nuevo usuario.', true);
+                return;
+            }
+            const emailHash = await hashEmail(email);
+            if (MEMBER_EMAIL_HASHES[emailHash] || MEMBERS.some(member => member.emailHash === emailHash)) {
+                showToast('Ese correo ya está asociado a un usuario.', true);
+                return;
+            }
+
+            const baseId = validation.name.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+                .toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'usuario';
+            let memberId = baseId;
+            let suffix = 2;
+            while (MEMBERS.some(member => member.id === memberId)) memberId = `${baseId}-${suffix++}`;
+
+            const newMember = {
+                id: memberId,
+                name: validation.name,
+                code: validation.code,
+                core: false,
+                admin: false,
+                emailHash,
+                color: 'from-slate-600 to-slate-700',
+                chartColor: '#94A3B8',
+                baseBalance: 0,
+                baseMovs: 0,
+                baseAdelantado: 0
+            };
+            MEMBERS.push(newMember);
+            MEMBER_EMAIL_HASHES[emailHash] = memberId;
+            refreshAfterMemberChange();
+
+            try {
+                await setDoc(doc(db, 'miembros', memberId), {
+                    name: newMember.name,
+                    code: newMember.code,
+                    emailHash,
+                    core: false,
+                    admin: false,
+                    createdAt: Date.now(),
+                    createdBy: activeMember.id
+                });
+                nameInput.value = '';
+                codeInput.value = '';
+                emailInput.value = '';
+                showToast(`Usuario ${newMember.name} creado`);
+            } catch (error) {
+                MEMBERS = MEMBERS.filter(member => member.id !== memberId);
+                delete MEMBER_EMAIL_HASHES[emailHash];
+                refreshAfterMemberChange();
+                console.error('Error creando miembro:', error);
+                showToast('No se pudo crear el nuevo usuario.', true);
+            }
+        };
+
+        function renderAdminPanel() {
+            const authRequired = document.getElementById('admin-auth-required');
+            const userContent = document.getElementById('admin-user-content');
+            const authorizedBlock = document.getElementById('authorized-admin-block');
+            if (!authRequired || !userContent || !authorizedBlock) return;
+
+            const authenticated = !!(currentUser && activeMember);
+            authRequired.classList.toggle('hidden', authenticated);
+            userContent.classList.toggle('hidden', !authenticated);
+            authorizedBlock.classList.toggle('hidden', !isAuthorizedAdmin());
+
+            if (!authenticated) return;
+            document.getElementById('admin-self-name').value = activeMember.name;
+            document.getElementById('admin-self-code').value = activeMember.code;
+
+            if (!isAuthorizedAdmin()) return;
+            const list = document.getElementById('admin-members-list');
+            list.innerHTML = MEMBERS.map(member => `
+                <div class="grid grid-cols-[minmax(0,1fr)_4.5rem_2.5rem] sm:grid-cols-[minmax(0,1fr)_6rem_5rem] gap-2 items-center bg-slate-950/70 border border-slate-800 rounded-xl p-2">
+                    <input id="managed-name-${member.id}" type="text" maxlength="30" value="${escapeHtml(member.name)}" class="min-w-0 bg-slate-900 border border-slate-800 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-emerald-500">
+                    <input id="managed-code-${member.id}" type="text" maxlength="3" value="${member.code}" oninput="normalizeTickerInput(this)" class="min-w-0 bg-slate-900 border border-slate-800 rounded-lg px-2 py-2 text-sm mono-num uppercase text-white focus:outline-none focus:border-emerald-500">
+                    <button onclick="saveManagedMember('${member.id}')" title="Guardar ${escapeHtml(member.name)}" class="h-9 rounded-lg bg-slate-800 hover:bg-emerald-500 hover:text-slate-950 text-emerald-400 text-xs font-bold transition">
+                        <i class="fa-solid fa-floppy-disk"></i><span class="hidden sm:inline ml-1">Guardar</span>
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        function escapeHtml(value) {
+            return String(value).replace(/[&<>"']/g, character => ({
+                '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;'
+            })[character]);
+        }
+
+        function isMaftaEntryActive() {
+            const checkbox = document.getElementById('mafta-entry-enabled');
+            return maftaEntryAuthorized && isAuthorizedAdmin() && !!checkbox?.checked;
+        }
+
+        function renderMaftaEntryControls() {
+            const banner = document.getElementById('mafta-entry-banner');
+            const button = document.getElementById('btn-enable-mafta-entry');
+            if (!banner) return;
+            const canUse = maftaEntryAuthorized && isAuthorizedAdmin();
+            banner.classList.toggle('hidden', !canUse);
+            banner.classList.toggle('flex', canUse);
+            if (button) button.textContent = canUse ? 'MAFTA habilitado para la próxima transacción' : 'Habilitar transacción MAFTA';
+        }
+
+        window.enableMaftaEntry = function() {
+            if (!isAuthorizedAdmin()) {
+                showToast('Solo un administrador autorizado puede habilitar MAFTA.', true);
+                return;
+            }
+            maftaEntryAuthorized = true;
+            const checkbox = document.getElementById('mafta-entry-enabled');
+            if (checkbox) checkbox.checked = true;
+            renderMaftaEntryControls();
+            setEntryMode('exact');
+            switchTab('nuevo');
+            showToast('MAFTA habilitado para una transacción');
+        };
+
+        window.updateMaftaEntryState = function() {
+            recalcCurrentFormPreview();
+        };
+
+        function disableMaftaEntry() {
+            maftaEntryAuthorized = false;
+            renderMaftaEntryControls();
+            renderAdminPanel();
+        }
 
         // ---------------------------------------------------------
         // 8. RENDER HISTORY & BCE TABS
@@ -1728,7 +2242,7 @@
                         <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[11px] mono-num font-semibold border ${
                             isPos ? 'bg-emerald-500/10 border-emerald-500/25 text-emerald-300' : 'bg-rose-500/10 border-rose-500/25 text-rose-300'
                         }">
-                            <strong class="font-sans text-white">${m ? m.name : id}:</strong> ${formatEuro(val, true)}
+                            <strong class="font-sans text-white">${m ? m.code : id}:</strong> ${formatEuro(val, true)}
                         </span>
                     `;
                 }).join('');
@@ -1751,7 +2265,7 @@
                                     Excel v3.2
                                 </span>
                             ` : `
-                                <button onclick="deleteTransaction('${tx.id}')" class="text-slate-500 hover:text-rose-400 p-1.5 rounded-lg hover:bg-rose-500/10 transition" title="Anular apunte">
+                                <button onclick="deleteTransaction('${tx.id}')" class="text-slate-500 hover:text-rose-400 p-1.5 rounded-lg hover:bg-rose-500/10 transition" title="Anular transacción">
                                     <i class="fa-solid fa-trash-can text-xs"></i>
                                 </button>
                             `}
@@ -1844,16 +2358,12 @@
             const labels = timeline.map(pt => pt.date);
 
             // Colores exactos de la gráfica clásica de Google Sheets
-            const seriesConfig = [
-                { id: 'alex',  label: 'ALX', color: '#4285F4', core: true },
-                { id: 'luis',  label: 'LYB', color: '#EA4335', core: true },
-                { id: 'max',   label: 'PMD', color: '#CA8A04', core: true },
-                { id: 'cabo',  label: 'JCC', color: '#34A853', core: true },
-                { id: 'emi',   label: 'EMI', color: '#FF6D01', core: true },
-                { id: 'por',   label: 'POR', color: '#2EC4B6', core: false },
-                { id: 'asis',  label: 'ASM', color: '#7BAAF7', core: false },
-                { id: 'pedro', label: 'PED', color: '#F07167', core: false }
-            ];
+            const seriesConfig = MEMBERS.map(member => ({
+                id: member.id,
+                label: member.code,
+                color: member.chartColor || '#94A3B8',
+                core: member.core
+            }));
 
             // 1. En datasets de miembros: pointStyle 'line' individual
             const datasets = seriesConfig
@@ -1976,7 +2486,7 @@
 
         // Export CSV
         window.exportToCSV = function() {
-            const headers = ['N_Tx', 'Asunto', 'Cabo', 'Alex', 'Luis', 'Max', 'Emi', 'Por', 'Asis', 'Pedro', 'Fecha', 'Estado'];
+            const headers = ['N_Tx', 'Asunto', ...MEMBERS.map(member => member.code), 'Fecha', 'Estado'];
             const allTxs = getAllTransactions();
             const sortedAll = [...allTxs].sort((a, b) => (a.createdAt || 0) - (b.createdAt || 0));
 
@@ -1990,14 +2500,7 @@
                 const row = [
                     rowNum,
                     `"${(tx.concept || '').replace(/"/g, '""')}"`,
-                    (d.cabo || 0).toFixed(2).replace('.', ','),
-                    (d.alex || 0).toFixed(2).replace('.', ','),
-                    (d.luis || 0).toFixed(2).replace('.', ','),
-                    (d.max || 0).toFixed(2).replace('.', ','),
-                    (d.emi || 0).toFixed(2).replace('.', ','),
-                    (d.por || 0).toFixed(2).replace('.', ','),
-                    (d.asis || 0).toFixed(2).replace('.', ','),
-                    (d.pedro || 0).toFixed(2).replace('.', ','),
+                    ...MEMBERS.map(member => (d[member.id] || 0).toFixed(2).replace('.', ',')),
                     tx.date || '',
                     estado
                 ];
@@ -2019,7 +2522,7 @@
         // 9. UI HELPERS & GLOBAL BINDINGS
         // ---------------------------------------------------------
         window.switchTab = function(tabName) {
-            ['saldos', 'nuevo', 'historial', 'bce'].forEach(t => {
+            ['saldos', 'nuevo', 'historial', 'bce', 'administrar'].forEach(t => {
                 document.getElementById(`tab-${t}`).classList.toggle('hidden', t !== tabName);
                 const navBtn = document.getElementById(`nav-${t}`);
                 if (navBtn) {
@@ -2028,6 +2531,7 @@
                         : "flex flex-col items-center justify-center py-1.5 rounded-xl text-slate-400 hover:text-white transition";
                 }
             });
+            if (tabName === 'administrar') renderAdminPanel();
             window.scrollTo({ top: 0, behavior: 'smooth' });
         };
 
