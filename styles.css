@@ -53,6 +53,22 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'Sofia Sans Semi Condensed';
+    src: url('./resources/fonts/SofiaSansSemiCondensed-VariableFont_wght.woff2') format('woff2');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Special Elite';
+    src: url('./resources/fonts/SpecialElite-Regular.woff2') format('woff2');
+    font-weight: 400 900;
+    font-style: normal;
+    font-display: swap;
+}
+
 /* =========================================================
    2. ESTILOS BASE Y UTILIDADES
    ========================================================= */
@@ -523,6 +539,35 @@ html[data-theme="gd"] {
     --c-bizum-500: 36 229 228;   /* Cian highlights (#24E5E4) */
 }
 
+/* 10. Resident Evil (Monocromático + Rojo #ED3F4D) */
+html[data-theme="re9"] {
+    --font-sans: 'Sofia Sans Semi Condensed', 'Inter', sans-serif;
+    --c-bg-main: 12 12 13;
+    --c-bg-card: 22 22 24;
+    --c-border-main: 52 52 56;
+    --c-header-bg: 10 10 11;
+    --c-nav-bg: 16 16 18;
+    --c-text-main: 245 245 245;
+    --c-slate-100: 245 245 245;
+    --c-slate-200: 225 225 227;
+    --c-slate-300: 198 198 202;
+    --c-slate-400: 156 156 162;
+    --c-slate-500: 120 120 126;
+    --c-slate-600: 88 88 94;
+    --c-slate-700: 62 62 67;
+    --c-slate-800: 42 42 46;
+    --c-slate-900: 24 24 27;
+    --c-slate-950: 10 10 12;
+    --c-accent-300: 246 138 147;
+    --c-accent-400: 242 96 108;
+    --c-accent-500: 237 63 77;   /* Rojo Resident Evil (#ED3F4D) */
+    --c-accent-900: 82 16 24;
+    --c-bizum-200: 240 240 242;
+    --c-bizum-300: 220 220 224;
+    --c-bizum-400: 200 200 205;
+    --c-bizum-500: 232 232 236;  /* Monocromático claro para Bizum */
+}
+
 /* =========================================================
    4. TEMAS CLAROS (VARIABLES RGB PARA TAILWIND)
    ========================================================= */
@@ -867,7 +912,8 @@ html[data-mode="light"] .theme-logo-title {
 /* Wallpapers fijos (seguros en móvil / iOS) */
 html[data-theme="gtavi"] body::before,
 html[data-theme="cyberpunk"] body::before,
-html[data-theme="gd"] body::before {
+html[data-theme="gd"] body::before,
+html[data-theme="re9"] body::before {
     content: "";
     position: fixed;
     inset: 0;
@@ -879,7 +925,7 @@ html[data-theme="gd"] body::before {
 
 html[data-theme="gtavi"] body::before {
     background-image:
-        linear-gradient(rgba(18, 11, 28, 0.2), rgba(18, 11, 28, 0.72)),
+        linear-gradient(rgba(18, 11, 28, 0.2), rgba(18, 11, 28, 0.2)),
         url('./resources/themes/gtavi/wallpaper.webp');
 }
 
@@ -889,6 +935,12 @@ html[data-theme="cyberpunk"] body::before {
 
 html[data-theme="gd"] body::before {
     background-image: url('./resources/themes/gd/wallpaper.webp');
+}
+
+html[data-theme="re9"] body::before {
+    background-image:
+        linear-gradient(rgba(8, 8, 10, 0.52), rgba(8, 8, 10, 0.42)),
+        url('./resources/themes/re9/wallpaper.jpg');
 }
 
 /* Efecto cristal en tarjetas y banner Hero para lucir el wallpaper */
@@ -912,6 +964,18 @@ html[data-theme="cyberpunk"] .bg-cardbg {
 
 html[data-theme="cyberpunk"] #tab-saldos > div:first-of-type {
     background: rgb(var(--c-bg-card) / 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+html[data-theme="re9"] .bg-cardbg {
+    background-color: rgb(var(--c-bg-card) / 0.58);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+html[data-theme="re9"] #tab-saldos > div:first-of-type {
+    background: rgb(var(--c-bg-card) / 0.58);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
 }
@@ -1019,4 +1083,100 @@ html[data-theme="gtavi"] #tab-saldos > p:first-of-type {
 /* Cyberpunk 2077: Símbolo del logo en negro sobre el amarillo chillón */
 html[data-theme="cyberpunk"] img[src*="icon-symbol.svg"] {
     filter: brightness(0);
+}
+
+/* Resident Evil: Tipografía Special Elite para títulos y elementos UI (no párrafos) */
+html[data-theme="re9"] :is(h1, h2, h3, h4, th, label, button, .uppercase, #sync-badge, #toast-box):not(.mono-num):not(input):not(select):not(textarea) {
+    font-family: 'Special Elite', 'Sofia Sans Semi Condensed', monospace;
+}
+
+/* Resident Evil: Icono superior izquierdo en rojo #ED3F4D */
+html[data-theme="re9"] .logo-icon-box {
+    background-image: linear-gradient(to bottom right, #ED3F4D, #9e1c28);
+    box-shadow: 0 10px 15px -3px rgb(237 63 77 / 0.35);
+}
+
+/* Resident Evil: Texto blanco sobre botones rojos primarios */
+html[data-theme="re9"] .bg-emerald-500.text-slate-950,
+html[data-theme="re9"] button[onclick="submitTransaction()"] {
+    color: #ffffff;
+}
+
+/* Resident Evil: Estética estrictamente monocromática + único color rojo #ED3F4D */
+html[data-theme="re9"] #members-balance-list [class*="bg-gradient-to-"],
+html[data-theme="re9"] #bce-members-table [class*="bg-gradient-to-"],
+html[data-theme="re9"] #exact-inputs-list [class*="bg-gradient-to-"],
+html[data-theme="re9"] #account-modal-avatar {
+    filter: grayscale(1);
+}
+
+/* Acreedores / positivos en blanco monocromático para diferenciarse de deudores en rojo #ED3F4D */
+html[data-theme="re9"] #members-balance-list .text-emerald-400,
+html[data-theme="re9"] #bizum-plan-list .text-emerald-400,
+html[data-theme="re9"] #bce-members-table .text-emerald-400,
+html[data-theme="re9"] #history-feed-list .text-emerald-300,
+html[data-theme="re9"] #live-deltas-preview .text-emerald-300 {
+    color: #f5f5f5;
+}
+
+html[data-theme="re9"] #members-balance-list .bg-emerald-500 {
+    background-color: #e4e4e7;
+}
+
+html[data-theme="re9"] #members-balance-list .bg-emerald-500\/15,
+html[data-theme="re9"] #history-feed-list .bg-emerald-500\/10,
+html[data-theme="re9"] #live-deltas-preview .bg-emerald-500\/15 {
+    background-color: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.28);
+}
+
+/* Unificar rose -> #ED3F4D exacto y neutralizar amber / sky a monocromático */
+html[data-theme="re9"] .text-rose-400,
+html[data-theme="re9"] .text-rose-300 {
+    color: #ED3F4D;
+}
+
+html[data-theme="re9"] .bg-rose-500 {
+    background-color: #ED3F4D;
+}
+
+html[data-theme="re9"] .bg-rose-500\/15,
+html[data-theme="re9"] .bg-rose-500\/10,
+html[data-theme="re9"] .bg-rose-500\/20 {
+    background-color: rgba(237, 63, 77, 0.16);
+}
+
+html[data-theme="re9"] .border-rose-500\/30,
+html[data-theme="re9"] .border-rose-500\/25,
+html[data-theme="re9"] .border-rose-500\/40,
+html[data-theme="re9"] .border-rose-500\/60 {
+    border-color: rgba(237, 63, 77, 0.45);
+}
+
+html[data-theme="re9"] .text-amber-400,
+html[data-theme="re9"] .text-amber-300,
+html[data-theme="re9"] .text-amber-200,
+html[data-theme="re9"] .text-sky-400 {
+    color: #e4e4e7;
+}
+
+html[data-theme="re9"] .bg-amber-500 {
+    background-color: #ED3F4D;
+    color: #ffffff;
+}
+
+html[data-theme="re9"] .bg-amber-500\/10,
+html[data-theme="re9"] .bg-amber-500\/15,
+html[data-theme="re9"] .bg-amber-500\/20 {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+html[data-theme="re9"] .border-amber-500\/20,
+html[data-theme="re9"] .border-amber-500\/25,
+html[data-theme="re9"] .border-amber-500\/30 {
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+html[data-theme="re9"] #tab-saldos > p:first-of-type {
+    color: rgba(245, 245, 245, 0.72);
 }
