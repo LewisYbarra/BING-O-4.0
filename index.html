@@ -28,7 +28,7 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
+                        sans: ['var(--font-sans)', 'sans-serif'],
                         mono: ['JetBrains Mono', 'monospace'],
                     },
                     colors: {
@@ -54,6 +54,12 @@
                             400: 'rgb(var(--c-accent-400) / <alpha-value>)',
                             500: 'rgb(var(--c-accent-500) / <alpha-value>)',
                             900: 'rgb(var(--c-accent-900) / <alpha-value>)',
+                        },
+                        indigo: {
+                            200: 'rgb(var(--c-bizum-200) / <alpha-value>)',
+                            300: 'rgb(var(--c-bizum-300) / <alpha-value>)',
+                            400: 'rgb(var(--c-bizum-400) / <alpha-value>)',
+                            500: 'rgb(var(--c-bizum-500) / <alpha-value>)',
                         }
                     }
                 }
@@ -61,299 +67,13 @@
         }
     </script>
 
-    <style>
-        /* ========================================= */
-        /* TEMAS (CSS VARIABLES RGB PARA TAILWIND)   */
-        /* ========================================= */
-
-        /* 1. BING-O Clásico (Por defecto) */
-        :root, html[data-theme="default"] {
-            --c-bg-main: 11 15 25;
-            --c-bg-card: 19 27 46;
-            --c-border-main: 30 41 59;
-            --c-header-bg: 11 15 25;
-            --c-nav-bg: 19 27 46;
-            --c-text-main: 248 250 252;
-            --c-slate-100: 241 245 249;
-            --c-slate-200: 226 232 240;
-            --c-slate-300: 203 213 225;
-            --c-slate-400: 148 163 184;
-            --c-slate-500: 100 116 139;
-            --c-slate-600: 71 85 105;
-            --c-slate-700: 51 65 85;
-            --c-slate-800: 30 41 59;
-            --c-slate-900: 15 23 42;
-            --c-slate-950: 2 6 23;
-            --c-accent-300: 110 231 183;
-            --c-accent-400: 52 211 153;
-            --c-accent-500: 16 185 129;
-            --c-accent-900: 6 78 59;
-        }
-
-        /* 2. OLED Negro */
-        html[data-theme="amoled"] {
-            --c-bg-main: 0 0 0;
-            --c-bg-card: 14 14 17;
-            --c-border-main: 34 34 40;
-            --c-header-bg: 0 0 0;
-            --c-nav-bg: 10 10 12;
-            --c-text-main: 250 250 250;
-            --c-slate-100: 244 244 245;
-            --c-slate-200: 228 228 231;
-            --c-slate-300: 212 212 216;
-            --c-slate-400: 161 161 170;
-            --c-slate-500: 113 113 122;
-            --c-slate-600: 82 82 91;
-            --c-slate-700: 54 54 62;
-            --c-slate-800: 34 34 40;
-            --c-slate-900: 18 18 22;
-            --c-slate-950: 6 6 8;
-            --c-accent-300: 110 231 183;
-            --c-accent-400: 52 211 153;
-            --c-accent-500: 16 185 129;
-            --c-accent-900: 6 78 59;
-        }
-
-        /* 3. Nord */
-        html[data-theme="nord"] {
-            --c-bg-main: 36 41 51;
-            --c-bg-card: 46 52 64;
-            --c-border-main: 67 76 94;
-            --c-header-bg: 36 41 51;
-            --c-nav-bg: 46 52 64;
-            --c-text-main: 236 239 244;
-            --c-slate-100: 236 239 244;
-            --c-slate-200: 229 233 240;
-            --c-slate-300: 216 222 233;
-            --c-slate-400: 168 179 199;
-            --c-slate-500: 129 141 163;
-            --c-slate-600: 96 108 132;
-            --c-slate-700: 76 86 106;
-            --c-slate-800: 59 66 82;
-            --c-slate-900: 46 52 64;
-            --c-slate-950: 33 38 46;
-            --c-accent-300: 163 213 224;
-            --c-accent-400: 136 192 208;
-            --c-accent-500: 129 161 193;
-            --c-accent-900: 46 68 89;
-        }
-
-        /* 4. Drácula */
-        html[data-theme="dracula"] {
-            --c-bg-main: 25 26 35;
-            --c-bg-card: 40 42 54;
-            --c-border-main: 68 71 90;
-            --c-header-bg: 25 26 35;
-            --c-nav-bg: 40 42 54;
-            --c-text-main: 248 248 242;
-            --c-slate-100: 248 248 242;
-            --c-slate-200: 235 237 245;
-            --c-slate-300: 214 218 232;
-            --c-slate-400: 168 176 206;
-            --c-slate-500: 128 139 178;
-            --c-slate-600: 98 114 164;
-            --c-slate-700: 68 71 90;
-            --c-slate-800: 54 57 73;
-            --c-slate-900: 33 34 44;
-            --c-slate-950: 21 22 30;
-            --c-accent-300: 214 188 250;
-            --c-accent-400: 189 147 249;
-            --c-accent-500: 167 119 246;
-            --c-accent-900: 68 42 110;
-        }
-
-        /* 5. Claro (Light) */
-        html[data-theme="light"] {
-            --c-bg-main: 241 245 249;
-            --c-bg-card: 255 255 255;
-            --c-border-main: 226 232 240;
-            --c-header-bg: 255 255 255;
-            --c-nav-bg: 255 255 255;
-            --c-text-main: 15 23 42;
-            --c-slate-100: 15 23 42;
-            --c-slate-200: 30 41 59;
-            --c-slate-300: 51 65 85;
-            --c-slate-400: 71 85 105;
-            --c-slate-500: 100 116 139;
-            --c-slate-600: 100 116 139;
-            --c-slate-700: 203 213 225;
-            --c-slate-800: 226 232 240;
-            --c-slate-900: 241 245 249;
-            --c-slate-950: 248 250 252;
-            --c-accent-300: 6 95 70;
-            --c-accent-400: 4 120 87;
-            --c-accent-500: 5 150 105;
-            --c-accent-900: 209 250 229;
-        }
-
-        /* 6. Sepia (Papel cálido) */
-        html[data-theme="sepia"] {
-            --c-bg-main: 243 236 225;
-            --c-bg-card: 253 250 245;
-            --c-border-main: 224 214 198;
-            --c-header-bg: 253 250 245;
-            --c-nav-bg: 253 250 245;
-            --c-text-main: 41 35 28;
-            --c-slate-100: 28 24 19;
-            --c-slate-200: 41 35 28;
-            --c-slate-300: 68 60 50;
-            --c-slate-400: 92 82 70;
-            --c-slate-500: 120 109 95;
-            --c-slate-600: 120 109 95;
-            --c-slate-700: 203 190 170;
-            --c-slate-800: 224 214 198;
-            --c-slate-900: 238 230 217;
-            --c-slate-950: 247 242 234;
-            --c-accent-300: 17 94 89;
-            --c-accent-400: 15 118 110;
-            --c-accent-500: 13 148 136;
-            --c-accent-900: 204 251 241;
-        }
-
-        /* 7. Latte (Catppuccin claro) */
-        html[data-theme="latte"] {
-            --c-bg-main: 239 241 245;
-            --c-bg-card: 255 255 255;
-            --c-border-main: 220 224 232;
-            --c-header-bg: 255 255 255;
-            --c-nav-bg: 255 255 255;
-            --c-text-main: 46 52 79;
-            --c-slate-100: 30 34 54;
-            --c-slate-200: 46 52 79;
-            --c-slate-300: 76 79 105;
-            --c-slate-400: 92 95 119;
-            --c-slate-500: 108 111 133;
-            --c-slate-600: 108 111 133;
-            --c-slate-700: 188 194 209;
-            --c-slate-800: 214 219 229;
-            --c-slate-900: 230 233 239;
-            --c-slate-950: 245 247 250;
-            --c-accent-300: 67 56 202;
-            --c-accent-400: 79 70 229;
-            --c-accent-500: 99 102 241;
-            --c-accent-900: 224 231 255;
-        }
-
-        /* 8. Menta (Claro verdoso) */
-        html[data-theme="mint"] {
-            --c-bg-main: 236 247 242;
-            --c-bg-card: 255 255 255;
-            --c-border-main: 209 235 224;
-            --c-header-bg: 255 255 255;
-            --c-nav-bg: 255 255 255;
-            --c-text-main: 12 45 36;
-            --c-slate-100: 12 45 36;
-            --c-slate-200: 18 48 39;
-            --c-slate-300: 36 68 57;
-            --c-slate-400: 55 92 79;
-            --c-slate-500: 82 117 104;
-            --c-slate-600: 82 117 104;
-            --c-slate-700: 174 218 200;
-            --c-slate-800: 209 235 224;
-            --c-slate-900: 230 244 238;
-            --c-slate-950: 243 250 247;
-            --c-accent-300: 6 95 70;
-            --c-accent-400: 4 120 87;
-            --c-accent-500: 5 150 105;
-            --c-accent-900: 209 250 229;
-        }
-
-        body {
-            background-color: rgb(var(--c-bg-main));
-            color: rgb(var(--c-text-main));
-            -webkit-tap-highlight-color: transparent;
-            overscroll-behavior-y: none;
-            transition: background-color 0.2s ease, color 0.2s ease;
-        }
-        .mono-num {
-            font-family: 'JetBrains Mono', monospace;
-            font-variant-numeric: tabular-nums;
-        }
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-
-        .glass-header {
-            background: rgba(var(--c-header-bg), 0.88);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-        }
-        .glass-nav {
-            background: rgba(var(--c-nav-bg), 0.94);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-        }
-
-        @keyframes pulse-subtle {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.65; }
-        }
-        .animate-pulse-subtle { animation: pulse-subtle 2.5s infinite ease-in-out; }
-
-        /* Flecha personalizada para select */
-        select {
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-            padding-right: 2.25rem !important;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2394a3b8' stroke-width='2.5'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 0.85rem center;
-            background-size: 0.95rem;
-        }
-        /* Input de fecha nativo */
-        input[type="date"] {
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-            color-scheme: dark;
-            position: relative;
-            padding-right: 2.25rem !important;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2394a3b8' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 0.85rem center;
-            background-size: 1rem;
-        }
-        input[type="date"]::-webkit-calendar-picker-indicator {
-            opacity: 0;
-            position: absolute;
-            right: 0;
-            width: 2.5rem;
-            height: 100%;
-            cursor: pointer;
-        }
-
-        /* ========================================= */
-        /* AJUSTES DE LEGIBILIDAD PARA TEMAS CLAROS  */
-        /* ========================================= */
-        html[data-mode="light"] input[type="date"] { color-scheme: light; }
-        html[data-mode="light"] .text-white { color: rgb(var(--c-text-main)); }
-        html[data-mode="light"] .hover\:text-white:hover { color: rgb(var(--c-text-main)); }
-        /* Mantener texto blanco real sobre avatares de colores y botones rojos */
-        html[data-mode="light"] [class*="bg-gradient-to-"].text-white,
-        html[data-mode="light"] .bg-rose-500.text-white,
-        html[data-mode="light"] .keep-white { color: #ffffff !important; }
-        /* Colores semánticos más profundos sobre fondo blanco */
-        html[data-mode="light"] .text-amber-400,
-        html[data-mode="light"] .text-amber-300,
-        html[data-mode="light"] .text-amber-200 { color: #b45309; }
-        html[data-mode="light"] .text-rose-400,
-        html[data-mode="light"] .text-rose-300 { color: #e11d48; }
-        html[data-mode="light"] .text-indigo-400,
-        html[data-mode="light"] .text-indigo-300,
-        html[data-mode="light"] .text-indigo-200 { color: #4338ca; }
-        html[data-mode="light"] .text-sky-400 { color: #0284c7; }
-        html[data-mode="light"] .bg-rose-950\/20 { background-color: rgba(244, 63, 94, 0.08); }
-        html[data-mode="light"] .border-rose-900\/40 { border-color: rgba(244, 63, 94, 0.3); }
-        html[data-mode="light"] .bg-amber-500.text-slate-950 { background-color: #d97706; color: #ffffff; }
-        /* Invierte el SVG del título si sus letras son blancas en modo oscuro */
-        html[data-mode="light"] .theme-logo-title { filter: invert(1) hue-rotate(180deg); }
-    </style>
+    <link rel="stylesheet" href="./styles.css">
 
     <!-- Carga instantánea del tema guardado antes de pintar el body -->
     <script>
         (function() {
             const saved = localStorage.getItem('bingo_theme') || 'default';
-            const lightIds = ['light', 'sepia', 'latte', 'mint'];
+            const lightIds = ['light', 'sepia', 'latte', 'mint', 'sakura', 'solarized', 'porcelain', 'graphite', 'nord-light', 'arctic'];
             const mode = lightIds.includes(saved) ? 'light' : 'dark';
             document.documentElement.setAttribute('data-theme', saved);
             document.documentElement.setAttribute('data-mode', mode);
@@ -368,10 +88,12 @@
         <div class="max-w-2xl mx-auto flex items-center justify-between gap-2">
             <!-- Bloque izquierdo (Logo y Título) con min-w-0 para evitar desbordamiento -->
             <div class="flex items-center gap-2.5 min-w-0">
-                <img src="./resources/icon.svg" alt="Logo BING-O" class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl shadow-lg shadow-emerald-900/40 object-contain shrink-0">
+                <div class="logo-icon-box w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-emerald-400 shadow-lg shadow-emerald-500/25 flex items-center justify-center p-1.5 shrink-0">
+                    <img src="./resources/icon-symbol.svg" alt="Logo BING-O" class="w-full h-full object-contain">
+                </div>
                 <div class="min-w-0">
                     <div class="flex items-center gap-2">
-                            <img src="./resources/title.svg" alt="BING-O 4.0" class="h-5 sm:h-6 w-auto object-contain shrink-0 theme-logo-title">                        <span id="sync-badge" class="inline-flex items-center gap-1 text-[9px] sm:text-[10px] font-semibold px-1.5 sm:px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 whitespace-nowrap shrink-0">
+                            <img id="app-title-logo" src="./resources/title.svg" alt="BING-O 4.0" class="h-5 sm:h-6 w-auto object-contain shrink-0 theme-logo-title">                        <span id="sync-badge" class="inline-flex items-center gap-1 text-[9px] sm:text-[10px] font-semibold px-1.5 sm:px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 whitespace-nowrap shrink-0">
                             <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
                             CARGANDO
                         </span>
@@ -452,17 +174,17 @@
 
             <!-- LIQUIDADOR DE BIZUMS ÓPTIMO -->
             <div class="rounded-2xl bg-cardbg border border-slate-800 p-4 space-y-3 shadow-lg">
-                <div class="flex items-center justify-between">
-                    <div class="flex items-center gap-2.5">
-                        <div class="w-8 h-8 rounded-lg bg-indigo-500/20 border border-indigo-500/30 flex items-center justify-center text-indigo-400">
+                <div class="flex items-center justify-between gap-2">
+                    <div class="flex items-center gap-2.5 min-w-0">
+                        <div class="w-8 h-8 rounded-lg bg-indigo-500/20 border border-indigo-500/30 flex items-center justify-center text-indigo-400 shrink-0">
                             <i class="fa-solid fa-bolt"></i>
                         </div>
-                        <div>
+                        <div class="min-w-0">
                             <h2 class="text-sm font-bold text-white">Liquidar deuda</h2>
                             <p class="text-[11px] text-slate-400">Propuesta de pagos para saldar los balances</p>
                         </div>
                     </div>
-                    <span id="settlement-count-badge" class="text-[11px] mono-num font-semibold px-2.5 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
+                    <span id="settlement-count-badge" class="text-[11px] mono-num font-semibold px-2.5 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 whitespace-nowrap shrink-0">
                         0 pagos
                     </span>
                 </div>
@@ -648,7 +370,7 @@
                         <i class="fa-solid fa-xmark"></i>
                         <span>Cancelar</span>
                     </button>
-                    <button type="button" onclick="submitTransaction()" class="sm:col-span-2 w-full py-3.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-extrabold text-sm shadow-lg shadow-emerald-500/20 transition flex items-center justify-center gap-2 order-1 sm:order-2">
+                    <button type="button" onclick="submitTransaction()" class="sm:col-span-2 w-full py-3.5 rounded-xl bg-gradient-to-r from-emerald-500 to-emerald-400 hover:from-emerald-400 hover:to-emerald-300 text-slate-950 font-extrabold text-sm shadow-lg shadow-emerald-500/20 transition flex items-center justify-center gap-2 order-1 sm:order-2">
                         <i class="fa-solid fa-check-double"></i>
                         <span>Guardar transacción</span>
                     </button>
@@ -1005,10 +727,12 @@
 
             <div class="rounded-xl bg-slate-950 p-4 border border-slate-800 text-center space-y-2.5">
                 <div id="account-modal-avatar" class="w-14 h-14 mx-auto rounded-2xl bg-slate-800 flex items-center justify-center font-extrabold text-base text-white shadow-md"></div>
-                <p class="text-xs text-slate-300 leading-relaxed">
-                    Sesión iniciada como <strong id="account-modal-name" class="text-white">Usuario</strong>
-                    (<span id="account-modal-email" class="text-slate-400 break-all">correo@gmail.com</span>)
-                </p>
+                <div class="space-y-1">
+                    <p class="text-xs text-slate-300">
+                        Sesión iniciada como <strong id="account-modal-name" class="text-white">Usuario</strong>
+                    </p>
+                    <p id="account-modal-email" class="text-[11px] text-slate-400 break-words">correo@gmail.com</p>
+                </div>
             </div>
 
             <div class="flex gap-2 pt-1">
@@ -1043,7 +767,7 @@
                 </button>
             </div>
 
-            <div id="themes-modal-content" class="space-y-3.5">
+            <div id="themes-modal-content" class="space-y-3.5 max-h-[65vh] overflow-y-auto no-scrollbar">
                 <!-- Populated via JS -->
             </div>
 
@@ -2675,7 +2399,7 @@
             let counter = 1;
             const numberedTxs = sortedByDate.map(tx => {
                 const rowNum = tx.rowNum ? tx.rowNum : counter;
-                counter = Math.max(counter + 1, rowNum + 1);
+                counter = Math.max(counter, rowNum + 1);
                 return {
                     ...tx,
                     rowNum: rowNum,
@@ -3111,16 +2835,58 @@
         // ---------------------------------------------------------
         // GESTOR DE TEMAS
         // ---------------------------------------------------------
+        const DEFAULT_TITLE_LOGO = './resources/title.svg';
+
         const THEMES = [
-            { id: 'default', name: 'BING-O Clásico', mode: 'dark',  meta: '#0b0f19', swatches: ['#0b0f19', '#131b2e', '#10b981'] },
-            { id: 'amoled',  name: 'OLED Negro',     mode: 'dark',  meta: '#000000', swatches: ['#000000', '#0e0e11', '#10b981'] },
-            { id: 'nord',    name: 'Nord',           mode: 'dark',  meta: '#242933', swatches: ['#242933', '#2e3440', '#88c0d0'] },
-            { id: 'dracula', name: 'Drácula',        mode: 'dark',  meta: '#191a23', swatches: ['#191a23', '#282a36', '#bd93f9'] },
-            { id: 'light',   name: 'Claro',          mode: 'light', meta: '#ffffff', swatches: ['#f1f5f9', '#ffffff', '#059669'] },
-            { id: 'sepia',   name: 'Sepia',          mode: 'light', meta: '#fdfaf5', swatches: ['#f3ece1', '#fdfaf5', '#0d9488'] },
-            { id: 'latte',   name: 'Latte',          mode: 'light', meta: '#ffffff', swatches: ['#eff1f5', '#ffffff', '#4f46e5'] },
-            { id: 'mint',    name: 'Menta',          mode: 'light', meta: '#ffffff', swatches: ['#ecf7f2', '#ffffff', '#047857'] }
+            // Oscuros
+            { id: 'default',        name: 'BING-O Clásico', mode: 'dark',  category: 'dark',    meta: '#0b0f19', swatches: ['#0b0f19', '#131b2e', '#10b981'] },
+            { id: 'amoled',         name: 'OLED Negro',     mode: 'dark',  category: 'dark',    meta: '#000000', swatches: ['#000000', '#0e0e11', '#10b981'] },
+            { id: 'nord',           name: 'Nord',           mode: 'dark',  category: 'dark',    meta: '#242933', swatches: ['#242933', '#2e3440', '#88c0d0'] },
+            { id: 'dracula',        name: 'Drácula',        mode: 'dark',  category: 'dark',    meta: '#191a23', swatches: ['#191a23', '#282a36', '#bd93f9'] },
+            { id: 'gruvbox',        name: 'Gruvbox',        mode: 'dark',  category: 'dark',    meta: '#1d2021', swatches: ['#1d2021', '#282828', '#d65d0e'] },
+            { id: 'rosepine',       name: 'Rosé Pine',      mode: 'dark',  category: 'dark',    meta: '#191724', swatches: ['#191724', '#1f1d2e', '#eb6f92'] },
+            { id: 'solarized-dark', name: 'Solarized Dark', mode: 'dark',  category: 'dark',    meta: '#002b36', swatches: ['#002b36', '#073642', '#268bd2'] },
+            { id: 'porcelain-dark', name: 'Porcelain Dark', mode: 'dark',  category: 'dark',    meta: '#161413', swatches: ['#161413', '#211e1c', '#d4885c'] },
+            { id: 'arctic-dark',    name: 'Arctic Dark',    mode: 'dark',  category: 'dark',    meta: '#0a141e', swatches: ['#0a141e', '#101f2e', '#38bdf8'] },
+            { id: 'graphite-dark',  name: 'Graphite Dark',  mode: 'dark',  category: 'dark',    meta: '#18181b', swatches: ['#18181b', '#232328', '#a1a1aa'] },
+
+            // Claros
+            { id: 'light',          name: 'Claro',          mode: 'light', category: 'light',   meta: '#ffffff', swatches: ['#f1f5f9', '#ffffff', '#059669'] },
+            { id: 'sepia',          name: 'Sepia',          mode: 'light', category: 'light',   meta: '#fdfaf5', swatches: ['#f3ece1', '#fdfaf5', '#0d9488'] },
+            { id: 'latte',          name: 'Latte',          mode: 'light', category: 'light',   meta: '#ffffff', swatches: ['#eff1f5', '#ffffff', '#4f46e5'] },
+            { id: 'mint',           name: 'Menta',          mode: 'light', category: 'light',   meta: '#ffffff', swatches: ['#ecf7f2', '#ffffff', '#047857'] },
+            { id: 'sakura',         name: 'Sakura',         mode: 'light', category: 'light',   meta: '#ffffff', swatches: ['#fdf2f8', '#ffffff', '#db2777'] },
+            { id: 'solarized',      name: 'Solarized',      mode: 'light', category: 'light',   meta: '#fdf6e3', swatches: ['#f3ecda', '#fdf6e3', '#268bd2'] },
+            { id: 'porcelain',      name: 'Porcelain',      mode: 'light', category: 'light',   meta: '#fffdfa', swatches: ['#f6f2ec', '#fffdfa', '#b05c32'] },
+            { id: 'graphite',       name: 'Graphite',       mode: 'light', category: 'light',   meta: '#fafafb', swatches: ['#eeeef0', '#fafafb', '#52525b'] },
+            { id: 'nord-light',     name: 'Nord',           mode: 'light', category: 'light',   meta: '#eceff4', swatches: ['#e5e9f0', '#eceff4', '#5e81ac'] },
+            { id: 'arctic',         name: 'Arctic',         mode: 'light', category: 'light',   meta: '#ffffff', swatches: ['#e8f4fc', '#ffffff', '#0284c7'] },
+
+            // Especiales
+            { id: 'gtavi',          name: 'GTA VI',         mode: 'dark',  category: 'special', meta: '#120b1c', swatches: ['#120b1c', '#f43f8e', '#fdba74'] },
+            { id: 'cyberpunk',      name: 'Cyberpunk 2077', mode: 'dark',  category: 'special', meta: '#0a0a0e', swatches: ['#0a0a0e', '#121218', '#fcee0a'] },
+            { id: 'gd',             name: 'Geometry Dash',  mode: 'dark',  category: 'special', meta: '#4e2918', swatches: ['#995533', '#7ade2d', '#24e5e4'] },
+            { id: 're9',            name: 'Resident Evil',  mode: 'dark',  category: 'special', meta: '#0c0c0d', swatches: ['#0c0c0d', '#3f3f46', '#ed3f4d'] }
         ];
+
+        function updateThemeLogo(theme) {
+            const titleLogo = document.getElementById('app-title-logo');
+            if (!titleLogo) return;
+
+            if (theme.category === 'special') {
+                titleLogo.classList.remove('theme-logo-title');
+                titleLogo.onerror = () => {
+                    titleLogo.onerror = null;
+                    titleLogo.classList.add('theme-logo-title');
+                    titleLogo.src = DEFAULT_TITLE_LOGO;
+                };
+                titleLogo.src = `./resources/themes/${theme.id}/title.svg`;
+            } else {
+                titleLogo.onerror = null;
+                titleLogo.classList.add('theme-logo-title');
+                titleLogo.src = DEFAULT_TITLE_LOGO;
+            }
+        }
 
         function applyTheme(themeId, silent = false) {
             const theme = THEMES.find(t => t.id === themeId) || THEMES[0];
@@ -3130,6 +2896,8 @@
 
             const metaTheme = document.querySelector('meta[name="theme-color"]');
             if (metaTheme) metaTheme.setAttribute('content', theme.meta);
+
+            updateThemeLogo(theme);
 
             localStorage.setItem('bingo_theme', theme.id);
             renderThemePicker();
@@ -3141,7 +2909,7 @@
                 renderBCEChart(computeGroupState().timeline);
             }
 
-            if (!silent) showToast(`Tema: ${theme.name}`);
+            // if (!silent) showToast(`Tema: ${theme.name}`);
         }
 
         function renderThemePicker() {
@@ -3179,8 +2947,9 @@
             `;
 
             container.innerHTML =
-                renderGroup('Oscuros', 'fa-moon', THEMES.filter(t => t.mode === 'dark')) +
-                renderGroup('Claros', 'fa-sun', THEMES.filter(t => t.mode === 'light'));
+                renderGroup('Oscuros', 'fa-moon', THEMES.filter(t => t.category === 'dark')) +
+                renderGroup('Claros', 'fa-sun', THEMES.filter(t => t.category === 'light')) +
+                renderGroup('Especiales', 'fa-wand-magic-sparkles', THEMES.filter(t => t.category === 'special'));
         }
 
         window.openThemeModal = function() {

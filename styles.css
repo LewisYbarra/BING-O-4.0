@@ -1,0 +1,1182 @@
+/* =========================================================
+   1. FUENTES LOCALES
+   ========================================================= */
+@font-face {
+    font-family: 'Blender Pro';
+    src: url('./resources/fonts/BlenderPro-Book.woff2') format('woff2');
+    font-weight: 400 500;
+    font-style: normal;
+    font-display: swap;
+    size-adjust: 125%;
+}
+
+@font-face {
+    font-family: 'Blender Pro';
+    src: url('./resources/fonts/BlenderPro-Bold.woff2') format('woff2');
+    font-weight: 600 800;
+    font-style: normal;
+    font-display: swap;
+    size-adjust: 125%;
+}
+
+@font-face {
+    font-family: 'GTAArtDeco';
+    src: url('./resources/fonts/GTAArtDeco-Regular.woff') format('woff');
+    font-weight: 400 500;
+    font-style: normal;
+    font-display: swap;
+    size-adjust: 100%;
+}
+
+@font-face {
+    font-family: 'GTAArtDeco';
+    src: url('./resources/fonts/GTAArtDeco-Bold.woff') format('woff');
+    font-weight: 600 800;
+    font-style: normal;
+    font-display: swap;
+    size-adjust: 100%;
+}
+
+@font-face {
+    font-family: 'GD Sans';
+    src: url('./resources/fonts/Lato-Regular.woff2') format('woff2');
+    font-weight: 400 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'GD Sans';
+    src: url('./resources/fonts/pusab.ttf') format('truetype');
+    font-weight: 700 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Sofia Sans Semi Condensed';
+    src: url('./resources/fonts/SofiaSansSemiCondensed-VariableFont_wght.woff2') format('woff2');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Special Elite';
+    src: url('./resources/fonts/SpecialElite-Regular.woff2') format('woff2');
+    font-weight: 400 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* =========================================================
+   2. ESTILOS BASE Y UTILIDADES
+   ========================================================= */
+body {
+    font-family: var(--font-sans);
+    background-color: rgb(var(--c-bg-main));
+    color: rgb(var(--c-text-main));
+    -webkit-tap-highlight-color: transparent;
+    overscroll-behavior-y: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.mono-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-variant-numeric: tabular-nums;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Bloqueo de scroll del fondo cuando hay un modal abierto */
+html:has([id^="modal-"]:not(.hidden)),
+body:has([id^="modal-"]:not(.hidden)) {
+    overflow: hidden;
+}
+
+[id^="modal-"],
+#themes-modal-content {
+    overscroll-behavior: contain;
+}
+
+.glass-header {
+    background: rgb(var(--c-header-bg) / 0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.glass-nav {
+    background: rgb(var(--c-nav-bg) / 0.94);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
+@keyframes pulse-subtle {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.65; }
+}
+
+.animate-pulse-subtle {
+    animation: pulse-subtle 2.5s infinite ease-in-out;
+}
+
+/* Flecha personalizada para select */
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding-right: 2.25rem !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2394a3b8' stroke-width='2.5'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.85rem center;
+    background-size: 0.95rem;
+}
+
+/* Input de fecha nativo */
+input[type="date"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    color-scheme: dark;
+    position: relative;
+    padding-right: 2.25rem !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2394a3b8' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.85rem center;
+    background-size: 1rem;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    width: 2.5rem;
+    height: 100%;
+    cursor: pointer;
+}
+
+/* =========================================================
+   3. TEMAS OSCUROS (VARIABLES RGB PARA TAILWIND)
+   ========================================================= */
+
+/* 1. BING-O Clásico (Por defecto) */
+:root,
+html[data-theme="default"] {
+    --font-sans: 'Inter', sans-serif;
+    --c-bg-main: 11 15 25;
+    --c-bg-card: 19 27 46;
+    --c-border-main: 30 41 59;
+    --c-header-bg: 11 15 25;
+    --c-nav-bg: 19 27 46;
+    --c-text-main: 248 250 252;
+    --c-slate-100: 241 245 249;
+    --c-slate-200: 226 232 240;
+    --c-slate-300: 203 213 225;
+    --c-slate-400: 148 163 184;
+    --c-slate-500: 100 116 139;
+    --c-slate-600: 71 85 105;
+    --c-slate-700: 51 65 85;
+    --c-slate-800: 30 41 59;
+    --c-slate-900: 15 23 42;
+    --c-slate-950: 2 6 23;
+    --c-accent-300: 110 231 183;
+    --c-accent-400: 52 211 153;
+    --c-accent-500: 16 185 129;
+    --c-accent-900: 6 78 59;
+    --c-bizum-200: 199 210 254;
+    --c-bizum-300: 165 180 252;
+    --c-bizum-400: 129 140 248;
+    --c-bizum-500: 99 102 241;
+}
+
+/* 2. OLED Negro */
+html[data-theme="amoled"] {
+    --c-bg-main: 0 0 0;
+    --c-bg-card: 14 14 17;
+    --c-border-main: 34 34 40;
+    --c-header-bg: 0 0 0;
+    --c-nav-bg: 10 10 12;
+    --c-text-main: 250 250 250;
+    --c-slate-100: 244 244 245;
+    --c-slate-200: 228 228 231;
+    --c-slate-300: 212 212 216;
+    --c-slate-400: 161 161 170;
+    --c-slate-500: 113 113 122;
+    --c-slate-600: 82 82 91;
+    --c-slate-700: 54 54 62;
+    --c-slate-800: 34 34 40;
+    --c-slate-900: 18 18 22;
+    --c-slate-950: 6 6 8;
+    --c-accent-300: 110 231 183;
+    --c-accent-400: 52 211 153;
+    --c-accent-500: 16 185 129;
+    --c-accent-900: 6 78 59;
+    --c-bizum-200: 199 210 254;
+    --c-bizum-300: 165 180 252;
+    --c-bizum-400: 129 140 248;
+    --c-bizum-500: 99 102 241;
+}
+
+/* 3. Nord */
+html[data-theme="nord"] {
+    --c-bg-main: 36 41 51;
+    --c-bg-card: 46 52 64;
+    --c-border-main: 67 76 94;
+    --c-header-bg: 36 41 51;
+    --c-nav-bg: 46 52 64;
+    --c-text-main: 236 239 244;
+    --c-slate-100: 236 239 244;
+    --c-slate-200: 229 233 240;
+    --c-slate-300: 216 222 233;
+    --c-slate-400: 168 179 199;
+    --c-slate-500: 129 141 163;
+    --c-slate-600: 96 108 132;
+    --c-slate-700: 76 86 106;
+    --c-slate-800: 59 66 82;
+    --c-slate-900: 46 52 64;
+    --c-slate-950: 33 38 46;
+    --c-accent-300: 163 213 224;
+    --c-accent-400: 136 192 208;
+    --c-accent-500: 129 161 193;
+    --c-accent-900: 46 68 89;
+    --c-bizum-200: 226 206 222;
+    --c-bizum-300: 206 174 200;
+    --c-bizum-400: 192 154 186;
+    --c-bizum-500: 180 142 173;
+}
+
+/* 4. Drácula */
+html[data-theme="dracula"] {
+    --c-bg-main: 25 26 35;
+    --c-bg-card: 40 42 54;
+    --c-border-main: 68 71 90;
+    --c-header-bg: 25 26 35;
+    --c-nav-bg: 40 42 54;
+    --c-text-main: 248 248 242;
+    --c-slate-100: 248 248 242;
+    --c-slate-200: 235 237 245;
+    --c-slate-300: 214 218 232;
+    --c-slate-400: 168 176 206;
+    --c-slate-500: 128 139 178;
+    --c-slate-600: 98 114 164;
+    --c-slate-700: 68 71 90;
+    --c-slate-800: 54 57 73;
+    --c-slate-900: 33 34 44;
+    --c-slate-950: 21 22 30;
+    --c-accent-300: 214 188 250;
+    --c-accent-400: 189 147 249;
+    --c-accent-500: 167 119 246;
+    --c-accent-900: 68 42 110;
+    --c-bizum-200: 207 248 255;
+    --c-bizum-300: 168 240 254;
+    --c-bizum-400: 139 233 253;
+    --c-bizum-500: 98 214 238;
+}
+
+/* 5. Gruvbox (Oscuro cálido) */
+html[data-theme="gruvbox"] {
+    --c-bg-main: 29 32 33;
+    --c-bg-card: 40 40 40;
+    --c-border-main: 60 56 54;
+    --c-header-bg: 29 32 33;
+    --c-nav-bg: 40 40 40;
+    --c-text-main: 235 219 178;
+    --c-slate-100: 251 241 199;
+    --c-slate-200: 235 219 178;
+    --c-slate-300: 213 196 161;
+    --c-slate-400: 189 174 147;
+    --c-slate-500: 146 131 116;
+    --c-slate-600: 124 111 100;
+    --c-slate-700: 80 73 69;
+    --c-slate-800: 60 56 54;
+    --c-slate-900: 40 40 40;
+    --c-slate-950: 24 26 27;
+    --c-accent-300: 250 189 47;
+    --c-accent-400: 254 128 25;
+    --c-accent-500: 214 93 14;
+    --c-accent-900: 66 32 6;
+    --c-bizum-200: 197 224 186;
+    --c-bizum-300: 167 210 151;
+    --c-bizum-400: 142 192 124;
+    --c-bizum-500: 104 157 106;
+}
+
+/* 6. Rosé Pine (Oscuro aterciopelado) */
+html[data-theme="rosepine"] {
+    --c-bg-main: 25 23 36;
+    --c-bg-card: 31 29 46;
+    --c-border-main: 64 61 82;
+    --c-header-bg: 25 23 36;
+    --c-nav-bg: 31 29 46;
+    --c-text-main: 224 222 244;
+    --c-slate-100: 224 222 244;
+    --c-slate-200: 212 209 236;
+    --c-slate-300: 192 188 220;
+    --c-slate-400: 144 140 170;
+    --c-slate-500: 110 106 134;
+    --c-slate-600: 82 79 103;
+    --c-slate-700: 64 61 82;
+    --c-slate-800: 50 47 68;
+    --c-slate-900: 38 35 58;
+    --c-slate-950: 20 18 30;
+    --c-accent-300: 246 193 119;
+    --c-accent-400: 235 188 186;
+    --c-accent-500: 235 111 146;
+    --c-accent-900: 76 29 52;
+    --c-bizum-200: 226 212 245;
+    --c-bizum-300: 210 188 238;
+    --c-bizum-400: 196 167 231;
+    --c-bizum-500: 168 134 216;
+}
+
+/* 7. Solarized Dark */
+html[data-theme="solarized-dark"] {
+    --c-bg-main: 0 43 54;
+    --c-bg-card: 7 54 66;
+    --c-border-main: 22 76 89;
+    --c-header-bg: 0 43 54;
+    --c-nav-bg: 7 54 66;
+    --c-text-main: 238 232 213;
+    --c-slate-100: 253 246 227;
+    --c-slate-200: 238 232 213;
+    --c-slate-300: 196 205 204;
+    --c-slate-400: 147 161 161;
+    --c-slate-500: 131 148 150;
+    --c-slate-600: 101 123 131;
+    --c-slate-700: 88 110 117;
+    --c-slate-800: 22 76 89;
+    --c-slate-900: 7 54 66;
+    --c-slate-950: 0 33 43;
+    --c-accent-300: 98 182 238;
+    --c-accent-400: 56 158 224;
+    --c-accent-500: 38 139 210;
+    --c-accent-900: 12 58 92;
+    --c-bizum-200: 153 230 224;
+    --c-bizum-300: 94 212 203;
+    --c-bizum-400: 56 189 179;
+    --c-bizum-500: 42 161 152;
+}
+
+/* 8. Porcelain Dark */
+html[data-theme="porcelain-dark"] {
+    --c-bg-main: 22 20 19;
+    --c-bg-card: 33 30 28;
+    --c-border-main: 56 51 47;
+    --c-header-bg: 22 20 19;
+    --c-nav-bg: 30 27 25;
+    --c-text-main: 245 240 232;
+    --c-slate-100: 248 244 238;
+    --c-slate-200: 234 227 218;
+    --c-slate-300: 210 201 190;
+    --c-slate-400: 168 158 147;
+    --c-slate-500: 130 120 110;
+    --c-slate-600: 98 90 82;
+    --c-slate-700: 72 65 59;
+    --c-slate-800: 52 47 43;
+    --c-slate-900: 33 30 28;
+    --c-slate-950: 17 15 14;
+    --c-accent-300: 238 200 168;
+    --c-accent-400: 224 162 122;
+    --c-accent-500: 212 136 92;
+    --c-accent-900: 68 38 22;
+    --c-bizum-200: 194 218 238;
+    --c-bizum-300: 158 193 222;
+    --c-bizum-400: 123 164 199;
+    --c-bizum-500: 96 142 182;
+}
+
+/* 9. Arctic Dark */
+html[data-theme="arctic-dark"] {
+    --c-bg-main: 10 20 30;
+    --c-bg-card: 16 31 46;
+    --c-border-main: 30 56 80;
+    --c-header-bg: 10 20 30;
+    --c-nav-bg: 14 27 40;
+    --c-text-main: 240 249 255;
+    --c-slate-100: 240 249 255;
+    --c-slate-200: 224 242 254;
+    --c-slate-300: 186 226 248;
+    --c-slate-400: 136 184 214;
+    --c-slate-500: 96 142 174;
+    --c-slate-600: 68 106 136;
+    --c-slate-700: 44 76 104;
+    --c-slate-800: 28 52 76;
+    --c-slate-900: 16 31 46;
+    --c-slate-950: 7 15 24;
+    --c-accent-300: 165 243 252;
+    --c-accent-400: 103 224 250;
+    --c-accent-500: 56 189 248;
+    --c-accent-900: 12 74 110;
+    --c-bizum-200: 153 246 228;
+    --c-bizum-300: 94 234 212;
+    --c-bizum-400: 45 212 191;
+    --c-bizum-500: 20 184 166;
+}
+
+/* 10. Graphite Dark */
+html[data-theme="graphite-dark"] {
+    --c-bg-main: 24 24 27;
+    --c-bg-card: 35 35 40;
+    --c-border-main: 56 56 64;
+    --c-header-bg: 24 24 27;
+    --c-nav-bg: 31 31 36;
+    --c-text-main: 244 244 245;
+    --c-slate-100: 244 244 245;
+    --c-slate-200: 228 228 231;
+    --c-slate-300: 212 212 216;
+    --c-slate-400: 161 161 170;
+    --c-slate-500: 113 113 122;
+    --c-slate-600: 82 82 91;
+    --c-slate-700: 63 63 70;
+    --c-slate-800: 46 46 52;
+    --c-slate-900: 30 30 34;
+    --c-slate-950: 16 16 19;
+    --c-accent-300: 228 228 231;
+    --c-accent-400: 196 196 204;
+    --c-accent-500: 161 161 170;
+    --c-accent-900: 52 54 60;
+    --c-bizum-200: 198 214 230;
+    --c-bizum-300: 166 190 214;
+    --c-bizum-400: 136 166 196;
+    --c-bizum-500: 112 145 178;
+}
+
+/* =========================================================
+   3. TEMAS ESPECIALES (VARIABLES RGB PARA TAILWIND)
+   ========================================================= */
+
+/* 7. GTA VI (Vice City Neon Sunset) */
+html[data-theme="gtavi"] {
+    --font-sans: 'GTAArtDeco', 'Inter', sans-serif;
+    --c-bg-main: 18 11 28;
+    --c-bg-card: 28 17 44;
+    --c-border-main: 74 42 102;
+    --c-header-bg: 18 11 28;
+    --c-nav-bg: 24 14 38;
+    --c-text-main: 253 242 248;
+    --c-slate-100: 253 242 248;
+    --c-slate-200: 245 224 239;
+    --c-slate-300: 226 196 220;
+    --c-slate-400: 185 152 194;
+    --c-slate-500: 144 112 160;
+    --c-slate-600: 108 78 128;
+    --c-slate-700: 78 48 104;
+    --c-slate-800: 56 32 78;
+    --c-slate-900: 34 19 52;
+    --c-slate-950: 15 8 24;
+    --c-accent-300: 253 186 116; /* Naranja atardecer */
+    --c-accent-400: 251 113 133; /* Coral Vice City */
+    --c-accent-500: 244 63 142;  /* Rosa neón */
+    --c-accent-900: 88 18 55;
+    --c-bizum-200: 255 212 178;
+    --c-bizum-300: 255 186 135;
+    --c-bizum-400: 255 171 111;
+    --c-bizum-500: 255 155 85;   /* Naranja Bizum Vice City */
+}
+
+/* 8. Cyberpunk 2077 (Night City Yellow) */
+html[data-theme="cyberpunk"] {
+    --font-sans: 'Blender Pro', 'Inter', sans-serif;
+    --c-bg-main: 10 10 14;
+    --c-bg-card: 18 18 24;
+    --c-border-main: 56 54 32;
+    --c-header-bg: 10 10 14;
+    --c-nav-bg: 14 14 20;
+    --c-text-main: 248 249 250;
+    --c-slate-100: 248 249 250;
+    --c-slate-200: 226 232 240;
+    --c-slate-300: 203 213 225;
+    --c-slate-400: 160 166 180;
+    --c-slate-500: 118 124 138;
+    --c-slate-600: 82 86 98;
+    --c-slate-700: 58 60 72;
+    --c-slate-800: 42 42 52;
+    --c-slate-900: 22 22 30;
+    --c-slate-950: 8 8 12;
+    --c-accent-300: 254 249 195;
+    --c-accent-400: 250 204 21;
+    --c-accent-500: 252 238 10;  /* Amarillo oficial Cyberpunk (#FCEE0A) */
+    --c-accent-900: 66 58 6;
+    --c-bizum-200: 165 248 255;
+    --c-bizum-300: 103 245 255;
+    --c-bizum-400: 103 245 255;
+    --c-bizum-500: 0 240 255;    /* Cian eléctrico (#00F0FF) */
+}
+
+/* 9. Geometry Dash */
+html[data-theme="gd"] {
+    --font-sans: 'GD Sans', 'Inter', sans-serif;
+    --c-bg-main: 18 32 62;
+    --c-bg-card: 153 85 51;      /* Marrón paneles GD (#995533) */
+    --c-border-main: 188 118 76;
+    --c-header-bg: 78 41 24;
+    --c-nav-bg: 78 41 24;
+    --c-text-main: 255 255 255;
+    --c-slate-100: 245 245 245;
+    --c-slate-200: 226 226 226;
+    --c-slate-300: 204 204 204;
+    --c-slate-400: 180 180 180;
+    --c-slate-500: 154 154 154;  /* Gris claro (#9A9A9A) */
+    --c-slate-600: 128 128 128;
+    --c-slate-700: 122 68 41;
+    --c-slate-800: 96 52 30;
+    --c-slate-900: 74 39 22;
+    --c-slate-950: 52 27 15;
+    --c-accent-300: 174 242 120;
+    --c-accent-400: 146 232 80;
+    --c-accent-500: 122 222 45;  /* Verde GD (#7ADE2D) */
+    --c-accent-900: 38 74 14;
+    --c-bizum-200: 172 250 250;
+    --c-bizum-300: 112 244 244;
+    --c-bizum-400: 74 238 237;
+    --c-bizum-500: 36 229 228;   /* Cian highlights (#24E5E4) */
+}
+
+/* 10. Resident Evil (Monocromático + Rojo #ED3F4D) */
+html[data-theme="re9"] {
+    --font-sans: 'Sofia Sans Semi Condensed', 'Inter', sans-serif;
+    --c-bg-main: 12 12 13;
+    --c-bg-card: 22 22 24;
+    --c-border-main: 52 52 56;
+    --c-header-bg: 10 10 11;
+    --c-nav-bg: 16 16 18;
+    --c-text-main: 245 245 245;
+    --c-slate-100: 245 245 245;
+    --c-slate-200: 225 225 227;
+    --c-slate-300: 198 198 202;
+    --c-slate-400: 156 156 162;
+    --c-slate-500: 120 120 126;
+    --c-slate-600: 88 88 94;
+    --c-slate-700: 62 62 67;
+    --c-slate-800: 42 42 46;
+    --c-slate-900: 24 24 27;
+    --c-slate-950: 10 10 12;
+    --c-accent-300: 246 138 147;
+    --c-accent-400: 242 96 108;
+    --c-accent-500: 237 63 77;   /* Rojo Resident Evil (#ED3F4D) */
+    --c-accent-900: 82 16 24;
+    --c-bizum-200: 240 240 242;
+    --c-bizum-300: 220 220 224;
+    --c-bizum-400: 200 200 205;
+    --c-bizum-500: 232 232 236;  /* Monocromático claro para Bizum */
+}
+
+/* =========================================================
+   4. TEMAS CLAROS (VARIABLES RGB PARA TAILWIND)
+   ========================================================= */
+
+/* 9. Claro (Light) */
+html[data-theme="light"] {
+    --c-bg-main: 241 245 249;
+    --c-bg-card: 255 255 255;
+    --c-border-main: 226 232 240;
+    --c-header-bg: 255 255 255;
+    --c-nav-bg: 255 255 255;
+    --c-text-main: 15 23 42;
+    --c-slate-100: 15 23 42;
+    --c-slate-200: 30 41 59;
+    --c-slate-300: 51 65 85;
+    --c-slate-400: 71 85 105;
+    --c-slate-500: 100 116 139;
+    --c-slate-600: 100 116 139;
+    --c-slate-700: 203 213 225;
+    --c-slate-800: 226 232 240;
+    --c-slate-900: 241 245 249;
+    --c-slate-950: 248 250 252;
+    --c-accent-300: 6 95 70;
+    --c-accent-400: 4 120 87;
+    --c-accent-500: 5 150 105;
+    --c-accent-900: 209 250 229;
+    --c-bizum-200: 55 48 163;
+    --c-bizum-300: 67 56 202;
+    --c-bizum-400: 79 70 229;
+    --c-bizum-500: 99 102 241;
+}
+
+/* 10. Sepia (Papel cálido) */
+html[data-theme="sepia"] {
+    --c-bg-main: 243 236 225;
+    --c-bg-card: 253 250 245;
+    --c-border-main: 224 214 198;
+    --c-header-bg: 253 250 245;
+    --c-nav-bg: 253 250 245;
+    --c-text-main: 41 35 28;
+    --c-slate-100: 28 24 19;
+    --c-slate-200: 41 35 28;
+    --c-slate-300: 68 60 50;
+    --c-slate-400: 92 82 70;
+    --c-slate-500: 120 109 95;
+    --c-slate-600: 120 109 95;
+    --c-slate-700: 203 190 170;
+    --c-slate-800: 224 214 198;
+    --c-slate-900: 238 230 217;
+    --c-slate-950: 247 242 234;
+    --c-accent-300: 17 94 89;
+    --c-accent-400: 15 118 110;
+    --c-accent-500: 13 148 136;
+    --c-accent-900: 204 251 241;
+    --c-bizum-200: 124 45 18;
+    --c-bizum-300: 154 52 18;
+    --c-bizum-400: 180 68 24;
+    --c-bizum-500: 194 82 34;
+}
+
+/* 11. Latte (Catppuccin claro) */
+html[data-theme="latte"] {
+    --c-bg-main: 239 241 245;
+    --c-bg-card: 255 255 255;
+    --c-border-main: 220 224 232;
+    --c-header-bg: 255 255 255;
+    --c-nav-bg: 255 255 255;
+    --c-text-main: 46 52 79;
+    --c-slate-100: 30 34 54;
+    --c-slate-200: 46 52 79;
+    --c-slate-300: 76 79 105;
+    --c-slate-400: 92 95 119;
+    --c-slate-500: 108 111 133;
+    --c-slate-600: 108 111 133;
+    --c-slate-700: 188 194 209;
+    --c-slate-800: 214 219 229;
+    --c-slate-900: 230 233 239;
+    --c-slate-950: 245 247 250;
+    --c-accent-300: 67 56 202;
+    --c-accent-400: 79 70 229;
+    --c-accent-500: 99 102 241;
+    --c-accent-900: 224 231 255;
+    --c-bizum-200: 96 34 176;
+    --c-bizum-300: 114 42 206;
+    --c-bizum-400: 136 57 239;
+    --c-bizum-500: 124 58 237;
+}
+
+/* 12. Menta (Claro verdoso) */
+html[data-theme="mint"] {
+    --c-bg-main: 236 247 242;
+    --c-bg-card: 255 255 255;
+    --c-border-main: 209 235 224;
+    --c-header-bg: 255 255 255;
+    --c-nav-bg: 255 255 255;
+    --c-text-main: 12 45 36;
+    --c-slate-100: 12 45 36;
+    --c-slate-200: 18 48 39;
+    --c-slate-300: 36 68 57;
+    --c-slate-400: 55 92 79;
+    --c-slate-500: 82 117 104;
+    --c-slate-600: 82 117 104;
+    --c-slate-700: 174 218 200;
+    --c-slate-800: 209 235 224;
+    --c-slate-900: 230 244 238;
+    --c-slate-950: 243 250 247;
+    --c-accent-300: 6 95 70;
+    --c-accent-400: 4 120 87;
+    --c-accent-500: 5 150 105;
+    --c-accent-900: 209 250 229;
+    --c-bizum-200: 22 78 99;
+    --c-bizum-300: 21 94 117;
+    --c-bizum-400: 14 116 144;
+    --c-bizum-500: 8 145 178;
+}
+
+/* 13. Sakura (Claro rosado) */
+html[data-theme="sakura"] {
+    --c-bg-main: 253 242 248;
+    --c-bg-card: 255 255 255;
+    --c-border-main: 249 216 232;
+    --c-header-bg: 255 255 255;
+    --c-nav-bg: 255 255 255;
+    --c-text-main: 59 18 39;
+    --c-slate-100: 59 18 39;
+    --c-slate-200: 80 23 52;
+    --c-slate-300: 108 42 74;
+    --c-slate-400: 131 66 98;
+    --c-slate-500: 157 98 127;
+    --c-slate-600: 157 98 127;
+    --c-slate-700: 244 182 212;
+    --c-slate-800: 249 216 232;
+    --c-slate-900: 252 231 243;
+    --c-slate-950: 255 247 251;
+    --c-accent-300: 157 23 77;
+    --c-accent-400: 190 24 93;
+    --c-accent-500: 219 39 119;
+    --c-accent-900: 252 231 243;
+    --c-bizum-200: 88 28 135;
+    --c-bizum-300: 107 33 168;
+    --c-bizum-400: 126 34 206;
+    --c-bizum-500: 147 51 234;
+}
+
+/* 14. Solarized (Claro clásico crema + azul) */
+html[data-theme="solarized"] {
+    --c-bg-main: 243 236 218;
+    --c-bg-card: 253 246 227;
+    --c-border-main: 224 215 191;
+    --c-header-bg: 253 246 227;
+    --c-nav-bg: 253 246 227;
+    --c-text-main: 7 54 66;
+    --c-slate-100: 0 43 54;
+    --c-slate-200: 7 54 66;
+    --c-slate-300: 88 110 117;
+    --c-slate-400: 101 123 131;
+    --c-slate-500: 131 148 150;
+    --c-slate-600: 131 148 150;
+    --c-slate-700: 205 195 168;
+    --c-slate-800: 224 215 191;
+    --c-slate-900: 238 232 213;
+    --c-slate-950: 250 243 224;
+    --c-accent-300: 23 99 156;
+    --c-accent-400: 29 118 184;
+    --c-accent-500: 38 139 210;
+    --c-accent-900: 219 234 254;
+    --c-bizum-200: 19 98 92;
+    --c-bizum-300: 26 122 115;
+    --c-bizum-400: 33 142 134;
+    --c-bizum-500: 42 161 152;
+}
+
+/* 15. Porcelain (Claro porcelana cálida) */
+html[data-theme="porcelain"] {
+    --c-bg-main: 246 242 236;
+    --c-bg-card: 255 253 250;
+    --c-border-main: 232 224 214;
+    --c-header-bg: 255 253 250;
+    --c-nav-bg: 255 253 250;
+    --c-text-main: 42 36 32;
+    --c-slate-100: 32 27 24;
+    --c-slate-200: 48 41 36;
+    --c-slate-300: 78 69 62;
+    --c-slate-400: 108 98 89;
+    --c-slate-500: 138 127 117;
+    --c-slate-600: 138 127 117;
+    --c-slate-700: 214 204 192;
+    --c-slate-800: 232 224 214;
+    --c-slate-900: 243 238 230;
+    --c-slate-950: 250 247 242;
+    --c-accent-300: 132 66 34;
+    --c-accent-400: 156 80 42;
+    --c-accent-500: 176 92 50;
+    --c-accent-900: 247 231 220;
+    --c-bizum-200: 36 70 102;
+    --c-bizum-300: 46 86 122;
+    --c-bizum-400: 59 105 144;
+    --c-bizum-500: 68 118 160;
+}
+
+/* 16. Graphite (Claro gris grafito) */
+html[data-theme="graphite"] {
+    --c-bg-main: 238 238 240;
+    --c-bg-card: 250 250 251;
+    --c-border-main: 218 218 224;
+    --c-header-bg: 250 250 251;
+    --c-nav-bg: 250 250 251;
+    --c-text-main: 24 24 27;
+    --c-slate-100: 24 24 27;
+    --c-slate-200: 39 39 42;
+    --c-slate-300: 63 63 70;
+    --c-slate-400: 82 82 91;
+    --c-slate-500: 113 113 122;
+    --c-slate-600: 113 113 122;
+    --c-slate-700: 196 196 204;
+    --c-slate-800: 218 218 224;
+    --c-slate-900: 234 234 238;
+    --c-slate-950: 245 245 247;
+    --c-accent-300: 39 39 42;
+    --c-accent-400: 63 63 70;
+    --c-accent-500: 82 82 91;
+    --c-accent-900: 228 228 231;
+    --c-bizum-200: 38 62 88;
+    --c-bizum-300: 48 76 106;
+    --c-bizum-400: 59 91 124;
+    --c-bizum-500: 71 107 144;
+}
+
+/* 17. Nord (Claro Snow Storm) */
+html[data-theme="nord-light"] {
+    --c-bg-main: 229 233 240;
+    --c-bg-card: 236 239 244;
+    --c-border-main: 216 222 233;
+    --c-header-bg: 236 239 244;
+    --c-nav-bg: 236 239 244;
+    --c-text-main: 46 52 64;
+    --c-slate-100: 46 52 64;
+    --c-slate-200: 59 66 82;
+    --c-slate-300: 67 76 94;
+    --c-slate-400: 76 86 106;
+    --c-slate-500: 106 118 140;
+    --c-slate-600: 106 118 140;
+    --c-slate-700: 196 204 218;
+    --c-slate-800: 216 222 233;
+    --c-slate-900: 229 233 240;
+    --c-slate-950: 243 246 250;
+    --c-accent-300: 59 95 138;
+    --c-accent-400: 76 116 160;
+    --c-accent-500: 94 129 172;
+    --c-accent-900: 216 232 246;
+    --c-bizum-200: 100 66 96;
+    --c-bizum-300: 120 82 115;
+    --c-bizum-400: 140 99 134;
+    --c-bizum-500: 152 108 146;
+}
+
+/* 18. Arctic (Claro glaciar) */
+html[data-theme="arctic"] {
+    --c-bg-main: 232 244 252;
+    --c-bg-card: 255 255 255;
+    --c-border-main: 204 229 245;
+    --c-header-bg: 255 255 255;
+    --c-nav-bg: 255 255 255;
+    --c-text-main: 12 36 56;
+    --c-slate-100: 12 36 56;
+    --c-slate-200: 20 50 76;
+    --c-slate-300: 42 78 108;
+    --c-slate-400: 68 106 138;
+    --c-slate-500: 98 134 164;
+    --c-slate-600: 98 134 164;
+    --c-slate-700: 180 214 238;
+    --c-slate-800: 204 229 245;
+    --c-slate-900: 228 242 251;
+    --c-slate-950: 244 250 254;
+    --c-accent-300: 7 89 133;
+    --c-accent-400: 3 105 161;
+    --c-accent-500: 2 132 199;
+    --c-accent-900: 224 242 254;
+    --c-bizum-200: 19 78 74;
+    --c-bizum-300: 17 94 89;
+    --c-bizum-400: 15 118 110;
+    --c-bizum-500: 13 148 136;
+}
+
+/* =========================================================
+   5. AJUSTES DE LEGIBILIDAD PARA TEMAS CLAROS
+   ========================================================= */
+html[data-mode="light"] input[type="date"] {
+    color-scheme: light;
+}
+
+html[data-mode="light"] .text-white,
+html[data-mode="light"] .hover\:text-white:hover {
+    color: rgb(var(--c-text-main));
+}
+
+/* Mantener texto blanco real sobre avatares de colores y botones rojos */
+html[data-mode="light"] [class*="bg-gradient-to-"].text-white,
+html[data-mode="light"] .bg-rose-500.text-white,
+html[data-mode="light"] .keep-white {
+    color: #ffffff !important;
+}
+
+/* Colores semánticos más profundos sobre fondo blanco */
+html[data-mode="light"] .text-amber-400,
+html[data-mode="light"] .text-amber-300,
+html[data-mode="light"] .text-amber-200 {
+    color: #b45309;
+}
+
+html[data-mode="light"] .text-rose-400,
+html[data-mode="light"] .text-rose-300 {
+    color: #e11d48;
+}
+
+html[data-mode="light"] .text-sky-400 {
+    color: #0284c7;
+}
+
+html[data-mode="light"] .bg-rose-950\/20 {
+    background-color: rgba(244, 63, 94, 0.08);
+}
+
+html[data-mode="light"] .border-rose-900\/40 {
+    border-color: rgba(244, 63, 94, 0.3);
+}
+
+html[data-mode="light"] .bg-amber-500.text-slate-950 {
+    background-color: #d97706;
+    color: #ffffff;
+}
+
+/* Invierte el SVG del título si sus letras son blancas en modo oscuro */
+html[data-mode="light"] .theme-logo-title {
+    filter: invert(1) hue-rotate(180deg);
+}
+
+/* =========================================================
+   6. TEMAS CON WALLPAPER Y AJUSTES ESPECÍFICOS
+   ========================================================= */
+
+/* Wallpapers fijos (seguros en móvil / iOS) */
+html[data-theme="gtavi"] body::before,
+html[data-theme="cyberpunk"] body::before,
+html[data-theme="gd"] body::before,
+html[data-theme="re9"] body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-size: cover;
+    background-position: center;
+}
+
+html[data-theme="gtavi"] body::before {
+    background-image:
+        linear-gradient(rgba(18, 11, 28, 0.2), rgba(18, 11, 28, 0.2)),
+        url('./resources/themes/gtavi/wallpaper.webp');
+}
+
+html[data-theme="cyberpunk"] body::before {
+    background-image: url('./resources/themes/cyberpunk/wallpaper.jpg');
+}
+
+html[data-theme="gd"] body::before {
+    background-image: url('./resources/themes/gd/wallpaper.webp');
+}
+
+html[data-theme="re9"] body::before {
+    background-image:
+        linear-gradient(rgba(8, 8, 10, 0.52), rgba(8, 8, 10, 0.42)),
+        url('./resources/themes/re9/wallpaper.jpg');
+}
+
+/* Efecto cristal en tarjetas y banner Hero para lucir el wallpaper */
+html[data-theme="gtavi"] .bg-cardbg {
+    background-color: rgb(var(--c-bg-card) / 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+html[data-theme="gtavi"] #tab-saldos > div:first-of-type {
+    background: rgb(var(--c-bg-card) / 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+html[data-theme="cyberpunk"] .bg-cardbg {
+    background-color: rgb(var(--c-bg-card) / 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+html[data-theme="cyberpunk"] #tab-saldos > div:first-of-type {
+    background: rgb(var(--c-bg-card) / 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+html[data-theme="re9"] .bg-cardbg {
+    background-color: rgb(var(--c-bg-card) / 0.58);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+html[data-theme="re9"] #tab-saldos > div:first-of-type {
+    background: rgb(var(--c-bg-card) / 0.58);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* Geometry Dash: Tarjetas sólidas sin transparencia y doble contorno (negro interior + blanco exterior) */
+html[data-theme="gd"] .bg-cardbg,
+html[data-theme="gd"] #tab-saldos > div:first-of-type {
+    background: rgb(var(--c-bg-card));
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border: 2px solid #000000 !important;
+    box-shadow: 0 0 0 1.5px #ffffff, 0 6px 16px rgba(0, 0, 0, 0.45);
+}
+
+/* Geometry Dash: Doble contorno (negro interior + blanco exterior) en botones de acción */
+html[data-theme="gd"] button:is(
+    .bg-emerald-500,
+    .bg-indigo-500,
+    .bg-amber-500,
+    .bg-rose-500,
+    .bg-slate-800,
+    .bg-white,
+    [class*="bg-gradient-to-"]
+):not([id^="btn-filter-"]):not([id^="mode-btn-"]):not([id^="chart-btn-"]):not([onclick^="selectParticipantsPreset"]):not([onclick^="toggleExactRole"]) {
+    border: 2px solid #000000 !important;
+    box-shadow: 0 0 0 1.5px #ffffff, 0 4px 10px rgba(0, 0, 0, 0.35);
+}
+
+/* Geometry Dash: Botones grises (#9A9A9A) para Cancelar, Temas e Iniciar sesión */
+html[data-theme="gd"] button[onclick="cancelTransaction()"],
+html[data-theme="gd"] button[onclick="openThemeModal()"],
+html[data-theme="gd"] #btn-current-user {
+    background-color: #9A9A9A;
+    color: #ffffff;
+}
+
+html[data-theme="gd"] button[onclick="cancelTransaction()"]:hover,
+html[data-theme="gd"] button[onclick="openThemeModal()"]:hover,
+html[data-theme="gd"] #btn-current-user:hover {
+    background-color: #aeaeae;
+}
+
+html[data-theme="gd"] #btn-current-user #auth-user-icon,
+html[data-theme="gd"] button[onclick="openThemeModal()"] i {
+    color: #ffffff;
+}
+
+/* Geometry Dash: Pusab (bold) con contorno negro e interletrado amplio */
+html[data-theme="gd"] .font-bold:not(.mono-num),
+html[data-theme="gd"] .font-extrabold:not(.mono-num),
+html[data-theme="gd"] strong:not(.mono-num),
+html[data-theme="gd"] b:not(.mono-num),
+html[data-theme="gd"] th:not(.mono-num) {
+    letter-spacing: 0.05em;
+    -webkit-text-stroke: 2.2px #000000;
+    paint-order: stroke fill;
+    text-shadow: 0 1.5px 0 #000000;
+}
+
+/* Evitar que Pusab sea nunca oscuro/negro (p. ej. botones con text-slate-950), manteniendo verde/rojo/ámbar */
+html[data-theme="gd"] :is(.font-bold, .font-extrabold, strong, b, th):is(.text-slate-950, .text-slate-900, .text-neutral-900):not(.mono-num) {
+    color: #ffffff !important;
+}
+
+html[data-theme="gd"] .mono-num {
+    letter-spacing: normal;
+    -webkit-text-stroke: 0;
+    text-shadow: none;
+}
+
+/* Geometry Dash: Icono superior izquierdo en azul GD y símbolo blanco */
+html[data-theme="gd"] .logo-icon-box {
+    background-image: linear-gradient(to bottom right, #2c72f5, #1747b8);
+    box-shadow: 0 10px 15px -3px rgb(44 114 245 / 0.35);
+}
+
+/* GTA VI: Degradado personalizado del icono superior izquierdo */
+html[data-theme="gtavi"] .logo-icon-box {
+    background-image: linear-gradient(to bottom right, #3C4DD1, #F944B7, #E09254);
+    box-shadow: 0 10px 15px -3px rgb(249 68 183 / 0.35);
+}
+
+/* GTA VI: Positivos / Acreedores en Cian Vice City y subtítulo legible */
+html[data-theme="gtavi"] #members-balance-list .text-emerald-400,
+html[data-theme="gtavi"] #bizum-plan-list .text-emerald-400,
+html[data-theme="gtavi"] #bce-members-table .text-emerald-400,
+html[data-theme="gtavi"] #history-feed-list .text-emerald-300 {
+    color: #22d3ee;
+}
+
+html[data-theme="gtavi"] #members-balance-list .bg-emerald-500 {
+    background-color: #22d3ee;
+}
+
+html[data-theme="gtavi"] #members-balance-list .bg-emerald-500\/15,
+html[data-theme="gtavi"] #history-feed-list .bg-emerald-500\/10 {
+    background-color: rgba(34, 211, 238, 0.14);
+    border-color: rgba(34, 211, 238, 0.35);
+}
+
+html[data-theme="gtavi"] #tab-saldos > p:first-of-type {
+    color: rgba(253, 242, 248, 0.72);
+}
+
+/* Cyberpunk 2077: Símbolo del logo en negro sobre el amarillo chillón */
+html[data-theme="cyberpunk"] img[src*="icon-symbol.svg"] {
+    filter: brightness(0);
+}
+
+/* Resident Evil: Tipografía Special Elite para títulos y elementos UI (no párrafos) */
+html[data-theme="re9"] :is(h1, h2, h3, h4, th, label, button, .uppercase, #sync-badge, #toast-box):not(.mono-num):not(input):not(select):not(textarea) {
+    font-family: 'Special Elite', 'Sofia Sans Semi Condensed', monospace;
+}
+
+/* Resident Evil: Icono superior izquierdo en rojo #ED3F4D */
+html[data-theme="re9"] .logo-icon-box {
+    background-image: linear-gradient(to bottom right, #ED3F4D, #9e1c28);
+    box-shadow: 0 10px 15px -3px rgb(237 63 77 / 0.35);
+}
+
+/* Resident Evil: Texto blanco sobre botones rojos primarios */
+html[data-theme="re9"] .bg-emerald-500.text-slate-950,
+html[data-theme="re9"] button[onclick="submitTransaction()"] {
+    color: #ffffff;
+}
+
+/* Resident Evil: Estética estrictamente monocromática + único color rojo #ED3F4D */
+html[data-theme="re9"] #members-balance-list [class*="bg-gradient-to-"],
+html[data-theme="re9"] #bce-members-table [class*="bg-gradient-to-"],
+html[data-theme="re9"] #exact-inputs-list [class*="bg-gradient-to-"],
+html[data-theme="re9"] #account-modal-avatar {
+    filter: grayscale(1);
+}
+
+/* Acreedores / positivos en blanco monocromático para diferenciarse de deudores en rojo #ED3F4D */
+html[data-theme="re9"] #members-balance-list .text-emerald-400,
+html[data-theme="re9"] #bizum-plan-list .text-emerald-400,
+html[data-theme="re9"] #bce-members-table .text-emerald-400,
+html[data-theme="re9"] #history-feed-list .text-emerald-300,
+html[data-theme="re9"] #live-deltas-preview .text-emerald-300 {
+    color: #f5f5f5;
+}
+
+html[data-theme="re9"] #members-balance-list .bg-emerald-500 {
+    background-color: #e4e4e7;
+}
+
+html[data-theme="re9"] #members-balance-list .bg-emerald-500\/15,
+html[data-theme="re9"] #history-feed-list .bg-emerald-500\/10,
+html[data-theme="re9"] #live-deltas-preview .bg-emerald-500\/15 {
+    background-color: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.28);
+}
+
+/* Unificar rose -> #ED3F4D exacto y neutralizar amber / sky a monocromático */
+html[data-theme="re9"] .text-rose-400,
+html[data-theme="re9"] .text-rose-300 {
+    color: #ED3F4D;
+}
+
+html[data-theme="re9"] .bg-rose-500 {
+    background-color: #ED3F4D;
+}
+
+html[data-theme="re9"] .bg-rose-500\/15,
+html[data-theme="re9"] .bg-rose-500\/10,
+html[data-theme="re9"] .bg-rose-500\/20 {
+    background-color: rgba(237, 63, 77, 0.16);
+}
+
+html[data-theme="re9"] .border-rose-500\/30,
+html[data-theme="re9"] .border-rose-500\/25,
+html[data-theme="re9"] .border-rose-500\/40,
+html[data-theme="re9"] .border-rose-500\/60 {
+    border-color: rgba(237, 63, 77, 0.45);
+}
+
+html[data-theme="re9"] .text-amber-400,
+html[data-theme="re9"] .text-amber-300,
+html[data-theme="re9"] .text-amber-200,
+html[data-theme="re9"] .text-sky-400 {
+    color: #e4e4e7;
+}
+
+html[data-theme="re9"] .bg-amber-500 {
+    background-color: #ED3F4D;
+    color: #ffffff;
+}
+
+html[data-theme="re9"] .bg-amber-500\/10,
+html[data-theme="re9"] .bg-amber-500\/15,
+html[data-theme="re9"] .bg-amber-500\/20 {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+html[data-theme="re9"] .border-amber-500\/20,
+html[data-theme="re9"] .border-amber-500\/25,
+html[data-theme="re9"] .border-amber-500\/30 {
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+html[data-theme="re9"] #tab-saldos > p:first-of-type {
+    color: rgba(245, 245, 245, 0.72);
+}
