@@ -38,17 +38,17 @@
 }
 
 @font-face {
-    font-family: 'GD Sans';
+    font-family: 'Lato';
     src: url('./resources/fonts/Lato-Regular.woff2') format('woff2');
-    font-weight: 400 600;
+    font-weight: 400;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'GD Sans';
+    font-family: 'Pusab';
     src: url('./resources/fonts/pusab.ttf') format('truetype');
-    font-weight: 700 900;
+    font-weight: 400 900;
     font-style: normal;
     font-display: swap;
 }
@@ -79,6 +79,19 @@ body {
     -webkit-tap-highlight-color: transparent;
     overscroll-behavior-y: none;
     transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Fuente principal para títulos, cabeceras, botones y tickers (por defecto igual a --font-sans) */
+h1, h2, h3, h4, th,
+#sync-badge,
+#toast-box,
+button:not(.font-body),
+.font-display {
+    font-family: var(--font-display, var(--font-sans));
+}
+
+.font-body {
+    font-family: var(--font-sans);
 }
 
 .mono-num {
@@ -194,6 +207,20 @@ html[data-theme="default"] {
     --c-bizum-300: 165 180 252;
     --c-bizum-400: 129 140 248;
     --c-bizum-500: 99 102 241;
+    --c-amber-100: 254 243 199;
+    --c-amber-200: 253 230 138;
+    --c-amber-300: 252 211 77;
+    --c-amber-400: 251 191 36;
+    --c-amber-500: 245 158 11;
+    --c-amber-600: 217 119 6;
+    --c-rose-300: 253 164 175;
+    --c-rose-400: 251 113 133;
+    --c-rose-500: 244 63 94;
+    --c-rose-600: 225 29 72;
+    --c-rose-900: 136 19 55;
+    --c-rose-950: 76 5 25;
+    --c-sky-400: 56 189 248;
+    --c-sky-500: 14 165 233;
 }
 
 /* 2. OLED Negro */
@@ -479,6 +506,8 @@ html[data-theme="gtavi"] {
     --c-bizum-300: 255 186 135;
     --c-bizum-400: 255 171 111;
     --c-bizum-500: 255 155 85;   /* Naranja Bizum Vice City */
+    --c-amber-400: 253 186 116;
+    --c-sky-400: 34 211 238;
 }
 
 /* 8. Cyberpunk 2077 (Night City Yellow) */
@@ -508,11 +537,14 @@ html[data-theme="cyberpunk"] {
     --c-bizum-300: 103 245 255;
     --c-bizum-400: 103 245 255;
     --c-bizum-500: 0 240 255;    /* Cian eléctrico (#00F0FF) */
+    --c-amber-400: 252 238 10;
+    --c-sky-400: 0 240 255;
 }
 
 /* 9. Geometry Dash */
 html[data-theme="gd"] {
-    --font-sans: 'GD Sans', 'Inter', sans-serif;
+    --font-sans: 'Lato', 'Inter', sans-serif;
+    --font-display: 'Pusab', 'Lato', sans-serif;
     --c-bg-main: 18 32 62;
     --c-bg-card: 153 85 51;      /* Marrón paneles GD (#995533) */
     --c-border-main: 188 118 76;
@@ -537,11 +569,14 @@ html[data-theme="gd"] {
     --c-bizum-300: 112 244 244;
     --c-bizum-400: 74 238 237;
     --c-bizum-500: 36 229 228;   /* Cian highlights (#24E5E4) */
+    --c-amber-400: 255 214 51;
+    --c-sky-400: 36 229 228;
 }
 
 /* 10. Resident Evil (Monocromático + Rojo #ED3F4D) */
 html[data-theme="re9"] {
     --font-sans: 'Sofia Sans Semi Condensed', 'Inter', sans-serif;
+    --font-display: 'Special Elite', 'Sofia Sans Semi Condensed', monospace;
     --c-bg-main: 12 12 13;
     --c-bg-card: 22 22 24;
     --c-border-main: 52 52 56;
@@ -566,6 +601,17 @@ html[data-theme="re9"] {
     --c-bizum-300: 220 220 224;
     --c-bizum-400: 200 200 205;
     --c-bizum-500: 232 232 236;  /* Monocromático claro para Bizum */
+    --c-amber-100: 228 228 231;
+    --c-amber-200: 228 228 231;
+    --c-amber-300: 228 228 231;
+    --c-amber-400: 228 228 231;
+    --c-amber-500: 237 63 77;
+    --c-rose-300: 237 63 77;
+    --c-rose-400: 237 63 77;
+    --c-rose-500: 237 63 77;
+    --c-rose-900: 237 63 77;
+    --c-rose-950: 237 63 77;
+    --c-sky-400: 228 228 231;
 }
 
 /* =========================================================
@@ -855,6 +901,20 @@ html[data-theme="arctic"] {
 /* =========================================================
    5. AJUSTES DE LEGIBILIDAD PARA TEMAS CLAROS
    ========================================================= */
+html[data-mode="light"] {
+    --c-amber-100: 146 64 14;
+    --c-amber-200: 180 83 9;
+    --c-amber-300: 180 83 9;
+    --c-amber-400: 180 83 9;
+    --c-amber-500: 217 119 6;
+    --c-rose-300: 225 29 72;
+    --c-rose-400: 225 29 72;
+    --c-rose-500: 225 29 72;
+    --c-rose-900: 244 63 94;
+    --c-rose-950: 244 63 94;
+    --c-sky-400: 2 132 199;
+}
+
 html[data-mode="light"] input[type="date"] {
     color-scheme: light;
 }
@@ -869,35 +929,6 @@ html[data-mode="light"] [class*="bg-gradient-to-"].text-white,
 html[data-mode="light"] .bg-rose-500.text-white,
 html[data-mode="light"] .keep-white {
     color: #ffffff !important;
-}
-
-/* Colores semánticos más profundos sobre fondo blanco */
-html[data-mode="light"] .text-amber-400,
-html[data-mode="light"] .text-amber-300,
-html[data-mode="light"] .text-amber-200 {
-    color: #b45309;
-}
-
-html[data-mode="light"] .text-rose-400,
-html[data-mode="light"] .text-rose-300 {
-    color: #e11d48;
-}
-
-html[data-mode="light"] .text-sky-400 {
-    color: #0284c7;
-}
-
-html[data-mode="light"] .bg-rose-950\/20 {
-    background-color: rgba(244, 63, 94, 0.08);
-}
-
-html[data-mode="light"] .border-rose-900\/40 {
-    border-color: rgba(244, 63, 94, 0.3);
-}
-
-html[data-mode="light"] .bg-amber-500.text-slate-950 {
-    background-color: #d97706;
-    color: #ffffff;
 }
 
 /* Invierte el SVG del título si sus letras son blancas en modo oscuro */
@@ -1023,12 +1054,8 @@ html[data-theme="gd"] button[onclick="openThemeModal()"] i {
     color: #ffffff;
 }
 
-/* Geometry Dash: Pusab (bold) con contorno negro e interletrado amplio */
-html[data-theme="gd"] .font-bold:not(.mono-num),
-html[data-theme="gd"] .font-extrabold:not(.mono-num),
-html[data-theme="gd"] strong:not(.mono-num),
-html[data-theme="gd"] b:not(.mono-num),
-html[data-theme="gd"] th:not(.mono-num) {
+/* Geometry Dash: Estilo Pusab (contorno negro e interletrado amplio) en elementos con fuente principal */
+html[data-theme="gd"] :is(h1, h2, h3, h4, th, #sync-badge, #toast-box, button:not(.font-body), .font-display):not(.mono-num) {
     letter-spacing: 0.05em;
     -webkit-text-stroke: 2.2px #000000;
     paint-order: stroke fill;
@@ -1036,14 +1063,19 @@ html[data-theme="gd"] th:not(.mono-num) {
 }
 
 /* Evitar que Pusab sea nunca oscuro/negro (p. ej. botones con text-slate-950), manteniendo verde/rojo/ámbar */
-html[data-theme="gd"] :is(.font-bold, .font-extrabold, strong, b, th):is(.text-slate-950, .text-slate-900, .text-neutral-900):not(.mono-num) {
+html[data-theme="gd"] :is(h1, h2, h3, h4, th, #sync-badge, #toast-box, button:not(.font-body), .font-display):is(.text-slate-950, .text-slate-900, .text-neutral-900):not(.mono-num) {
     color: #ffffff !important;
 }
 
-html[data-theme="gd"] .mono-num {
+html[data-theme="gd"] .mono-num,
+html[data-theme="gd"] #equal-participants-grid button span:last-child {
     letter-spacing: normal;
     -webkit-text-stroke: 0;
     text-shadow: none;
+}
+
+html[data-theme="gd"] #equal-participants-grid button span:last-child {
+    font-family: var(--font-sans);
 }
 
 /* Geometry Dash: Icono superior izquierdo en azul GD y símbolo blanco */
@@ -1085,29 +1117,27 @@ html[data-theme="cyberpunk"] img[src*="icon-symbol.svg"] {
     filter: brightness(0);
 }
 
-/* Resident Evil: Tipografía Special Elite para títulos y elementos UI (no párrafos) */
-html[data-theme="re9"] :is(h1, h2, h3, h4, th, label, button, .uppercase, #sync-badge, #toast-box):not(.mono-num):not(input):not(select):not(textarea) {
-    font-family: 'Special Elite', 'Sofia Sans Semi Condensed', monospace;
-}
-
 /* Resident Evil: Icono superior izquierdo en rojo #ED3F4D */
 html[data-theme="re9"] .logo-icon-box {
     background-image: linear-gradient(to bottom right, #ED3F4D, #9e1c28);
     box-shadow: 0 10px 15px -3px rgb(237 63 77 / 0.35);
 }
 
-/* Resident Evil: Texto blanco sobre botones rojos primarios */
+/* Resident Evil: Texto blanco sobre botones rojos primarios y MAFTA */
 html[data-theme="re9"] .bg-emerald-500.text-slate-950,
+html[data-theme="re9"] .bg-amber-500.text-slate-950,
 html[data-theme="re9"] button[onclick="submitTransaction()"] {
     color: #ffffff;
 }
 
-/* Resident Evil: Estética estrictamente monocromática + único color rojo #ED3F4D */
+/* Resident Evil: Avatares de miembros en rojo #ED3F4D */
 html[data-theme="re9"] #members-balance-list [class*="bg-gradient-to-"],
 html[data-theme="re9"] #bce-members-table [class*="bg-gradient-to-"],
 html[data-theme="re9"] #exact-inputs-list [class*="bg-gradient-to-"],
-html[data-theme="re9"] #account-modal-avatar {
-    filter: grayscale(1);
+html[data-theme="re9"] #account-modal-avatar[class*="bg-gradient-to-"] {
+    background-image: none;
+    background-color: #ED3F4D;
+    color: #ffffff;
 }
 
 /* Acreedores / positivos en blanco monocromático para diferenciarse de deudores en rojo #ED3F4D */
@@ -1128,53 +1158,6 @@ html[data-theme="re9"] #history-feed-list .bg-emerald-500\/10,
 html[data-theme="re9"] #live-deltas-preview .bg-emerald-500\/15 {
     background-color: rgba(255, 255, 255, 0.12);
     border-color: rgba(255, 255, 255, 0.28);
-}
-
-/* Unificar rose -> #ED3F4D exacto y neutralizar amber / sky a monocromático */
-html[data-theme="re9"] .text-rose-400,
-html[data-theme="re9"] .text-rose-300 {
-    color: #ED3F4D;
-}
-
-html[data-theme="re9"] .bg-rose-500 {
-    background-color: #ED3F4D;
-}
-
-html[data-theme="re9"] .bg-rose-500\/15,
-html[data-theme="re9"] .bg-rose-500\/10,
-html[data-theme="re9"] .bg-rose-500\/20 {
-    background-color: rgba(237, 63, 77, 0.16);
-}
-
-html[data-theme="re9"] .border-rose-500\/30,
-html[data-theme="re9"] .border-rose-500\/25,
-html[data-theme="re9"] .border-rose-500\/40,
-html[data-theme="re9"] .border-rose-500\/60 {
-    border-color: rgba(237, 63, 77, 0.45);
-}
-
-html[data-theme="re9"] .text-amber-400,
-html[data-theme="re9"] .text-amber-300,
-html[data-theme="re9"] .text-amber-200,
-html[data-theme="re9"] .text-sky-400 {
-    color: #e4e4e7;
-}
-
-html[data-theme="re9"] .bg-amber-500 {
-    background-color: #ED3F4D;
-    color: #ffffff;
-}
-
-html[data-theme="re9"] .bg-amber-500\/10,
-html[data-theme="re9"] .bg-amber-500\/15,
-html[data-theme="re9"] .bg-amber-500\/20 {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
-html[data-theme="re9"] .border-amber-500\/20,
-html[data-theme="re9"] .border-amber-500\/25,
-html[data-theme="re9"] .border-amber-500\/30 {
-    border-color: rgba(255, 255, 255, 0.25);
 }
 
 html[data-theme="re9"] #tab-saldos > p:first-of-type {

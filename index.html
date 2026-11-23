@@ -60,6 +60,26 @@
                             300: 'rgb(var(--c-bizum-300) / <alpha-value>)',
                             400: 'rgb(var(--c-bizum-400) / <alpha-value>)',
                             500: 'rgb(var(--c-bizum-500) / <alpha-value>)',
+                        },
+                        amber: {
+                            100: 'rgb(var(--c-amber-100) / <alpha-value>)',
+                            200: 'rgb(var(--c-amber-200) / <alpha-value>)',
+                            300: 'rgb(var(--c-amber-300) / <alpha-value>)',
+                            400: 'rgb(var(--c-amber-400) / <alpha-value>)',
+                            500: 'rgb(var(--c-amber-500) / <alpha-value>)',
+                            600: 'rgb(var(--c-amber-600) / <alpha-value>)',
+                        },
+                        rose: {
+                            300: 'rgb(var(--c-rose-300) / <alpha-value>)',
+                            400: 'rgb(var(--c-rose-400) / <alpha-value>)',
+                            500: 'rgb(var(--c-rose-500) / <alpha-value>)',
+                            600: 'rgb(var(--c-rose-600) / <alpha-value>)',
+                            900: 'rgb(var(--c-rose-900) / <alpha-value>)',
+                            950: 'rgb(var(--c-rose-950) / <alpha-value>)',
+                        },
+                        sky: {
+                            400: 'rgb(var(--c-sky-400) / <alpha-value>)',
+                            500: 'rgb(var(--c-sky-500) / <alpha-value>)',
                         }
                     }
                 }
@@ -152,10 +172,10 @@
             <!-- Controls: Filter Core (5) vs All (8) & Dynamic MAFTA -->
             <div class="flex flex-wrap items-center justify-between gap-2">
                 <div class="flex items-center bg-slate-900 p-1 rounded-xl border border-slate-800">
-                    <button id="btn-filter-core" onclick="setMemberFilter('core')" class="px-3 py-1.5 rounded-lg text-xs font-semibold transition bg-emerald-500 text-slate-950">
+                    <button id="btn-filter-core" onclick="setMemberFilter('core')" class="font-body px-3 py-1.5 rounded-lg text-xs font-semibold transition bg-emerald-500 text-slate-950">
                         GENTES (5)
                     </button>
-                    <button id="btn-filter-all" onclick="setMemberFilter('all')" class="px-3 py-1.5 rounded-lg text-xs font-semibold transition text-slate-400 hover:text-white">
+                    <button id="btn-filter-all" onclick="setMemberFilter('all')" class="font-body px-3 py-1.5 rounded-lg text-xs font-semibold transition text-slate-400 hover:text-white">
                         Todos (8)
                     </button>
                 </div>
@@ -240,7 +260,7 @@
                     <div>
                         <div class="flex items-center justify-between mb-1">
                             <label class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">Fecha</label>
-                            <button type="button" onclick="clearDateForEasterEgg()" class="text-[10px] text-amber-400 hover:underline" title="Probar validación fila 436">¿Sin fecha?</button>
+                            <button type="button" onclick="clearDateForEasterEgg()" class="font-body text-[10px] text-amber-400 hover:underline" title="Probar validación fila 436">¿Sin fecha?</button>
                         </div>
                         <input id="input-date" type="date" class="w-full bg-slate-950 border border-slate-800 focus:border-emerald-500 rounded-xl px-3 py-2.5 text-sm text-white focus:outline-none transition">
                     </div>
@@ -282,9 +302,9 @@
                         <div class="flex items-center justify-between mb-2">
                             <label class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">Participantes</label>
                             <div class="flex gap-1.5">
-                                <button type="button" onclick="selectParticipantsPreset('core')" class="text-[10px] px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-300">GENTES (5)</button>
-                                <button type="button" onclick="selectParticipantsPreset('all')" class="text-[10px] px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-300">Todos (8)</button>
-                                <button type="button" onclick="selectParticipantsPreset('none')" class="text-[10px] px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-400">Ninguno</button>
+                                <button type="button" onclick="selectParticipantsPreset('core')" class="font-body text-[10px] px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-300">GENTES (5)</button>
+                                <button type="button" onclick="selectParticipantsPreset('all')" class="font-body text-[10px] px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-300">Todos (8)</button>
+                                <button type="button" onclick="selectParticipantsPreset('none')" class="font-body text-[10px] px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-400">Ninguno</button>
                             </div>
                         </div>
 
@@ -494,8 +514,8 @@
                             <p class="text-[10px] text-slate-500">Pulsa en los marcadores de la leyenda para mostrar u ocultar sus datos</p>
                         </div>
                         <div class="flex items-center bg-slate-950 p-1 rounded-lg border border-slate-800 text-[10px] font-semibold">
-                            <button type="button" id="chart-btn-all" onclick="setChartFilter('all')" class="px-2 py-1 rounded bg-emerald-500 text-slate-950 transition">Todos (8)</button>
-                            <button type="button" id="chart-btn-core" onclick="setChartFilter('core')" class="px-2 py-1 rounded text-slate-400 hover:text-white transition">GENTES (5)</button>
+                            <button type="button" id="chart-btn-all" onclick="setChartFilter('all')" class="font-body px-2 py-1 rounded bg-emerald-500 text-slate-950 transition">Todos (8)</button>
+                            <button type="button" id="chart-btn-core" onclick="setChartFilter('core')" class="font-body px-2 py-1 rounded text-slate-400 hover:text-white transition">GENTES (5)</button>
                         </div>
                     </div>
 
@@ -665,9 +685,9 @@
 
             <div class="rounded-xl bg-slate-950 p-3.5 border border-slate-800 flex items-center justify-between gap-2">
                 <div class="flex items-center gap-2 text-xs">
-                    <span id="bizum-confirm-from" class="font-bold text-rose-400">Deudor</span>
+                    <span id="bizum-confirm-from" class="font-display font-bold text-rose-400">Deudor</span>
                     <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
-                    <span id="bizum-confirm-to" class="font-bold text-emerald-400">Acreedor</span>
+                    <span id="bizum-confirm-to" class="font-display font-bold text-emerald-400">Acreedor</span>
                 </div>
                 <span id="bizum-confirm-amount" class="mono-num text-sm font-extrabold text-white bg-slate-900 px-2.5 py-1 rounded-lg border border-slate-800">
                     0,00 €
@@ -703,7 +723,7 @@
                 <span>Continuar con Google</span>
             </button>
 
-            <button onclick="document.getElementById('modal-auth').classList.add('hidden')" class="text-[11px] text-slate-500 hover:text-slate-400 underline">
+            <button onclick="document.getElementById('modal-auth').classList.add('hidden')" class="font-body text-[11px] text-slate-500 hover:text-slate-400 underline">
                 Entrar en modo solo lectura
             </button>
         </div>
@@ -1403,7 +1423,7 @@
                     <div class="rounded-2xl bg-cardbg border border-slate-800/90 p-3.5 shadow-sm hover:border-slate-700 transition">
                         <div class="flex items-center justify-between gap-2.5">
                             <div class="flex items-center gap-2.5 sm:gap-3 min-w-0">
-                                <div class="w-10 h-10 rounded-xl bg-gradient-to-br ${m.color} flex items-center justify-center font-extrabold text-xs text-white shadow-md shrink-0">
+                                <div class="font-display w-10 h-10 rounded-xl bg-gradient-to-br ${m.color} flex items-center justify-center font-extrabold text-xs text-white shadow-md shrink-0">
                                     ${m.code}
                                 </div>
                                 <div class="min-w-0">
@@ -1448,9 +1468,9 @@
                 planList.innerHTML = transfers.map(t => `
                     <div class="flex items-center justify-between gap-2 p-3 rounded-xl bg-slate-950/90 border border-slate-800/90">
                         <div class="flex items-center gap-2 text-xs">
-                            <span class="font-bold text-rose-400">${t.fromCode}</span>
+                            <span class="font-display font-bold text-rose-400">${t.fromCode}</span>
                             <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
-                            <span class="font-bold text-emerald-400">${t.toCode}</span>
+                            <span class="font-display font-bold text-emerald-400">${t.toCode}</span>
                             <span class="mono-num font-extrabold text-white bg-slate-900 px-2 py-0.5 rounded-md border border-slate-800 ml-1">
                                 ${formatEuro(t.amount)}
                             </span>
@@ -2435,7 +2455,7 @@
                         <div class="rounded-2xl bg-rose-950/20 border border-rose-900/40 p-3.5 space-y-2 opacity-60">
                             <div class="flex items-center justify-between text-xs">
                                 <span class="line-through text-slate-400 font-bold">#${tx.rowNum} ${escapeHtml(tx.concept)} (${formatEuro(positiveVol)})</span>
-                                <button onclick="restoreTransaction('${escapeHtml(tx.id)}')" class="text-[11px] text-emerald-400 hover:underline">Restaurar</button>
+                                <button onclick="restoreTransaction('${escapeHtml(tx.id)}')" class="font-body text-[11px] text-emerald-400 hover:underline">Restaurar</button>
                             </div>
                             <p class="text-[11px] text-rose-300">
                                 <i class="fa-solid fa-ban mr-1"></i> Anulado por <strong>${escapeHtml(tx.anuladoPor || 'un usuario')}</strong> (${escapeHtml(tx.fechaAnulacion || 'recientemente')}).
@@ -2451,7 +2471,7 @@
                         <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[11px] mono-num font-semibold border ${
                             isPos ? 'bg-emerald-500/10 border-emerald-500/25 text-emerald-300' : 'bg-rose-500/10 border-rose-500/25 text-rose-300'
                         }">
-                            <strong class="font-sans text-white">${escapeHtml(m ? m.code : id)}:</strong> ${formatEuro(val, true)}
+                            <strong class="font-display text-white">${escapeHtml(m ? m.code : id)}:</strong> ${formatEuro(val, true)}
                         </span>
                     `;
                 }).join('');
@@ -2511,7 +2531,7 @@
                 return `
                     <tr class="hover:bg-slate-800/40 transition">
                         <td class="py-2.5 px-2 sm:px-3 font-semibold text-white flex items-center gap-2 whitespace-nowrap">
-                            <span class="w-5 h-5 rounded bg-gradient-to-br ${m.color} text-[9px] font-bold flex items-center justify-center text-white shrink-0">${m.code}</span>
+                            <span class="font-display w-5 h-5 rounded bg-gradient-to-br ${m.color} text-[9px] font-bold flex items-center justify-center text-white shrink-0">${m.code}</span>
                             <span>${m.name}</span>
                         </td>
                         <td class="py-2.5 px-2 sm:px-3 text-right mono-num font-bold whitespace-nowrap ${isPos ? 'text-emerald-400' : (isNeg ? 'text-rose-400' : 'text-slate-400')}">
@@ -2532,11 +2552,11 @@
         window.setChartFilter = function(mode) {
             chartFilterMode = mode;
             document.getElementById('chart-btn-all').className = mode === 'all'
-                ? "px-2 py-1 rounded bg-emerald-500 text-slate-950 transition"
-                : "px-2 py-1 rounded text-slate-400 hover:text-white transition";
+                ? "font-body px-2 py-1 rounded bg-emerald-500 text-slate-950 transition"
+                : "font-body px-2 py-1 rounded text-slate-400 hover:text-white transition";
             document.getElementById('chart-btn-core').className = mode === 'core'
-                ? "px-2 py-1 rounded bg-emerald-500 text-slate-950 transition"
-                : "px-2 py-1 rounded text-slate-400 hover:text-white transition";
+                ? "font-body px-2 py-1 rounded bg-emerald-500 text-slate-950 transition"
+                : "font-body px-2 py-1 rounded text-slate-400 hover:text-white transition";
             
             const state = computeGroupState();
             renderBCEChart(state.timeline);
@@ -2564,11 +2584,24 @@
             const canvas = document.getElementById('bce-history-chart');
             if (!canvas || typeof Chart === 'undefined' || !timeline) return;
 
+            const rootStyle = getComputedStyle(document.documentElement);
+            const cssRgb = (varName, alpha = 1) => {
+                const parts = rootStyle.getPropertyValue(varName).trim().split(/\s+/);
+                if (parts.length < 3) return `rgba(148, 163, 184, ${alpha})`;
+                const rgb = `${parts[0]}, ${parts[1]}, ${parts[2]}`;
+                return alpha < 1 ? `rgba(${rgb}, ${alpha})` : `rgb(${rgb})`;
+            };
+
             const isLight = document.documentElement.getAttribute('data-mode') === 'light';
-            const legendColor = isLight ? '#334155' : '#cbd5e1';
-            const gridColor = isLight ? 'rgba(148, 163, 184, 0.28)' : 'rgba(30, 41, 59, 0.7)';
-            const zeroGridColor = isLight ? 'rgba(71, 85, 105, 0.5)' : 'rgba(148, 163, 184, 0.45)';
-            const creditColor = isLight ? '#2563eb' : '#93C5FD';
+            const legendColor = cssRgb('--c-slate-200');
+            const tickColor = cssRgb('--c-slate-400');
+            const gridColor = cssRgb('--c-slate-800', isLight ? 0.65 : 0.75);
+            const zeroGridColor = cssRgb('--c-slate-500', 0.65);
+            const creditColor = cssRgb('--c-bizum-400');
+            const tooltipBg = cssRgb('--c-bg-card', 0.96);
+            const tooltipTitle = cssRgb('--c-text-main');
+            const tooltipBody = cssRgb('--c-slate-300');
+            const tooltipBorder = cssRgb('--c-border-main');
 
             const labels = timeline.map(pt => pt.date);
 
@@ -2650,10 +2683,10 @@
                             }
                         },
                         tooltip: {
-                            backgroundColor: isLight ? 'rgba(255, 255, 255, 0.96)' : 'rgba(11, 15, 25, 0.95)',
-                            titleColor: isLight ? '#0f172a' : '#f8fafc',
-                            bodyColor: isLight ? '#334155' : '#cbd5e1',
-                            borderColor: isLight ? '#cbd5e1' : '#334155',
+                            backgroundColor: tooltipBg,
+                            titleColor: tooltipTitle,
+                            bodyColor: tooltipBody,
+                            borderColor: tooltipBorder,
                             borderWidth: 1,
                             padding: 10,
                             bodyFont: { family: 'JetBrains Mono', size: 11 },
@@ -2669,7 +2702,7 @@
                     scales: {
                         x: {
                             ticks: {
-                                color: '#64748b',
+                                color: tickColor,
                                 font: { family: 'JetBrains Mono', size: 9 },
                                 maxRotation: 35,
                                 minRotation: 35,
@@ -2680,7 +2713,7 @@
                         },
                         y: {
                             ticks: {
-                                color: '#64748b',
+                                color: tickColor,
                                 font: { family: 'JetBrains Mono', size: 10 },
                                 callback: (val) => val + ' €'
                             },
@@ -2748,11 +2781,11 @@
         window.setMemberFilter = function(mode) {
             memberFilter = mode;
             document.getElementById('btn-filter-core').className = mode === 'core'
-                ? "px-3 py-1.5 rounded-lg text-xs font-semibold transition bg-emerald-500 text-slate-950"
-                : "px-3 py-1.5 rounded-lg text-xs font-semibold transition text-slate-400 hover:text-white";
+                ? "font-body px-3 py-1.5 rounded-lg text-xs font-semibold transition bg-emerald-500 text-slate-950"
+                : "font-body px-3 py-1.5 rounded-lg text-xs font-semibold transition text-slate-400 hover:text-white";
             document.getElementById('btn-filter-all').className = mode === 'all'
-                ? "px-3 py-1.5 rounded-lg text-xs font-semibold transition bg-emerald-500 text-slate-950"
-                : "px-3 py-1.5 rounded-lg text-xs font-semibold transition text-slate-400 hover:text-white";
+                ? "font-body px-3 py-1.5 rounded-lg text-xs font-semibold transition bg-emerald-500 text-slate-950"
+                : "font-body px-3 py-1.5 rounded-lg text-xs font-semibold transition text-slate-400 hover:text-white";
             refreshAllViews();
         };
 
