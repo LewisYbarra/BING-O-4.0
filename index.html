@@ -102,6 +102,7 @@
     </script>
 </head>
 <body class="min-h-screen flex flex-col selection:bg-emerald-500 selection:text-white pb-24">
+    <canvas id="matrix-rain-canvas" aria-hidden="true"></canvas>
 
     <!-- TOP HEADER -->
     <header class="sticky top-0 z-30 glass-header border-b border-slate-800/80 px-3 sm:px-4 py-2.5 sm:py-3">
@@ -2899,8 +2900,150 @@
             { id: 'gtavi',          name: 'GTA VI',         mode: 'dark',  category: 'special', meta: '#120b1c', swatches: ['#120b1c', '#f43f8e', '#fdba74'] },
             { id: 'cyberpunk',      name: 'Cyberpunk 2077', mode: 'dark',  category: 'special', meta: '#0a0a0e', swatches: ['#0a0a0e', '#121218', '#fcee0a'] },
             { id: 'gd',             name: 'Geometry Dash',  mode: 'dark',  category: 'special', meta: '#4e2918', swatches: ['#995533', '#7ade2d', '#24e5e4'] },
-            { id: 're9',            name: 'Resident Evil',  mode: 'dark',  category: 'special', meta: '#0c0c0d', swatches: ['#0c0c0d', '#3f3f46', '#ed3f4d'] }
+            { id: 're9',            name: 'Resident Evil',  mode: 'dark',  category: 'special', meta: '#0c0c0d', swatches: ['#0c0c0d', '#3f3f46', '#ed3f4d'] },
+            { id: 'matrix',         name: 'Matrix',         mode: 'dark',  category: 'special', meta: '#000000', swatches: ['#000000', '#00360e', '#00ff41'] }
         ];
+
+        // ---------------------------------------------------------
+        // LLUVIA DIGITAL ANIMADA (SOLO ACTIVA EN EL TEMA MATRIX)
+        // ---------------------------------------------------------
+        const MATRIX_CHARS = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789:・."=*+-<>¦|_';
+        let matrixRafId = null;
+        let matrixColumns = [];
+        let matrixLastFrame = 0;
+        let matrixWidth = 0;
+        let matrixHeight = 0;
+        let matrixFontSize = 15;
+        let matrixResizeBound = false;
+
+        function randomMatrixChar() {
+            return MATRIX_CHARS[Math.floor(Math.random() * MATRIX_CHARS.length)];
+        }
+
+        function resizeMatrixCanvas() {
+            const canvas = document.getElementById('matrix-rain-canvas');
+            if (!canvas) return;
+            const dpr = Math.min(window.devicePixelRatio || 1, 2);
+            matrixWidth = window.innerWidth;
+            matrixHeight = window.innerHeight;
+            canvas.width = Math.floor(matrixWidth * dpr);
+            canvas.height = Math.floor(matrixHeight * dpr);
+
+            const ctx = canvas.getContext('2d');
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            ctx.fillStyle = '#000000';
+            ctx.fillRect(0, 0, matrixWidth, matrixHeight);
+
+            const colCount = Math.ceil(matrixWidth / matrixFontSize);
+            const maxRows = Math.ceil(matrixHeight / matrixFontSize);
+            matrixColumns = Array.from({ length: colCount }, () => ({
+                y: Math.floor(Math.random() * maxRows) - maxRows * 0.4,
+                speed: 0.6 + Math.random() * 0.55,
+                lastRow: -999,
+                lastChar: randomMatrixChar()
+            }));
+        }
+
+        function renderMatrixFrame(ts) {
+            matrixRafId = requestAnimationFrame(renderMatrixFrame);
+            if (ts - matrixLastFrame < 45) return; // ~22 fps (retro y bajo consumo)
+            matrixLastFrame = ts;
+
+            const canvas = document.getElementById('matrix-rain-canvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            const maxRows = Math.ceil(matrixHeight / matrixFontSize);
+
+            // Desvanecimiento suave de las estelas hacia negro puro
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.085)';
+            ctx.fillRect(0, 0, matrixWidth, matrixHeight);
+
+            ctx.font = `600 ${matrixFontSize}px "JetBrains Mono", monospace`;
+            ctx.textBaseline = 'top';
+
+            for (let i = 0; i < matrixColumns.length; i++) {
+                const col = matrixColumns[i];
+                const x = i * matrixFontSize;
+                const prevRow = Math.floor(col.y);
+                col.y += col.speed;
+                const row = Math.floor(col.y);
+
+                // Si la cabeza avanzó de fila, repinta la anterior en verde Matrix y dibuja la nueva en verde neón brillante
+                if (row !== prevRow) {
+                    if (col.lastRow >= 0 && col.lastRow <= maxRows) {
+                        ctx.fillStyle = '#000000';
+                        ctx.fillRect(x, col.lastRow * matrixFontSize, matrixFontSize, matrixFontSize);
+                        ctx.fillStyle = '#00cc33';
+                        ctx.fillText(col.lastChar, x, col.lastRow * matrixFontSize);
+                    }
+                    const ch = randomMatrixChar();
+                    if (row >= 0 && row <= maxRows) {
+                        ctx.fillStyle = '#52ff7a';
+                        ctx.fillText(ch, x, row * matrixFontSize);
+                    }
+                    col.lastRow = row;
+                    col.lastChar = ch;
+                }
+
+                // Mutar caracteres aleatoriamente dentro de la estela visible
+                if (Math.random() < 0.14 && row > 2) {
+                    const trailOffset = 1 + Math.floor(Math.random() * 14);
+                    const mutateRow = row - trailOffset;
+                    if (mutateRow >= 0 && mutateRow <= maxRows) {
+                        const fade = Math.max(0.18, 1 - trailOffset / 16);
+                        ctx.fillStyle = '#000000';
+                        ctx.fillRect(x, mutateRow * matrixFontSize, matrixFontSize, matrixFontSize);
+                        ctx.fillStyle = `rgba(0, 255, 65, ${fade.toFixed(2)})`;
+                        ctx.fillText(randomMatrixChar(), x, mutateRow * matrixFontSize);
+                    }
+                }
+
+                if (row * matrixFontSize > matrixHeight && Math.random() > 0.97) {
+                    col.y = -Math.floor(Math.random() * 18);
+                    col.speed = 0.6 + Math.random() * 0.55;
+                    col.lastRow = -999;
+                }
+            }
+        }
+
+        function startMatrixRain() {
+            if (!matrixResizeBound) {
+                window.addEventListener('resize', () => {
+                    if (document.documentElement.getAttribute('data-theme') === 'matrix') {
+                        resizeMatrixCanvas();
+                    }
+                });
+                document.addEventListener('visibilitychange', () => {
+                    if (document.documentElement.getAttribute('data-theme') !== 'matrix') return;
+                    if (document.hidden) {
+                        if (matrixRafId !== null) {
+                            cancelAnimationFrame(matrixRafId);
+                            matrixRafId = null;
+                        }
+                    } else if (matrixRafId === null) {
+                        matrixLastFrame = 0;
+                        matrixRafId = requestAnimationFrame(renderMatrixFrame);
+                    }
+                });
+                matrixResizeBound = true;
+            }
+            if (matrixRafId !== null) return;
+            resizeMatrixCanvas();
+            matrixLastFrame = 0;
+            matrixRafId = requestAnimationFrame(renderMatrixFrame);
+        }
+
+        function stopMatrixRain() {
+            if (matrixRafId !== null) {
+                cancelAnimationFrame(matrixRafId);
+                matrixRafId = null;
+            }
+            const canvas = document.getElementById('matrix-rain-canvas');
+            if (canvas) {
+                const ctx = canvas.getContext('2d');
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+            }
+        }
 
         function updateThemeLogo(theme) {
             const titleLogo = document.getElementById('app-title-logo');
@@ -2931,6 +3074,8 @@
             if (metaTheme) metaTheme.setAttribute('content', theme.meta);
 
             updateThemeLogo(theme);
+            if (theme.id === 'matrix') startMatrixRain();
+            else stopMatrixRain();
 
             localStorage.setItem('bingo_theme', theme.id);
             renderThemePicker();
