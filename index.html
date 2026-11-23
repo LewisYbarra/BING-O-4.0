@@ -54,6 +54,12 @@
                             400: 'rgb(var(--c-accent-400) / <alpha-value>)',
                             500: 'rgb(var(--c-accent-500) / <alpha-value>)',
                             900: 'rgb(var(--c-accent-900) / <alpha-value>)',
+                        },
+                        indigo: {
+                            200: 'rgb(var(--c-bizum-200) / <alpha-value>)',
+                            300: 'rgb(var(--c-bizum-300) / <alpha-value>)',
+                            400: 'rgb(var(--c-bizum-400) / <alpha-value>)',
+                            500: 'rgb(var(--c-bizum-500) / <alpha-value>)',
                         }
                     }
                 }
@@ -67,7 +73,7 @@
     <script>
         (function() {
             const saved = localStorage.getItem('bingo_theme') || 'default';
-            const lightIds = ['light', 'sepia', 'latte', 'mint', 'sakura', 'solarized'];
+            const lightIds = ['light', 'sepia', 'latte', 'mint', 'sakura', 'solarized', 'porcelain', 'graphite', 'nord-light', 'arctic'];
             const mode = lightIds.includes(saved) ? 'light' : 'dark';
             document.documentElement.setAttribute('data-theme', saved);
             document.documentElement.setAttribute('data-mode', mode);
@@ -82,12 +88,12 @@
         <div class="max-w-2xl mx-auto flex items-center justify-between gap-2">
             <!-- Bloque izquierdo (Logo y Título) con min-w-0 para evitar desbordamiento -->
             <div class="flex items-center gap-2.5 min-w-0">
-                <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-emerald-400 shadow-lg shadow-emerald-500/25 flex items-center justify-center p-1.5 shrink-0">
+                <div class="logo-icon-box w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-emerald-400 shadow-lg shadow-emerald-500/25 flex items-center justify-center p-1.5 shrink-0">
                     <img src="./resources/icon-symbol.svg" alt="Logo BING-O" class="w-full h-full object-contain">
                 </div>
                 <div class="min-w-0">
                     <div class="flex items-center gap-2">
-                            <img src="./resources/title.svg" alt="BING-O 4.0" class="h-5 sm:h-6 w-auto object-contain shrink-0 theme-logo-title">                        <span id="sync-badge" class="inline-flex items-center gap-1 text-[9px] sm:text-[10px] font-semibold px-1.5 sm:px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 whitespace-nowrap shrink-0">
+                            <img id="app-title-logo" src="./resources/title.svg" alt="BING-O 4.0" class="h-5 sm:h-6 w-auto object-contain shrink-0 theme-logo-title">                        <span id="sync-badge" class="inline-flex items-center gap-1 text-[9px] sm:text-[10px] font-semibold px-1.5 sm:px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 whitespace-nowrap shrink-0">
                             <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
                             CARGANDO
                         </span>
@@ -2829,22 +2835,56 @@
         // ---------------------------------------------------------
         // GESTOR DE TEMAS
         // ---------------------------------------------------------
+        const DEFAULT_TITLE_LOGO = './resources/title.svg';
+
         const THEMES = [
-            { id: 'default',   name: 'BING-O Clásico', mode: 'dark',  meta: '#0b0f19', swatches: ['#0b0f19', '#131b2e', '#10b981'] },
-            { id: 'amoled',    name: 'OLED Negro',     mode: 'dark',  meta: '#000000', swatches: ['#000000', '#0e0e11', '#10b981'] },
-            { id: 'nord',      name: 'Nord',           mode: 'dark',  meta: '#242933', swatches: ['#242933', '#2e3440', '#88c0d0'] },
-            { id: 'dracula',   name: 'Drácula',        mode: 'dark',  meta: '#191a23', swatches: ['#191a23', '#282a36', '#bd93f9'] },
-            { id: 'gruvbox',   name: 'Gruvbox',        mode: 'dark',  meta: '#1d2021', swatches: ['#1d2021', '#282828', '#d65d0e'] },
-            { id: 'rosepine',  name: 'Rosé Pine',      mode: 'dark',  meta: '#191724', swatches: ['#191724', '#1f1d2e', '#eb6f92'] },
-            { id: 'light',     name: 'Claro',          mode: 'light', meta: '#ffffff', swatches: ['#f1f5f9', '#ffffff', '#059669'] },
-            { id: 'sepia',     name: 'Sepia',          mode: 'light', meta: '#fdfaf5', swatches: ['#f3ece1', '#fdfaf5', '#0d9488'] },
-            { id: 'latte',     name: 'Latte',          mode: 'light', meta: '#ffffff', swatches: ['#eff1f5', '#ffffff', '#4f46e5'] },
-            { id: 'mint',      name: 'Menta',          mode: 'light', meta: '#ffffff', swatches: ['#ecf7f2', '#ffffff', '#047857'] },
-            { id: 'sakura',    name: 'Sakura',         mode: 'light', meta: '#ffffff', swatches: ['#fdf2f8', '#ffffff', '#db2777'] },
-            { id: 'solarized', name: 'Solarized',      mode: 'light', meta: '#fdf6e3', swatches: ['#f3ecda', '#fdf6e3', '#268bd2'] },
-            { id: 'gtavi',     name: 'GTA VI',         mode: 'dark',  meta: '#120b1c', swatches: ['#120b1c', '#f43f8e', '#fdba74'] },
-            { id: 'cyberpunk', name: 'Cyberpunk 2077', mode: 'dark',  meta: '#0a0a0e', swatches: ['#0a0a0e', '#121218', '#fcee0a'] }
+            // Oscuros
+            { id: 'default',        name: 'BING-O Clásico', mode: 'dark',  category: 'dark',    meta: '#0b0f19', swatches: ['#0b0f19', '#131b2e', '#10b981'] },
+            { id: 'amoled',         name: 'OLED Negro',     mode: 'dark',  category: 'dark',    meta: '#000000', swatches: ['#000000', '#0e0e11', '#10b981'] },
+            { id: 'nord',           name: 'Nord',           mode: 'dark',  category: 'dark',    meta: '#242933', swatches: ['#242933', '#2e3440', '#88c0d0'] },
+            { id: 'dracula',        name: 'Drácula',        mode: 'dark',  category: 'dark',    meta: '#191a23', swatches: ['#191a23', '#282a36', '#bd93f9'] },
+            { id: 'gruvbox',        name: 'Gruvbox',        mode: 'dark',  category: 'dark',    meta: '#1d2021', swatches: ['#1d2021', '#282828', '#d65d0e'] },
+            { id: 'rosepine',       name: 'Rosé Pine',      mode: 'dark',  category: 'dark',    meta: '#191724', swatches: ['#191724', '#1f1d2e', '#eb6f92'] },
+            { id: 'solarized-dark', name: 'Solarized Dark', mode: 'dark',  category: 'dark',    meta: '#002b36', swatches: ['#002b36', '#073642', '#268bd2'] },
+            { id: 'porcelain-dark', name: 'Porcelain Dark', mode: 'dark',  category: 'dark',    meta: '#161413', swatches: ['#161413', '#211e1c', '#d4885c'] },
+            { id: 'arctic-dark',    name: 'Arctic Dark',    mode: 'dark',  category: 'dark',    meta: '#0a141e', swatches: ['#0a141e', '#101f2e', '#38bdf8'] },
+            { id: 'graphite-dark',  name: 'Graphite Dark',  mode: 'dark',  category: 'dark',    meta: '#18181b', swatches: ['#18181b', '#232328', '#a1a1aa'] },
+
+            // Claros
+            { id: 'light',          name: 'Claro',          mode: 'light', category: 'light',   meta: '#ffffff', swatches: ['#f1f5f9', '#ffffff', '#059669'] },
+            { id: 'sepia',          name: 'Sepia',          mode: 'light', category: 'light',   meta: '#fdfaf5', swatches: ['#f3ece1', '#fdfaf5', '#0d9488'] },
+            { id: 'latte',          name: 'Latte',          mode: 'light', category: 'light',   meta: '#ffffff', swatches: ['#eff1f5', '#ffffff', '#4f46e5'] },
+            { id: 'mint',           name: 'Menta',          mode: 'light', category: 'light',   meta: '#ffffff', swatches: ['#ecf7f2', '#ffffff', '#047857'] },
+            { id: 'sakura',         name: 'Sakura',         mode: 'light', category: 'light',   meta: '#ffffff', swatches: ['#fdf2f8', '#ffffff', '#db2777'] },
+            { id: 'solarized',      name: 'Solarized',      mode: 'light', category: 'light',   meta: '#fdf6e3', swatches: ['#f3ecda', '#fdf6e3', '#268bd2'] },
+            { id: 'porcelain',      name: 'Porcelain',      mode: 'light', category: 'light',   meta: '#fffdfa', swatches: ['#f6f2ec', '#fffdfa', '#b05c32'] },
+            { id: 'graphite',       name: 'Graphite',       mode: 'light', category: 'light',   meta: '#fafafb', swatches: ['#eeeef0', '#fafafb', '#52525b'] },
+            { id: 'nord-light',     name: 'Nord',           mode: 'light', category: 'light',   meta: '#eceff4', swatches: ['#e5e9f0', '#eceff4', '#5e81ac'] },
+            { id: 'arctic',         name: 'Arctic',         mode: 'light', category: 'light',   meta: '#ffffff', swatches: ['#e8f4fc', '#ffffff', '#0284c7'] },
+
+            // Especiales
+            { id: 'gtavi',          name: 'GTA VI',         mode: 'dark',  category: 'special', meta: '#120b1c', swatches: ['#120b1c', '#f43f8e', '#fdba74'] },
+            { id: 'cyberpunk',      name: 'Cyberpunk 2077', mode: 'dark',  category: 'special', meta: '#0a0a0e', swatches: ['#0a0a0e', '#121218', '#fcee0a'] }
         ];
+
+        function updateThemeLogo(theme) {
+            const titleLogo = document.getElementById('app-title-logo');
+            if (!titleLogo) return;
+
+            if (theme.category === 'special') {
+                titleLogo.classList.remove('theme-logo-title');
+                titleLogo.onerror = () => {
+                    titleLogo.onerror = null;
+                    titleLogo.classList.add('theme-logo-title');
+                    titleLogo.src = DEFAULT_TITLE_LOGO;
+                };
+                titleLogo.src = `./resources/themes/${theme.id}/title.svg`;
+            } else {
+                titleLogo.onerror = null;
+                titleLogo.classList.add('theme-logo-title');
+                titleLogo.src = DEFAULT_TITLE_LOGO;
+            }
+        }
 
         function applyTheme(themeId, silent = false) {
             const theme = THEMES.find(t => t.id === themeId) || THEMES[0];
@@ -2854,6 +2894,8 @@
 
             const metaTheme = document.querySelector('meta[name="theme-color"]');
             if (metaTheme) metaTheme.setAttribute('content', theme.meta);
+
+            updateThemeLogo(theme);
 
             localStorage.setItem('bingo_theme', theme.id);
             renderThemePicker();
@@ -2903,8 +2945,9 @@
             `;
 
             container.innerHTML =
-                renderGroup('Oscuros', 'fa-moon', THEMES.filter(t => t.mode === 'dark')) +
-                renderGroup('Claros', 'fa-sun', THEMES.filter(t => t.mode === 'light'));
+                renderGroup('Oscuros', 'fa-moon', THEMES.filter(t => t.category === 'dark')) +
+                renderGroup('Claros', 'fa-sun', THEMES.filter(t => t.category === 'light')) +
+                renderGroup('Especiales', 'fa-wand-magic-sparkles', THEMES.filter(t => t.category === 'special'));
         }
 
         window.openThemeModal = function() {
