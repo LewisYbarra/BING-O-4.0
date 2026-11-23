@@ -69,6 +69,22 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'EHU Sans';
+    src: url('./resources/fonts/ehusans-regular-webfont.woff') format('woff');
+    font-weight: 400 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'EHU Sans';
+    src: url('./resources/fonts/ehusans-bold-webfont.woff') format('woff');
+    font-weight: 600 900;
+    font-style: normal;
+    font-display: swap;
+}
+
 /* =========================================================
    2. ESTILOS BASE Y UTILIDADES
    ========================================================= */
@@ -131,15 +147,6 @@ body:has([id^="modal-"]:not(.hidden)) {
     -webkit-backdrop-filter: blur(16px);
 }
 
-@keyframes pulse-subtle {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.65; }
-}
-
-.animate-pulse-subtle {
-    animation: pulse-subtle 2.5s infinite ease-in-out;
-}
-
 /* Flecha personalizada para select */
 select {
     -webkit-appearance: none;
@@ -173,6 +180,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     width: 2.5rem;
     height: 100%;
     cursor: pointer;
+}
+
+/* Placeholders vinculados a la variable del tema */
+html input::placeholder,
+html textarea::placeholder {
+    color: rgb(var(--c-slate-600));
 }
 
 /* =========================================================
@@ -476,10 +489,358 @@ html[data-theme="graphite-dark"] {
 }
 
 /* =========================================================
-   3. TEMAS ESPECIALES (VARIABLES RGB PARA TAILWIND)
+   4. TEMAS CLAROS Y AJUSTES DE LEGIBILIDAD
    ========================================================= */
 
-/* 7. GTA VI (Vice City Neon Sunset) */
+/* 1. Claro (Light) */
+html[data-theme="light"] {
+    --c-bg-main: 241 245 249;
+    --c-bg-card: 255 255 255;
+    --c-border-main: 226 232 240;
+    --c-header-bg: 255 255 255;
+    --c-nav-bg: 255 255 255;
+    --c-text-main: 15 23 42;
+    --c-slate-100: 15 23 42;
+    --c-slate-200: 30 41 59;
+    --c-slate-300: 51 65 85;
+    --c-slate-400: 71 85 105;
+    --c-slate-500: 100 116 139;
+    --c-slate-600: 100 116 139;
+    --c-slate-700: 203 213 225;
+    --c-slate-800: 226 232 240;
+    --c-slate-900: 241 245 249;
+    --c-slate-950: 248 250 252;
+    --c-accent-300: 6 95 70;
+    --c-accent-400: 4 120 87;
+    --c-accent-500: 5 150 105;
+    --c-accent-900: 209 250 229;
+    --c-bizum-200: 55 48 163;
+    --c-bizum-300: 67 56 202;
+    --c-bizum-400: 79 70 229;
+    --c-bizum-500: 99 102 241;
+}
+
+/* 2. Sepia (Papel cálido) */
+html[data-theme="sepia"] {
+    --c-bg-main: 243 236 225;
+    --c-bg-card: 253 250 245;
+    --c-border-main: 224 214 198;
+    --c-header-bg: 253 250 245;
+    --c-nav-bg: 253 250 245;
+    --c-text-main: 41 35 28;
+    --c-slate-100: 28 24 19;
+    --c-slate-200: 41 35 28;
+    --c-slate-300: 68 60 50;
+    --c-slate-400: 92 82 70;
+    --c-slate-500: 120 109 95;
+    --c-slate-600: 120 109 95;
+    --c-slate-700: 203 190 170;
+    --c-slate-800: 224 214 198;
+    --c-slate-900: 238 230 217;
+    --c-slate-950: 247 242 234;
+    --c-accent-300: 17 94 89;
+    --c-accent-400: 15 118 110;
+    --c-accent-500: 13 148 136;
+    --c-accent-900: 204 251 241;
+    --c-bizum-200: 124 45 18;
+    --c-bizum-300: 154 52 18;
+    --c-bizum-400: 180 68 24;
+    --c-bizum-500: 194 82 34;
+}
+
+/* 3. Latte (Catppuccin claro) */
+html[data-theme="latte"] {
+    --c-bg-main: 239 241 245;
+    --c-bg-card: 255 255 255;
+    --c-border-main: 220 224 232;
+    --c-header-bg: 255 255 255;
+    --c-nav-bg: 255 255 255;
+    --c-text-main: 46 52 79;
+    --c-slate-100: 30 34 54;
+    --c-slate-200: 46 52 79;
+    --c-slate-300: 76 79 105;
+    --c-slate-400: 92 95 119;
+    --c-slate-500: 108 111 133;
+    --c-slate-600: 108 111 133;
+    --c-slate-700: 188 194 209;
+    --c-slate-800: 214 219 229;
+    --c-slate-900: 230 233 239;
+    --c-slate-950: 245 247 250;
+    --c-accent-300: 67 56 202;
+    --c-accent-400: 79 70 229;
+    --c-accent-500: 99 102 241;
+    --c-accent-900: 224 231 255;
+    --c-bizum-200: 96 34 176;
+    --c-bizum-300: 114 42 206;
+    --c-bizum-400: 136 57 239;
+    --c-bizum-500: 124 58 237;
+}
+
+/* 4. Menta (Claro verdoso) */
+html[data-theme="mint"] {
+    --c-bg-main: 236 247 242;
+    --c-bg-card: 255 255 255;
+    --c-border-main: 209 235 224;
+    --c-header-bg: 255 255 255;
+    --c-nav-bg: 255 255 255;
+    --c-text-main: 12 45 36;
+    --c-slate-100: 12 45 36;
+    --c-slate-200: 18 48 39;
+    --c-slate-300: 36 68 57;
+    --c-slate-400: 55 92 79;
+    --c-slate-500: 82 117 104;
+    --c-slate-600: 82 117 104;
+    --c-slate-700: 174 218 200;
+    --c-slate-800: 209 235 224;
+    --c-slate-900: 230 244 238;
+    --c-slate-950: 243 250 247;
+    --c-accent-300: 6 95 70;
+    --c-accent-400: 4 120 87;
+    --c-accent-500: 5 150 105;
+    --c-accent-900: 209 250 229;
+    --c-bizum-200: 22 78 99;
+    --c-bizum-300: 21 94 117;
+    --c-bizum-400: 14 116 144;
+    --c-bizum-500: 8 145 178;
+}
+
+/* 5. Sakura (Claro rosado) */
+html[data-theme="sakura"] {
+    --c-bg-main: 253 242 248;
+    --c-bg-card: 255 255 255;
+    --c-border-main: 249 216 232;
+    --c-header-bg: 255 255 255;
+    --c-nav-bg: 255 255 255;
+    --c-text-main: 59 18 39;
+    --c-slate-100: 59 18 39;
+    --c-slate-200: 80 23 52;
+    --c-slate-300: 108 42 74;
+    --c-slate-400: 131 66 98;
+    --c-slate-500: 157 98 127;
+    --c-slate-600: 157 98 127;
+    --c-slate-700: 244 182 212;
+    --c-slate-800: 249 216 232;
+    --c-slate-900: 252 231 243;
+    --c-slate-950: 255 247 251;
+    --c-accent-300: 157 23 77;
+    --c-accent-400: 190 24 93;
+    --c-accent-500: 219 39 119;
+    --c-accent-900: 252 231 243;
+    --c-bizum-200: 88 28 135;
+    --c-bizum-300: 107 33 168;
+    --c-bizum-400: 126 34 206;
+    --c-bizum-500: 147 51 234;
+}
+
+/* 6. Solarized (Claro clásico crema + azul) */
+html[data-theme="solarized"] {
+    --c-bg-main: 243 236 218;
+    --c-bg-card: 253 246 227;
+    --c-border-main: 224 215 191;
+    --c-header-bg: 253 246 227;
+    --c-nav-bg: 253 246 227;
+    --c-text-main: 7 54 66;
+    --c-slate-100: 0 43 54;
+    --c-slate-200: 7 54 66;
+    --c-slate-300: 88 110 117;
+    --c-slate-400: 101 123 131;
+    --c-slate-500: 131 148 150;
+    --c-slate-600: 131 148 150;
+    --c-slate-700: 205 195 168;
+    --c-slate-800: 224 215 191;
+    --c-slate-900: 238 232 213;
+    --c-slate-950: 250 243 224;
+    --c-accent-300: 23 99 156;
+    --c-accent-400: 29 118 184;
+    --c-accent-500: 38 139 210;
+    --c-accent-900: 219 234 254;
+    --c-bizum-200: 19 98 92;
+    --c-bizum-300: 26 122 115;
+    --c-bizum-400: 33 142 134;
+    --c-bizum-500: 42 161 152;
+}
+
+/* 7. Porcelain (Claro porcelana cálida) */
+html[data-theme="porcelain"] {
+    --c-bg-main: 246 242 236;
+    --c-bg-card: 255 253 250;
+    --c-border-main: 232 224 214;
+    --c-header-bg: 255 253 250;
+    --c-nav-bg: 255 253 250;
+    --c-text-main: 42 36 32;
+    --c-slate-100: 32 27 24;
+    --c-slate-200: 48 41 36;
+    --c-slate-300: 78 69 62;
+    --c-slate-400: 108 98 89;
+    --c-slate-500: 138 127 117;
+    --c-slate-600: 138 127 117;
+    --c-slate-700: 214 204 192;
+    --c-slate-800: 232 224 214;
+    --c-slate-900: 243 238 230;
+    --c-slate-950: 250 247 242;
+    --c-accent-300: 132 66 34;
+    --c-accent-400: 156 80 42;
+    --c-accent-500: 176 92 50;
+    --c-accent-900: 247 231 220;
+    --c-bizum-200: 36 70 102;
+    --c-bizum-300: 46 86 122;
+    --c-bizum-400: 59 105 144;
+    --c-bizum-500: 68 118 160;
+}
+
+/* 8. Graphite (Claro gris grafito) */
+html[data-theme="graphite"] {
+    --c-bg-main: 238 238 240;
+    --c-bg-card: 250 250 251;
+    --c-border-main: 218 218 224;
+    --c-header-bg: 250 250 251;
+    --c-nav-bg: 250 250 251;
+    --c-text-main: 24 24 27;
+    --c-slate-100: 24 24 27;
+    --c-slate-200: 39 39 42;
+    --c-slate-300: 63 63 70;
+    --c-slate-400: 82 82 91;
+    --c-slate-500: 113 113 122;
+    --c-slate-600: 113 113 122;
+    --c-slate-700: 196 196 204;
+    --c-slate-800: 218 218 224;
+    --c-slate-900: 234 234 238;
+    --c-slate-950: 245 245 247;
+    --c-accent-300: 39 39 42;
+    --c-accent-400: 63 63 70;
+    --c-accent-500: 82 82 91;
+    --c-accent-900: 228 228 231;
+    --c-bizum-200: 38 62 88;
+    --c-bizum-300: 48 76 106;
+    --c-bizum-400: 59 91 124;
+    --c-bizum-500: 71 107 144;
+}
+
+/* 9. Nord (Claro Snow Storm) */
+html[data-theme="nord-light"] {
+    --c-bg-main: 229 233 240;
+    --c-bg-card: 236 239 244;
+    --c-border-main: 216 222 233;
+    --c-header-bg: 236 239 244;
+    --c-nav-bg: 236 239 244;
+    --c-text-main: 46 52 64;
+    --c-slate-100: 46 52 64;
+    --c-slate-200: 59 66 82;
+    --c-slate-300: 67 76 94;
+    --c-slate-400: 76 86 106;
+    --c-slate-500: 106 118 140;
+    --c-slate-600: 106 118 140;
+    --c-slate-700: 196 204 218;
+    --c-slate-800: 216 222 233;
+    --c-slate-900: 229 233 240;
+    --c-slate-950: 243 246 250;
+    --c-accent-300: 59 95 138;
+    --c-accent-400: 76 116 160;
+    --c-accent-500: 94 129 172;
+    --c-accent-900: 216 232 246;
+    --c-bizum-200: 100 66 96;
+    --c-bizum-300: 120 82 115;
+    --c-bizum-400: 140 99 134;
+    --c-bizum-500: 152 108 146;
+}
+
+/* 10. Arctic (Claro glaciar) */
+html[data-theme="arctic"] {
+    --c-bg-main: 232 244 252;
+    --c-bg-card: 255 255 255;
+    --c-border-main: 204 229 245;
+    --c-header-bg: 255 255 255;
+    --c-nav-bg: 255 255 255;
+    --c-text-main: 12 36 56;
+    --c-slate-100: 12 36 56;
+    --c-slate-200: 20 50 76;
+    --c-slate-300: 42 78 108;
+    --c-slate-400: 68 106 138;
+    --c-slate-500: 98 134 164;
+    --c-slate-600: 98 134 164;
+    --c-slate-700: 180 214 238;
+    --c-slate-800: 204 229 245;
+    --c-slate-900: 228 242 251;
+    --c-slate-950: 244 250 254;
+    --c-accent-300: 7 89 133;
+    --c-accent-400: 3 105 161;
+    --c-accent-500: 2 132 199;
+    --c-accent-900: 224 242 254;
+    --c-bizum-200: 19 78 74;
+    --c-bizum-300: 17 94 89;
+    --c-bizum-400: 15 118 110;
+    --c-bizum-500: 13 148 136;
+}
+
+/* Reglas compartidas de legibilidad para modo claro */
+html[data-mode="light"] {
+    --c-amber-100: 146 64 14;
+    --c-amber-200: 180 83 9;
+    --c-amber-300: 180 83 9;
+    --c-amber-400: 180 83 9;
+    --c-amber-500: 217 119 6;
+    --c-rose-300: 225 29 72;
+    --c-rose-400: 225 29 72;
+    --c-rose-500: 225 29 72;
+    --c-rose-900: 244 63 94;
+    --c-rose-950: 244 63 94;
+    --c-sky-400: 2 132 199;
+}
+
+html[data-mode="light"] input[type="date"] {
+    color-scheme: light;
+}
+
+html[data-mode="light"] .text-white,
+html[data-mode="light"] .hover\:text-white:hover {
+    color: rgb(var(--c-text-main));
+}
+
+/* Mantener texto blanco real sobre avatares de colores y botones rojos */
+html[data-mode="light"] [class*="bg-gradient-to-"].text-white,
+html[data-mode="light"] .bg-rose-500.text-white,
+html[data-mode="light"] .keep-white {
+    color: #ffffff !important;
+}
+
+/* Invierte el SVG del título si sus letras son blancas en modo oscuro */
+html[data-mode="light"] .theme-logo-title {
+    filter: invert(1) hue-rotate(180deg);
+}
+
+/* =========================================================
+   5. TEMAS ESPECIALES
+   ========================================================= */
+
+/* Wallpapers fijos compartidos (seguros en móvil / iOS) */
+html[data-theme="gtavi"] body::before,
+html[data-theme="cyberpunk"] body::before,
+html[data-theme="gd"] body::before,
+html[data-theme="re9"] body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Efecto cristal en tarjetas y banner Hero para lucir el wallpaper */
+html[data-theme="gtavi"] .bg-cardbg,
+html[data-theme="gtavi"] #tab-saldos > div:first-of-type,
+html[data-theme="cyberpunk"] .bg-cardbg,
+html[data-theme="cyberpunk"] #tab-saldos > div:first-of-type,
+html[data-theme="re9"] .bg-cardbg,
+html[data-theme="re9"] #tab-saldos > div:first-of-type {
+    background: rgb(var(--c-bg-card) / var(--glass-card-alpha, 0.5));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* ---------------------------------------------------------
+   5.1 GTA VI (Vice City Neon Sunset)
+   --------------------------------------------------------- */
 html[data-theme="gtavi"] {
     --font-sans: 'GTAArtDeco', 'Inter', sans-serif;
     --c-bg-main: 18 11 28;
@@ -510,7 +871,48 @@ html[data-theme="gtavi"] {
     --c-sky-400: 34 211 238;
 }
 
-/* 8. Cyberpunk 2077 (Night City Yellow) */
+html[data-theme="gtavi"] body::before {
+    background-image:
+        linear-gradient(rgba(18, 11, 28, 0.2), rgba(18, 11, 28, 0.2)),
+        url('./resources/themes/gtavi/wallpaper.webp');
+}
+
+html[data-theme="gtavi"] .logo-icon-box {
+    background-image: linear-gradient(to bottom right, #3C4DD1, #F944B7, #E09254);
+    box-shadow: 0 10px 15px -3px rgb(249 68 183 / 0.35);
+}
+
+/* Positivos / Acreedores y KPIs en Cian Vice City */
+html[data-theme="gtavi"] #members-balance-list .text-emerald-400,
+html[data-theme="gtavi"] #bizum-plan-list .text-emerald-400,
+html[data-theme="gtavi"] #bce-members-table .text-emerald-400,
+html[data-theme="gtavi"] #history-feed-list .text-emerald-300,
+html[data-theme="gtavi"] #live-deltas-preview .text-emerald-300,
+html[data-theme="gtavi"] #exact-inputs-list input.text-emerald-400,
+html[data-theme="gtavi"] #hero-riesgo.text-emerald-400,
+html[data-theme="gtavi"] #bce-rr,
+html[data-theme="gtavi"] #bce-dg {
+    color: #22d3ee;
+}
+
+html[data-theme="gtavi"] #members-balance-list .bg-emerald-500 {
+    background-color: #22d3ee;
+}
+
+html[data-theme="gtavi"] #members-balance-list .bg-emerald-500\/15,
+html[data-theme="gtavi"] #history-feed-list .bg-emerald-500\/10,
+html[data-theme="gtavi"] #live-deltas-preview .bg-emerald-500\/15 {
+    background-color: rgba(34, 211, 238, 0.14);
+    border-color: rgba(34, 211, 238, 0.35);
+}
+
+html[data-theme="gtavi"] #tab-saldos > p:first-of-type {
+    color: rgba(253, 242, 248, 0.72);
+}
+
+/* ---------------------------------------------------------
+   5.2 Cyberpunk 2077 (Night City Yellow)
+   --------------------------------------------------------- */
 html[data-theme="cyberpunk"] {
     --font-sans: 'Blender Pro', 'Inter', sans-serif;
     --c-bg-main: 10 10 14;
@@ -541,7 +943,18 @@ html[data-theme="cyberpunk"] {
     --c-sky-400: 0 240 255;
 }
 
-/* 9. Geometry Dash */
+html[data-theme="cyberpunk"] body::before {
+    background-image: url('./resources/themes/cyberpunk/wallpaper.jpg');
+}
+
+/* Símbolo del logo en negro sobre el amarillo chillón */
+html[data-theme="cyberpunk"] img[src*="icon-symbol.svg"] {
+    filter: brightness(0);
+}
+
+/* ---------------------------------------------------------
+   5.3 Geometry Dash
+   --------------------------------------------------------- */
 html[data-theme="gd"] {
     --font-sans: 'Lato', 'Inter', sans-serif;
     --font-display: 'Pusab', 'Lato', sans-serif;
@@ -573,10 +986,85 @@ html[data-theme="gd"] {
     --c-sky-400: 36 229 228;
 }
 
-/* 10. Resident Evil (Monocromático + Rojo #ED3F4D) */
+html[data-theme="gd"] body::before {
+    background-image: url('./resources/themes/gd/wallpaper.webp');
+}
+
+/* Tarjetas sólidas sin transparencia y doble contorno (negro interior + blanco exterior) */
+html[data-theme="gd"] .bg-cardbg,
+html[data-theme="gd"] #tab-saldos > div:first-of-type {
+    background: rgb(var(--c-bg-card));
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border: 2px solid #000000 !important;
+    box-shadow: 0 0 0 1.5px #ffffff, 0 6px 16px rgba(0, 0, 0, 0.45);
+}
+
+/* Doble contorno (negro interior + blanco exterior) en botones de acción */
+html[data-theme="gd"] button:is(
+    .bg-emerald-500,
+    .bg-indigo-500,
+    .bg-amber-500,
+    .bg-rose-500,
+    .bg-slate-800,
+    .bg-white,
+    [class*="bg-gradient-to-"]
+):not([id^="btn-filter-"]):not([id^="mode-btn-"]):not([id^="chart-btn-"]):not([onclick^="selectParticipantsPreset"]):not([onclick^="toggleExactRole"]) {
+    border: 2px solid #000000 !important;
+    box-shadow: 0 0 0 1.5px #ffffff, 0 4px 10px rgba(0, 0, 0, 0.35);
+}
+
+/* Botones secundarios (.bg-slate-800) en gris (#9A9A9A) con texto e iconos blancos */
+html[data-theme="gd"] button.bg-slate-800:not([onclick^="selectParticipantsPreset"]) {
+    background-color: #9A9A9A;
+    color: #ffffff;
+}
+
+html[data-theme="gd"] button.bg-slate-800:not([onclick^="selectParticipantsPreset"]):hover {
+    background-color: #aeaeae;
+}
+
+html[data-theme="gd"] button.bg-slate-800:not([onclick^="selectParticipantsPreset"]) i {
+    color: #ffffff;
+}
+
+/* Estilo Pusab (contorno negro e interletrado amplio) en elementos con fuente principal */
+html[data-theme="gd"] :is(h1, h2, h3, h4, th, #sync-badge, #toast-box, button:not(.font-body), .font-display):not(.mono-num) {
+    letter-spacing: 0.05em;
+    -webkit-text-stroke: 2.2px #000000;
+    paint-order: stroke fill;
+    text-shadow: 0 1.5px 0 #000000;
+}
+
+/* Evitar que Pusab sea nunca oscuro/negro (p. ej. botones con text-slate-950), manteniendo verde/rojo/ámbar */
+html[data-theme="gd"] :is(h1, h2, h3, h4, th, #sync-badge, #toast-box, button:not(.font-body), .font-display):is(.text-slate-950, .text-slate-900, .text-neutral-900):not(.mono-num) {
+    color: #ffffff !important;
+}
+
+html[data-theme="gd"] .mono-num,
+html[data-theme="gd"] #equal-participants-grid button span:last-child {
+    letter-spacing: normal;
+    -webkit-text-stroke: 0;
+    text-shadow: none;
+}
+
+html[data-theme="gd"] #equal-participants-grid button span:last-child {
+    font-family: var(--font-sans);
+}
+
+/* Icono superior izquierdo en azul GD */
+html[data-theme="gd"] .logo-icon-box {
+    background-image: linear-gradient(to bottom right, #2c72f5, #1747b8);
+    box-shadow: 0 10px 15px -3px rgb(44 114 245 / 0.35);
+}
+
+/* ---------------------------------------------------------
+   5.4 Resident Evil (Monocromático + Rojo #ED3F4D)
+   --------------------------------------------------------- */
 html[data-theme="re9"] {
     --font-sans: 'Sofia Sans Semi Condensed', 'Inter', sans-serif;
     --font-display: 'Special Elite', 'Sofia Sans Semi Condensed', monospace;
+    --glass-card-alpha: 0.58;
     --c-bg-main: 12 12 13;
     --c-bg-card: 22 22 24;
     --c-border-main: 52 52 56;
@@ -614,7 +1102,74 @@ html[data-theme="re9"] {
     --c-sky-400: 228 228 231;
 }
 
-/* 11. Matrix (Terminal Negro + Verde Fosforescente + Lluvia Digital) */
+html[data-theme="re9"] body::before {
+    background-image:
+        linear-gradient(rgba(8, 8, 10, 0.52), rgba(8, 8, 10, 0.42)),
+        url('./resources/themes/re9/wallpaper.jpg');
+}
+
+html[data-theme="re9"] .logo-icon-box {
+    background-image: linear-gradient(to bottom right, #ED3F4D, #9e1c28);
+    box-shadow: 0 10px 15px -3px rgb(237 63 77 / 0.35);
+}
+
+/* Texto blanco sobre botones rojos primarios y MAFTA */
+html[data-theme="re9"] .bg-emerald-500.text-slate-950,
+html[data-theme="re9"] .bg-amber-500.text-slate-950,
+html[data-theme="re9"] button[onclick="submitTransaction()"] {
+    color: #ffffff;
+}
+
+/* Avatares de miembros de GENTES en rojo #ED3F4D */
+html[data-theme="re9"] #members-balance-list [class*="bg-gradient-to-"]:not(.from-slate-600),
+html[data-theme="re9"] #bce-members-table [class*="bg-gradient-to-"]:not(.from-slate-600),
+html[data-theme="re9"] #exact-inputs-list [class*="bg-gradient-to-"]:not(.from-slate-600),
+html[data-theme="re9"] #account-modal-avatar[class*="bg-gradient-to-"]:not(.from-slate-600) {
+    background-image: none;
+    background-color: #ED3F4D;
+    color: #ffffff;
+}
+
+/* Acreedores / positivos en blanco monocromático para diferenciarse de deudores en rojo #ED3F4D */
+html[data-theme="re9"] #members-balance-list .text-emerald-400,
+html[data-theme="re9"] #bizum-plan-list .text-emerald-400,
+html[data-theme="re9"] #bce-members-table .text-emerald-400,
+html[data-theme="re9"] #history-feed-list .text-emerald-300,
+html[data-theme="re9"] #live-deltas-preview .text-emerald-300,
+html[data-theme="re9"] #exact-inputs-list input.text-emerald-400 {
+    color: #f5f5f5;
+}
+
+html[data-theme="re9"] #members-balance-list .bg-emerald-500 {
+    background-color: #e4e4e7;
+}
+
+html[data-theme="re9"] #members-balance-list .bg-emerald-500\/15,
+html[data-theme="re9"] #history-feed-list .bg-emerald-500\/10,
+html[data-theme="re9"] #live-deltas-preview .bg-emerald-500\/15 {
+    background-color: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.28);
+}
+
+html[data-theme="re9"] #tab-saldos > p:first-of-type {
+    color: rgba(245, 245, 245, 0.72);
+}
+
+/* KPIs de estadísticas en blanco monocromático (riesgo alto mantiene rojo #ED3F4D) */
+html[data-theme="re9"] #hero-credito,
+html[data-theme="re9"] #hero-riesgo:not(.text-rose-400),
+html[data-theme="re9"] #bce-cred,
+html[data-theme="re9"] #bce-ecm,
+html[data-theme="re9"] #bce-ra,
+html[data-theme="re9"] #bce-rr,
+html[data-theme="re9"] #bce-vol,
+html[data-theme="re9"] #bce-dg {
+    color: #f5f5f5;
+}
+
+/* ---------------------------------------------------------
+   5.5 Matrix (Terminal Negro + Verde Fosforescente + Lluvia Digital)
+   --------------------------------------------------------- */
 html[data-theme="matrix"] {
     --font-sans: 'JetBrains Mono', monospace;
     --font-display: 'JetBrains Mono', monospace;
@@ -655,557 +1210,7 @@ html[data-theme="matrix"] {
     --c-rose-950: 42 4 12;
 }
 
-/* =========================================================
-   4. TEMAS CLAROS (VARIABLES RGB PARA TAILWIND)
-   ========================================================= */
-
-/* 9. Claro (Light) */
-html[data-theme="light"] {
-    --c-bg-main: 241 245 249;
-    --c-bg-card: 255 255 255;
-    --c-border-main: 226 232 240;
-    --c-header-bg: 255 255 255;
-    --c-nav-bg: 255 255 255;
-    --c-text-main: 15 23 42;
-    --c-slate-100: 15 23 42;
-    --c-slate-200: 30 41 59;
-    --c-slate-300: 51 65 85;
-    --c-slate-400: 71 85 105;
-    --c-slate-500: 100 116 139;
-    --c-slate-600: 100 116 139;
-    --c-slate-700: 203 213 225;
-    --c-slate-800: 226 232 240;
-    --c-slate-900: 241 245 249;
-    --c-slate-950: 248 250 252;
-    --c-accent-300: 6 95 70;
-    --c-accent-400: 4 120 87;
-    --c-accent-500: 5 150 105;
-    --c-accent-900: 209 250 229;
-    --c-bizum-200: 55 48 163;
-    --c-bizum-300: 67 56 202;
-    --c-bizum-400: 79 70 229;
-    --c-bizum-500: 99 102 241;
-}
-
-/* 10. Sepia (Papel cálido) */
-html[data-theme="sepia"] {
-    --c-bg-main: 243 236 225;
-    --c-bg-card: 253 250 245;
-    --c-border-main: 224 214 198;
-    --c-header-bg: 253 250 245;
-    --c-nav-bg: 253 250 245;
-    --c-text-main: 41 35 28;
-    --c-slate-100: 28 24 19;
-    --c-slate-200: 41 35 28;
-    --c-slate-300: 68 60 50;
-    --c-slate-400: 92 82 70;
-    --c-slate-500: 120 109 95;
-    --c-slate-600: 120 109 95;
-    --c-slate-700: 203 190 170;
-    --c-slate-800: 224 214 198;
-    --c-slate-900: 238 230 217;
-    --c-slate-950: 247 242 234;
-    --c-accent-300: 17 94 89;
-    --c-accent-400: 15 118 110;
-    --c-accent-500: 13 148 136;
-    --c-accent-900: 204 251 241;
-    --c-bizum-200: 124 45 18;
-    --c-bizum-300: 154 52 18;
-    --c-bizum-400: 180 68 24;
-    --c-bizum-500: 194 82 34;
-}
-
-/* 11. Latte (Catppuccin claro) */
-html[data-theme="latte"] {
-    --c-bg-main: 239 241 245;
-    --c-bg-card: 255 255 255;
-    --c-border-main: 220 224 232;
-    --c-header-bg: 255 255 255;
-    --c-nav-bg: 255 255 255;
-    --c-text-main: 46 52 79;
-    --c-slate-100: 30 34 54;
-    --c-slate-200: 46 52 79;
-    --c-slate-300: 76 79 105;
-    --c-slate-400: 92 95 119;
-    --c-slate-500: 108 111 133;
-    --c-slate-600: 108 111 133;
-    --c-slate-700: 188 194 209;
-    --c-slate-800: 214 219 229;
-    --c-slate-900: 230 233 239;
-    --c-slate-950: 245 247 250;
-    --c-accent-300: 67 56 202;
-    --c-accent-400: 79 70 229;
-    --c-accent-500: 99 102 241;
-    --c-accent-900: 224 231 255;
-    --c-bizum-200: 96 34 176;
-    --c-bizum-300: 114 42 206;
-    --c-bizum-400: 136 57 239;
-    --c-bizum-500: 124 58 237;
-}
-
-/* 12. Menta (Claro verdoso) */
-html[data-theme="mint"] {
-    --c-bg-main: 236 247 242;
-    --c-bg-card: 255 255 255;
-    --c-border-main: 209 235 224;
-    --c-header-bg: 255 255 255;
-    --c-nav-bg: 255 255 255;
-    --c-text-main: 12 45 36;
-    --c-slate-100: 12 45 36;
-    --c-slate-200: 18 48 39;
-    --c-slate-300: 36 68 57;
-    --c-slate-400: 55 92 79;
-    --c-slate-500: 82 117 104;
-    --c-slate-600: 82 117 104;
-    --c-slate-700: 174 218 200;
-    --c-slate-800: 209 235 224;
-    --c-slate-900: 230 244 238;
-    --c-slate-950: 243 250 247;
-    --c-accent-300: 6 95 70;
-    --c-accent-400: 4 120 87;
-    --c-accent-500: 5 150 105;
-    --c-accent-900: 209 250 229;
-    --c-bizum-200: 22 78 99;
-    --c-bizum-300: 21 94 117;
-    --c-bizum-400: 14 116 144;
-    --c-bizum-500: 8 145 178;
-}
-
-/* 13. Sakura (Claro rosado) */
-html[data-theme="sakura"] {
-    --c-bg-main: 253 242 248;
-    --c-bg-card: 255 255 255;
-    --c-border-main: 249 216 232;
-    --c-header-bg: 255 255 255;
-    --c-nav-bg: 255 255 255;
-    --c-text-main: 59 18 39;
-    --c-slate-100: 59 18 39;
-    --c-slate-200: 80 23 52;
-    --c-slate-300: 108 42 74;
-    --c-slate-400: 131 66 98;
-    --c-slate-500: 157 98 127;
-    --c-slate-600: 157 98 127;
-    --c-slate-700: 244 182 212;
-    --c-slate-800: 249 216 232;
-    --c-slate-900: 252 231 243;
-    --c-slate-950: 255 247 251;
-    --c-accent-300: 157 23 77;
-    --c-accent-400: 190 24 93;
-    --c-accent-500: 219 39 119;
-    --c-accent-900: 252 231 243;
-    --c-bizum-200: 88 28 135;
-    --c-bizum-300: 107 33 168;
-    --c-bizum-400: 126 34 206;
-    --c-bizum-500: 147 51 234;
-}
-
-/* 14. Solarized (Claro clásico crema + azul) */
-html[data-theme="solarized"] {
-    --c-bg-main: 243 236 218;
-    --c-bg-card: 253 246 227;
-    --c-border-main: 224 215 191;
-    --c-header-bg: 253 246 227;
-    --c-nav-bg: 253 246 227;
-    --c-text-main: 7 54 66;
-    --c-slate-100: 0 43 54;
-    --c-slate-200: 7 54 66;
-    --c-slate-300: 88 110 117;
-    --c-slate-400: 101 123 131;
-    --c-slate-500: 131 148 150;
-    --c-slate-600: 131 148 150;
-    --c-slate-700: 205 195 168;
-    --c-slate-800: 224 215 191;
-    --c-slate-900: 238 232 213;
-    --c-slate-950: 250 243 224;
-    --c-accent-300: 23 99 156;
-    --c-accent-400: 29 118 184;
-    --c-accent-500: 38 139 210;
-    --c-accent-900: 219 234 254;
-    --c-bizum-200: 19 98 92;
-    --c-bizum-300: 26 122 115;
-    --c-bizum-400: 33 142 134;
-    --c-bizum-500: 42 161 152;
-}
-
-/* 15. Porcelain (Claro porcelana cálida) */
-html[data-theme="porcelain"] {
-    --c-bg-main: 246 242 236;
-    --c-bg-card: 255 253 250;
-    --c-border-main: 232 224 214;
-    --c-header-bg: 255 253 250;
-    --c-nav-bg: 255 253 250;
-    --c-text-main: 42 36 32;
-    --c-slate-100: 32 27 24;
-    --c-slate-200: 48 41 36;
-    --c-slate-300: 78 69 62;
-    --c-slate-400: 108 98 89;
-    --c-slate-500: 138 127 117;
-    --c-slate-600: 138 127 117;
-    --c-slate-700: 214 204 192;
-    --c-slate-800: 232 224 214;
-    --c-slate-900: 243 238 230;
-    --c-slate-950: 250 247 242;
-    --c-accent-300: 132 66 34;
-    --c-accent-400: 156 80 42;
-    --c-accent-500: 176 92 50;
-    --c-accent-900: 247 231 220;
-    --c-bizum-200: 36 70 102;
-    --c-bizum-300: 46 86 122;
-    --c-bizum-400: 59 105 144;
-    --c-bizum-500: 68 118 160;
-}
-
-/* 16. Graphite (Claro gris grafito) */
-html[data-theme="graphite"] {
-    --c-bg-main: 238 238 240;
-    --c-bg-card: 250 250 251;
-    --c-border-main: 218 218 224;
-    --c-header-bg: 250 250 251;
-    --c-nav-bg: 250 250 251;
-    --c-text-main: 24 24 27;
-    --c-slate-100: 24 24 27;
-    --c-slate-200: 39 39 42;
-    --c-slate-300: 63 63 70;
-    --c-slate-400: 82 82 91;
-    --c-slate-500: 113 113 122;
-    --c-slate-600: 113 113 122;
-    --c-slate-700: 196 196 204;
-    --c-slate-800: 218 218 224;
-    --c-slate-900: 234 234 238;
-    --c-slate-950: 245 245 247;
-    --c-accent-300: 39 39 42;
-    --c-accent-400: 63 63 70;
-    --c-accent-500: 82 82 91;
-    --c-accent-900: 228 228 231;
-    --c-bizum-200: 38 62 88;
-    --c-bizum-300: 48 76 106;
-    --c-bizum-400: 59 91 124;
-    --c-bizum-500: 71 107 144;
-}
-
-/* 17. Nord (Claro Snow Storm) */
-html[data-theme="nord-light"] {
-    --c-bg-main: 229 233 240;
-    --c-bg-card: 236 239 244;
-    --c-border-main: 216 222 233;
-    --c-header-bg: 236 239 244;
-    --c-nav-bg: 236 239 244;
-    --c-text-main: 46 52 64;
-    --c-slate-100: 46 52 64;
-    --c-slate-200: 59 66 82;
-    --c-slate-300: 67 76 94;
-    --c-slate-400: 76 86 106;
-    --c-slate-500: 106 118 140;
-    --c-slate-600: 106 118 140;
-    --c-slate-700: 196 204 218;
-    --c-slate-800: 216 222 233;
-    --c-slate-900: 229 233 240;
-    --c-slate-950: 243 246 250;
-    --c-accent-300: 59 95 138;
-    --c-accent-400: 76 116 160;
-    --c-accent-500: 94 129 172;
-    --c-accent-900: 216 232 246;
-    --c-bizum-200: 100 66 96;
-    --c-bizum-300: 120 82 115;
-    --c-bizum-400: 140 99 134;
-    --c-bizum-500: 152 108 146;
-}
-
-/* 18. Arctic (Claro glaciar) */
-html[data-theme="arctic"] {
-    --c-bg-main: 232 244 252;
-    --c-bg-card: 255 255 255;
-    --c-border-main: 204 229 245;
-    --c-header-bg: 255 255 255;
-    --c-nav-bg: 255 255 255;
-    --c-text-main: 12 36 56;
-    --c-slate-100: 12 36 56;
-    --c-slate-200: 20 50 76;
-    --c-slate-300: 42 78 108;
-    --c-slate-400: 68 106 138;
-    --c-slate-500: 98 134 164;
-    --c-slate-600: 98 134 164;
-    --c-slate-700: 180 214 238;
-    --c-slate-800: 204 229 245;
-    --c-slate-900: 228 242 251;
-    --c-slate-950: 244 250 254;
-    --c-accent-300: 7 89 133;
-    --c-accent-400: 3 105 161;
-    --c-accent-500: 2 132 199;
-    --c-accent-900: 224 242 254;
-    --c-bizum-200: 19 78 74;
-    --c-bizum-300: 17 94 89;
-    --c-bizum-400: 15 118 110;
-    --c-bizum-500: 13 148 136;
-}
-
-/* =========================================================
-   5. AJUSTES DE LEGIBILIDAD PARA TEMAS CLAROS
-   ========================================================= */
-html[data-mode="light"] {
-    --c-amber-100: 146 64 14;
-    --c-amber-200: 180 83 9;
-    --c-amber-300: 180 83 9;
-    --c-amber-400: 180 83 9;
-    --c-amber-500: 217 119 6;
-    --c-rose-300: 225 29 72;
-    --c-rose-400: 225 29 72;
-    --c-rose-500: 225 29 72;
-    --c-rose-900: 244 63 94;
-    --c-rose-950: 244 63 94;
-    --c-sky-400: 2 132 199;
-}
-
-html[data-mode="light"] input[type="date"] {
-    color-scheme: light;
-}
-
-html[data-mode="light"] .text-white,
-html[data-mode="light"] .hover\:text-white:hover {
-    color: rgb(var(--c-text-main));
-}
-
-/* Mantener texto blanco real sobre avatares de colores y botones rojos */
-html[data-mode="light"] [class*="bg-gradient-to-"].text-white,
-html[data-mode="light"] .bg-rose-500.text-white,
-html[data-mode="light"] .keep-white {
-    color: #ffffff !important;
-}
-
-/* Invierte el SVG del título si sus letras son blancas en modo oscuro */
-html[data-mode="light"] .theme-logo-title {
-    filter: invert(1) hue-rotate(180deg);
-}
-
-/* =========================================================
-   6. TEMAS CON WALLPAPER Y AJUSTES ESPECÍFICOS
-   ========================================================= */
-
-/* Wallpapers fijos (seguros en móvil / iOS) */
-html[data-theme="gtavi"] body::before,
-html[data-theme="cyberpunk"] body::before,
-html[data-theme="gd"] body::before,
-html[data-theme="re9"] body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    pointer-events: none;
-    background-size: cover;
-    background-position: center;
-}
-
-html[data-theme="gtavi"] body::before {
-    background-image:
-        linear-gradient(rgba(18, 11, 28, 0.2), rgba(18, 11, 28, 0.2)),
-        url('./resources/themes/gtavi/wallpaper.webp');
-}
-
-html[data-theme="cyberpunk"] body::before {
-    background-image: url('./resources/themes/cyberpunk/wallpaper.jpg');
-}
-
-html[data-theme="gd"] body::before {
-    background-image: url('./resources/themes/gd/wallpaper.webp');
-}
-
-html[data-theme="re9"] body::before {
-    background-image:
-        linear-gradient(rgba(8, 8, 10, 0.52), rgba(8, 8, 10, 0.42)),
-        url('./resources/themes/re9/wallpaper.jpg');
-}
-
-/* Efecto cristal en tarjetas y banner Hero para lucir el wallpaper */
-html[data-theme="gtavi"] .bg-cardbg {
-    background-color: rgb(var(--c-bg-card) / 0.5);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-}
-
-html[data-theme="gtavi"] #tab-saldos > div:first-of-type {
-    background: rgb(var(--c-bg-card) / 0.5);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-}
-
-html[data-theme="cyberpunk"] .bg-cardbg {
-    background-color: rgb(var(--c-bg-card) / 0.5);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-}
-
-html[data-theme="cyberpunk"] #tab-saldos > div:first-of-type {
-    background: rgb(var(--c-bg-card) / 0.5);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-}
-
-html[data-theme="re9"] .bg-cardbg {
-    background-color: rgb(var(--c-bg-card) / 0.58);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-}
-
-html[data-theme="re9"] #tab-saldos > div:first-of-type {
-    background: rgb(var(--c-bg-card) / 0.58);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-}
-
-/* Geometry Dash: Tarjetas sólidas sin transparencia y doble contorno (negro interior + blanco exterior) */
-html[data-theme="gd"] .bg-cardbg,
-html[data-theme="gd"] #tab-saldos > div:first-of-type {
-    background: rgb(var(--c-bg-card));
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    border: 2px solid #000000 !important;
-    box-shadow: 0 0 0 1.5px #ffffff, 0 6px 16px rgba(0, 0, 0, 0.45);
-}
-
-/* Geometry Dash: Doble contorno (negro interior + blanco exterior) en botones de acción */
-html[data-theme="gd"] button:is(
-    .bg-emerald-500,
-    .bg-indigo-500,
-    .bg-amber-500,
-    .bg-rose-500,
-    .bg-slate-800,
-    .bg-white,
-    [class*="bg-gradient-to-"]
-):not([id^="btn-filter-"]):not([id^="mode-btn-"]):not([id^="chart-btn-"]):not([onclick^="selectParticipantsPreset"]):not([onclick^="toggleExactRole"]) {
-    border: 2px solid #000000 !important;
-    box-shadow: 0 0 0 1.5px #ffffff, 0 4px 10px rgba(0, 0, 0, 0.35);
-}
-
-/* Geometry Dash: Botones grises (#9A9A9A) para Cancelar, Temas e Iniciar sesión */
-html[data-theme="gd"] button[onclick="cancelTransaction()"],
-html[data-theme="gd"] button[onclick="openThemeModal()"],
-html[data-theme="gd"] #btn-current-user {
-    background-color: #9A9A9A;
-    color: #ffffff;
-}
-
-html[data-theme="gd"] button[onclick="cancelTransaction()"]:hover,
-html[data-theme="gd"] button[onclick="openThemeModal()"]:hover,
-html[data-theme="gd"] #btn-current-user:hover {
-    background-color: #aeaeae;
-}
-
-html[data-theme="gd"] #btn-current-user #auth-user-icon,
-html[data-theme="gd"] button[onclick="openThemeModal()"] i {
-    color: #ffffff;
-}
-
-/* Geometry Dash: Estilo Pusab (contorno negro e interletrado amplio) en elementos con fuente principal */
-html[data-theme="gd"] :is(h1, h2, h3, h4, th, #sync-badge, #toast-box, button:not(.font-body), .font-display):not(.mono-num) {
-    letter-spacing: 0.05em;
-    -webkit-text-stroke: 2.2px #000000;
-    paint-order: stroke fill;
-    text-shadow: 0 1.5px 0 #000000;
-}
-
-/* Evitar que Pusab sea nunca oscuro/negro (p. ej. botones con text-slate-950), manteniendo verde/rojo/ámbar */
-html[data-theme="gd"] :is(h1, h2, h3, h4, th, #sync-badge, #toast-box, button:not(.font-body), .font-display):is(.text-slate-950, .text-slate-900, .text-neutral-900):not(.mono-num) {
-    color: #ffffff !important;
-}
-
-html[data-theme="gd"] .mono-num,
-html[data-theme="gd"] #equal-participants-grid button span:last-child {
-    letter-spacing: normal;
-    -webkit-text-stroke: 0;
-    text-shadow: none;
-}
-
-html[data-theme="gd"] #equal-participants-grid button span:last-child {
-    font-family: var(--font-sans);
-}
-
-/* Geometry Dash: Icono superior izquierdo en azul GD y símbolo blanco */
-html[data-theme="gd"] .logo-icon-box {
-    background-image: linear-gradient(to bottom right, #2c72f5, #1747b8);
-    box-shadow: 0 10px 15px -3px rgb(44 114 245 / 0.35);
-}
-
-/* GTA VI: Degradado personalizado del icono superior izquierdo */
-html[data-theme="gtavi"] .logo-icon-box {
-    background-image: linear-gradient(to bottom right, #3C4DD1, #F944B7, #E09254);
-    box-shadow: 0 10px 15px -3px rgb(249 68 183 / 0.35);
-}
-
-/* GTA VI: Positivos / Acreedores en Cian Vice City y subtítulo legible */
-html[data-theme="gtavi"] #members-balance-list .text-emerald-400,
-html[data-theme="gtavi"] #bizum-plan-list .text-emerald-400,
-html[data-theme="gtavi"] #bce-members-table .text-emerald-400,
-html[data-theme="gtavi"] #history-feed-list .text-emerald-300 {
-    color: #22d3ee;
-}
-
-html[data-theme="gtavi"] #members-balance-list .bg-emerald-500 {
-    background-color: #22d3ee;
-}
-
-html[data-theme="gtavi"] #members-balance-list .bg-emerald-500\/15,
-html[data-theme="gtavi"] #history-feed-list .bg-emerald-500\/10 {
-    background-color: rgba(34, 211, 238, 0.14);
-    border-color: rgba(34, 211, 238, 0.35);
-}
-
-html[data-theme="gtavi"] #tab-saldos > p:first-of-type {
-    color: rgba(253, 242, 248, 0.72);
-}
-
-/* Cyberpunk 2077: Símbolo del logo en negro sobre el amarillo chillón */
-html[data-theme="cyberpunk"] img[src*="icon-symbol.svg"] {
-    filter: brightness(0);
-}
-
-/* Resident Evil: Icono superior izquierdo en rojo #ED3F4D */
-html[data-theme="re9"] .logo-icon-box {
-    background-image: linear-gradient(to bottom right, #ED3F4D, #9e1c28);
-    box-shadow: 0 10px 15px -3px rgb(237 63 77 / 0.35);
-}
-
-/* Resident Evil: Texto blanco sobre botones rojos primarios y MAFTA */
-html[data-theme="re9"] .bg-emerald-500.text-slate-950,
-html[data-theme="re9"] .bg-amber-500.text-slate-950,
-html[data-theme="re9"] button[onclick="submitTransaction()"] {
-    color: #ffffff;
-}
-
-/* Resident Evil: Avatares de miembros en rojo #ED3F4D */
-html[data-theme="re9"] #members-balance-list [class*="bg-gradient-to-"],
-html[data-theme="re9"] #bce-members-table [class*="bg-gradient-to-"],
-html[data-theme="re9"] #exact-inputs-list [class*="bg-gradient-to-"],
-html[data-theme="re9"] #account-modal-avatar[class*="bg-gradient-to-"] {
-    background-image: none;
-    background-color: #ED3F4D;
-    color: #ffffff;
-}
-
-/* Acreedores / positivos en blanco monocromático para diferenciarse de deudores en rojo #ED3F4D */
-html[data-theme="re9"] #members-balance-list .text-emerald-400,
-html[data-theme="re9"] #bizum-plan-list .text-emerald-400,
-html[data-theme="re9"] #bce-members-table .text-emerald-400,
-html[data-theme="re9"] #history-feed-list .text-emerald-300,
-html[data-theme="re9"] #live-deltas-preview .text-emerald-300 {
-    color: #f5f5f5;
-}
-
-html[data-theme="re9"] #members-balance-list .bg-emerald-500 {
-    background-color: #e4e4e7;
-}
-
-html[data-theme="re9"] #members-balance-list .bg-emerald-500\/15,
-html[data-theme="re9"] #history-feed-list .bg-emerald-500\/10,
-html[data-theme="re9"] #live-deltas-preview .bg-emerald-500\/15 {
-    background-color: rgba(255, 255, 255, 0.12);
-    border-color: rgba(255, 255, 255, 0.28);
-}
-
-html[data-theme="re9"] #tab-saldos > p:first-of-type {
-    color: rgba(245, 245, 245, 0.72);
-}
-
-/* Matrix: Canvas animado de lluvia digital */
+/* Canvas animado de lluvia digital */
 #matrix-rain-canvas {
     display: none;
     position: fixed;
@@ -1220,7 +1225,7 @@ html[data-theme="matrix"] #matrix-rain-canvas {
     display: block;
 }
 
-/* Matrix: Tarjetas negro borroso oscuro con bordes verdes fosforescentes */
+/* Tarjetas negro borroso oscuro con bordes verdes fosforescentes */
 html[data-theme="matrix"] .bg-cardbg,
 html[data-theme="matrix"] #tab-saldos > div:first-of-type {
     background: rgb(0 8 2 / 0.8);
@@ -1236,7 +1241,7 @@ html[data-theme="matrix"] .glass-nav {
     border-color: rgb(0 255 65 / 0.45);
 }
 
-/* Matrix: Icono superior izquierdo negro con borde y símbolo verde Matrix */
+/* Icono superior izquierdo negro con borde y símbolo verde Matrix */
 html[data-theme="matrix"] .logo-icon-box {
     background-image: none;
     background-color: #000000;
@@ -1245,9 +1250,7 @@ html[data-theme="matrix"] .logo-icon-box {
 }
 
 html[data-theme="matrix"] .text-white,
-html[data-theme="matrix"] .hover\:text-white:hover,
-html[data-theme="matrix"] select,
-html[data-theme="matrix"] input {
+html[data-theme="matrix"] .hover\:text-white:hover {
     color: rgb(var(--c-text-main));
 }
 
@@ -1275,7 +1278,7 @@ html[data-theme="matrix"] #app-title-logo[src$="resources/title.svg"] {
     filter: brightness(0) saturate(100%) invert(68%) sepia(98%) saturate(2600%) hue-rotate(84deg) brightness(106%) contrast(106%);
 }
 
-/* Matrix: Avatares de miembros en negro terminal con borde y texto verde */
+/* Avatares de miembros en negro terminal con borde y texto verde */
 html[data-theme="matrix"] #members-balance-list [class*="bg-gradient-to-"],
 html[data-theme="matrix"] #bce-members-table [class*="bg-gradient-to-"],
 html[data-theme="matrix"] #exact-inputs-list [class*="bg-gradient-to-"],
@@ -1290,4 +1293,158 @@ html[data-theme="matrix"] #account-modal-avatar[class*="bg-gradient-to-"] {
 html[data-theme="matrix"] #tab-saldos > p:first-of-type {
     color: rgba(0, 230, 58, 0.78);
     text-shadow: 0 1px 6px rgba(0, 0, 0, 0.9);
+}
+
+/* Botones de acción secundarios y etiquetas de historial en verde muy oscuro con contorno verde Matrix */
+html[data-theme="matrix"] button.bg-slate-800,
+html[data-theme="matrix"] #history-feed-list .bg-slate-800 {
+    background-color: #002e0b;
+    border: 1px solid #00ff41;
+}
+
+html[data-theme="matrix"] #history-feed-list .bg-slate-800 {
+    color: rgb(var(--c-slate-200));
+}
+
+html[data-theme="matrix"] button.bg-slate-800:hover:not(.hover\:bg-emerald-500) {
+    background-color: #004611;
+    border-color: #00ff41;
+    box-shadow: 0 0 8px rgb(0 255 65 / 0.25);
+}
+
+/* ---------------------------------------------------------
+   5.6 GAUR (UPV/EHU: Blanco + Turquesa #007774 + Naranja #F28E00)
+   --------------------------------------------------------- */
+html[data-theme="gaur"] {
+    --font-sans: 'EHU Sans', 'Inter', sans-serif;
+    --font-display: 'EHU Sans', 'Inter', sans-serif;
+    --c-bg-main: 255 255 255;    /* Fondo blanco puro (#FFFFFF) */
+    --c-bg-card: 0 119 116;      /* Turquesa GAUR (#007774) */
+    --c-border-main: 0 92 89;
+    --c-header-bg: 0 119 116;
+    --c-nav-bg: 242 142 0;       /* Naranja GAUR (#F28E00) */
+    --c-text-main: 255 255 255;
+    --c-slate-100: 255 255 255;
+    --c-slate-200: 254 250 229;  /* Amarillo claro casi blanco (#FEFAE5) */
+    --c-slate-300: 254 250 229;
+    --c-slate-400: 255 207 148;  /* Salmón (#FFCF94) */
+    --c-slate-500: 196 226 225;
+    --c-slate-600: 118 164 162;
+    --c-slate-700: 0 98 95;
+    --c-slate-800: 0 84 82;
+    --c-slate-900: 0 70 68;
+    --c-slate-950: 0 54 52;
+    --c-accent-300: 254 250 229; /* Amarillo claro (#FEFAE5) */
+    --c-accent-400: 255 207 148; /* Salmón (#FFCF94) */
+    --c-accent-500: 242 142 0;   /* Naranja GAUR (#F28E00) */
+    --c-accent-900: 0 60 58;
+    --c-bizum-200: 254 250 229;
+    --c-bizum-300: 255 207 148;
+    --c-bizum-400: 255 207 148;
+    --c-bizum-500: 242 142 0;
+    --c-amber-100: 254 250 229;
+    --c-amber-200: 254 250 229;
+    --c-amber-300: 255 207 148;
+    --c-amber-400: 255 207 148;
+    --c-amber-500: 242 142 0;
+    --c-sky-400: 254 250 229;
+}
+
+/* Tarjetas turquesa #007774 totalmente planas y opacas */
+html[data-theme="gaur"] .bg-cardbg,
+html[data-theme="gaur"] #tab-saldos > div:first-of-type,
+html[data-theme="gaur"] #history-feed-list > div {
+    background: rgb(var(--c-bg-card));
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+/* Barra superior con degradado sutil de turquesa oscuro (arriba) a #007774 (abajo) */
+html[data-theme="gaur"] .glass-header {
+    background: linear-gradient(to bottom, #005250, #007774);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-bottom-color: #004644;
+}
+
+/* Icono superior izquierdo en naranja #F28E00 con símbolo negro */
+html[data-theme="gaur"] .logo-icon-box {
+    background-image: none;
+    background-color: #F28E00;
+    box-shadow: 0 6px 14px -3px rgb(242 142 0 / 0.4);
+}
+
+html[data-theme="gaur"] img[src*="icon-symbol.svg"] {
+    filter: brightness(0);
+}
+
+/* Barra inferior en naranja #F28E00 plano opaco con letras e iconos negros */
+html[data-theme="gaur"] .glass-nav {
+    background: #F28E00;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-top-color: #d47c00;
+}
+
+html[data-theme="gaur"] .glass-nav button {
+    color: rgba(0, 0, 0, 0.72) !important;
+}
+
+html[data-theme="gaur"] .glass-nav button:hover,
+html[data-theme="gaur"] .glass-nav button.text-emerald-400 {
+    color: #000000 !important;
+}
+
+html[data-theme="gaur"] .glass-nav button.text-emerald-400 {
+    background-color: #FFCF94;
+}
+
+/* Letras negras sobre todos los botones y badges naranjas (#F28E00) */
+html[data-theme="gaur"] .text-slate-950 {
+    color: #000000;
+}
+
+html[data-theme="gaur"] button[onclick="submitTransaction()"] {
+    background-image: none;
+    background-color: #F28E00;
+    color: #000000;
+}
+
+html[data-theme="gaur"] button[onclick="submitTransaction()"]:hover {
+    background-color: #ff9e1a;
+}
+
+/* Elementos sueltos sobre el fondo blanco principal */
+html[data-theme="gaur"] #tab-saldos > p:first-of-type {
+    color: #007774;
+    font-weight: 600;
+}
+
+html[data-theme="gaur"] #btn-mafta-trigger {
+    background-color: #F28E00;
+    border-color: #d47c00;
+    color: #000000;
+}
+
+/* Cifras numéricas de estadísticas en blanco (sin alterar los saldos de miembros) */
+html[data-theme="gaur"] #hero-credito,
+html[data-theme="gaur"] #hero-riesgo,
+html[data-theme="gaur"] #bce-cred,
+html[data-theme="gaur"] #bce-ecm,
+html[data-theme="gaur"] #bce-ra,
+html[data-theme="gaur"] #bce-rr,
+html[data-theme="gaur"] #bce-vol,
+html[data-theme="gaur"] #bce-dg,
+html[data-theme="gaur"] #bce-members-table td:nth-child(3),
+html[data-theme="gaur"] #bce-members-table td:nth-child(4) {
+    color: #ffffff;
+}
+
+/* Iconos de select y fecha integrados en amarillo claro (#FEFAE5) */
+html[data-theme="gaur"] select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23fefae5' stroke-width='2.5'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
+}
+
+html[data-theme="gaur"] input[type="date"] {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23fefae5' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z'/%3E%3C/svg%3E");
 }
