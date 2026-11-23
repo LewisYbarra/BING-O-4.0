@@ -1,7 +1,7 @@
 # Contexto técnico y funcional de BING-O 4.0
 
-> Fotografía del proyecto a 22 de noviembre de 2026.  
-> Rama: `main` · Commit de referencia: `5f07501` (`Correciones estéticas para Movil; debug cambio nombre usuario`).
+> Fotografía del proyecto a 23 de noviembre de 2026.
+> Rama: `main` · Commit de integración de referencia: `fa3a767`.
 
 Este documento describe la estructura, las reglas contables, las funcionalidades y el estado técnico de la aplicación tal y como existen en el repositorio en la fecha indicada. Su objetivo es permitir retomar el desarrollo sin tener que reconstruir el contexto a partir del código o de conversaciones anteriores.
 
@@ -20,7 +20,7 @@ El proyecto sustituye a una hoja de cálculo donde cada fila era una transacció
 
 ## 2. Arquitectura general
 
-La aplicación es un frontend estático y monolítico. No existe un backend propio ni un proceso de compilación.
+La aplicación es un frontend estático. La interfaz y la lógica permanecen concentradas en `index.html`, mientras que los estilos y temas se han extraído a `styles.css`. No existe un backend propio ni un proceso de compilación.
 
 ```mermaid
 flowchart TD
@@ -36,7 +36,8 @@ flowchart TD
 
 ### Tecnologías
 
-- HTML5, CSS y JavaScript vanilla mediante un único `index.html`.
+- HTML5 y JavaScript vanilla mediante `index.html`.
+- CSS y sistema visual mediante `styles.css`.
 - Módulos ES cargados directamente en el navegador.
 - Tailwind CSS desde CDN.
 - Font Awesome desde CDN.
@@ -58,10 +59,14 @@ flowchart TD
 
 | Ruta | Función |
 | --- | --- |
-| `index.html` | Interfaz completa, estilos, motor contable, autenticación, sincronización y renderizado. |
+| `index.html` | Interfaz, motor contable, autenticación, sincronización y renderizado. |
+| `styles.css` | Estilos globales, fuentes locales, variables de los 24 temas y personalizaciones de los temas especiales. |
 | `history_old.json` | Histórico importado del Excel. Contiene actualmente 633 transacciones. |
 | `resources/icon.svg` | Favicon y Apple Touch Icon. |
+| `resources/icon-symbol.svg` | Símbolo reutilizable del logotipo en la cabecera. |
 | `resources/title.svg` | Recurso gráfico del título de la aplicación. |
+| `resources/fonts/` | Tipografías locales utilizadas por temas normales y especiales. |
+| `resources/themes/` | Títulos y fondos de GTA VI, Cyberpunk 2077, Geometry Dash y Resident Evil. |
 | `README.md` | Presentación general del proyecto; algunos datos están desactualizados respecto al código. |
 | `vercel.json` | Reenvía las rutas `/__/auth/*` al dominio de autenticación de Firebase. |
 
@@ -476,10 +481,11 @@ Riesgo conocido: si falla el guardado de una transacción, el elemento añadido 
 
 ## 12. Temas y diseño adaptable
 
-Hay ocho temas:
+Hay 24 temas:
 
-- Oscuros: BING-O Clásico, OLED Negro, Nord y Drácula.
-- Claros: Claro, Sepia, Latte y Menta.
+- Oscuros: BING-O Clásico, OLED Negro, Nord, Drácula, Gruvbox, Rosé Pine, Solarized Dark, Porcelain Dark, Arctic Dark y Graphite Dark.
+- Claros: Claro, Sepia, Latte, Menta, Sakura, Solarized, Porcelain, Graphite, Nord y Arctic.
+- Especiales: GTA VI, Cyberpunk 2077, Geometry Dash y Resident Evil.
 
 El tema se aplica mediante variables CSS, se guarda en `localStorage` con la clave `bingo_theme` y actualiza:
 
@@ -487,6 +493,7 @@ El tema se aplica mediante variables CSS, se guarda en `localStorage` con la cla
 - Clase claro/oscuro del documento.
 - `theme-color` del navegador.
 - Colores y renderizado de la gráfica.
+- Logotipo de cabecera, fuentes, fondos y tratamientos visuales propios en los temas especiales.
 
 La aplicación está diseñada principalmente para móvil:
 
@@ -533,8 +540,8 @@ Cada cambio relevante llama a `refreshAllViews()`, que recalcula el estado compl
 - El modelo de autorización del cliente se basa en hashes de correo; las reglas del servidor necesitan una asociación por UID o claims.
 - No hay pruebas automatizadas para las reglas contables P/X, reparto de céntimos, MAFTA o permisos.
 - No hay herramienta de lint, validación HTML ni compilación.
-- `index.html` concentra presentación, estado, persistencia y lógica de negocio; convendría modularizarlo.
-- Las dependencias externas no están fijadas mediante un gestor de paquetes ni alojadas localmente.
+- `index.html` todavía concentra marcado, estado, persistencia y lógica de negocio; convendría modularizarlo. Los estilos ya están separados en `styles.css`.
+- Las dependencias JavaScript y varios recursos base siguen cargándose desde CDN sin un gestor de paquetes, aunque las fuentes y recursos de los temas especiales ya se alojan localmente.
 - El histórico real tiene 633 transacciones, mientras que comentarios y README todavía mencionan 628.
 - El indicador de conexión no distingue entre inicialización correcta y permisos insuficientes.
 - El guardado optimista de gastos no revierte la copia local si Firestore rechaza la escritura.
