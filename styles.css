@@ -574,3 +574,29 @@ html[data-theme="gtavi"] #tab-saldos > p:first-of-type {
 html[data-theme="cyberpunk"] img[src*="icon-symbol.svg"] {
     filter: brightness(0);
 }
+
+/* Cyberpunk 2077: Sustituir el índigo de Bizum por Cian eléctrico (#00F0FF) */
+html[data-theme="cyberpunk"] .bg-indigo-500 {
+    background-color: #00f0ff;
+    color: #0a0a0e;
+}
+
+html[data-theme="cyberpunk"] .hover\:bg-indigo-400:hover {
+    background-color: #67f5ff;
+}
+
+html[data-theme="cyberpunk"] .bg-indigo-500\/20,
+html[data-theme="cyberpunk"] .bg-indigo-500\/10 {
+    background-color: rgba(0, 240, 255, 0.14);
+}
+
+html[data-theme="cyberpunk"] .border-indigo-500\/30,
+html[data-theme="cyberpunk"] .border-indigo-500\/25 {
+    border-color: rgba(0, 240, 255, 0.35);
+}
+
+html[data-theme="cyberpunk"] .text-indigo-400,
+html[data-theme="cyberpunk"] .text-indigo-300,
+html[data-theme="cyberpunk"] .text-indigo-200 {
+    color: #00f0ff;
+}
