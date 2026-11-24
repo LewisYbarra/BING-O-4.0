@@ -290,6 +290,16 @@ html[data-theme="nord"] {
     --c-bizum-300: 206 174 200;
     --c-bizum-400: 192 154 186;
     --c-bizum-500: 180 142 173;
+    --c-amber-100: 250 238 214;
+    --c-amber-200: 247 229 194;
+    --c-amber-300: 245 222 179;
+    --c-amber-400: 235 203 139;  /* Aurora Yellow (#EBCB8B) */
+    --c-amber-500: 217 178 102;
+    --c-rose-300: 224 148 156;
+    --c-rose-400: 210 120 129;
+    --c-rose-500: 191 97 106;   /* Aurora Red (#BF616A) */
+    --c-rose-900: 112 46 53;
+    --c-rose-950: 64 24 29;
 }
 
 /* 4. Drácula */
@@ -318,6 +328,16 @@ html[data-theme="dracula"] {
     --c-bizum-300: 168 240 254;
     --c-bizum-400: 139 233 253;
     --c-bizum-500: 98 214 238;
+    --c-amber-100: 255 234 206;
+    --c-amber-200: 255 223 182;
+    --c-amber-300: 255 212 158;
+    --c-amber-400: 255 184 108;  /* Dracula Orange (#FFB86C) */
+    --c-amber-500: 242 158 76;
+    --c-rose-300: 255 148 148;
+    --c-rose-400: 255 110 110;
+    --c-rose-500: 255 85 85;    /* Rojo Drácula (#FF5555) */
+    --c-rose-900: 122 28 28;
+    --c-rose-950: 64 12 12;
 }
 
 /* 5. Gruvbox (Oscuro cálido) */
@@ -346,6 +366,16 @@ html[data-theme="gruvbox"] {
     --c-bizum-300: 167 210 151;
     --c-bizum-400: 142 192 124;
     --c-bizum-500: 104 157 106;
+    --c-amber-100: 254 236 178;
+    --c-amber-200: 253 224 138;
+    --c-amber-300: 252 212 98;
+    --c-amber-400: 250 189 47;   /* Gruvbox Yellow (#FABD2F) */
+    --c-amber-500: 215 153 33;
+    --c-rose-300: 252 138 122;
+    --c-rose-400: 251 73 52;
+    --c-rose-500: 204 36 29;    /* Rojo Gruvbox (#FB4934 / #CC241D) */
+    --c-rose-900: 110 22 18;
+    --c-rose-950: 58 12 10;
 }
 
 /* 6. Rosé Pine (Oscuro aterciopelado) */
@@ -366,14 +396,38 @@ html[data-theme="rosepine"] {
     --c-slate-800: 50 47 68;
     --c-slate-900: 38 35 58;
     --c-slate-950: 20 18 30;
-    --c-accent-300: 246 193 119;
-    --c-accent-400: 235 188 186;
-    --c-accent-500: 235 111 146;
+    --c-accent-300: 246 193 119; /*dorado*/
+    --c-accent-400: 235 188 186; /* Rosé Pine Mist (#EBBCBA) */
+    --c-accent-500: 235 111 146; /* Rosé Pine Love (#EB6F92) */
     --c-accent-900: 76 29 52;
-    --c-bizum-200: 226 212 245;
+    --c-bizum-200: 240 240 240;
+    --c-bizum-300: 230 230 230;
+    --c-bizum-400: 220 220 220;
+    --c-bizum-500: 200 200 200; 
+    --c-amber-100: 253 234 202;
+    --c-amber-200: 251 223 179;
+    --c-amber-300: 249 212 156;
+    --c-amber-400: 246 193 119;  /* Rosé Pine Gold (#F6C177) */
+    --c-amber-500: 230 168 90;
+    --c-rose-300: 245 148 172;
+    --c-rose-400: 235 111 146;  /* Rosé Pine Love (#EB6F92) */
+    --c-rose-500: 214 78 116;
+    --c-rose-900: 108 32 56;
+    --c-rose-950: 58 16 30;
+    --c-pos-300: 235 188 186;   
+    --c-pos-400: 235 188 186;    
+    --c-pos-500: 235 188 186;   
+
+    /*     --c-bizum-200: 226 212 245;
     --c-bizum-300: 210 188 238;
     --c-bizum-400: 196 167 231;
-    --c-bizum-500: 168 134 216;
+    --c-bizum-500: 168 134 216; */
+    /* Rosé Pine Foam (#9CCFD8) */
+}
+
+html[data-theme="rosepine"] .logo-icon-box {
+    background-image: none;
+    background-color: rgb(var(--c-accent-500));
 }
 
 /* 7. Solarized Dark */
@@ -402,6 +456,16 @@ html[data-theme="solarized-dark"] {
     --c-bizum-300: 94 212 203;
     --c-bizum-400: 56 189 179;
     --c-bizum-500: 42 161 152;
+    --c-amber-100: 248 228 168;
+    --c-amber-200: 242 212 122;
+    --c-amber-300: 235 196 76;
+    --c-amber-400: 214 166 24;
+    --c-amber-500: 181 137 0;    /* Solarized Yellow (#B58900) */
+    --c-rose-300: 238 128 125;
+    --c-rose-400: 228 86 82;
+    --c-rose-500: 220 50 47;    /* Rojo Solarized (#DC322F) */
+    --c-rose-900: 112 24 22;
+    --c-rose-950: 62 12 11;
 }
 
 /* 8. Porcelain Dark */
@@ -430,6 +494,16 @@ html[data-theme="porcelain-dark"] {
     --c-bizum-300: 158 193 222;
     --c-bizum-400: 123 164 199;
     --c-bizum-500: 96 142 182;
+    --c-amber-100: 248 230 208;
+    --c-amber-200: 244 218 190;
+    --c-amber-300: 240 205 170;
+    --c-amber-400: 230 184 138;
+    --c-amber-500: 204 152 102;
+    --c-rose-300: 238 158 148;
+    --c-rose-400: 224 114 100;
+    --c-rose-500: 198 82 68;
+    --c-rose-900: 104 38 30;
+    --c-rose-950: 56 19 15;
 }
 
 /* 9. Arctic Dark */
@@ -458,6 +532,11 @@ html[data-theme="arctic-dark"] {
     --c-bizum-300: 94 234 212;
     --c-bizum-400: 45 212 191;
     --c-bizum-500: 20 184 166;
+    --c-amber-100: 224 242 254;
+    --c-amber-200: 206 236 254;
+    --c-amber-300: 186 230 253;
+    --c-amber-400: 125 211 252;
+    --c-amber-500: 56 189 248;
 }
 
 /* 10. Graphite Dark */
@@ -486,11 +565,31 @@ html[data-theme="graphite-dark"] {
     --c-bizum-300: 166 190 214;
     --c-bizum-400: 136 166 196;
     --c-bizum-500: 112 145 178;
+    --c-amber-100: 244 244 245;
+    --c-amber-200: 236 236 239;
+    --c-amber-300: 228 228 231;
+    --c-amber-400: 212 212 216;
+    --c-amber-500: 161 161 170;
 }
 
 /* =========================================================
    4. TEMAS CLAROS Y AJUSTES DE LEGIBILIDAD
    ========================================================= */
+
+/* Variables compartidas por defecto para modo claro (sobrescribibles por cada tema) */
+html[data-mode="light"] {
+    --c-amber-100: 146 64 14;
+    --c-amber-200: 180 83 9;
+    --c-amber-300: 180 83 9;
+    --c-amber-400: 180 83 9;
+    --c-amber-500: 217 119 6;
+    --c-rose-300: 225 29 72;
+    --c-rose-400: 225 29 72;
+    --c-rose-500: 225 29 72;
+    --c-rose-900: 244 63 94;
+    --c-rose-950: 244 63 94;
+    --c-sky-400: 2 132 199;
+}
 
 /* 1. Claro (Light) */
 html[data-theme="light"] {
@@ -546,6 +645,16 @@ html[data-theme="sepia"] {
     --c-bizum-300: 154 52 18;
     --c-bizum-400: 180 68 24;
     --c-bizum-500: 194 82 34;
+    --c-amber-100: 138 68 20;
+    --c-amber-200: 154 78 24;
+    --c-amber-300: 166 86 28;
+    --c-amber-400: 166 86 28;
+    --c-amber-500: 194 104 38;
+    --c-rose-300: 185 48 38;
+    --c-rose-400: 185 48 38;
+    --c-rose-500: 185 48 38;
+    --c-rose-900: 204 62 50;
+    --c-rose-950: 204 62 50;
 }
 
 /* 3. Latte (Catppuccin claro) */
@@ -574,6 +683,16 @@ html[data-theme="latte"] {
     --c-bizum-300: 114 42 206;
     --c-bizum-400: 136 57 239;
     --c-bizum-500: 124 58 237;
+    --c-amber-100: 168 96 12;
+    --c-amber-200: 186 110 15;
+    --c-amber-300: 204 122 18;
+    --c-amber-400: 204 122 18;
+    --c-amber-500: 223 142 29;   /* Catppuccin Latte Yellow (#DF8E1D) */
+    --c-rose-300: 210 15 57;     /* Catppuccin Latte Red (#D20F39) */
+    --c-rose-400: 210 15 57;
+    --c-rose-500: 210 15 57;
+    --c-rose-900: 230 69 83;
+    --c-rose-950: 230 69 83;
 }
 
 /* 4. Menta (Claro verdoso) */
@@ -630,6 +749,19 @@ html[data-theme="sakura"] {
     --c-bizum-300: 107 33 168;
     --c-bizum-400: 126 34 206;
     --c-bizum-500: 147 51 234;
+    --c-amber-100: 142 52 94;
+    --c-amber-200: 158 62 106;
+    --c-amber-300: 176 72 118;
+    --c-amber-400: 176 72 118;
+    --c-amber-500: 196 84 134;
+    --c-rose-300: 185 28 28;     /* Carmesí intenso separado del rosa Sakura */
+    --c-rose-400: 185 28 28;
+    --c-rose-500: 220 38 38;
+    --c-rose-900: 220 38 38;
+    --c-rose-950: 220 38 38;
+    --c-pos-300: 21 128 61;      /* Verde hoja de cerezo (#15803D) */
+    --c-pos-400: 21 128 61;
+    --c-pos-500: 21 128 61;
 }
 
 /* 6. Solarized (Claro clásico crema + azul) */
@@ -658,6 +790,16 @@ html[data-theme="solarized"] {
     --c-bizum-300: 26 122 115;
     --c-bizum-400: 33 142 134;
     --c-bizum-500: 42 161 152;
+    --c-amber-100: 132 96 0;
+    --c-amber-200: 148 110 0;
+    --c-amber-300: 166 124 0;
+    --c-amber-400: 166 124 0;
+    --c-amber-500: 181 137 0;    /* Solarized Yellow (#B58900) */
+    --c-rose-300: 202 42 39;     /* Rojo Solarized (#DC322F) */
+    --c-rose-400: 202 42 39;
+    --c-rose-500: 220 50 47;
+    --c-rose-900: 220 50 47;
+    --c-rose-950: 220 50 47;
 }
 
 /* 7. Porcelain (Claro porcelana cálida) */
@@ -686,6 +828,16 @@ html[data-theme="porcelain"] {
     --c-bizum-300: 46 86 122;
     --c-bizum-400: 59 105 144;
     --c-bizum-500: 68 118 160;
+    --c-amber-100: 138 68 20;
+    --c-amber-200: 154 78 24;
+    --c-amber-300: 166 86 28;
+    --c-amber-400: 166 86 28;
+    --c-amber-500: 194 104 38;
+    --c-rose-300: 185 48 38;
+    --c-rose-400: 185 48 38;
+    --c-rose-500: 185 48 38;
+    --c-rose-900: 204 62 50;
+    --c-rose-950: 204 62 50;
 }
 
 /* 8. Graphite (Claro gris grafito) */
@@ -714,6 +866,11 @@ html[data-theme="graphite"] {
     --c-bizum-300: 48 76 106;
     --c-bizum-400: 59 91 124;
     --c-bizum-500: 71 107 144;
+    --c-amber-100: 63 63 70;
+    --c-amber-200: 72 72 80;
+    --c-amber-300: 82 82 91;
+    --c-amber-400: 82 82 91;
+    --c-amber-500: 113 113 122;
 }
 
 /* 9. Nord (Claro Snow Storm) */
@@ -742,6 +899,16 @@ html[data-theme="nord-light"] {
     --c-bizum-300: 120 82 115;
     --c-bizum-400: 140 99 134;
     --c-bizum-500: 152 108 146;
+    --c-amber-100: 136 86 24;
+    --c-amber-200: 152 96 28;
+    --c-amber-300: 168 108 32;
+    --c-amber-400: 168 108 32;
+    --c-amber-500: 208 135 112;  /* Nord Aurora Orange (#D08770) */
+    --c-rose-300: 165 66 75;     /* Aurora Red (#BF616A) */
+    --c-rose-400: 165 66 75;
+    --c-rose-500: 191 97 106;
+    --c-rose-900: 191 97 106;
+    --c-rose-950: 191 97 106;
 }
 
 /* 10. Arctic (Claro glaciar) */
@@ -770,23 +937,14 @@ html[data-theme="arctic"] {
     --c-bizum-300: 17 94 89;
     --c-bizum-400: 15 118 110;
     --c-bizum-500: 13 148 136;
+    --c-amber-100: 7 89 133;
+    --c-amber-200: 5 98 148;
+    --c-amber-300: 3 105 161;
+    --c-amber-400: 3 105 161;
+    --c-amber-500: 14 165 233;
 }
 
 /* Reglas compartidas de legibilidad para modo claro */
-html[data-mode="light"] {
-    --c-amber-100: 146 64 14;
-    --c-amber-200: 180 83 9;
-    --c-amber-300: 180 83 9;
-    --c-amber-400: 180 83 9;
-    --c-amber-500: 217 119 6;
-    --c-rose-300: 225 29 72;
-    --c-rose-400: 225 29 72;
-    --c-rose-500: 225 29 72;
-    --c-rose-900: 244 63 94;
-    --c-rose-950: 244 63 94;
-    --c-sky-400: 2 132 199;
-}
-
 html[data-mode="light"] input[type="date"] {
     color-scheme: light;
 }
@@ -797,7 +955,6 @@ html[data-mode="light"] .hover\:text-white:hover {
 }
 
 /* Mantener texto blanco real sobre avatares de colores y botones rojos */
-html[data-mode="light"] [class*="bg-gradient-to-"].text-white,
 html[data-mode="light"] .bg-rose-500.text-white,
 html[data-mode="light"] .keep-white {
     color: #ffffff !important;
@@ -826,13 +983,10 @@ html[data-theme="re9"] body::before {
     background-position: center;
 }
 
-/* Efecto cristal en tarjetas y banner Hero para lucir el wallpaper */
+/* Efecto cristal en tarjetas para lucir el wallpaper */
 html[data-theme="gtavi"] .bg-cardbg,
-html[data-theme="gtavi"] #tab-saldos > div:first-of-type,
 html[data-theme="cyberpunk"] .bg-cardbg,
-html[data-theme="cyberpunk"] #tab-saldos > div:first-of-type,
-html[data-theme="re9"] .bg-cardbg,
-html[data-theme="re9"] #tab-saldos > div:first-of-type {
+html[data-theme="re9"] .bg-cardbg {
     background: rgb(var(--c-bg-card) / var(--glass-card-alpha, 0.5));
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -867,8 +1021,15 @@ html[data-theme="gtavi"] {
     --c-bizum-300: 255 186 135;
     --c-bizum-400: 255 171 111;
     --c-bizum-500: 255 155 85;   /* Naranja Bizum Vice City */
+    --c-amber-100: 255 224 192;
+    --c-amber-200: 254 206 154;
+    --c-amber-300: 253 186 116;
     --c-amber-400: 253 186 116;
+    --c-amber-500: 249 148 72;
     --c-sky-400: 34 211 238;
+    --c-pos-300: 34 211 238;     /* Cian Vice City (#22D3EE) */
+    --c-pos-400: 34 211 238;
+    --c-pos-500: 34 211 238;
 }
 
 html[data-theme="gtavi"] body::before {
@@ -882,31 +1043,17 @@ html[data-theme="gtavi"] .logo-icon-box {
     box-shadow: 0 10px 15px -3px rgb(249 68 183 / 0.35);
 }
 
-/* Positivos / Acreedores y KPIs en Cian Vice City */
-html[data-theme="gtavi"] #members-balance-list .text-emerald-400,
-html[data-theme="gtavi"] #bizum-plan-list .text-emerald-400,
-html[data-theme="gtavi"] #bce-members-table .text-emerald-400,
-html[data-theme="gtavi"] #history-feed-list .text-emerald-300,
-html[data-theme="gtavi"] #live-deltas-preview .text-emerald-300,
-html[data-theme="gtavi"] #exact-inputs-list input.text-emerald-400,
-html[data-theme="gtavi"] #hero-riesgo.text-emerald-400,
-html[data-theme="gtavi"] #bce-rr,
-html[data-theme="gtavi"] #bce-dg {
-    color: #22d3ee;
+html[data-theme="gtavi"] #btn-submit-tx {
+    background-image: linear-gradient(to right, #3C4DD1, #F944B7, #E09254);
+    box-shadow: 0 10px 15px -3px rgb(249 68 183 / 0.35);
+    color: #ffffff;
 }
 
-html[data-theme="gtavi"] #members-balance-list .bg-emerald-500 {
-    background-color: #22d3ee;
+html[data-theme="gtavi"] #btn-submit-tx:hover {
+    filter: brightness(1.08);
 }
 
-html[data-theme="gtavi"] #members-balance-list .bg-emerald-500\/15,
-html[data-theme="gtavi"] #history-feed-list .bg-emerald-500\/10,
-html[data-theme="gtavi"] #live-deltas-preview .bg-emerald-500\/15 {
-    background-color: rgba(34, 211, 238, 0.14);
-    border-color: rgba(34, 211, 238, 0.35);
-}
-
-html[data-theme="gtavi"] #tab-saldos > p:first-of-type {
+html[data-theme="gtavi"] .app-tagline {
     color: rgba(253, 242, 248, 0.72);
 }
 
@@ -939,7 +1086,16 @@ html[data-theme="cyberpunk"] {
     --c-bizum-300: 103 245 255;
     --c-bizum-400: 103 245 255;
     --c-bizum-500: 0 240 255;    /* Cian eléctrico (#00F0FF) */
+    --c-amber-100: 254 249 195;
+    --c-amber-200: 253 244 130;
+    --c-amber-300: 252 238 10;
     --c-amber-400: 252 238 10;
+    --c-amber-500: 235 218 0;
+    --c-rose-300: 255 102 130;
+    --c-rose-400: 255 42 85;
+    --c-rose-500: 255 0 60;
+    --c-rose-900: 120 0 28;
+    --c-rose-950: 56 0 14;
     --c-sky-400: 0 240 255;
 }
 
@@ -982,7 +1138,11 @@ html[data-theme="gd"] {
     --c-bizum-300: 112 244 244;
     --c-bizum-400: 74 238 237;
     --c-bizum-500: 36 229 228;   /* Cian highlights (#24E5E4) */
+    --c-amber-100: 255 242 184;
+    --c-amber-200: 255 230 128;
+    --c-amber-300: 255 222 86;
     --c-amber-400: 255 214 51;
+    --c-amber-500: 240 190 24;
     --c-sky-400: 36 229 228;
 }
 
@@ -991,8 +1151,7 @@ html[data-theme="gd"] body::before {
 }
 
 /* Tarjetas sólidas sin transparencia y doble contorno (negro interior + blanco exterior) */
-html[data-theme="gd"] .bg-cardbg,
-html[data-theme="gd"] #tab-saldos > div:first-of-type {
+html[data-theme="gd"] .bg-cardbg {
     background: rgb(var(--c-bg-card));
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
@@ -1006,25 +1165,24 @@ html[data-theme="gd"] button:is(
     .bg-indigo-500,
     .bg-amber-500,
     .bg-rose-500,
-    .bg-slate-800,
-    .bg-white,
-    [class*="bg-gradient-to-"]
-):not([id^="btn-filter-"]):not([id^="mode-btn-"]):not([id^="chart-btn-"]):not([onclick^="selectParticipantsPreset"]):not([onclick^="toggleExactRole"]) {
+    .btn-secondary,
+    .bg-white
+):not(.segmented-control button, .role-toggle) {
     border: 2px solid #000000 !important;
     box-shadow: 0 0 0 1.5px #ffffff, 0 4px 10px rgba(0, 0, 0, 0.35);
 }
 
-/* Botones secundarios (.bg-slate-800) en gris (#9A9A9A) con texto e iconos blancos */
-html[data-theme="gd"] button.bg-slate-800:not([onclick^="selectParticipantsPreset"]) {
+/* Botones secundarios en gris (#9A9A9A) con texto e iconos blancos */
+html[data-theme="gd"] .btn-secondary {
     background-color: #9A9A9A;
     color: #ffffff;
 }
 
-html[data-theme="gd"] button.bg-slate-800:not([onclick^="selectParticipantsPreset"]):hover {
+html[data-theme="gd"] .btn-secondary:hover {
     background-color: #aeaeae;
 }
 
-html[data-theme="gd"] button.bg-slate-800:not([onclick^="selectParticipantsPreset"]) i {
+html[data-theme="gd"] .btn-secondary i {
     color: #ffffff;
 }
 
@@ -1042,13 +1200,13 @@ html[data-theme="gd"] :is(h1, h2, h3, h4, th, #sync-badge, #toast-box, button:no
 }
 
 html[data-theme="gd"] .mono-num,
-html[data-theme="gd"] #equal-participants-grid button span:last-child {
+html[data-theme="gd"] #equal-participants-grid .participant-check {
     letter-spacing: normal;
     -webkit-text-stroke: 0;
     text-shadow: none;
 }
 
-html[data-theme="gd"] #equal-participants-grid button span:last-child {
+html[data-theme="gd"] #equal-participants-grid .participant-check {
     font-family: var(--font-sans);
 }
 
@@ -1099,6 +1257,9 @@ html[data-theme="re9"] {
     --c-rose-500: 237 63 77;
     --c-rose-900: 237 63 77;
     --c-rose-950: 237 63 77;
+    --c-pos-300: 245 245 245;    /* Monocromático blanco para acreedores/sano */
+    --c-pos-400: 245 245 245;
+    --c-pos-500: 228 228 231;
     --c-sky-400: 228 228 231;
 }
 
@@ -1115,56 +1276,24 @@ html[data-theme="re9"] .logo-icon-box {
 
 /* Texto blanco sobre botones rojos primarios y MAFTA */
 html[data-theme="re9"] .bg-emerald-500.text-slate-950,
-html[data-theme="re9"] .bg-amber-500.text-slate-950,
-html[data-theme="re9"] button[onclick="submitTransaction()"] {
+html[data-theme="re9"] .bg-amber-500.text-slate-950 {
     color: #ffffff;
 }
 
 /* Avatares de miembros de GENTES en rojo #ED3F4D */
-html[data-theme="re9"] #members-balance-list [class*="bg-gradient-to-"]:not(.from-slate-600),
-html[data-theme="re9"] #bce-members-table [class*="bg-gradient-to-"]:not(.from-slate-600),
-html[data-theme="re9"] #exact-inputs-list [class*="bg-gradient-to-"]:not(.from-slate-600),
-html[data-theme="re9"] #account-modal-avatar[class*="bg-gradient-to-"]:not(.from-slate-600) {
+html[data-theme="re9"] .avatar-core {
     background-image: none;
     background-color: #ED3F4D;
     color: #ffffff;
 }
 
-/* Acreedores / positivos en blanco monocromático para diferenciarse de deudores en rojo #ED3F4D */
-html[data-theme="re9"] #members-balance-list .text-emerald-400,
-html[data-theme="re9"] #bizum-plan-list .text-emerald-400,
-html[data-theme="re9"] #bce-members-table .text-emerald-400,
-html[data-theme="re9"] #history-feed-list .text-emerald-300,
-html[data-theme="re9"] #live-deltas-preview .text-emerald-300,
-html[data-theme="re9"] #exact-inputs-list input.text-emerald-400 {
-    color: #f5f5f5;
-}
-
-html[data-theme="re9"] #members-balance-list .bg-emerald-500 {
-    background-color: #e4e4e7;
-}
-
-html[data-theme="re9"] #members-balance-list .bg-emerald-500\/15,
-html[data-theme="re9"] #history-feed-list .bg-emerald-500\/10,
-html[data-theme="re9"] #live-deltas-preview .bg-emerald-500\/15 {
-    background-color: rgba(255, 255, 255, 0.12);
-    border-color: rgba(255, 255, 255, 0.28);
-}
-
-html[data-theme="re9"] #tab-saldos > p:first-of-type {
+html[data-theme="re9"] .app-tagline {
     color: rgba(245, 245, 245, 0.72);
 }
 
-/* KPIs de estadísticas en blanco monocromático (riesgo alto mantiene rojo #ED3F4D) */
-html[data-theme="re9"] #hero-credito,
-html[data-theme="re9"] #hero-riesgo:not(.text-rose-400),
-html[data-theme="re9"] #bce-cred,
-html[data-theme="re9"] #bce-ecm,
-html[data-theme="re9"] #bce-ra,
-html[data-theme="re9"] #bce-rr,
-html[data-theme="re9"] #bce-vol,
-html[data-theme="re9"] #bce-dg {
-    color: #f5f5f5;
+/* Iconos de sección/modal emerald (Administrar usuario, Cuenta, Temas) en gris claro como BCE y Admin */
+html[data-theme="re9"] .section-icon-box {
+    color: rgb(var(--c-amber-400));
 }
 
 /* ---------------------------------------------------------
@@ -1226,8 +1355,7 @@ html[data-theme="matrix"] #matrix-rain-canvas {
 }
 
 /* Tarjetas negro borroso oscuro con bordes verdes fosforescentes */
-html[data-theme="matrix"] .bg-cardbg,
-html[data-theme="matrix"] #tab-saldos > div:first-of-type {
+html[data-theme="matrix"] .bg-cardbg {
     background: rgb(0 8 2 / 0.8);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
@@ -1279,10 +1407,7 @@ html[data-theme="matrix"] #app-title-logo[src$="resources/title.svg"] {
 }
 
 /* Avatares de miembros en negro terminal con borde y texto verde */
-html[data-theme="matrix"] #members-balance-list [class*="bg-gradient-to-"],
-html[data-theme="matrix"] #bce-members-table [class*="bg-gradient-to-"],
-html[data-theme="matrix"] #exact-inputs-list [class*="bg-gradient-to-"],
-html[data-theme="matrix"] #account-modal-avatar[class*="bg-gradient-to-"] {
+html[data-theme="matrix"] .avatar {
     background-image: none;
     background-color: #000000;
     border: 1px solid rgb(0 255 65 / 0.7);
@@ -1290,23 +1415,23 @@ html[data-theme="matrix"] #account-modal-avatar[class*="bg-gradient-to-"] {
     box-shadow: 0 0 8px rgb(0 255 65 / 0.2);
 }
 
-html[data-theme="matrix"] #tab-saldos > p:first-of-type {
+html[data-theme="matrix"] .app-tagline {
     color: rgba(0, 230, 58, 0.78);
     text-shadow: 0 1px 6px rgba(0, 0, 0, 0.9);
 }
 
 /* Botones de acción secundarios y etiquetas de historial en verde muy oscuro con contorno verde Matrix */
-html[data-theme="matrix"] button.bg-slate-800,
-html[data-theme="matrix"] #history-feed-list .bg-slate-800 {
+html[data-theme="matrix"] .btn-secondary,
+html[data-theme="matrix"] .tx-badge-historical {
     background-color: #002e0b;
     border: 1px solid #00ff41;
 }
 
-html[data-theme="matrix"] #history-feed-list .bg-slate-800 {
+html[data-theme="matrix"] .tx-badge-historical {
     color: rgb(var(--c-slate-200));
 }
 
-html[data-theme="matrix"] button.bg-slate-800:hover:not(.hover\:bg-emerald-500) {
+html[data-theme="matrix"] .btn-secondary:hover:not(.btn-save-member) {
     background-color: #004611;
     border-color: #00ff41;
     box-shadow: 0 0 8px rgb(0 255 65 / 0.25);
@@ -1347,12 +1472,16 @@ html[data-theme="gaur"] {
     --c-amber-300: 255 207 148;
     --c-amber-400: 255 207 148;
     --c-amber-500: 242 142 0;
+    --c-rose-300: 255 186 192;
+    --c-rose-400: 255 148 158;  /* Rojo claro de alto contraste sobre turquesa */
+    --c-rose-500: 230 57 70;
+    --c-rose-900: 120 20 30;
+    --c-rose-950: 68 10 16;
     --c-sky-400: 254 250 229;
 }
 
 /* Tarjetas turquesa #007774 totalmente planas y opacas */
 html[data-theme="gaur"] .bg-cardbg,
-html[data-theme="gaur"] #tab-saldos > div:first-of-type,
 html[data-theme="gaur"] #history-feed-list > div {
     background: rgb(var(--c-bg-card));
     backdrop-filter: none;
@@ -1404,18 +1533,8 @@ html[data-theme="gaur"] .text-slate-950 {
     color: #000000;
 }
 
-html[data-theme="gaur"] button[onclick="submitTransaction()"] {
-    background-image: none;
-    background-color: #F28E00;
-    color: #000000;
-}
-
-html[data-theme="gaur"] button[onclick="submitTransaction()"]:hover {
-    background-color: #ff9e1a;
-}
-
 /* Elementos sueltos sobre el fondo blanco principal */
-html[data-theme="gaur"] #tab-saldos > p:first-of-type {
+html[data-theme="gaur"] .app-tagline {
     color: #007774;
     font-weight: 600;
 }
@@ -1427,16 +1546,10 @@ html[data-theme="gaur"] #btn-mafta-trigger {
 }
 
 /* Cifras numéricas de estadísticas en blanco (sin alterar los saldos de miembros) */
-html[data-theme="gaur"] #hero-credito,
-html[data-theme="gaur"] #hero-riesgo,
-html[data-theme="gaur"] #bce-cred,
-html[data-theme="gaur"] #bce-ecm,
-html[data-theme="gaur"] #bce-ra,
-html[data-theme="gaur"] #bce-rr,
-html[data-theme="gaur"] #bce-vol,
-html[data-theme="gaur"] #bce-dg,
-html[data-theme="gaur"] #bce-members-table td:nth-child(3),
-html[data-theme="gaur"] #bce-members-table td:nth-child(4) {
+html[data-theme="gaur"] #hero-riesgo.text-pos-400,
+html[data-theme="gaur"] #bce-rr.text-pos-400,
+html[data-theme="gaur"] #bce-dg.text-pos-400,
+html[data-theme="gaur"] #bce-members-table td.bce-col-stat {
     color: #ffffff;
 }
 

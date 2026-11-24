@@ -55,6 +55,11 @@
                             500: 'rgb(var(--c-accent-500) / <alpha-value>)',
                             900: 'rgb(var(--c-accent-900) / <alpha-value>)',
                         },
+                        pos: {
+                            300: 'rgb(var(--c-pos-300, var(--c-accent-300)) / <alpha-value>)',
+                            400: 'rgb(var(--c-pos-400, var(--c-accent-400)) / <alpha-value>)',
+                            500: 'rgb(var(--c-pos-500, var(--c-accent-500)) / <alpha-value>)',
+                        },
                         indigo: {
                             200: 'rgb(var(--c-bizum-200) / <alpha-value>)',
                             300: 'rgb(var(--c-bizum-300) / <alpha-value>)',
@@ -126,7 +131,7 @@
 
             <!-- Bloque derecho (Botones protegidos contra aplastamiento) -->
             <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
-                <button onclick="handleAuthClick()" id="btn-current-user" title="Iniciar sesión" class="w-8 h-8 sm:w-auto sm:h-auto px-0 sm:px-2.5 py-1.5 rounded-lg bg-slate-800 text-[11px] sm:text-xs font-semibold text-slate-300 border border-slate-700 hover:border-slate-500 flex items-center justify-center gap-1.5 transition whitespace-nowrap shrink-0">
+                <button onclick="handleAuthClick()" id="btn-current-user" title="Iniciar sesión" class="btn-secondary w-8 h-8 sm:w-auto sm:h-auto px-0 sm:px-2.5 py-1.5 rounded-lg bg-slate-800 text-[11px] sm:text-xs font-semibold text-slate-300 border border-slate-700 hover:border-slate-500 flex items-center justify-center gap-1.5 transition whitespace-nowrap shrink-0">
                     <i class="fa-brands fa-google text-slate-400 text-xs shrink-0" id="auth-user-icon"></i>
                     <span id="label-current-user" class="hidden sm:inline">Iniciar sesión</span>
                 </button>
@@ -134,7 +139,7 @@
                     <i class="fa-solid fa-plus text-xs"></i>
                     <span class="hidden sm:inline">Añadir</span>
                 </button>
-                <button onclick="openThemeModal()" class="w-8 h-8 sm:w-auto px-0 sm:px-2.5 py-1.5 rounded-lg bg-slate-800 hover:border-emerald-500/60 text-slate-300 border border-slate-700 font-semibold text-[11px] sm:text-xs transition flex items-center justify-center gap-1.5 shrink-0" title="Cambiar tema">
+                <button onclick="openThemeModal()" class="btn-secondary w-8 h-8 sm:w-auto px-0 sm:px-2.5 py-1.5 rounded-lg bg-slate-800 hover:border-emerald-500/60 text-slate-300 border border-slate-700 font-semibold text-[11px] sm:text-xs transition flex items-center justify-center gap-1.5 shrink-0" title="Cambiar tema">
                     <i class="fa-solid fa-palette text-emerald-400 text-xs"></i>
                     <span class="hidden sm:inline">Temas</span>
                 </button>
@@ -150,21 +155,21 @@
         <!-- ========================================== -->
         <section id="tab-saldos" class="space-y-5">
 
-            <p class="text-center text-[10px] sm:text-[11px] tracking-wide text-slate-500">
+            <p class="app-tagline text-center text-[10px] sm:text-[11px] tracking-wide text-slate-500">
                 Una aplicación del Banco de Inversión Nacional de Gentes
             </p>
 
             <!-- Hero Summary Banner -->
-            <div class="rounded-2xl bg-gradient-to-br from-slate-900 via-cardbg to-slate-900 border border-slate-800 p-4 shadow-xl relative overflow-hidden">
+            <div class="rounded-2xl bg-cardbg border border-slate-800 p-4 shadow-xl relative overflow-hidden">
                 <div class="grid grid-cols-2 gap-2 relative z-10">
                     <div class="bg-slate-950/50 rounded-xl p-3 border border-slate-800/80">
                         <span class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold block">Crédito en Circulación</span>
-                        <span id="hero-credito" class="mono-num text-lg sm:text-xl font-bold text-amber-400 mt-0.5 block">0,00 €</span>
+                        <span id="hero-credito" class="mono-num text-lg sm:text-xl font-bold text-white mt-0.5 block">0,00 €</span>
                         <span class="text-[10px] text-slate-500">Media: 88,60 €</span>
                     </div>
                     <div class="bg-slate-950/50 rounded-xl p-3 border border-slate-800/80">
                         <span class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold block">Riesgo Relativo</span>
-                        <span id="hero-riesgo" class="mono-num text-lg sm:text-xl font-bold text-emerald-400 mt-0.5 block">0,0%</span>
+                        <span id="hero-riesgo" class="mono-num text-lg sm:text-xl font-bold text-pos-400 mt-0.5 block">0,0%</span>
                         <span id="hero-riesgo-label" class="text-[10px] text-slate-500">Estable</span>
                     </div>
                 </div>
@@ -172,7 +177,7 @@
 
             <!-- Controls: Filter Core (5) vs All (8) & Dynamic MAFTA -->
             <div class="flex flex-wrap items-center justify-between gap-2">
-                <div class="flex items-center bg-slate-900 p-1 rounded-xl border border-slate-800">
+                <div class="segmented-control flex items-center bg-slate-900 p-1 rounded-xl border border-slate-800">
                     <button id="btn-filter-core" onclick="setMemberFilter('core')" class="font-body px-3 py-1.5 rounded-lg text-xs font-semibold transition bg-emerald-500 text-slate-950">
                         GENTES (5)
                     </button>
@@ -215,8 +220,8 @@
                 </div>
 
                 <p id="mafta-warning-note" class="text-[11px] text-slate-400 bg-slate-900/70 rounded-xl p-2.5 border border-slate-800/80">
-                    <i class="fa-solid fa-circle-check text-emerald-400 mr-1"></i>
-                    <strong>Contabilidad perfecta:</strong> El Dinero Generado (D.G.) está cuadrado a <strong class="text-emerald-400 mono-num">0,00 €</strong>.
+                    <i class="fa-solid fa-circle-check text-pos-400 mr-1"></i>
+                    <strong>Contabilidad perfecta:</strong> El Dinero Generado (D.G.) está cuadrado a <strong class="text-pos-400 mono-num">0,00 €</strong>.
                 </p>
             </div>
         </section>
@@ -231,13 +236,13 @@
                         <h2 class="text-sm sm:text-base font-bold text-white leading-tight">Nueva transacción</h2>
                         <p class="text-[11px] sm:text-xs text-slate-400 leading-normal">Elige el tipo de transacción</p>
                     </div>
-                    <span class="mono-num text-[11px] sm:text-xs font-bold px-2.5 py-1 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 whitespace-nowrap shrink-0">
+                    <span class="mono-num text-[11px] sm:text-xs font-bold px-2.5 py-1 rounded-lg bg-pos-500/10 text-pos-400 border border-pos-500/20 whitespace-nowrap shrink-0">
                         D.G. = 0,00 €
                     </span>
                 </div>
 
                 <!-- 3 Mode Selector Tabs -->
-                <div class="grid grid-cols-3 gap-1.5 bg-slate-950 p-1.5 rounded-xl border border-slate-800">
+                <div class="segmented-control grid grid-cols-3 gap-1.5 bg-slate-950 p-1.5 rounded-xl border border-slate-800">
                     <button id="mode-btn-equal" onclick="setEntryMode('equal')" class="py-2 px-2 rounded-lg text-xs font-bold transition bg-emerald-500 text-slate-950 flex items-center justify-center gap-1.5">
                         <i class="fa-solid fa-users"></i>
                         <span>Partes iguales</span>
@@ -303,9 +308,9 @@
                         <div class="flex items-center justify-between mb-2">
                             <label class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">Participantes</label>
                             <div class="flex gap-1.5">
-                                <button type="button" onclick="selectParticipantsPreset('core')" class="font-body text-[10px] px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-300">GENTES (5)</button>
-                                <button type="button" onclick="selectParticipantsPreset('all')" class="font-body text-[10px] px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-300">Todos (8)</button>
-                                <button type="button" onclick="selectParticipantsPreset('none')" class="font-body text-[10px] px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-400">Ninguno</button>
+                                <button type="button" onclick="selectParticipantsPreset('core')" class="font-body text-[10px] px-2 py-0.5 rounded bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300">GENTES (5)</button>
+                                <button type="button" onclick="selectParticipantsPreset('all')" class="font-body text-[10px] px-2 py-0.5 rounded bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300">Todos (8)</button>
+                                <button type="button" onclick="selectParticipantsPreset('none')" class="font-body text-[10px] px-2 py-0.5 rounded bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-400">Ninguno</button>
                             </div>
                         </div>
 
@@ -332,10 +337,10 @@
                 <div id="panel-mode-exact" class="hidden space-y-3 pt-1">
                     <div class="rounded-xl bg-slate-950 p-3 border border-slate-800 flex flex-wrap items-center justify-between gap-2">
                         <div class="text-xs text-slate-300">
-                            Introduce el saldo neto de cada participante (<strong class="text-emerald-400">+</strong> si adelantó, <strong class="text-rose-400">-</strong> si debe) y combina, si lo necesitas, los repartos <strong>P</strong> (positivo) y <strong>X</strong> (negativo). Se aceptan fórmulas simples (ej. <code class="text-slate-200">=25-8.50</code>).
+                            Introduce el saldo neto de cada participante (<strong class="text-pos-400">+</strong> si adelantó, <strong class="text-rose-400">-</strong> si debe) y combina, si lo necesitas, los repartos <strong>P</strong> (positivo) y <strong>X</strong> (negativo). Se aceptan fórmulas simples (ej. <code class="text-slate-200">=25-8.50</code>).
                         </div>
                         <p id="exact-validation-error" class="hidden w-full text-xs text-rose-300 bg-rose-500/10 border border-rose-500/20 rounded-lg px-3 py-2"></p>
-                        <div id="exact-discrepancy-badge" class="mono-num text-xs font-bold px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
+                        <div id="exact-discrepancy-badge" class="mono-num text-xs font-bold px-2.5 py-1 rounded-lg bg-pos-500/15 text-pos-400 border border-pos-500/30">
                             D.G. = 0,00 €
                         </div>
                     </div>
@@ -351,7 +356,7 @@
                 <div id="panel-mode-bizum" class="hidden space-y-4 pt-1">
                     <div class="rounded-xl bg-indigo-500/10 border border-indigo-500/25 p-3 text-xs text-indigo-200">
                         <i class="fa-solid fa-bolt text-indigo-400 mr-1"></i>
-                        Quien <strong>envía el Bizum</strong> suma saldo (<code class="text-emerald-400">+</code>) para reducir su deuda, y quien <strong>recibe el Bizum</strong> resta saldo (<code class="text-rose-400">-</code>) porque le están devolviendo lo que adelantó.
+                        Quien <strong>envía el Bizum</strong> suma saldo (<code class="text-pos-400">+</code>) para reducir su deuda, y quien <strong>recibe el Bizum</strong> resta saldo (<code class="text-rose-400">-</code>) porque le están devolviendo lo que adelantó.
                     </div>
 
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -378,7 +383,7 @@
                 <div class="rounded-xl bg-slate-950/90 border border-slate-800 p-3.5 space-y-2">
                     <div class="flex items-center justify-between">
                         <span class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">Vista previa de la transacción</span>
-                        <span id="preview-sum-check" class="mono-num text-[11px] font-semibold text-emerald-400">Suma: 0,00 €</span>
+                        <span id="preview-sum-check" class="mono-num text-[11px] font-semibold text-pos-400">Suma: 0,00 €</span>
                     </div>
                     <div id="live-deltas-preview" class="flex flex-wrap gap-1.5 pt-1">
                         <span class="text-xs text-slate-500 italic">Introduce un importe para ver el desglose exacto...</span>
@@ -387,11 +392,11 @@
 
                 <!-- ACTION BUTTONS (CANCELAR + GUARDAR) -->
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-1">
-                    <button type="button" onclick="cancelTransaction()" class="w-full py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-sm border border-slate-700 transition flex items-center justify-center gap-2 order-2 sm:order-1">
+                    <button type="button" onclick="cancelTransaction()" class="btn-secondary w-full py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-sm border border-slate-700 transition flex items-center justify-center gap-2 order-2 sm:order-1">
                         <i class="fa-solid fa-xmark"></i>
                         <span>Cancelar</span>
                     </button>
-                    <button type="button" onclick="submitTransaction()" class="sm:col-span-2 w-full py-3.5 rounded-xl bg-gradient-to-r from-emerald-500 to-emerald-400 hover:from-emerald-400 hover:to-emerald-300 text-slate-950 font-extrabold text-sm shadow-lg shadow-emerald-500/20 transition flex items-center justify-center gap-2 order-1 sm:order-2">
+                    <button type="button" id="btn-submit-tx" onclick="submitTransaction()" class="sm:col-span-2 w-full py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-sm shadow-lg shadow-emerald-500/20 transition flex items-center justify-center gap-2 order-1 sm:order-2">
                         <i class="fa-solid fa-check-double"></i>
                         <span>Guardar transacción</span>
                     </button>
@@ -409,7 +414,7 @@
                         <h2 class="text-base font-bold text-white">Historial</h2>
                         <p class="text-xs text-slate-400">Banco de Inversión Nacional de GENTES - Organización</p>
                     </div>
-                    <button onclick="exportToCSV()" class="self-start sm:self-auto px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-emerald-400 border border-slate-700 flex items-center gap-1.5 transition">
+                    <button onclick="exportToCSV()" class="btn-secondary self-start sm:self-auto px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-emerald-400 border border-slate-700 flex items-center gap-1.5 transition">
                         <i class="fa-solid fa-file-csv"></i>
                         <span>Exportar Excel (CSV)</span>
                     </button>
@@ -458,22 +463,22 @@
                 <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
                     <div class="bg-slate-950/80 rounded-xl p-3.5 border border-slate-800/90">
                         <span class="text-[10px] uppercase text-slate-400 font-semibold block">Crédito en Circulación</span>
-                        <span id="bce-cred" class="mono-num text-lg font-extrabold text-amber-400 mt-1 block">0,00 €</span>
+                        <span id="bce-cred" class="mono-num text-lg font-extrabold text-white mt-1 block">0,00 €</span>
                     </div>
 
                     <div class="bg-slate-950/80 rounded-xl p-3.5 border border-slate-800/90">
                         <span class="text-[10px] uppercase text-slate-400 font-semibold block">Error Cuadrático (ECM)</span>
-                        <span id="bce-ecm" class="mono-num text-lg font-extrabold text-sky-400 mt-1 block">0,00 €</span>
+                        <span id="bce-ecm" class="mono-num text-lg font-extrabold text-white mt-1 block">0,00 €</span>
                     </div>
 
                     <div class="bg-slate-950/80 rounded-xl p-3.5 border border-slate-800/90">
                         <span class="text-[10px] uppercase text-slate-400 font-semibold block">Riesgo Absoluto (R.A.)</span>
-                        <span id="bce-ra" class="mono-num text-lg font-extrabold text-indigo-400 mt-1 block">0,00 €</span>
+                        <span id="bce-ra" class="mono-num text-lg font-extrabold text-white mt-1 block">0,00 €</span>
                     </div>
 
                     <div class="bg-slate-950/80 rounded-xl p-3.5 border border-slate-800/90">
                         <span class="text-[10px] uppercase text-slate-400 font-semibold block">Riesgo Relativo</span>
-                        <span id="bce-rr" class="mono-num text-lg font-extrabold text-emerald-400 mt-1 block">0,000</span>
+                        <span id="bce-rr" class="mono-num text-lg font-extrabold text-pos-400 mt-1 block">0,000</span>
                     </div>
 
                     <div class="bg-slate-950/80 rounded-xl p-3.5 border border-slate-800/90">
@@ -483,7 +488,7 @@
 
                     <div class="bg-slate-950/80 rounded-xl p-3.5 border border-slate-800/90">
                         <span class="text-[10px] uppercase text-slate-400 font-semibold block">Dinero Generado (D.G.)</span>
-                        <span id="bce-dg" class="mono-num text-lg font-extrabold text-emerald-400 mt-1 block">0,00 €</span>
+                        <span id="bce-dg" class="mono-num text-lg font-extrabold text-pos-400 mt-1 block">0,00 €</span>
                         <!-- <span class="text-[10px] text-emerald-400 block mt-0.5">Nuevos en v4.0: 0,00 €</span> -->
                     </div>
                 </div>
@@ -514,7 +519,7 @@
                             <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400">Evolución Histórica de Saldos y Crédito</h3>
                             <p class="text-[10px] text-slate-500">Pulsa en los marcadores de la leyenda para mostrar u ocultar sus datos</p>
                         </div>
-                        <div class="flex items-center bg-slate-950 p-1 rounded-lg border border-slate-800 text-[10px] font-semibold">
+                        <div class="segmented-control flex items-center bg-slate-950 p-1 rounded-lg border border-slate-800 text-[10px] font-semibold">
                             <button type="button" id="chart-btn-all" onclick="setChartFilter('all')" class="font-body px-2 py-1 rounded bg-emerald-500 text-slate-950 transition">Todos (8)</button>
                             <button type="button" id="chart-btn-core" onclick="setChartFilter('core')" class="font-body px-2 py-1 rounded text-slate-400 hover:text-white transition">GENTES (5)</button>
                         </div>
@@ -535,7 +540,7 @@
         <section id="tab-administrar" class="hidden space-y-4">
             <div class="rounded-2xl bg-cardbg border border-slate-800 p-4 shadow-xl space-y-4">
                 <div class="flex items-center gap-2.5 border-b border-slate-800 pb-3">
-                    <div class="w-9 h-9 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+                    <div class="section-icon-box w-9 h-9 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
                         <i class="fa-solid fa-user-gear"></i>
                     </div>
                     <h2 class="text-base font-bold text-white">Administrar usuario</h2>
@@ -652,7 +657,7 @@
                 </ul>
             </div>
             <div class="flex gap-2 pt-1">
-                <button onclick="closeMaftaModal()" class="flex-1 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300">
+                <button onclick="closeMaftaModal()" class="btn-secondary flex-1 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300">
                     Cancelar
                 </button>
                 <button onclick="applyMaftaProtocol()" id="btn-mafta-confirm" class="flex-1 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs">
@@ -688,7 +693,7 @@
                 <div class="flex items-center gap-2 text-xs">
                     <span id="bizum-confirm-from" class="font-display font-bold text-rose-400">Deudor</span>
                     <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
-                    <span id="bizum-confirm-to" class="font-display font-bold text-emerald-400">Acreedor</span>
+                    <span id="bizum-confirm-to" class="font-display font-bold text-pos-400">Acreedor</span>
                 </div>
                 <span id="bizum-confirm-amount" class="mono-num text-sm font-extrabold text-white bg-slate-900 px-2.5 py-1 rounded-lg border border-slate-800">
                     0,00 €
@@ -696,7 +701,7 @@
             </div>
 
             <div class="flex gap-2 pt-1">
-                <button onclick="closeBizumConfirmModal()" class="flex-1 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300 transition">
+                <button onclick="closeBizumConfirmModal()" class="btn-secondary flex-1 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300 transition">
                     Cancelar
                 </button>
                 <button onclick="executeConfirmedBizum()" class="flex-1 py-2.5 rounded-xl bg-indigo-500 hover:bg-indigo-400 text-slate-950 font-bold text-xs shadow-lg shadow-indigo-500/20 transition flex items-center justify-center gap-1.5">
@@ -736,7 +741,7 @@
         <div class="bg-cardbg border border-slate-700 rounded-2xl max-w-sm w-full p-5 space-y-4 shadow-2xl">
             <div class="flex items-center justify-between">
                 <div class="flex items-center gap-2.5">
-                    <div class="w-9 h-9 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center">
+                    <div class="section-icon-box w-9 h-9 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center">
                         <i class="fa-solid fa-user-check"></i>
                     </div>
                     <h3 class="text-base font-bold text-white">Cuenta conectada</h3>
@@ -757,7 +762,7 @@
             </div>
 
             <div class="flex gap-2 pt-1">
-                <button onclick="closeAccountModal()" class="flex-1 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300 transition">
+                <button onclick="closeAccountModal()" class="btn-secondary flex-1 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300 transition">
                     Volver
                 </button>
                 <button onclick="confirmLogout()" class="flex-1 py-2.5 rounded-xl bg-rose-500 hover:bg-rose-400 text-white keep-white font-bold text-xs shadow-lg shadow-rose-500/20 transition flex items-center justify-center gap-1.5">
@@ -775,7 +780,7 @@
         <div class="bg-cardbg border border-slate-700 rounded-2xl max-w-sm w-full p-5 space-y-4 shadow-2xl">
             <div class="flex items-center justify-between">
                 <div class="flex items-center gap-2.5">
-                    <div class="w-9 h-9 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center">
+                    <div class="section-icon-box w-9 h-9 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center">
                         <i class="fa-solid fa-palette"></i>
                     </div>
                     <div>
@@ -792,7 +797,7 @@
                 <!-- Populated via JS -->
             </div>
 
-            <button onclick="closeThemeModal()" class="w-full py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300 transition">
+            <button onclick="closeThemeModal()" class="btn-secondary w-full py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300 transition">
                 Cerrar
             </button>
         </div>
@@ -1042,7 +1047,7 @@
                     avatarEl.style.backgroundImage = `url('${currentUser.photoURL}')`;
                     avatarEl.textContent = '';
                 } else {
-                    avatarEl.className = `w-14 h-14 mx-auto rounded-2xl bg-gradient-to-br ${activeMember.color} flex items-center justify-center font-extrabold text-base text-white keep-white shadow-md`;
+                    avatarEl.className = `avatar ${activeMember.core ? 'avatar-core' : ''} w-14 h-14 mx-auto rounded-2xl bg-gradient-to-br ${activeMember.color} flex items-center justify-center font-extrabold text-base text-white keep-white shadow-md`;
                     avatarEl.style.backgroundImage = 'none';
                     avatarEl.textContent = activeMember.code;
                 }
@@ -1386,7 +1391,7 @@
             const rrLabel = document.getElementById('hero-riesgo-label');
             rrEl.textContent = rrPercent;
             if (state.riesgoRelativo < 0.15) {
-                rrEl.className = "mono-num text-lg sm:text-xl font-bold text-emerald-400 mt-0.5 block";
+                rrEl.className = "mono-num text-lg sm:text-xl font-bold text-pos-400 mt-0.5 block";
                 rrLabel.textContent = "Riesgo bajo";
             } else if (state.riesgoRelativo < 0.45) {
                 rrEl.className = "mono-num text-lg sm:text-xl font-bold text-amber-400 mt-0.5 block";
@@ -1411,20 +1416,20 @@
                 const barWidth = Math.min(100, Math.max(2, (Math.abs(bal) / maxAbs) * 100));
 
                 const badgeClass = isPositive
-                    ? 'bg-emerald-500/15 text-emerald-400 border-emerald-500/30'
+                    ? 'bg-pos-500/15 text-pos-400 border-pos-500/30'
                     : (isNegative ? 'bg-rose-500/15 text-rose-400 border-rose-500/30' : 'bg-slate-800 text-slate-400 border-slate-700');
 
                 const statusText = isPositive
                     ? 'Acreedor'
                     : (isNegative ? 'Deudor' : 'Libre (0,00 €)');
 
-                const barColor = isPositive ? 'bg-emerald-500' : (isNegative ? 'bg-rose-500' : 'bg-slate-600');
+                const barColor = isPositive ? 'bg-pos-500' : (isNegative ? 'bg-rose-500' : 'bg-slate-600');
 
                 return `
                     <div class="rounded-2xl bg-cardbg border border-slate-800/90 p-3.5 shadow-sm hover:border-slate-700 transition">
                         <div class="flex items-center justify-between gap-2.5">
                             <div class="flex items-center gap-2.5 sm:gap-3 min-w-0">
-                                <div class="font-display w-10 h-10 rounded-xl bg-gradient-to-br ${m.color} flex items-center justify-center font-extrabold text-xs text-white shadow-md shrink-0">
+                                <div class="avatar ${m.core ? 'avatar-core' : ''} font-display w-10 h-10 rounded-xl bg-gradient-to-br ${m.color} flex items-center justify-center font-extrabold text-xs text-white keep-white shadow-md shrink-0">
                                     ${m.code}
                                 </div>
                                 <div class="min-w-0">
@@ -1438,7 +1443,7 @@
                             </div>
 
                             <div class="text-right shrink-0">
-                                <div class="mono-num text-base sm:text-lg font-extrabold whitespace-nowrap ${isPositive ? 'text-emerald-400' : (isNegative ? 'text-rose-400' : 'text-slate-400')}">
+                                <div class="mono-num text-base sm:text-lg font-extrabold whitespace-nowrap ${isPositive ? 'text-pos-400' : (isNegative ? 'text-rose-400' : 'text-slate-400')}">
                                     ${formatEuro(bal, true)}
                                 </div>
                                 <!-- ${Math.abs(bal) > 0 && Math.abs(bal) < 0.01 ? `<div class="text-[8px] text-amber-400 mono-num whitespace-nowrap">Residuo:${bal.toFixed(4)}€</div>` : ''} -->
@@ -1460,7 +1465,7 @@
 
             if (transfers.length === 0) {
                 planList.innerHTML = `
-                    <div class="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-center text-xs text-emerald-300 font-semibold">
+                    <div class="p-4 rounded-xl bg-pos-500/10 border border-pos-500/20 text-center text-xs text-pos-300 font-semibold">
                         <i class="fa-solid fa-champagne-glasses mr-1.5"></i>
                         No hay deudas pendientes
                     </div>
@@ -1471,7 +1476,7 @@
                         <div class="flex items-center gap-2 text-xs">
                             <span class="font-display font-bold text-rose-400">${t.fromCode}</span>
                             <i class="fa-solid fa-arrow-right text-slate-500 text-[10px]"></i>
-                            <span class="font-display font-bold text-emerald-400">${t.toCode}</span>
+                            <span class="font-display font-bold text-pos-400">${t.toCode}</span>
                             <span class="mono-num font-extrabold text-white bg-slate-900 px-2 py-0.5 rounded-md border border-slate-800 ml-1">
                                 ${formatEuro(t.amount)}
                             </span>
@@ -1508,7 +1513,7 @@
 
             if (maftaNote) {
                 if (!hasDgError) {
-                    maftaNote.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-400 mr-1"></i> <strong>Contabilidad perfecta:</strong> El Dinero Generado (D.G.) es exactamente <strong class="text-emerald-400 mono-num">0,00 €</strong>.`;
+                    maftaNote.innerHTML = `<i class="fa-solid fa-circle-check text-pos-400 mr-1"></i> <strong>Contabilidad perfecta:</strong> El Dinero Generado (D.G.) es exactamente <strong class="text-pos-400 mono-num">0,00 €</strong>.`;
                 } else {
                     maftaNote.innerHTML = `<i class="fa-solid fa-circle-info text-amber-400 mr-1"></i> Hay <strong class="text-amber-300 mono-num">${formatEuro(state.totalDG, true)}</strong> generados por error. Pueden absorberse con el botón <em>Protocolo MAFTA</em>.`;
                 }
@@ -1620,7 +1625,7 @@
                         : 'bg-slate-950 border-slate-800 text-slate-500 hover:text-slate-300'
                     }">
                         <span>${m.name}</span>
-                        <span class="w-4 h-4 rounded-md flex items-center justify-center text-[10px] ${active ? 'bg-emerald-500 text-slate-950' : 'bg-slate-900 text-slate-600'}">
+                        <span class="participant-check w-4 h-4 rounded-md flex items-center justify-center text-[10px] ${active ? 'bg-emerald-500 text-slate-950' : 'bg-slate-900 text-slate-600'}">
                             ${active ? '<i class="fa-solid fa-check text-[9px]"></i>' : '–'}
                         </span>
                     </button>
@@ -1639,15 +1644,15 @@
             list.innerHTML = MEMBERS.map(m => `
                 <div class="grid grid-cols-[minmax(0,1.25fr)_minmax(5rem,1fr)_2.25rem_2.25rem] gap-2 items-center bg-slate-950/70 p-2 rounded-xl border border-slate-800/80">
                     <div class="flex items-center gap-2 min-w-0">
-                        <span class="w-6 h-6 rounded-md bg-gradient-to-br ${m.color} text-[10px] font-bold flex items-center justify-center text-white shrink-0">${m.code}</span>
+                        <span class="avatar ${m.core ? 'avatar-core' : ''} w-6 h-6 rounded-md bg-gradient-to-br ${m.color} text-[10px] font-bold flex items-center justify-center text-white keep-white shrink-0">${m.code}</span>
                         <span class="text-xs font-semibold text-white truncate">${m.name}</span>
                     </div>
                     <div class="relative min-w-0">
                         <input type="text" placeholder="0,00" id="exact-value-${m.id}" oninput="recalcExactSplit()" onfocus="restoreFormulaInput(this)" onblur="resolveFormulaInput(this); recalcExactSplit();" class="w-full bg-slate-900 border border-slate-800 rounded-lg pl-2.5 pr-6 py-1.5 text-xs text-right mono-num font-bold text-white placeholder-slate-600 focus:outline-none focus:border-emerald-500 transition">
                         <span class="absolute right-2 top-1.5 text-slate-500 text-xs font-bold">€</span>
                     </div>
-                    <button type="button" onclick="toggleExactRole('${m.id}', 'p')" title="Reparto positivo" class="w-9 h-9 rounded-lg border text-xs font-extrabold transition ${manualPParticipants.has(m.id) ? 'bg-emerald-500 border-emerald-400 text-slate-950' : 'bg-slate-900 border-slate-700 text-slate-400 hover:text-white'}">P</button>
-                    <button type="button" onclick="toggleExactRole('${m.id}', 'x')" title="Reparto negativo" class="w-9 h-9 rounded-lg border text-xs font-extrabold transition ${manualXParticipants.has(m.id) ? 'bg-rose-500 border-rose-400 text-white' : 'bg-slate-900 border-slate-700 text-slate-400 hover:text-white'}">X</button>
+                    <button type="button" onclick="toggleExactRole('${m.id}', 'p')" title="Reparto positivo" class="role-toggle w-9 h-9 rounded-lg border text-xs font-extrabold transition ${manualPParticipants.has(m.id) ? 'bg-emerald-500 border-emerald-400 text-slate-950' : 'bg-slate-900 border-slate-700 text-slate-400 hover:text-white'}">P</button>
+                    <button type="button" onclick="toggleExactRole('${m.id}', 'x')" title="Reparto negativo" class="role-toggle w-9 h-9 rounded-lg border text-xs font-extrabold transition ${manualXParticipants.has(m.id) ? 'bg-rose-500 border-rose-400 text-white' : 'bg-slate-900 border-slate-700 text-slate-400 hover:text-white'}">X</button>
                 </div>
             `).join('');
 
@@ -1727,8 +1732,8 @@
                 rawCents[m.id] = cents;
 
                 if (inputEl) {
-                    inputEl.classList.remove('text-emerald-400', 'text-rose-400', 'text-slate-200', 'text-white');
-                    if (cents > 0) inputEl.classList.add('text-emerald-400');
+                    inputEl.classList.remove('text-pos-400', 'text-rose-400', 'text-slate-200', 'text-white');
+                    if (cents > 0) inputEl.classList.add('text-pos-400');
                     else if (cents < 0) inputEl.classList.add('text-rose-400');
                     else inputEl.classList.add('text-slate-200');
                 }
@@ -1773,7 +1778,7 @@
             const errorBox = document.getElementById('exact-validation-error');
             if (!currentManualError && diffCents === 0) {
                 badge.textContent = "D.G. = 0,00 €";
-                badge.className = "mono-num text-xs font-bold px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-400 border border-emerald-500/30";
+                badge.className = "mono-num text-xs font-bold px-2.5 py-1 rounded-lg bg-pos-500/15 text-pos-400 border border-pos-500/30";
                 errorBox.classList.add('hidden');
             } else {
                 badge.textContent = `D.G. = ${formatEuro(diffCents / 100, true)}`;
@@ -1834,7 +1839,7 @@
                 const isPos = val > 0;
                 return `
                     <div class="px-2.5 py-1 rounded-lg border text-xs mono-num font-bold flex items-center gap-1.5 ${
-                        isPos ? 'bg-emerald-500/15 border-emerald-500/30 text-emerald-300' : 'bg-rose-500/15 border-rose-500/30 text-rose-300'
+                        isPos ? 'bg-pos-500/15 border-pos-500/30 text-pos-300' : 'bg-rose-500/15 border-rose-500/30 text-rose-300'
                     }">
                         <span class="font-sans font-semibold text-white">${m ? m.name : id}:</span>
                         <span>${formatEuro(val, true)}</span>
@@ -1845,7 +1850,7 @@
             const roundedSum = Math.round(sum * 100) / 100;
             if (Math.abs(roundedSum) === 0) {
                 sumCheck.textContent = "D.G. = 0,00 € (correcto)";
-                sumCheck.className = "mono-num text-[11px] font-semibold text-emerald-400";
+                sumCheck.className = "mono-num text-[11px] font-semibold text-pos-400";
             } else {
                 sumCheck.textContent = `D.G. = ${formatEuro(roundedSum, true)}`;
                 sumCheck.className = "mono-num text-[11px] font-semibold text-rose-400";
@@ -2355,7 +2360,7 @@
                 <div class="grid grid-cols-[minmax(0,1fr)_4.5rem_2.5rem] sm:grid-cols-[minmax(0,1fr)_6rem_5rem] gap-2 items-center bg-slate-950/70 border border-slate-800 rounded-xl p-2">
                     <input id="managed-name-${member.id}" type="text" maxlength="30" value="${escapeHtml(member.name)}" class="min-w-0 bg-slate-900 border border-slate-800 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-emerald-500">
                     <input id="managed-code-${member.id}" type="text" maxlength="3" value="${member.code}" oninput="normalizeTickerInput(this)" class="min-w-0 bg-slate-900 border border-slate-800 rounded-lg px-2 py-2 text-sm mono-num uppercase text-white focus:outline-none focus:border-emerald-500">
-                    <button onclick="saveManagedMember('${member.id}')" title="Guardar ${escapeHtml(member.name)}" class="h-9 rounded-lg bg-slate-800 hover:bg-emerald-500 hover:text-slate-950 text-emerald-400 text-xs font-bold transition">
+                    <button onclick="saveManagedMember('${member.id}')" title="Guardar ${escapeHtml(member.name)}" class="btn-secondary btn-save-member h-9 rounded-lg bg-slate-800 hover:bg-emerald-500 hover:text-slate-950 text-emerald-400 text-xs font-bold transition">
                         <i class="fa-solid fa-floppy-disk"></i><span class="hidden sm:inline ml-1">Guardar</span>
                     </button>
                 </div>
@@ -2470,7 +2475,7 @@
                     const isPos = val > 0;
                     return `
                         <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[11px] mono-num font-semibold border ${
-                            isPos ? 'bg-emerald-500/10 border-emerald-500/25 text-emerald-300' : 'bg-rose-500/10 border-rose-500/25 text-rose-300'
+                            isPos ? 'bg-pos-500/10 border-pos-500/25 text-pos-300' : 'bg-rose-500/10 border-rose-500/25 text-rose-300'
                         }">
                             <strong class="font-display text-white">${escapeHtml(m ? m.code : id)}:</strong> ${formatEuro(val, true)}
                         </span>
@@ -2481,7 +2486,7 @@
                     <div class="rounded-2xl bg-cardbg border border-slate-800/90 p-3.5 space-y-2.5">
                         <div class="flex items-start justify-between gap-2">
                             <div class="flex items-center gap-2.5">
-                                <span class="mono-num text-[11px] font-bold px-2 py-1 rounded-lg ${tx.isHistorical ? 'bg-slate-800 text-slate-400' : 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'}">
+                                <span class="mono-num text-[11px] font-bold px-2 py-1 rounded-lg ${tx.isHistorical ? 'tx-badge-historical bg-slate-800 text-slate-400' : 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'}">
                                     #${tx.rowNum}
                                 </span>
                                 <div>
@@ -2519,9 +2524,19 @@
             document.getElementById('bce-cred').textContent = formatEuro(state.creditoCirculacion);
             document.getElementById('bce-ecm').textContent = formatEuro(state.ecm);
             document.getElementById('bce-ra').textContent = formatEuro(state.riesgoAbsoluto);
-            document.getElementById('bce-rr').textContent = state.riesgoRelativo.toFixed(3).replace('.', ',');
             document.getElementById('bce-vol').textContent = formatEuro(state.totalVolume);
-            document.getElementById('bce-dg').textContent = formatEuro(state.totalDG, true);
+
+            const bceRrEl = document.getElementById('bce-rr');
+            bceRrEl.textContent = state.riesgoRelativo.toFixed(3).replace('.', ',');
+            bceRrEl.className = `mono-num text-lg font-extrabold mt-1 block ${
+                state.riesgoRelativo < 0.15 ? 'text-pos-400' : (state.riesgoRelativo < 0.45 ? 'text-amber-400' : 'text-rose-400')
+            }`;
+
+            const bceDgEl = document.getElementById('bce-dg');
+            bceDgEl.textContent = formatEuro(state.totalDG, true);
+            bceDgEl.className = `mono-num text-lg font-extrabold mt-1 block ${
+                Math.abs(state.totalDG) < 0.005 ? 'text-pos-400' : 'text-amber-400'
+            }`;
 
             const tbody = document.getElementById('bce-members-table');
             const sortedByVol = [...state.membersList].sort((a, b) => b.adelantado - a.adelantado);
@@ -2532,14 +2547,14 @@
                 return `
                     <tr class="hover:bg-slate-800/40 transition">
                         <td class="py-2.5 px-2 sm:px-3 font-semibold text-white flex items-center gap-2 whitespace-nowrap">
-                            <span class="font-display w-5 h-5 rounded bg-gradient-to-br ${m.color} text-[9px] font-bold flex items-center justify-center text-white shrink-0">${m.code}</span>
+                            <span class="avatar ${m.core ? 'avatar-core' : ''} font-display w-5 h-5 rounded bg-gradient-to-br ${m.color} text-[9px] font-bold flex items-center justify-center text-white keep-white shrink-0">${m.code}</span>
                             <span>${m.name}</span>
                         </td>
-                        <td class="py-2.5 px-2 sm:px-3 text-right mono-num font-bold whitespace-nowrap ${isPos ? 'text-emerald-400' : (isNeg ? 'text-rose-400' : 'text-slate-400')}">
+                        <td class="py-2.5 px-2 sm:px-3 text-right mono-num font-bold whitespace-nowrap ${isPos ? 'text-pos-400' : (isNeg ? 'text-rose-400' : 'text-slate-400')}">
                             ${formatEuro(m.balance, true)}
                         </td>
-                        <td class="py-2.5 px-1.5 sm:px-3 text-right mono-num text-slate-300 whitespace-nowrap">${m.movs}</td>
-                        <td class="py-2.5 px-2 sm:px-3 text-right mono-num text-slate-200 font-semibold whitespace-nowrap">${formatEuro(m.adelantado)}</td>
+                        <td class="bce-col-stat py-2.5 px-1.5 sm:px-3 text-right mono-num text-slate-300 whitespace-nowrap">${m.movs}</td>
+                        <td class="bce-col-stat py-2.5 px-2 sm:px-3 text-right mono-num text-slate-200 font-semibold whitespace-nowrap">${formatEuro(m.adelantado)}</td>
                     </tr>
                 `;
             }).join('');
@@ -2873,19 +2888,19 @@
 
         const THEMES = [
             // Oscuros
-            { id: 'default',        name: 'BING-O Clásico', mode: 'dark',  category: 'dark',    meta: '#0b0f19', swatches: ['#0b0f19', '#131b2e', '#10b981'] },
-            { id: 'amoled',         name: 'OLED Negro',     mode: 'dark',  category: 'dark',    meta: '#000000', swatches: ['#000000', '#0e0e11', '#10b981'] },
+            { id: 'default',        name: 'BING-O Dark',    mode: 'dark',  category: 'dark',    meta: '#0b0f19', swatches: ['#0b0f19', '#131b2e', '#10b981'] },
+            { id: 'amoled',         name: 'BING-O OLED',     mode: 'dark',  category: 'dark',    meta: '#000000', swatches: ['#000000', '#0e0e11', '#10b981'] },
             { id: 'nord',           name: 'Nord',           mode: 'dark',  category: 'dark',    meta: '#242933', swatches: ['#242933', '#2e3440', '#88c0d0'] },
             { id: 'dracula',        name: 'Drácula',        mode: 'dark',  category: 'dark',    meta: '#191a23', swatches: ['#191a23', '#282a36', '#bd93f9'] },
             { id: 'gruvbox',        name: 'Gruvbox',        mode: 'dark',  category: 'dark',    meta: '#1d2021', swatches: ['#1d2021', '#282828', '#d65d0e'] },
             { id: 'rosepine',       name: 'Rosé Pine',      mode: 'dark',  category: 'dark',    meta: '#191724', swatches: ['#191724', '#1f1d2e', '#eb6f92'] },
-            { id: 'solarized-dark', name: 'Solarized Dark', mode: 'dark',  category: 'dark',    meta: '#002b36', swatches: ['#002b36', '#073642', '#268bd2'] },
-            { id: 'porcelain-dark', name: 'Porcelain Dark', mode: 'dark',  category: 'dark',    meta: '#161413', swatches: ['#161413', '#211e1c', '#d4885c'] },
-            { id: 'arctic-dark',    name: 'Arctic Dark',    mode: 'dark',  category: 'dark',    meta: '#0a141e', swatches: ['#0a141e', '#101f2e', '#38bdf8'] },
-            { id: 'graphite-dark',  name: 'Graphite Dark',  mode: 'dark',  category: 'dark',    meta: '#18181b', swatches: ['#18181b', '#232328', '#a1a1aa'] },
+            { id: 'solarized-dark', name: 'Solarized',      mode: 'dark',  category: 'dark',    meta: '#002b36', swatches: ['#002b36', '#073642', '#268bd2'] },
+            { id: 'porcelain-dark', name: 'Porcelain',      mode: 'dark',  category: 'dark',    meta: '#161413', swatches: ['#161413', '#211e1c', '#d4885c'] },
+            { id: 'arctic-dark',    name: 'Arctic',         mode: 'dark',  category: 'dark',    meta: '#0a141e', swatches: ['#0a141e', '#101f2e', '#38bdf8'] },
+            { id: 'graphite-dark',  name: 'Graphite',       mode: 'dark',  category: 'dark',    meta: '#18181b', swatches: ['#18181b', '#232328', '#a1a1aa'] },
 
             // Claros
-            { id: 'light',          name: 'Claro',          mode: 'light', category: 'light',   meta: '#ffffff', swatches: ['#f1f5f9', '#ffffff', '#059669'] },
+            { id: 'light',          name: 'BING-O Light',          mode: 'light', category: 'light',   meta: '#ffffff', swatches: ['#f1f5f9', '#ffffff', '#059669'] },
             { id: 'sepia',          name: 'Sepia',          mode: 'light', category: 'light',   meta: '#fdfaf5', swatches: ['#f3ece1', '#fdfaf5', '#0d9488'] },
             { id: 'latte',          name: 'Latte',          mode: 'light', category: 'light',   meta: '#ffffff', swatches: ['#eff1f5', '#ffffff', '#4f46e5'] },
             { id: 'mint',           name: 'Menta',          mode: 'light', category: 'light',   meta: '#ffffff', swatches: ['#ecf7f2', '#ffffff', '#047857'] },
@@ -2902,7 +2917,7 @@
             { id: 'gd',             name: 'Geometry Dash',  mode: 'dark',  category: 'special', meta: '#4e2918', swatches: ['#995533', '#7ade2d', '#24e5e4'] },
             { id: 're9',            name: 'Resident Evil',  mode: 'dark',  category: 'special', meta: '#0c0c0d', swatches: ['#0c0c0d', '#3f3f46', '#ed3f4d'] },
             { id: 'matrix',         name: 'Matrix',         mode: 'dark',  category: 'special', meta: '#000000', swatches: ['#000000', '#00360e', '#00ff41'] },
-            { id: 'gaur',           name: 'G.A.U.R.',           mode: 'dark',  category: 'special', meta: '#007774', swatches: ['#007774', '#f28e00', '#ffcf94'] }
+            { id: 'gaur',           name: 'G.A.U.R.',       mode: 'dark',  category: 'special', meta: '#007774', swatches: ['#007774', '#f28e00', '#ffcf94'] }
         ];
 
         // ---------------------------------------------------------
