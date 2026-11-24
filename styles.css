@@ -400,10 +400,10 @@ html[data-theme="rosepine"] {
     --c-accent-400: 235 188 186; /* Rosé Pine Mist (#EBBCBA) */
     --c-accent-500: 235 111 146; /* Rosé Pine Love (#EB6F92) */
     --c-accent-900: 76 29 52;
-    --c-bizum-200: 240 240 240;
-    --c-bizum-300: 230 230 230;
-    --c-bizum-400: 220 220 220;
-    --c-bizum-500: 200 200 200; 
+    --c-bizum-200: 226 212 245;
+    --c-bizum-300: 210 188 238;
+    --c-bizum-400: 196 167 231;
+    --c-bizum-500: 168 134 216;
     --c-amber-100: 253 234 202;
     --c-amber-200: 251 223 179;
     --c-amber-300: 249 212 156;
@@ -418,10 +418,6 @@ html[data-theme="rosepine"] {
     --c-pos-400: 235 188 186;    
     --c-pos-500: 235 188 186;   
 
-    /*     --c-bizum-200: 226 212 245;
-    --c-bizum-300: 210 188 238;
-    --c-bizum-400: 196 167 231;
-    --c-bizum-500: 168 134 216; */
     /* Rosé Pine Foam (#9CCFD8) */
 }
 
@@ -1265,7 +1261,7 @@ html[data-theme="re9"] {
 
 html[data-theme="re9"] body::before {
     background-image:
-        linear-gradient(rgba(8, 8, 10, 0.52), rgba(8, 8, 10, 0.42)),
+        linear-gradient(rgba(8, 8, 8, 0.5), rgba(8, 8, 8, 0)),
         url('./resources/themes/re9/wallpaper.jpg');
 }
 
